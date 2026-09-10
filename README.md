@@ -1,9 +1,21 @@
 # Research Portal
 
-A local portal for the five-axis worldview: where capital is moving, macro cycles,
+A portal for the five-axis worldview: where capital is moving, macro cycles,
 geopolitics × technology, what is genuinely new, and a portfolio of explicit theses.
 
-## Running it
+**Shared link:** <https://aroraanshu26.github.io/research-portal/>
+
+That copy is public and read-only — the board, the reports and the day logs all read
+normally, and any notes a visitor types stay in their own browser. Full read/write
+(daily log written to disk, cards saved to disk) needs the local server below.
+
+## Publishing an update
+
+Double-click **`Publish.cmd`**. It rebuilds `data/manifest.json`, commits, and pushes;
+GitHub rebuilds the page in about a minute. To preview exactly what a visitor sees
+without publishing, open <http://localhost:4173/?static=1>.
+
+## Running it locally
 
 Double-click **`Start Portal.cmd`**. A console window opens, the browser opens at
 `http://localhost:4173`, and the portal has read/write access to the folders below.
