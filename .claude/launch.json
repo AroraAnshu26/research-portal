@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portal",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["C:/Users/anshu/Desktop/CTO-Portal/server.mjs", "--no-open"],
+      "port": 4173
+    }
+  ]
+}

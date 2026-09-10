@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Portal — capital, frontier, theses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="masthead">
+      <div>
+        <div class="kicker">Standing mandate · become the best CTO out there</div>
+        <h1>Where the money is going, <em>and what the ambitious are building</em></h1>
+        <p class="dek">Five axes held continuously: <b>where capital is moving</b>, <b>macro cycles</b>,
+        <b>geopolitics as it bears on technology</b>, <b>what is genuinely new</b>, and a portfolio of
+        <b>explicit theses</b> about how the world turns. Research materials land in the columns below;
+        agents will file into them on a cadence; the day's thinking goes in the scratchpad.</p>
+      </div>
+      <div class="who">
+        Logged as
+        <select id="author">
+          <option value="anshu">Anshu</option>
+          <option value="veer">Veer</option>
+        </select>
+      </div>
+    </div>
+    <div class="meta">
+      <span id="conn">checking…</span>
+      <span id="m-cards"></span><span class="dotsep">·</span>
+      <span id="m-reports"></span><span class="dotsep">·</span>
+      <span id="m-days"></span><span class="dotsep">·</span>
+      <span id="m-today"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab on" data-page="board">Library</button>
+    <button class="tab" data-page="reports">Reports<span class="n" id="tn-reports"></span></button>
+    <button class="tab" data-page="agents">Agents<span class="n" id="tn-agents"></span></button>
+    <button class="tab" data-page="pad">Scratchpad</button>
+    <button class="tab" data-page="about">How this works</button>
+  </nav>
+
+  <!-- ─────────── LIBRARY ─────────── -->
+  <section class="page on" id="p-board">
+    <div class="controls">
+      <input type="text" id="q" placeholder="Filter cards — title, tag, body text, number…">
+      <select id="fkind"><option value="">All kinds</option></select>
+      <select id="fstatus"><option value="">All statuses</option></select>
+      <button class="btn" id="clear">Clear</button>
+      <button class="btn solid" id="toggleadd">+ Add material</button>
+    </div>
+
+    <div id="addform">
+      <label>Title</label><input type="text" id="a-title" placeholder="What is it">
+      <label>Column</label><select id="a-axis"></select>
+      <label>Kind</label>
+      <select id="a-kind">
+        <option value="brief">brief</option><option value="report">report</option>
+        <option value="dashboard">dashboard</option><option value="thesis">thesis</option>
+        <option value="map">map</option><option value="link">link</option>
+        <option value="paper">paper</option><option value="person">person</option>
+      </select>
+      <label>One-line description</label><input type="text" id="a-dek" placeholder="What it says, in a sentence">
+      <label>Notes — facts, numbers, sources (optional)</label><textarea id="a-body"></textarea>
+      <label>Link or file path (optional)</label><input type="text" id="a-open" placeholder="https://…  or  reports/thing.pdf">
+      <label>Tags, comma separated (optional)</label><input type="text" id="a-tags">
+      <div class="frow">
+        <button class="btn solid" id="a-save">Save to board</button>
+        <button class="btn" id="a-cancel">Cancel</button>
+      </div>
+    </div>
+
+    <div class="board" id="board"></div>
+  </section>
+
+  <!-- ─────────── REPORTS ─────────── -->
+  <section class="page" id="p-reports">
+    <div class="sec-h">Everything on disk under <span class="mono">reports/</span>
+      <span>New files appear here automatically — agents write straight into that folder</span></div>
+    <div class="controls">
+      <input type="text" id="rq" placeholder="Filter files…">
+    </div>
+    <div class="sheet" id="reports"></div>
+  </section>
+
+  <!-- ─────────── AGENTS ─────────── -->
+  <section class="page" id="p-agents">
+    <div class="rules">
+      <h4>House rules every agent inherits</h4>
+      <ol id="agrules"></ol>
+    </div>
+    <div class="sec-h">Standing briefs
+      <span>Nothing runs yet. Each card holds a complete charter — copy it into a Claude session to run the pass by hand today, or wire it to a schedule once the sources are authorised.</span></div>
+    <div class="agrid" id="agents"></div>
+  </section>
+
+  <!-- ─────────── SCRATCHPAD ─────────── -->
+  <section class="page" id="p-pad">
+    <div class="padwrap">
+      <div class="padmain">
+        <div class="datebar">
+          <span class="dtitle" id="dtitle"></span>
+          <button class="btn" id="d-prev">← Prev</button>
+          <button class="btn" id="d-next">Next →</button>
+          <button class="btn" id="d-today">Today</button>
+          <input type="date" id="d-pick">
+          <button class="btn" id="d-copy">Copy day</button>
+        </div>
+        <textarea id="pad" spellcheck="true" placeholder="What happened, what you read, what you now believe that you did not believe yesterday.
+
+Anything under a  ?  is an open question. Anything under a  >  is a claim you are willing to defend."></textarea>
+        <div class="padstat">
+          <span id="pwords">0 words</span>
+          <span id="pfile"></span>
+          <span id="saved"></span>
+        </div>
+      </div>
+      <div class="side">
+        <div class="sec-h">Days with entries</div>
+        <div class="daylist" id="daylist"></div>
+        <div class="sec-h" style="margin-top:22px">Search every day</div>
+        <input type="text" id="padq" placeholder="Search all entries…" style="width:100%">
+        <div class="hits" id="padhits" style="display:none"></div>
+        <p class="hint">One markdown file per day at
+          <code>logs/&lt;you&gt;/YYYY-MM-DD.md</code>. Saves about a second after you stop typing.
+          Ordinary files — back them up, commit them, grep them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── ABOUT ─────────── -->
+  <section class="page" id="p-about">
+    <div class="sec-h">How this works</div>
+    <div style="max-width:80ch;font-size:13.8px;color:var(--ink-2);line-height:1.68">
+      <p style="margin-bottom:14px"><b style="color:var(--ink)">The columns are the mandate.</b>
+      Money flows, macro cycles, geopolitics × tech, what is genuinely new, and theses. Every piece of
+      research lands in one of them, so a gap in the worldview shows up as a short column rather than as a
+      vague feeling.</p>
+
+      <p style="margin-bottom:14px"><b style="color:var(--ink)">Reports are files, not records.</b>
+      Anything in <span class="mono">reports/</span> shows up on the Reports tab by itself. Drop a PDF, a
+      markdown file or a self-contained HTML dashboard in there and it is in the portal. Nothing to register.</p>
+
+      <p style="margin-bottom:14px"><b style="color:var(--ink)">The scratchpad is one file per day.</b>
+      <span class="mono">logs/anshu/2026-09-10.md</span> and so on. Plain markdown, saved automatically. Your
+      co-founder gets <span class="mono">logs/veer/</span> — separate directory, same portal, no collision.</p>
+
+      <p style="margin-bottom:14px"><b style="color:var(--ink)">Agents are charters before they are code.</b>
+      Six standing briefs are written out on the Agents tab, each naming its sources, its cadence, what its
+      output must contain, and what it must never do. Two of them need paid or authorised access before they
+      can run; one — the YC batch delta — only needs wiring, because the scraper and classifier already exist.
+      Until then, "Copy charter" puts the whole brief on your clipboard to paste into a session.</p>
+
+      <p style="margin-bottom:14px"><b style="color:var(--ink)">When the co-founder joins.</b>
+      The author selector, the per-author log directories and the <span class="mono">owner</span> field on
+      every card are already in place. Turning this into something two people use means putting the folder
+      behind git and running the same <span class="mono">server.mjs</span> somewhere both of you can reach —
+      no restructuring.</p>
+
+      <p style="margin-bottom:14px"><b style="color:var(--ink)">If the server is not running,</b> the portal
+      still opens and everything reads normally; the scratchpad falls back to browser storage and the status
+      chip at the top turns amber. Every save also writes to browser storage even when the server is up, so
+      the two never diverge in a way that loses text.</p>
+
+      <div class="sec-h" style="margin-top:26px">The five house rules the research follows</div>
+      <ol style="padding-left:20px">
+        <li style="margin-bottom:7px">Lay out the facts and the observations. No cognition-by-proxy: no ambition scores, no recommended verdicts, no selling.</li>
+        <li style="margin-bottom:7px">Quantities over adjectives — counts, shares, dates, dollar figures, who pays. Estimates labelled as estimates, with the basis.</li>
+        <li style="margin-bottom:7px">Observations stated as observations. "X went from 12% to 31% of the batch," not "you should look at X."</li>
+        <li style="margin-bottom:7px">Recommendations only when explicitly asked for.</li>
+        <li style="margin-bottom:7px">Pain is only real when learned from someone already spending money badly on it. Never from a friend, never from a warm intro.</li>
+      </ol>
+    </div>
+  </section>
+</div>
+
+<div id="scrim"></div>
+<aside id="drawer"><button class="dr-x" id="drx">✕</button><div class="dr-inner" id="drin"></div></aside>
+<div class="toast" id="toast"></div>
+
+<script src="data/library.js"></script>
+<script src="data/agents.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

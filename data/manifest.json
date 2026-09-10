@@ -1,0 +1,96 @@
+{
+ "static": true,
+ "builtAt": "2026-09-10T15:33:41.153Z",
+ "authors": [
+  "anshu",
+  "veer"
+ ],
+ "reports": [
+  {
+   "p": "reports/stanford-faculty-census/probe2.py",
+   "name": "probe2.py",
+   "ext": ".py",
+   "bytes": 1581,
+   "mtime": 1789053321439.4082
+  },
+  {
+   "p": "reports/stanford-faculty-census/probe.py",
+   "name": "probe.py",
+   "ext": ".py",
+   "bytes": 1083,
+   "mtime": 1789053321381.6438
+  },
+  {
+   "p": "reports/stanford-faculty-census/org_counts.json",
+   "name": "org_counts.json",
+   "ext": ".json",
+   "bytes": 2134,
+   "mtime": 1789053321325.587
+  },
+  {
+   "p": "reports/stanford-faculty-census/orgs.py",
+   "name": "orgs.py",
+   "ext": ".py",
+   "bytes": 2724,
+   "mtime": 1789053321273.37
+  },
+  {
+   "p": "reports/stanford-faculty-census/harvest.py",
+   "name": "harvest.py",
+   "ext": ".py",
+   "bytes": 3102,
+   "mtime": 1789053321219.6714
+  },
+  {
+   "p": "reports/physical-intelligence-review-2026-09-03.md",
+   "name": "physical-intelligence-review-2026-09-03.md",
+   "ext": ".md",
+   "bytes": 316230,
+   "mtime": 1789053321159.5156
+  },
+  {
+   "p": "reports/physical-intelligence-review-2026-09-03.pdf",
+   "name": "physical-intelligence-review-2026-09-03.pdf",
+   "ext": ".pdf",
+   "bytes": 1567353,
+   "mtime": 1789053321102.3838
+  },
+  {
+   "p": "reports/physical-ai-survey-charter.md",
+   "name": "physical-ai-survey-charter.md",
+   "ext": ".md",
+   "bytes": 10835,
+   "mtime": 1789053321037.3357
+  },
+  {
+   "p": "reports/supply-chain-tech-map.md",
+   "name": "supply-chain-tech-map.md",
+   "ext": ".md",
+   "bytes": 7255,
+   "mtime": 1789053320973.2632
+  },
+  {
+   "p": "reports/yc-batch-map.html",
+   "name": "yc-batch-map.html",
+   "ext": ".html",
+   "bytes": 1954744,
+   "mtime": 1789053320905.5132
+  }
+ ],
+ "logs": {
+  "anshu": [
+   {
+    "date": "2026-09-10",
+    "bytes": 1335,
+    "words": 232,
+    "preview": "Two censuses running the same method against two different populations. YC's directory gave the capital-and-fashion read; Stanford's faculty",
+    "mtime": 1789053936019.3132
+   }
+  ],
+  "veer": []
+ },
+ "contents": {
+  "anshu/2026-09-10": "# 10 September 2026 — Thursday\n\nTwo censuses running the same method against two different populations. YC's directory\ngave the capital-and-fashion read; Stanford's faculty directory gives the people read.\nBoth are just \"scrape the public index, classify, then look at the diff over time.\"\n\n> The assurance seam is no longer empty. Roughly seven to eight YC entrants in the\n> 2025–26 batches are in it — Robocurve, Physical Turing, One Robot, Valgo, Risklytics,\n> PRINCEPS, Hebbian Robotics, Standard Machines. That is a fact about the uncrowdedness\n> axis on nodes C1, W4 and L3, and those need re-scoring before they get ranked.\n\n> Agentic language peaked at 50.8% of the batch in Spring 2026 and has fallen two batches\n> in a row, to 32.6%. Robotics went the other way over the same window. First sustained\n> decline in the term since it appeared.\n\n? Does the Fall 2026 crypto RFS request mean YC is calling a bottom, or is it a hedge?\n  Five crypto companies across eleven batches against fifteen in W22+S22 alone.\n\n? Which of the 21 Stanford orgs actually contains the people doing frontier work —\n  raw faculty counts are dominated by Medicine (5,156) and that is not the signal.\n\nSet the portal up today. Columns are the five mandate axes so a thin column reads as a\ngap in the worldview rather than as a vague feeling.\n"
+ },
+ "userCards": []
+}
