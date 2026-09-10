@@ -1,0 +1,2340 @@
+[
+ {
+  "name": "Oussama Khatib",
+  "slug": "oussama-khatib",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "",
+  "lab": "Stanford Robotics Lab; Director, Stanford Robotics Center",
+  "lab_url": "https://robotics.stanford.edu/",
+  "title": "Weichai Professor and Professor, by courtesy, of Electrical Engineering",
+  "interests": "Robotics research on novel control architectures, algorithms, sensing, and human-friendly designs for advanced capabilities in complex environments. With a focus on enabling robots to interact cooperatively and safely with humans and the physical world, these studies bring understanding of human movements for therapy, athletic training, and performance enhancement. Our work on understanding human cognitive task representation and physical skills is enabling transfer for increased robot autonomy. With these core capabilities, we are exploring applications in healthcare and wellness, industry and service, farms and smart cities, and dangerous and unreachable settings -- deep in oceans, mines, and space.",
+  "profile": "https://profiles.stanford.edu/oussama-khatib",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [
+   "Climate, earth & ocean"
+  ],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": [
+   "Climate, earth & ocean"
+  ]
+ },
+ {
+  "name": "Chelsea Finn",
+  "slug": "chelsea-finn",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "",
+  "lab": "IRIS lab; co-founder of Physical Intelligence",
+  "lab_url": "https://src.stanford.edu/labs",
+  "title": "Assistant Professor of Computer Science and of Electrical Engineering",
+  "interests": "Chelsea Finn is an Assistant Professor in Computer Science and Electrical Engineering at Stanford University, and the William George and Ida Mary Hoover Faculty Fellow. Professor Finn's research interests lie in the ability to enable robots and other agents to develop broadly intelligent behavior through learning and interaction. Her work lies at the intersection of machine learning and robotic control, including topics such as end-to-end learning of visual perception and robotic manipulation skills, deep reinforcement learning of general skills from autonomously collected data, and meta-learning algorithms that can enable fast learning of new concepts and behaviors. Professor Finn received her Bachelors degree in Electrical Engineering and Computer Science at MIT and her PhD in Computer Science at UC Berkeley. Her research has been recognized through the ACM doctoral dissertation award, the Presidential Early Career Award for Scientists and Engineers, and the MIT Technology Review 35 under 35 list, and her work has been covered by various media outlets, including the New York Times, Wired, and Bloomberg. Throughout her career, she has sought to increase the representation of underrepresented minorities within CS and AI by developing an AI outreach camp at Berkeley for underprivileged high school students, a mentoring program for underrepresented undergraduates across three universities, and leading efforts within the WiML and Berkeley WiCSE communities of women researchers.",
+  "profile": "https://profiles.stanford.edu/chelsea-finn",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "VPDoR",
+   "HAI",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Machine learning",
+   "Robotics & embodied"
+  ],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Shuran Song",
+  "slug": "shuran-song",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "",
+  "lab": "REALab (Robotics and Embodied AI)",
+  "lab_url": "https://real.stanford.edu/lab.html",
+  "title": "Assistant Professor of Electrical Engineering",
+  "interests": "Shuran Song is an Assistant Professor of Electrical Engineering at Stanford University. Before joining Stanford, she was faculty at Columbia University. Shuran received her Ph.D. in Computer Science at Princeton University, BEng. at HKUST. Her research interests lie at the intersection of computer vision and robotics. Song’s research has been recognized through several awards, including the Best Paper Awards at RSS’22 and T-RO’20, Best System Paper Awards at CoRL’21, RSS’19, and finalists at RSS, ICRA, CVPR, and IROS. She is also a recipient of the NSF Career Award, Sloan Foundation fellowship as well as research awards from Microsoft, Toyota Research, Google, Amazon, and JP Morgan. To learn more about Shuran’s work, please visit: https://shurans.github.io/",
+  "profile": "https://profiles.stanford.edu/shuran-song",
+  "orgs": [
+   "SoE"
+  ],
+  "methods": [
+   "Robotics & embodied",
+   "Vision, imaging & sensing"
+  ],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Dorsa Sadigh",
+  "slug": "dorsa-sadigh",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "",
+  "lab": "ILIAD (Intelligent and Interactive Autonomous Systems)",
+  "lab_url": "https://src.stanford.edu/labs",
+  "title": "Associate Professor of Computer Science, of Electrical Engineering and Senior Fellow at the Stanford Institute for Human-Centered AI",
+  "interests": "",
+  "profile": "https://profiles.stanford.edu/dorsa-sadigh",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "HAI",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Jeannette Bohg",
+  "slug": "jeannette-bohg",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "",
+  "lab": "IPRL (Interactive Perception and Robot Learning)",
+  "lab_url": "https://src.stanford.edu/labs",
+  "title": "Associate Professor of Computer Science",
+  "interests": "Jeannette Bohg is an Assistant Professor of Computer Science at Stanford University. She was a group leader at the Autonomous Motion Department (AMD) of the MPI for Intelligent Systems until September 2017. Before joining AMD in January 2012, Jeannette Bohg was a PhD student at the Division of Robotics, Perception and Learning (RPL) at KTH in Stockholm. In her thesis, she proposed novel methods towards multi-modal scene understanding for robotic grasping. She also studied at Chalmers in Gothenburg and at the Technical University in Dresden where she received her Master in Art and Technology and her Diploma in Computer Science, respectively. Her research focuses on perception and learning for autonomous robotic manipulation and grasping. She is specifically interesting in developing methods that are goal-directed, real-time and multi-modal such that they can provide meaningful feedback for execution and learning. Jeannette Bohg has received several awards, most notably the 2019 IEEE International Conference on Robotics and Automation (ICRA) Best Paper Award, the 2019 IEEE Robotics and Automation Society Early Career Award and the 2017 IEEE Robotics and Automation Letters (RA-L) Best Paper Award.",
+  "profile": "https://profiles.stanford.edu/jeannette-bohg",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "HAI"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Marco Pavone",
+  "slug": "marco-pavone",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "Mobility & transport",
+  "lab": "Autonomous Systems Lab; Center for Automotive Research at Stanford",
+  "lab_url": "https://src.stanford.edu/labs",
+  "title": "Associate Professor of Aeronautics and Astronautics, Senior Fellow at the Precourt Institute for Energy and Associate Professor, by courtesy, of Electrical Engineering & of Computer Science",
+  "interests": "Dr. Marco Pavone is an Associate Professor of Aeronautics and Astronautics at Stanford University, where he directs the Autonomous Systems Laboratory and the Center for Automotive Research at Stanford. He is also a Distinguished Research Scientist at NVIDIA where he leads autonomous vehicle research. Before joining Stanford, he was a Research Technologist within the Robotics Section at the NASA Jet Propulsion Laboratory. He received a Ph.D. degree in Aeronautics and Astronautics from the Massachusetts Institute of Technology in 2010. His main research interests are in the development of methodologies for the analysis, design, and control of autonomous systems, with an emphasis on self-driving cars, autonomous aerospace vehicles, and future mobility systems. He is a recipient of a number of awards, including a Presidential Early Career Award for Scientists and Engineers from President Barack Obama, an Office of Naval Research Young Investigator Award, a National Science Foundation Early Career (CAREER) Award, a NASA Early Career Faculty Award, and an Early-Career Spotlight Award from the Robotics Science and Systems Foundation. He was identified by the American Society for Engineering Education (ASEE) as one of America's 20 most highly promising investigators under the age of 40. His work has been recognized with best paper nominations or awards at a number of venues, including the European Conference on Computer Vision, the IEEE International Conference on Robotics and Automation, the European Control Conference, the IEEE International Conference on Intelligent Transportation Systems, the Field and Service Robotics Conference, the Robotics: Science and Systems Conference, and the INFORMS Annual Meeting.",
+  "profile": "https://profiles.stanford.edu/marco-pavone",
+  "orgs": [
+   "SoE",
+   "Sustain",
+   "VPDoR",
+   "HAI",
+   "Precourt",
+   "ICME"
+  ],
+  "methods": [
+   "Robotics & embodied",
+   "Vision, imaging & sensing"
+  ],
+  "domains": [
+   "Mobility & transport"
+  ],
+  "native": [
+   "Compute, chips & systems",
+   "Space"
+  ],
+  "cross": [
+   "Mobility & transport"
+  ]
+ },
+ {
+  "name": "Mac Schwager",
+  "slug": "mac-schwager",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "",
+  "lab": "Multi-Robot Systems Lab",
+  "lab_url": "https://src.stanford.edu/labs",
+  "title": "Associate Professor of Aeronautics and Astronautics and, by courtesy, of Computer Science",
+  "interests": "",
+  "profile": "https://profiles.stanford.edu/mac-schwager",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiHPA"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems",
+   "Space"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Mykel Kochenderfer",
+  "slug": "mykel-kochenderfer",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "Mobility & transport",
+  "lab": "Stanford Intelligent Systems Laboratory (SISL)",
+  "lab_url": "https://src.stanford.edu/labs",
+  "title": "Associate Professor of Aeronautics and Astronautics, Senior Fellow at the Stanford Institute for Human-Centered AI and Associate Professor, by courtesy, of Computer Science",
+  "interests": "Mykel Kochenderfer is Associate Professor of Aeronautics and Astronautics at Stanford University. Prior to joining the faculty, he was at MIT Lincoln Laboratory where he worked on airspace modeling and aircraft collision avoidance, with his early work leading to the establishment of the ACAS X program. He received a Ph.D. from the University of Edinburgh and B.S. and M.S. degrees in computer science from Stanford University. Prof. Kochenderfer is the director of the Stanford Intelligent Systems Laboratory (SISL), conducting research on advanced algorithms and analytical methods for the design of robust decision making systems. Of particular interest are systems for air traffic control, unmanned aircraft, and other aerospace applications where decisions must be made in uncertain, dynamic environments while maintaining safety and efficiency. Research at SISL focuses on efficient computational methods for deriving optimal decision strategies from high-dimensional, probabilistic problem representations. He is an author of \"Decision Making under Uncertainty: Theory and Application\" (2015), \"Algorithms for Optimization\" (2019), and \"Algorithms for Decision Making\" (2022), all from MIT Press. He is a third generation pilot.",
+  "profile": "https://profiles.stanford.edu/mykel-kochenderfer",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [
+   "Mobility & transport"
+  ],
+  "native": [
+   "Compute, chips & systems",
+   "Space"
+  ],
+  "cross": [
+   "Mobility & transport"
+  ]
+ },
+ {
+  "name": "Allison Okamura",
+  "slug": "allison-okamura",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "Health & clinical care",
+  "lab": "CHARM Lab; haptics and teleoperation",
+  "lab_url": "https://src.stanford.edu/labs",
+  "title": "Richard W. Weiland Professor in the School of Engineering, Professor of Mechanical Engineering, and Senior Fellow at the Hoover Institution",
+  "interests": "My research focuses on developing the principles and tools needed to realize advanced robotic and human-machine systems capable of physical interaction. Application areas include surgery, simulation and training, rehabilitation, prosthetics, neuromechanics, exploration of hazardous and remote environments (e.g. space), design, and education.",
+  "profile": "https://profiles.stanford.edu/allison-okamura",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [
+   "Health & clinical care"
+  ],
+  "native": [],
+  "cross": [
+   "Health & clinical care"
+  ]
+ },
+ {
+  "name": "Mark Cutkosky",
+  "slug": "mark-cutkosky",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "Manufacturing & industry",
+  "lab": "Biomimetics and Dexterous Manipulation Lab",
+  "lab_url": "https://src.stanford.edu/labs",
+  "title": "Fletcher Jones Professor in the School of Engineering",
+  "interests": "Cutkosky applies analyses, simulations, and experiments to the design and control of robotic hands, tactile sensors, and devices for human/computer interaction. In manufacturing, his work focuses on design tools for rapid prototyping.",
+  "profile": "https://profiles.stanford.edu/mark-cutkosky",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [
+   "Manufacturing & industry"
+  ],
+  "native": [],
+  "cross": [
+   "Manufacturing & industry"
+  ]
+ },
+ {
+  "name": "Monroe Kennedy III",
+  "slug": "monroe-kennedy",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "",
+  "lab": "Assistive Robotics and Manipulation Lab",
+  "lab_url": "https://src.stanford.edu/labs",
+  "title": "Assistant Professor of Mechanical Engineering and, by courtesy, of Computer Science",
+  "interests": "My research focus is to develop technology that improves everyday life by anticipating and acting on the needs of human counterparts. My research can be divided into the following sub-categories: robotic assistants, connected devices and intelligent wearables. My Assistive Robotics and Manipulation lab focuses heavily on both the analytical and experimental components of assistive technology design.",
+  "profile": "https://profiles.stanford.edu/monroe-kennedy",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Steven Hartley Collins",
+  "slug": "steven-collins",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "Health & clinical care",
+  "lab": "Biomechatronics Lab; exoskeletons and prostheses",
+  "lab_url": "https://src.stanford.edu/labs",
+  "title": "Associate Professor of Mechanical Engineering and, by courtesy, of Bioengineering",
+  "interests": "Steve Collins is an Associate Professor of Mechanical Engineering at Stanford University, where he teaches courses on design and robotics and directs the Stanford Biomechatronics Laboratory. His primary focus is to speed and systematize the design and prescription of prostheses and exoskeletons using versatile device emulator hardware and human-in-the-loop optimization algorithms (Zhang et al. 2017, Science). Another interest is efficient autonomous devices, such as highly energy-efficient walking robots (Collins et al. 2005, Science) and exoskeletons that use no energy yet reduce the metabolic energy cost of human walking (Collins et al. 2015, Nature). Prof. Collins received his B.S. in Mechanical Engineering in 2002 from Cornell University, where he performed undergraduate research on passive dynamic walking robots. He received his Ph.D. in Mechanical Engineering in 2008 from the University of Michigan, where he performed research on the dynamics and control of human walking. He performed postdoctoral research on humanoid robots at T. U. Delft in the Netherlands. He was a professor of Mechanical Engineering and Robotics at Carnegie Mellon University for seven years. In 2017, he joined the faculty of Mechanical Engineering at Stanford University. Prof. Collins is a member of the Scientific Board of Dynamic Walking and the Editorial Board of Science Robotics. He has received the Young Scientist Award from the American Society of Biomechanics, the Best Medical Devices Paper from the International Conference on Robotics and Automation, and the student-voted Professor of the Year in his department.",
+  "profile": "https://profiles.stanford.edu/steven-collins",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [],
+  "native": [
+   "Biology & molecular",
+   "Health & clinical care"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Sean Follmer",
+  "slug": "sean-follmer",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "",
+  "lab": "SHAPE Lab; haptics and accessible interfaces",
+  "lab_url": "https://src.stanford.edu/labs",
+  "title": "Associate Professor of Mechanical Engineering and, by courtesy, of Computer Science",
+  "interests": "Human Computer Interaction, Haptics, Robotics, Human Centered Design",
+  "profile": "https://profiles.stanford.edu/sean-follmer",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "C. Karen Liu",
+  "slug": "c-karen-liu",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "Neuroscience & brain",
+  "lab": "The Movement Lab; human motion models",
+  "lab_url": "https://src.stanford.edu/labs",
+  "title": "Professor of Computer Science",
+  "interests": "C. Karen Liu is a professor in the Computer Science Department at Stanford University. Prior to joining Stanford, Liu was a faculty member at the School of Interactive Computing at Georgia Tech. She received her Ph.D. degree in Computer Science from the University of Washington. Liu's research interests are in computer graphics and robotics, including physics-based animation, character animation, optimal control, reinforcement learning, and computational biomechanics. She developed computational approaches to modeling realistic and natural human movements, learning complex control policies for humanoids and assistive robots, and advancing fundamental numerical simulation and optimal control algorithms. The algorithms and software developed in her lab have fostered interdisciplinary collaboration with researchers in robotics, computer graphics, mechanical engineering, biomechanics, neuroscience, and biology. Liu received a National Science Foundation CAREER Award, an Alfred P. Sloan Fellowship, and was named Young Innovators Under 35 by Technology Review. In 2012, Liu received the ACM SIGGRAPH Significant New Researcher Award for her contribution in the field of computer graphics.",
+  "profile": "https://profiles.stanford.edu/c-karen-liu",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Machine learning",
+   "Robotics & embodied",
+   "Simulation & scientific computing",
+   "Optimization & algorithms"
+  ],
+  "domains": [
+   "Neuroscience & brain"
+  ],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": [
+   "Neuroscience & brain"
+  ]
+ },
+ {
+  "name": "Jiajun Wu",
+  "slug": "jiajun-wu",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "",
+  "lab": "Stanford Vision and Learning Lab; SRC executive committee",
+  "lab_url": "https://src.stanford.edu/labs",
+  "title": "Assistant Professor of Computer Science and, by courtesy, of Psychology",
+  "interests": "Jiajun Wu is an Assistant Professor of Computer Science and, by courtesy, of Psychology at Stanford University, working on computer vision, machine learning, robotics, and computational cognitive science. Before joining Stanford, he was a Visiting Faculty Researcher at Google Research. He received his PhD in Electrical Engineering and Computer Science from the Massachusetts Institute of Technology. Wu's research has been recognized through the IJCAI Computers and Thought Award, the Young Investigator Programs (YIP) by ONR and by AFOSR, the NSF CAREER award, the Okawa research grant, the AI's 10 to Watch by IEEE Intelligent Systems, paper awards and finalists at ICCV, CVPR, SIGGRAPH Asia, ICRA, CoRL, and IROS, dissertation awards from ACM, AAAI, and MIT, the 2020 Samsung AI Researcher of the Year, and faculty research awards from Microsoft, Google, Nvidia, J.P. Morgan, Samsung, Amazon, and Meta.",
+  "profile": "https://profiles.stanford.edu/jiajun-wu",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Machine learning",
+   "Robotics & embodied",
+   "Vision, imaging & sensing"
+  ],
+  "domains": [
+   "Neuroscience & brain"
+  ],
+  "native": [
+   "Compute, chips & systems",
+   "Neuroscience & brain"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Grace Gao",
+  "slug": "gracegao",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "Space",
+  "lab": "Navigation and Autonomous Vehicles Lab",
+  "lab_url": "https://src.stanford.edu/labs",
+  "title": "Associate Professor of Aeronautics and Astronautics and, by courtesy, of Electrical Engineering",
+  "interests": "Grace Gao is an associate professor in the Department of Aeronautics and Astronautics at Stanford University, with a courtesy appointment in the Electrical Engineering Department. She leads the Navigation and Autonomous Vehicles Laboratory (NAV Lab) and serves as co-director of the Stanford AI Safety Center and co-lead of the Stanford SystemX Robotics area. Her research focuses on robust and secure perception, localization, and navigation, with applications in crewed and uncrewed aerial vehicles, autonomous cars, humanoid robots, and space robotics. Prof. Gao has won numerous awards, including the NSF CAREER Award, the Institute of Navigation Early Achievement Award, the RTCA William E. Jackson Award, and the Inspiring Early Academic Career Award from Stanford University. In addition to her research achievements, she has received significant recognition for her teaching and advising, including the AIAA Stanford Chapter Excellence in Advising Award and the Excellence in Teaching Award.",
+  "profile": "https://profiles.stanford.edu/gracegao",
+  "orgs": [
+   "SoE"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems",
+   "Space"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Somil Bansal",
+  "slug": "somil-bansal",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "Mobility & transport",
+  "lab": "Safe autonomy; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Assistant Professor of Aeronautics and Astronautics",
+  "interests": "Somil Bansal is an assistant professor at the Department of Aeronautics and Astronautics at Stanford. Before joining Stanford, he was an assistant professor in the ECE department at the University of Southern California. He received an MS and a Ph.D. in Electrical Engineering and Computer Sciences (EECS) from the University of California at Berkeley in 2014 and 2020, respectively. Before that, he obtained a B.Tech. in Electrical Engineering from the Indian Institute of Technology, Kanpur in 2012. After his PhD, he spent a year as a Research Scientist at Waymo (formerly known as the Google Self-Driving Car project). He has also collaborated closely with companies like Skydio, Google, Boeing, as well as NASA AMES/JPL. Somil is broadly interested in developing mathematical tools and algorithms for the control and analysis of safety-critical autonomous and robotic systems, with a special emphasis on ensuring the safety of learning-enabled systems. Somil has received several awards, most notably the NSF CAREER award, the Eli Jury Award at UC Berkeley for his doctoral research, the RSS Pioneer Award, and the Outstanding Graduate Student Instructor Award.",
+  "profile": "https://profiles.stanford.edu/somil-bansal",
+  "orgs": [
+   "SoE"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [
+   "Mobility & transport"
+  ],
+  "native": [
+   "Space"
+  ],
+  "cross": [
+   "Mobility & transport"
+  ]
+ },
+ {
+  "name": "J Kenneth Salisbury, Jr.",
+  "slug": "john-salisbury",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "Health & clinical care",
+  "lab": "Professor (Research) of CS and of Surgery; surgical robotics",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Professor (Research) of Computer Science and of Surgery (Anatomy), Emeritus",
+  "interests": "Salisbury worked on the development of the Stanford-JPL Robot Hand, the JPL Force Reflecting Hand Controller, the MIT-WAM arm, the PR-2 personal robot and the da Vinci Surgical Robot. His work with haptic interface technology led to the founding of SensAble Technology, producers of the PHANToM haptic interface and software. He also worked on developing telerobotic systems for dexterity enhancement in the operating room. His current research focuses on minimalist force controllable robots, human-machine interaction, cooperative haptics, medical robotics, and surgical simulation.",
+  "profile": "https://profiles.stanford.edu/john-salisbury",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [
+   "Health & clinical care"
+  ],
+  "native": [
+   "Compute, chips & systems",
+   "Health & clinical care"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Renee Zhao",
+  "slug": "264302",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "Manufacturing & industry",
+  "lab": "Millirobots and morphing structures; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Assistant Professor of Mechanical Engineering and, by courtesy, of Bioengineering and of Materials Science and Engineering",
+  "interests": "Ruike Renee Zhao is an Assistant Professor of Mechanical Engineering at Stanford University, where she directs the Soft Intelligent Materials Laboratory. Originally from the historic city of Xi'an, she earned her BS from Xi'an Jiaotong University in 2012. She then pursued Solid Mechanics at Brown University, obtaining her MS in 2014 and PhD in 2016. Following her doctoral studies, she completed postdoctoral training at MIT (2016–2018) before serving as an Assistant Professor at The Ohio State University (2018–2021). Renee’s research focuses on developing stimuli-responsive soft composites for multifunctional robotic systems with integrated shape-changing, assembly, sensing, and navigation capabilities. By integrating mechanics, material science, and advanced material manufacturing, her work enables innovations in soft robotics, miniaturized biomedical devices, robotic surgery, origami systems, active metamaterials, and general deployable morphing structures. Her contributions have been recognized with honors and awards, including the Presidential Early Career Award for Scientists and Engineers (PECASE), DARPA Young Faculty Award (YFA, 2025), ARO Early Career Program (ECP) Award (2023), AFOSR Young Investigator Research Program (YIP) Award (2023), Eshelby Mechanics Award for Young Faculty (2022), ASME Henry Hess Early Career Publication Award (2022), ASME Pi Tau Sigma Gold Medal (2022), ASME Applied Mechanics Division Journal of Applied Mechanics Award (2021), NSF CAREER Award (2020), and ASME Applied Mechanics Division Haythornthwaite Research Initiation Award (2018). She is also recognized as a National Academy of Sciences Kavli Fellow and was named one of MIT Technology Review's 35 Innovators Under 35.",
+  "profile": "https://profiles.stanford.edu/264302",
+  "orgs": [
+   "SoE",
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "ChEM-H",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [
+   "Health & clinical care",
+   "Materials & chemistry",
+   "Manufacturing & industry"
+  ],
+  "native": [
+   "Biology & molecular",
+   "Health & clinical care",
+   "Materials & chemistry"
+  ],
+  "cross": [
+   "Manufacturing & industry"
+  ]
+ },
+ {
+  "name": "Iro Armeni",
+  "slug": "iro-armeni",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "Manufacturing & industry",
+  "lab": "Built-environment perception; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Assistant Professor of Civil and Environmental Engineering",
+  "interests": "Iro Armeni is Assistant Professor of Civil and Environmental Engineering. She is interested in interdisciplinary research between Architecture, Civil Engineering, and Visual Machine Perception. Iro focuses on developing quantitative and data-driven methods that learn from real-world visual data to generate, predict, and simulate new or renewed built environments that place the human in the center. Iro's goal is to create sustainable, inclusive, and adaptive built environments that can support our current and future physical and digital needs. As part of her research vision, she is particularly interested in creating spaces that blend from the 100% physical (real reality) to the 100% digital (virtual reality) and anything in between, with the use of Mixed Reality. Iro completed her PhD at Stanford University on August 2020, Civil and Environmental Engineering Department, with a PhD minor at the Computer Science Department. Afterwards she was a Postdoctoral Fellow at ETH Zurich working at both the Computer Science and Civil, Environmental, and Geomatic Engineering Departments (2023). Prior to her PhD, she received an MSc in Computer Science (Ionian University-2013), an MEng in Architecture and Digital Design (University of Tokyo-2011), and a Diploma in Architectural Engineering (National Technical University of Athens-2009). She has also worked as an architect and consultant for both the private and public sector. Iro is the recipient of the Google Research Scholar Program, the ETH Zurich Postdoctoral Fellowship, the Google PhD Fellowship, and the MEXT Scholarship.",
+  "profile": "https://profiles.stanford.edu/iro-armeni",
+  "orgs": [
+   "SoE"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [
+   "Climate, earth & ocean",
+   "Mobility & transport"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Zerina Kapetanovic",
+  "slug": "zerina-kapetanovic",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "Agriculture & food",
+  "lab": "Low-power sensing; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Assistant Professor of Electrical Engineering and, by courtesy, of Computer Science and of Geophysics",
+  "interests": "Zerina Kapetanovic is an Assistant Professor in the Department of Electrical Engineering at Stanford University working in the area of low-power wireless communication, sensing, and Internet of Things (IoT) systems. Prior to starting at Stanford, Kapetanovic was a postdoctoral researcher at Microsoft Research in the Networking Research Group and Research for Industry Group. Kapetanovic's research has been recognized by the Yang Research Award, the Distinguished Dissertation Award from the University of Washington. She also received the Microsoft Research Distinguished Dissertation Grant and was selected to attend the 2020 UC Berkeley Rising Stars in EECS Workshop. Kapetanovic completed her PhD in Electrical Engineering from the University of Washington in 2022.",
+  "profile": "https://profiles.stanford.edu/zerina-kapetanovic",
+  "orgs": [
+   "SoE",
+   "Sustain",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiHPA"
+  ],
+  "methods": [],
+  "domains": [
+   "Climate, earth & ocean"
+  ],
+  "native": [
+   "Climate, earth & ocean",
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Martin Fischer",
+  "slug": "martin-fischer",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "Manufacturing & industry",
+  "lab": "Center for Integrated Facility Engineering",
+  "lab_url": "https://src.stanford.edu/labs",
+  "title": "Kumagai Professor in the School of Engineering and Senior Fellow at the Precourt Institute for Energy",
+  "interests": "Professor Fischer's research goals are to improve the productivity of project teams involved in designing, building, and operating facilities and to enhance the sustainability of the built environment. His work develops the theoretical foundations and applications for virtual design and construction (VDC). VDC methods support the design of a facility and its delivery process and help reduce the costs and maximize the value over its lifecycle. His research has been used by many small and large industrial government organizations around the world.",
+  "profile": "https://profiles.stanford.edu/martin-fischer",
+  "orgs": [
+   "SoE",
+   "Sustain",
+   "VPDoR",
+   "WuTsaiHPA",
+   "Precourt"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [],
+  "cross": []
+ },
+ {
+  "name": "Silvio Savarese",
+  "slug": "silvio-savarese",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "",
+  "lab": "Computer vision; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Adjunct Professor, Computer Science",
+  "interests": "",
+  "profile": "https://profiles.stanford.edu/silvio-savarese",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "HAI",
+   "WuTsaiNeuro"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Leonidas Guibas",
+  "slug": "leonidas-guibas",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "",
+  "lab": "Geometric computation; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Paul Pigott Professor of Engineering and Professor, by courtesy, of Electrical Engineering",
+  "interests": "Geometric and topological data analysis and machine learning. Algorithms for the joint analysis of collections of images, 3D models, or trajectories. 3D reconstruction.",
+  "profile": "https://profiles.stanford.edu/leonidas-guibas",
+  "orgs": [
+   "SoE",
+   "Sustain",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "Woods",
+   "ICME"
+  ],
+  "methods": [
+   "Machine learning"
+  ],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Zhenan Bao",
+  "slug": "zhenan-bao",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "Materials & chemistry",
+  "lab": "Skin-inspired electronics; SRC faculty; Precourt senior fellow",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "LCY: K. K. Lee Professor, Senior Fellow at the Precourt Institute for Energy and Professor, by courtesy, of Materials Science and Engineering, of Chemistry, and of Bioengineering",
+  "interests": "Zhenan Bao joined Stanford University in 2004. She is currently a LCY: K.K. Lee Professor in Chemical Engineering, and with courtesy appointments in Chemistry, Bioengineering and Material Science and Engineering. She was the Department Chair of Chemical Engineering from 2018-2022 and in 2025. She founded the Stanford Wearable Electronics Initiative (eWEAR) and is the current faculty director. Bao received her Ph.D. degree in Chemistry from The University of Chicago in 1995 and joined Bell Labs, Lucent Technologies. She became a Distinguished Member of Technical Staff in 2001. Professor Bao currently has more than 800 refereed publications and more than 100 US patents with a Google Scholar H-index 245. Bao is a member of the US National Academy of Sciences, National Academy of Engineering, the American Academy of Arts and Sciences and the National Academy of Inventors. Bao was elected a foreign member of the Chinese Academy of Science in 2021. She is a Fellow of AAAS, ACS, MRS, SPIE, ACS POLY and ACS PMSE. Bao is a member of the Board of Directors for the Camille and Dreyfus Foundation from 2022. She served as a member of Executive Board of Directors for the Materials Research Society and Executive Committee Member for the Polymer Materials Science and Engineering division of the American Chemical Society. She co-founded C3 Nano Co. (acquired by Du Pont) and PyrAmes, which have produced products used in commercial smartphones and hospitals, respectively. Multiple inventions from her lab have been licensed and served as foundational technologies for several additional start-ups. Bao was a recipient of the VinFuture Prize Female Innovator 2022, ACS Award of Chemistry of Materials 2022, MRS Mid-Career Award in 2021, AICHE Alpha Chi Sigma Award 2021, ACS Central Science Disruptor and Innovator Prize in 2020, ACS Gibbs Medal in 2020, the Wilhelm Exner Medal from the Austrian Federal Minister of Science in 2018, the L'Oreal UNESCO Women in Science Award North America Laureate in 2017. She was awarded the ACS Applied Polymer Science Award in 2017, ACS Creative Polymer Chemistry Award in 2013 ACS Cope Scholar Award in 2011. She is a recipient of the Royal Society of Chemistry Beilby Medal and Prize in 2009, IUPAC Creativity in Applied Polymer Science Prize in 2008. In Stanford, Bao has pioneered molecular design concepts and fabrication processes to advance the scope and applications of skin-inspired electronics. Her group discovered nano confinement effect of conjugated polymers in polymer blends, which established the fundamental foundation for skin-inspired electronic materials and devices. Her work has resulted in new materials and device solutions for soft robotics, wearable and implantable electronics for precision health, precision mental health and advanced tools for understanding neuroscience and treatment of neurodegenerative diseases. Building on chemical insights, her group has developed foundational materials and devices that enabled a new generation of skin-inspired soft electronics. They provide unprecedented opportunities for understanding human health through developing monitoring, diagnosis and treatment tools. Some examples include: a neuromorphic e-skin that can sense force and temperature and directly communicate with brain, a wireless wound healing patch, a soft NeuroString for simultaneous neurochemical monitoring in the brain and gut, soft high-density electrophysiological recording array, a meta-learned skin sensor for detailed body movements, a reconfigurable self-healing electronic skin.",
+  "profile": "https://profiles.stanford.edu/zhenan-bao",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "Med",
+   "Sustain",
+   "VPDoR",
+   "Bio-X",
+   "ChEM-H",
+   "WuTsaiNeuro",
+   "WuTsaiHPA",
+   "Precourt",
+   "Woods"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [
+   "Neuroscience & brain",
+   "Materials & chemistry"
+  ],
+  "native": [
+   "Biology & molecular",
+   "Health & clinical care",
+   "Materials & chemistry"
+  ],
+  "cross": [
+   "Neuroscience & brain"
+  ]
+ },
+ {
+  "name": "Manu Prakash",
+  "slug": "manu-prakash",
+  "cluster": "Robotics & physical AI",
+  "xdomain": "Global health, oceans",
+  "lab": "Prakash Lab, frugal science; SRC faculty; Woods senior fellow",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Associate Professor of Bioengineering, Senior Fellow at the Woods Institute for the Environment and Associate Professor, by courtesy, of Oceans",
+  "interests": "We use interdisciplinary approaches including theory and experiments to understand how computation is embodied in biological matter. Examples include cognition in single cell protists and morphological computing in animals with no neurons and origins of complex behavior in multi-cellular systems. Broadly, we invent new tools for studying non-model organisms with significant focus on life in the ocean - addressing fundamental questions such as how do cells sense pressure or gravity? Finally, we are dedicated towards inventing and distributing “frugal science” tools to democratize access to science (previous inventions used worldwide: Foldscope, Abuzz), diagnostics of deadly diseases like malaria and convening global citizen science communities to tackle planetary scale environmental challenges such as mosquito surveillance or plankton surveillance by citizen sailors mapping the ocean in the age of Anthropocene.",
+  "profile": "https://profiles.stanford.edu/manu-prakash",
+  "orgs": [
+   "SoE",
+   "Med",
+   "Sustain",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro",
+   "WuTsaiHPA",
+   "Woods"
+  ],
+  "methods": [
+   "Robotics & embodied",
+   "Genomic & molecular tools"
+  ],
+  "domains": [
+   "Health & clinical care",
+   "Neuroscience & brain",
+   "Climate, earth & ocean"
+  ],
+  "native": [
+   "Biology & molecular",
+   "Climate, earth & ocean",
+   "Health & clinical care"
+  ],
+  "cross": [
+   "Neuroscience & brain"
+  ]
+ },
+ {
+  "name": "Karen Casciotti",
+  "slug": "karen-casciotti",
+  "cluster": "Oceans, climate & earth",
+  "xdomain": "Robotics & sensing",
+  "lab": "Oceans; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Associate Dean for Facilities and Shared Labs, Professor of Oceans, of Earth System Science and Senior Fellow at the Woods Institute for the Environment",
+  "interests": "Professor in Oceans and ESS, focus on marine chemistry and biogeochemistry.",
+  "profile": "https://profiles.stanford.edu/karen-casciotti",
+  "orgs": [
+   "Sustain",
+   "VPDoR",
+   "Bio-X",
+   "Woods"
+  ],
+  "methods": [],
+  "domains": [
+   "Climate, earth & ocean"
+  ],
+  "native": [
+   "Climate, earth & ocean"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Fiorenza Micheli",
+  "slug": "fiorenza-micheli",
+  "cluster": "Oceans, climate & earth",
+  "xdomain": "Robotics & sensing",
+  "lab": "Oceans; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "David and Lucile Packard Professor of Marine Science, Professor of Oceans and Senior Fellow at the Woods Institute for the Environment",
+  "interests": "Dr Fiorenza Micheli is a marine ecologist and conservation biologist conducting research and teaching at the Hopkins Marine Station of Stanford University. Micheli’s research focuses on the processes shaping marine communities and incorporating this understanding in the management and conservation of marine ecosystems. She is a Pew Fellow, a fellow of the California Academy of Science and the Aldo Leopold Leadership Program, and past president of the Western Society of Naturalists.",
+  "profile": "https://profiles.stanford.edu/fiorenza-micheli",
+  "orgs": [
+   "H&S",
+   "Sustain",
+   "Woods"
+  ],
+  "methods": [],
+  "domains": [
+   "Climate, earth & ocean"
+  ],
+  "native": [
+   "Climate, earth & ocean"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Krish Seetah",
+  "slug": "krish-seetah",
+  "cluster": "Oceans, climate & earth",
+  "xdomain": "Robotics & sensing",
+  "lab": "Oceans; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Associate Professor of Environmental Social Sciences, of Oceans, of Anthropology and Senior Fellow at the Woods Institute for the Environment",
+  "interests": "I am a zooarchaeologist, whose focus is primarily on colonisation and colonialism. My zooarchaeological research has used butchery analysis (with the benefit of professional and ethnographic actualistic experience) to investigate agency within the human-animal relationship. More recently, I have employed geometric morphometrics (GMM) as a mechanism for identifying and distinguishing animal populations. This approach to studying colonial activity centres on understanding how people manipulate animal bodies, both during life and after death. Alongside the strictly faunal research is a research interest in technologies associated with animal processing. This has been used to investigate issues of technology, trade and socio-economic attitudes within colonial contexts in the Mediterranean (Venice & Montenegro) and the Baltic (Poland, Latvia & Lithuania). I am also the Director of the ‘Mauritian Archaeology and Cultural Heritage’ (MACH) project, which studies European Imperialism and colonial activity. This project centres on the movement of peoples and material cultures, specifically within the contexts of slavery and Diaspora. The work of this project has focused on key sites in Mauritius and is based on a systematic programme of excavation and environmental sampling. The underlying aims are to better understand the transition from slavery to indentured labour following abolition, the extent and diversity of trade in the region and the environmental consequences of intense, monoculture, agriculture.",
+  "profile": "https://profiles.stanford.edu/krish-seetah",
+  "orgs": [
+   "H&S",
+   "Sustain",
+   "VPDoR",
+   "HAI",
+   "Woods"
+  ],
+  "methods": [],
+  "domains": [
+   "Climate, earth & ocean",
+   "Agriculture & food"
+  ],
+  "native": [
+   "Climate, earth & ocean",
+   "Public policy & governance"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Le Cong",
+  "slug": "186687",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Robotics & automation",
+  "lab": "Genome engineering; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Associate Professor of Pathology (Pathology Research) and of Genetics",
+  "interests": "Our lab develops gene-editing technologies like novel CRISPR systems and large gene insertion techniques for gene and cell therapy. We also leverage these gene-editing tools for single-cell functional screening to probe mechanisms of cancer, immunological, and aging-associated diseases. To accelerate our work, we integrate AI and machine learning to design and evolve therapeutic RNAs/proteins, and build AI-XR co-scientists like LabOS that bridge AI computation and biomedical experimentation.",
+  "profile": "https://profiles.stanford.edu/186687",
+  "orgs": [
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro"
+  ],
+  "methods": [
+   "Machine learning",
+   "Genomic & molecular tools"
+  ],
+  "domains": [
+   "Health & clinical care",
+   "Biology & molecular"
+  ],
+  "native": [
+   "Biology & molecular",
+   "Health & clinical care"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Sheng Xu",
+  "slug": "sheng-xu",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Robotics & sensing",
+  "lab": "Stanford Medicine; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Professor of Anesthesiology, Perioperative & Pain Medicine (Department Research) and, by courtesy, of Electrical Engineering and of Materials Science & Engineering",
+  "interests": "Dr. Sheng Xu is a tenured professor and the inaugural Director of Emerging Technologies in the Department of Anesthesiology, Perioperative and Pain Medicine at Stanford University, with courtesy appointments in Electrical Engineering and Materials Science and Engineering. He earned his B.S. degree in Chemistry from Peking University and his Ph.D. in Materials Science and Engineering from the Georgia Institute of Technology. Subsequently, he pursued postdoctoral studies at the Materials Research Laboratory at the University of Illinois at Urbana-Champaign. He then spent 10 years on the faculty at UC San Diego before joining Stanford in 2025. His research group is interested in developing new materials and fabrication methods for soft electronics. His research has been presented to the United States Congress as a testimony to the importance and impact of NIH funding.",
+  "profile": "https://profiles.stanford.edu/sheng-xu",
+  "orgs": [
+   "SoE",
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [],
+  "domains": [
+   "Materials & chemistry"
+  ],
+  "native": [
+   "Compute, chips & systems",
+   "Health & clinical care",
+   "Materials & chemistry"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Carla Pugh, MD, PhD",
+  "slug": "carla-pugh",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Robotics & sensing",
+  "lab": "Surgery; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Thomas Krummel Professor",
+  "interests": "The Technology Enabled Clinical Improvement (T.E.C.I.) Center is a multidisciplinary team of researchers dedicated to the design and implementation of advanced engineering technologies that facilitate data acquisition relating to clinical performance.",
+  "profile": "https://profiles.stanford.edu/carla-pugh",
+  "orgs": [
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiHPA"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [],
+  "cross": []
+ },
+ {
+  "name": "Scott L. Delp, Ph.D.",
+  "slug": "scott-delp",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Robotics & biomechanics",
+  "lab": "Director, Wu Tsai Human Performance Alliance at Stanford",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Director, Wu Tsai Human Performance Alliance at Stanford, James H. Clark Professor in the School of Engineering, Professor of Bioengineering and of Mechanical Engineering",
+  "interests": "Experimental and computational approaches to study human movement. Development of biomechanical models to analyze muscle function, study movement abnormalities, design medical products, and guide surgery. Imaging and health technology development. Discovering the principles of peak performance to advance human health. Human performance research. Wearable technologies, video motion capture, and machine learning to enable large-scale analysis.",
+  "profile": "https://profiles.stanford.edu/scott-delp",
+  "orgs": [
+   "SoE",
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Machine learning"
+  ],
+  "domains": [
+   "Health & clinical care"
+  ],
+  "native": [
+   "Biology & molecular",
+   "Health & clinical care"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Ehsan Adeli",
+  "slug": "ehsan-adeli",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Psychiatry",
+  "lab": "CS and Psychiatry; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Assistant Professor (Research) of Psychiatry and Behavioral Sciences (Public Mental Health and Populations Sciences) and, by courtesy, of Computer Science and of Biomedical Data Science",
+  "interests": "My research lies in the intersection of Machine Learning, Computer Vision, Healthcare, Ambient Intelligence, and Computational Neuroscience.",
+  "profile": "https://profiles.stanford.edu/ehsan-adeli",
+  "orgs": [
+   "SoE",
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Machine learning",
+   "Vision, imaging & sensing"
+  ],
+  "domains": [
+   "Neuroscience & brain"
+  ],
+  "native": [
+   "Biology & molecular",
+   "Compute, chips & systems",
+   "Health & clinical care",
+   "Neuroscience & brain"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Stephen Boyd",
+  "slug": "stephen-boyd",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "Optimization across fields",
+  "lab": "Convex optimization; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Samsung Professor in the School of Engineering",
+  "interests": "Stephen P. Boyd is the Samsung Professor of Engineering, and Professor of Electrical Engineering in the Information Systems Laboratory at Stanford University, and a member of the Institute for Computational and Mathematical Engineering. His current research focus is on convex optimization applications in control, signal processing, machine learning, and finance. Professor Boyd received an AB degree in Mathematics, summa cum laude, from Harvard University in 1980, and a PhD in EECS from U. C. Berkeley in 1985. In 1985 he joined Stanford's Electrical Engineering Department. He has held visiting Professor positions at Katholieke University (Leuven), McGill University (Montreal), Ecole Polytechnique Federale (Lausanne), Tsinghua University (Beijing), Universite Paul Sabatier (Toulouse), Royal Institute of Technology (Stockholm), Kyoto University, Harbin Institute of Technology, NYU, MIT, UC Berkeley, CUHK-Shenzhen, and IMT Lucca. He holds honorary doctorates from Royal Institute of Technology (KTH), Stockholm, and Catholic University of Louvain (UCL). Professor Boyd is the author of many research articles and four books: Introduction to Applied Linear Algebra: Vectors, Matrices, and Least-Squares (with Lieven Vandenberghe, 2018), Convex Optimization (with Lieven Vandenberghe, 2004), Linear Matrix Inequalities in System and Control Theory (with El Ghaoui, Feron, and Balakrishnan, 1994), and Linear Controller Design: Limits of Performance (with Craig Barratt, 1991). His group has produced many open source tools, including CVX (with Michael Grant), CVXPY (with Steven Diamond) and Convex.jl (with Madeleine Udell and others), widely used parser-solvers for convex optimization. He has received many awards and honors for his research in control systems engineering and optimization, including an ONR Young Investigator Award, a Presidential Young Investigator Award, and the AACC Donald P. Eckman Award. In 2013, he received the IEEE Control Systems Award, given for outstanding contributions to control systems engineering, science, or technology. In 2012, Michael Grant and he were given the Mathematical Optimization Society's Beale-Orchard-Hays Award, for excellence in computational mathematical programming. In 2023, he was given the AACC Richard E. Bellman Control Heritage Award, the highest recognition of professional achievement for U.S. control systems engineers and scientists. In 2025, he was awarded the IFAC Nathaniel B. Nichols Medal. He is a Fellow of the IEEE, SIAM, INFORMS, IFAC, and ACA, a Distinguished Lecturer of the IEEE Control Systems Society, a member of the US National Academy of Engineering, a foreign member of the Chinese Academy of Engineering, and a foreign member of the National Academy of Engineering of Korea. He has been invited to deliver more than 100 plenary and keynote lectures at major conferences in control, optimization, signal processing, and machine learning. He has developed and taught many undergraduate and graduate courses, including Signals & Systems, Linear Dynamical Systems, Convex Optimization, and a recent undergraduate course on Matrix Methods. His graduate convex optimization course attracts around 300 students from more than 20 departments. In 1991 he received an ASSU Graduate Teaching Award, and in 1994 he received the Perrin Award for Outstanding Undergraduate Teaching in the School of Engineering. In 2003, he received the AACC Ragazzini Education award, for contributions to control education. In 2016 he received the Walter J. Gores award, the highest award for teaching at Stanford University. In 2017 he received the IEEE James H. Mulligan, Jr. Education Medal, for a career of outstanding contributions to education in the fields of interest of IEEE, with citation \"For inspirational education of students and researchers in the theory and application of optimization.\"",
+  "profile": "https://profiles.stanford.edu/stephen-boyd",
+  "orgs": [
+   "SoE",
+   "Sustain",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "Precourt",
+   "ICME"
+  ],
+  "methods": [
+   "Machine learning",
+   "Optimization & algorithms"
+  ],
+  "domains": [],
+  "native": [],
+  "cross": []
+ },
+ {
+  "name": "Fei-Fei Li",
+  "slug": "fei-fei-li",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "",
+  "lab": "Stanford Vision and Learning Lab; HAI advisory co-chair; founder of World Labs",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Sequoia Capital Professor, Senior Fellow at HAI and Professor, by courtesy, of Operations, Information and Technology at the Graduate School of Business",
+  "interests": "AI, Machine Learning, Computer Vision, Robotics, AI+Healthcare, Human Vision",
+  "profile": "https://profiles.stanford.edu/fei-fei-li",
+  "orgs": [
+   "SoE",
+   "GSB",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiNeuro"
+  ],
+  "methods": [
+   "Machine learning",
+   "Robotics & embodied",
+   "Vision, imaging & sensing"
+  ],
+  "domains": [],
+  "native": [
+   "Finance & economics"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Percy Liang",
+  "slug": "percy-liang",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "",
+  "lab": "Center for Research on Foundation Models; co-founder of Together AI",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Professor of Computer Science and Senior Fellow at the Stanford Institute for Human-Centered AI",
+  "interests": "Percy Liang is an Associate Professor of Computer Science at Stanford University (B.S. from MIT, 2004; Ph.D. from UC Berkeley, 2011) and the director of the Center for Research on Foundation Models (CRFM). He is currently focused on making foundation models (in particular, language models) more accessible through open-source and understandable through rigorous benchmarking. In the past, he has worked on many topics centered on machine learning and natural language processing, including robustness, interpretability, human interaction, learning theory, grounding, semantics, and reasoning. He is also a strong proponent of reproducibility through the creation of CodaLab Worksheets. His awards include the Presidential Early Career Award for Scientists and Engineers (2019), IJCAI Computers and Thought Award (2016), an NSF CAREER Award (2016), a Sloan Research Fellowship (2015), a Microsoft Research Faculty Fellowship (2014), and paper awards at ACL, EMNLP, ICML, COLT, ISMIR, CHI, UIST, and RSS.",
+  "profile": "https://profiles.stanford.edu/percy-liang",
+  "orgs": [
+   "SoE"
+  ],
+  "methods": [
+   "Foundation models & NLP",
+   "Machine learning"
+  ],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Christopher Manning",
+  "slug": "chris-manning",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "",
+  "lab": "Stanford NLP Group; SAIL director",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Emeritus Faculty, Academic Council, Linguistics",
+  "interests": "Christopher Manning is the inaugural Thomas M. Siebel Professor in Machine Learning in the Departments of Linguistics and Computer Science at Stanford University, Director of the Stanford Artificial Intelligence Laboratory (SAIL), and an Associate Director of the Stanford Institute for Human-Centered Artificial Intelligence (HAI). From 2010, Manning pioneered Natural Language Understanding and Inference using Deep Learning, with impactful research on sentiment analysis, paraphrase detection, the GloVe model of word vectors, attention, neural machine translation, question answering, self-supervised model pre-training, tree-recursive neural networks, machine reasoning, dependency parsing, and summarization, work for which he has received two ACL Test of Time Awards and the IEEE John von Neumann Medal (2024). He earlier led the development of empirical, probabilistic approaches to NLP, computational linguistics, and language understanding, defining and building theories and systems for Natural Language Inference, syntactic parsing, machine translation, and multilingual language processing, work for which he won ACL, Coling, EMNLP, and CHI Best Paper Awards. In NLP education, Manning coauthored foundational textbooks on statistical approaches to NLP (Manning and Schütze 1999) and information retrieval (Manning, Raghavan, and Schütze, 2008), and his online CS224N Natural Language Processing with Deep Learning course videos have been watched by hundreds of thousands. In linguistics, Manning is a principal developer of Stanford Dependencies and Universal Dependencies, and has authored monographs on ergativity and complex predicates. He is the founder of the Stanford NLP group (@stanfordnlp) and was an early proponent of open source software in NLP with Stanford CoreNLP and Stanza. He is an ACM Fellow, a AAAI Fellow, and an ACL Fellow, and a Past President of the ACL (2015). Manning has a B.A. (Hons) from The Australian National University, a Ph.D. from Stanford in 1994, and an Honorary Doctorate from U. Amsterdam in 2023. He held faculty positions at Carnegie Mellon University and the University of Sydney before returning to Stanford.",
+  "profile": "https://profiles.stanford.edu/chris-manning",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "VPDoR",
+   "Bio-X",
+   "HAI"
+  ],
+  "methods": [
+   "Foundation models & NLP",
+   "Machine learning"
+  ],
+  "domains": [],
+  "native": [],
+  "cross": []
+ },
+ {
+  "name": "Christopher Re",
+  "slug": "christopher-re",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "",
+  "lab": "ML systems; co-founder of SambaNova, Snorkel, Together AI",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Professor of Computer Science",
+  "interests": "Algorithms, systems, and theory for the next generation of data processing and data analytics systems.",
+  "profile": "https://profiles.stanford.edu/christopher-re",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "HAI"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Stefano Ermon",
+  "slug": "stefano-ermon",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "Energy & sustainability",
+  "lab": "Probabilistic reasoning and sustainability; founder of Inception",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Associate Professor of Computer Science and Senior Fellow at the Woods Institute for the Environment",
+  "interests": "I am an Assistant Professor in the Department of Computer Science at Stanford University, where I am affiliated with the Artificial Intelligence Laboratory and a fellow of the Woods Institute for the Environment. My research is centered on techniques for scalable and accurate inference in graphical models, statistical modeling of data, large-scale combinatorial optimization, and robust decision making under uncertainty, and is motivated by a range of applications, in particular ones in the emerging field of computational sustainability.",
+  "profile": "https://profiles.stanford.edu/stefano-ermon",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "HAI"
+  ],
+  "methods": [
+   "Machine learning",
+   "Optimization & algorithms"
+  ],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Tatsunori Hashimoto",
+  "slug": "tatsunori-hashimoto",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "",
+  "lab": "ML and NLP",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Assistant Professor of Computer Science",
+  "interests": "",
+  "profile": "https://profiles.stanford.edu/tatsunori-hashimoto",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "HAI"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Emma Brunskill",
+  "slug": "emma-brunskill",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "Education",
+  "lab": "Reinforcement learning and interactive learning",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Associate Professor of Computer Science",
+  "interests": "",
+  "profile": "https://profiles.stanford.edu/emma-brunskill",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "VPDoR",
+   "HAI",
+   "ICME"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Tengyu Ma",
+  "slug": "tengyu-ma",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "",
+  "lab": "ML theory and deep learning",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Assistant Professor of Computer Science",
+  "interests": "",
+  "profile": "https://profiles.stanford.edu/tengyu-ma",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "HAI"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Sanmi Koyejo",
+  "slug": "sanmi-koyejo",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "Health, neuroscience",
+  "lab": "Trustworthy ML",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Associate Professor of Computer Science",
+  "interests": "Sanmi Koyejo is an Assistant Professor in the Department of Computer Science at Stanford University and an adjunct Associate Professor at the University of Illinois at Urbana-Champaign. He leads the Stanford Trustworthy AI Research (STAIR) lab, which develops measurement-theoretic foundations for trustworthy AI systems, spanning AI evaluation science, algorithmic accountability, and privacy-preserving machine learning, with applications to healthcare and scientific discovery. His research on AI capabilities evaluation has challenged conventional understanding in the field, including work on measurement frameworks cited in the 2024 Economic Report of the President. Koyejo has received the Presidential Early Career Award for Scientists and Engineers (PECASE), Skip Ellis Early Career Award, Alfred P. Sloan Research Fellowship, NSF CAREER Award, and multiple outstanding paper awards at flagship venues, including NeurIPS and ACL. He has delivered keynote presentations at major conferences, including ECCV and FAccT. He serves in key leadership roles, including Board President of Black in AI, Board of Directors of the Neural Information Processing Systems Foundation, and other leadership positions in professional organizations advancing AI research and broadening participation in the field.",
+  "profile": "https://profiles.stanford.edu/sanmi-koyejo",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Machine learning"
+  ],
+  "domains": [
+   "Security & defense"
+  ],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": [
+   "Security & defense"
+  ]
+ },
+ {
+  "name": "Noah Goodman",
+  "slug": "noah-goodman",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "Cognitive science",
+  "lab": "Cognitive science and probabilistic programming",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Professor of Psychology and of Computer Science",
+  "interests": "",
+  "profile": "https://profiles.stanford.edu/noah-goodman",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "VPDoR",
+   "HAI",
+   "WuTsaiNeuro"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems",
+   "Neuroscience & brain"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Diyi Yang",
+  "slug": "diyi-yang",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "Society",
+  "lab": "Social and human-centred NLP",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Assistant Professor of Computer Science",
+  "interests": "Diyi Yang is an Assistant Professor in Computer Science at Stanford University. Professor Yang's research interests are Computational Social Science and Natural Language Processing. Her research goal is to understand the social aspects of language and then build socially aware NLP systems to better support human-human and human-computer interaction. Professor Yang received her PhD from the School of Computer Science, Carnegie Mellon University, and her bachelor's degree from Shanghai Jiao Tong University, China. Her work has received multiple best paper nominations or awards at ICWSM, EMNLP, SIGCHI, ACL, and CSCW. She is a recipient of Forbes 30 under 30 in Science, IEEE “AI 10 to Watch”, the Intel Rising Star Faculty Award, Microsoft Research Faculty Fellowship, and NSF CAREER Award.",
+  "profile": "https://profiles.stanford.edu/diyi-yang",
+  "orgs": [
+   "SoE"
+  ],
+  "methods": [
+   "Foundation models & NLP"
+  ],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Ludwig Schmidt",
+  "slug": "ludwig-schmidt",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "",
+  "lab": "Datasets and evaluation of foundation models",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Assistant Professor of Computer Science",
+  "interests": "Ludwig Schmidt is an assistant professor at Stanford University in the Computer Science Department and Stanford Data Science. Ludwig’s research interests revolve around the empirical foundations of machine learning, often with a focus on datasets, reliable generalization, multimodality, and language models. Recently, Ludwig’s research group contributed to open source machine learning by creating OpenCLIP, DCLM, and the LAION-5B dataset. Ludwig completed his PhD at MIT and was a postdoc at UC Berkeley. Ludwig’s research received a new horizons award at EAAMO, best paper awards at ICML & NeurIPS, a best paper finalist at CVPR, and the Sprowls dissertation award from MIT.",
+  "profile": "https://profiles.stanford.edu/ludwig-schmidt",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "SDS"
+  ],
+  "methods": [
+   "Foundation models & NLP",
+   "Machine learning"
+  ],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Carlos Ernesto Guestrin",
+  "slug": "carlos-guestrin",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "",
+  "lab": "ML systems, explainability, fairness",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Fortinet Founders Professor and Senior Fellow at the Stanford Institute for Human-Centered AI",
+  "interests": "Carlos Guestrin is a Professor in the Computer Science Department at Stanford University. His previous positions include the Amazon Professor of Machine Learning at the Computer Science & Engineering Department of the University of Washington, the Finmeccanica Associate Professor at Carnegie Mellon University, and the Senior Director of Machine Learning and AI at Apple, after the acquisition of Turi, Inc. (formerly GraphLab and Dato) — Carlos co-founded Turi, which developed a platform for developers and data scientist to build and deploy intelligent applications. He is a technical advisor for OctoML.ai. His team also released a number of popular open-source projects, including XGBoost, LIME, Apache TVM, MXNet, Turi Create, GraphLab/PowerGraph, SFrame, and GraphChi. Carlos received the IJCAI Computers and Thought Award and the Presidential Early Career Award for Scientists and Engineers (PECASE). He is also a recipient of the ONR Young Investigator Award, NSF Career Award, Alfred P. Sloan Fellowship, and IBM Faculty Fellowship, and was named one of the 2008 ‘Brilliant 10’ by Popular Science Magazine. Carlos’ work received awards at a number of conferences and journals, including ACL, AISTATS, ICML, IPSN, JAIR, JWRPM, KDD, NeurIPS, UAI, and VLDB. He is a former member of the Information Sciences and Technology (ISAT) advisory group for DARPA.",
+  "profile": "https://profiles.stanford.edu/carlos-guestrin",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "HAI"
+  ],
+  "methods": [
+   "Machine learning"
+  ],
+  "domains": [],
+  "native": [],
+  "cross": []
+ },
+ {
+  "name": "Yejin Choi",
+  "slug": "yejin-choi",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "",
+  "lab": "SAIL faculty",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Dieter Schwarz Foundation HAI Professor and Senior Fellow at the Stanford Institute for Human-Centered Artificial Intelligence",
+  "interests": "Yejin Choi is the Dieter Schwarz Foundation Professor and Senior Fellow at the Department of Computer Science at Stanford University and the Stanford Institute for Human-Centered Artificial Intelligence (HAI) respectively. Choi is MacArthur Fellow (class of 2022), AI2050 Senior Fellow (class of 2024), and named among Time100 Most Influential People in AI in 2023. In addition, Choi is a co-recipient of 2 Test-of-Time awards and 8 Best and Outstanding Paper Awards at top AI conferences including ACL, ICML, NeurIPS, ICCV, CVPR, and AAAI, the Borg Early Career Award (BECA) in 2018, the inaugural Alexa Prize Challenge in 2017, and IEEE AI’s 10 to Watch in 2016. Choi was a main stage speaker at TED 2023, and a keynote speaker for a dozen conferences across several AI disciplines including ACL, CVPR, ICLR, MLSys, VLDB, WebConf, and AAAI. Her current research interests include fundamental limits and capabilities of large language models, alternative training recipes for language models, symbolic methods for neural networks, reasoning and knowledge discovery, moral norms and values, pluralistic alignment, and AI safety.",
+  "profile": "https://profiles.stanford.edu/yejin-choi",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "HAI",
+   "WuTsaiNeuro"
+  ],
+  "methods": [
+   "Foundation models & NLP",
+   "Machine learning"
+  ],
+  "domains": [],
+  "native": [],
+  "cross": []
+ },
+ {
+  "name": "Monica Lam",
+  "slug": "monica-lam",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "",
+  "lab": "NLP and virtual assistants",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Kleiner Perkins, Mayfield, Sequoia Capital Professor in the School of Engineering, Professor of Computer Science and, by courtesy, of Electrical Engineering",
+  "interests": "Professor Lam's current research interest is to create effective and reliable AI assistants to accelerate the discovery of knowledge. Her OVAL lab has created numerous open-source LLM-based tools used by consumers, historians, and journalists in their work; currently, she is focusing on research assistants that can discover new insights for biomedicine and other technical areas. Professor Lam's team has created the first quantifiably factual and engaging conversational agent, which has won the Best Research of the Year Award from Wikimedia Foundation; pioneered deep research agent called STORM that has been used by about a million users; developed the best-performing agent for retrieving knowledge from hybrid sources, including databases, knowledge graphs, and free-text, currently deployed at Wikimedia; created an agent framework that produces fluent task-oriented agents that do not hallucinate. Prof. Lam is also an expert in compilers for high-performance machines. Her pioneering work of affine partitioning provides a unifying theory to the field of loop transformations for parallelism and locality. Her software pipelining algorithm is used in commercial systems for instruction level parallelism. Her research team created the first, widely adopted research compiler, SUIF. She is a co-author of the classic compiler textbook, popularly known as the “dragon book”. She was on the founding team of Tensilica, now a part of Cadence. Dr. Lam is a Member of the National Academy of Engineering and an Association of Computing Machinery (ACM) Fellow.",
+  "profile": "https://profiles.stanford.edu/monica-lam",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "HAI"
+  ],
+  "methods": [
+   "Foundation models & NLP"
+  ],
+  "domains": [
+   "Compute, chips & systems"
+  ],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Emily Fox",
+  "slug": "248640",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "Health",
+  "lab": "Bayesian dynamic modelling; ML for health",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Professor of Statistics and of Computer Science",
+  "interests": "Emily Fox is a Professor in the Departments of Statistics and Computer Science at Stanford University. Prior to Stanford, she was the Amazon Professor of Machine Learning in the Paul G. Allen School of Computer Science & Engineering and Department of Statistics at the University of Washington. From 2018-2021, Emily led the Health AI team at Apple, where she was a Distinguished Engineer. Before joining UW, Emily was an Assistant Professor at the Wharton School Department of Statistics at the University of Pennsylvania. She earned her doctorate from Electrical Engineering and Computer Science (EECS) at MIT where her thesis was recognized with EECS' Jin-Au Kong Outstanding Doctoral Thesis Prize and the Leonard J. Savage Award for Best Thesis in Applied Methodology. Emily has been awarded a CZ Biohub Investigator Award, Presidential Early Career Award for Scientists and Engineers (PECASE), a Sloan Research Fellowship, ONR Young Investigator Award, and NSF CAREER Award. Her research interests are in modeling complex time series arising in health, particularly from health wearables and neuroimaging modalities.",
+  "profile": "https://profiles.stanford.edu/248640",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro",
+   "WuTsaiHPA",
+   "ICME"
+  ],
+  "methods": [
+   "Machine learning"
+  ],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Ron Fedkiw",
+  "slug": "ron-fedkiw",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "Physics simulation",
+  "lab": "Physics, graphics and vision",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Canon Professor in the School of Engineering",
+  "interests": "Fedkiw's research is focused on the design of new computational algorithms for a variety of applications including computational fluid dynamics, computer graphics, and biomechanics.",
+  "profile": "https://profiles.stanford.edu/ron-fedkiw",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "ICME"
+  ],
+  "methods": [
+   "Simulation & scientific computing"
+  ],
+  "domains": [],
+  "native": [],
+  "cross": []
+ },
+ {
+  "name": "Michael Genesereth",
+  "slug": "michael-genesereth",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "Law",
+  "lab": "Computational logic",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Associate Professor of Computer Science",
+  "interests": "Genesereth is most known for his work on Computational Logic and applications of that work in Enterprise Management, Computational Law, and General Game Playing. He is one of the founders of Teknowledge, CommerceNet, Mergent Systems, and Symbium. Genesereth is the director of the Logic Group at Stanford and the founder and research director of CodeX - the Stanford Center for Legal Informatics.",
+  "profile": "https://profiles.stanford.edu/michael-genesereth",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "VPDoR",
+   "HAI"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Gordon Wetzstein",
+  "slug": "gordon-wetzstein",
+  "cluster": "Foundation models & core AI",
+  "xdomain": "Imaging & displays",
+  "lab": "Computational imaging; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Associate Professor of Electrical Engineering and, by courtesy, of Computer Science",
+  "interests": "Gordon Wetzstein is an Associate Professor of Electrical Engineering and, by courtesy, of Computer Science at Stanford University. He is the leader of the Stanford Computational Imaging Lab and a faculty co-director of the Stanford Center for Image Systems Engineering. At the intersection of computer graphics and vision, artificial intelligence, computational optics, and applied vision science, Prof. Wetzstein's research has a wide range of applications in next-generation imaging, wearable computing, and neural rendering systems. Prof. Wetzstein is a Fellow of Optica and the recipient of numerous awards, including an NSF CAREER Award, an Alfred P. Sloan Fellowship, an ACM SIGGRAPH Significant New Researcher Award, a Presidential Early Career Award for Scientists and Engineers (PECASE), an SPIE Early Career Achievement Award, an Electronic Imaging Scientist of the Year Award, an Alain Fournier Ph.D. Dissertation Award as well as many Best Paper and Demo Awards.",
+  "profile": "https://profiles.stanford.edu/gordon-wetzstein",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Machine learning"
+  ],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Jure Leskovec",
+  "slug": "jure-leskovec",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Networks, biomedicine",
+  "lab": "Graph learning; co-founder of Kumo.AI",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Alfred and Rebecca Lin Professor",
+  "interests": "Jure Leskovec is Professor of Computer Science at Stanford University. He is affiliated with the Stanford AI Lab, Machine Learning Group and the Center for Research on Foundation Models. In the past, he served as a Chief Scientist at Pinterest and was an investigator at Chan Zuckerberg BioHub. Leskovec recently pioneered the field of Graph Neural Networks and co-authored PyG, the most widely-used graph neural network library. Research from his group has been used by many countries to fight COVID-19 pandemic, and has been incorporated into products at Facebook, Pinterest, Uber, YouTube, Amazon, and more. His research received several awards including Microsoft Research Faculty Fellowship in 2011, Okawa Research award in 2012, Alfred P. Sloan Fellowship in 2012, Lagrange Prize in 2015, and ICDM Research Contributions Award in 2019. His research contributions have spanned social networks, data mining and machine learning, and computational biomedicine with the focus on drug discovery. His work has won 12 best paper awards and 5 10-year test of time awards at a premier venues in these research areas. Leskovec received his bachelor's degree in computer science from University of Ljubljana, Slovenia, PhD in machine learning from Carnegie Mellon University and postdoctoral training at Cornell University.",
+  "profile": "https://profiles.stanford.edu/jure-leskovec",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiNeuro"
+  ],
+  "methods": [
+   "Foundation models & NLP",
+   "Machine learning"
+  ],
+  "domains": [
+   "Health & clinical care"
+  ],
+  "native": [],
+  "cross": [
+   "Health & clinical care"
+  ]
+ },
+ {
+  "name": "Ron Dror",
+  "slug": "ron-dror",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Drug design",
+  "lab": "ML plus molecular simulation",
+  "lab_url": "https://aisbdd.stanford.edu/people/ron-dror",
+  "title": "Cheriton Family Professor and Professor, by courtesy, of Structural Biology and of Molecular & Cellular Physiology",
+  "interests": "My lab’s research focuses on computational biology, with an emphasis on 3D molecular structure. We combine two approaches: (1) Bottom-up: given the basic physics governing atomic interactions, use simulations to predict molecular behavior; (2) Top-down: given experimental data, use machine learning to predict molecular structures and properties. We collaborate closely with experimentalists and apply our methods to the discovery of safer, more effective drugs.",
+  "profile": "https://profiles.stanford.edu/ron-dror",
+  "orgs": [
+   "SoE",
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "ChEM-H",
+   "WuTsaiNeuro",
+   "ICME"
+  ],
+  "methods": [
+   "Machine learning"
+  ],
+  "domains": [
+   "Biology & molecular"
+  ],
+  "native": [
+   "Biology & molecular"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Anshul Kundaje",
+  "slug": "anshul-kundaje",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Genomics",
+  "lab": "Computational genomics",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Associate Professor of Genetics and of Computer Science",
+  "interests": "We develop statistical and machine learning frameworks to model gene regulation and decipher the genetic and molecular basis of disease",
+  "profile": "https://profiles.stanford.edu/anshul-kundaje",
+  "orgs": [
+   "SoE",
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Machine learning"
+  ],
+  "domains": [
+   "Biology & molecular"
+  ],
+  "native": [
+   "Biology & molecular",
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Gill Bejerano",
+  "slug": "gill-bejerano",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Genomics",
+  "lab": "Computational and experimental genomics",
+  "lab_url": "https://ai.stanford.edu/faculty/",
+  "title": "Professor of Developmental Biology, of Computer Science and of Pediatrics (Genetics)",
+  "interests": "1. Automating monogenic patient diagnosis. 2. The genomic signatures of independent divergent and convergent trait evolution in mammals. 3. The logic of human gene regulation. 4. The reasons for sequence ultraconservation. 5. Cryptogenomics to bridge medical silos. 6. Cryptogenetics to debate social injustice. 7. Managing patient risk using machine learning. 8. Understanding the flow of money in the US healthcare system.",
+  "profile": "https://profiles.stanford.edu/gill-bejerano",
+  "orgs": [
+   "SoE",
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiNeuro"
+  ],
+  "methods": [
+   "Machine learning"
+  ],
+  "domains": [
+   "Biology & molecular"
+  ],
+  "native": [
+   "Biology & molecular",
+   "Compute, chips & systems",
+   "Health & clinical care"
+  ],
+  "cross": []
+ },
+ {
+  "name": "James Zou",
+  "slug": "james-zou",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Physiology",
+  "lab": "Biomedical data science; founder of Human Intelligence",
+  "lab_url": "https://www.james-zou.com/",
+  "title": "Associate Professor of Biomedical Data Science and, by courtesy, of Computer Science and of Electrical Engineering",
+  "interests": "My group works on both foundations of statistical machine learning and applications in biomedicine and healthcare. We develop new technologies that make ML more accountable to humans, more reliable/robust and reveals core scientific insights. We want our ML to be impactful and beneficial, and as such, we are deeply motivated by transformative applications in biotech and health. We collaborate with and advise many academic and industry groups.",
+  "profile": "https://profiles.stanford.edu/james-zou",
+  "orgs": [
+   "SoE",
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiNeuro"
+  ],
+  "methods": [
+   "Machine learning"
+  ],
+  "domains": [],
+  "native": [
+   "Biology & molecular",
+   "Compute, chips & systems",
+   "Health & clinical care"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Russ B. Altman",
+  "slug": "russ-altman",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Pharmacogenomics",
+  "lab": "Biomedical informatics",
+  "lab_url": "https://profiles.stanford.edu/russ-altman",
+  "title": "Kenneth Fong Professor and Professor of Bioengineering, of Genetics, of Medicine, of Biomedical Data Science, Senior Fellow at the Stanford Institute for Human-Centered AI and Professor, by courtesy, of Computer Science",
+  "interests": "I refer you to my web page for detailed list of interests, projects and publications. In addition to pressing the link here, you can search \"Russ Altman\" on http://www.google.com/",
+  "profile": "https://profiles.stanford.edu/russ-altman",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [
+   "Biology & molecular",
+   "Compute, chips & systems",
+   "Health & clinical care"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Curtis Langlotz",
+  "slug": "curtis-langlotz",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Medical imaging",
+  "lab": "Director, Center for AI in Medicine and Imaging (AIMI)",
+  "lab_url": "https://aimi.stanford.edu/",
+  "title": "Senior Associate Vice Provost for Research, Professor of Radiology (Integrative Biomedical Imaging Informatics), of Medicine, of Biomedical Data Science and Senior Fellow at the Stanford Institute for Human-Centered AI",
+  "interests": "My laboratory develops machine learning methods to help physicians detect disease and eliminate diagnostic errors. My laboratory is developing neural network systems that detect and classify disease on medical images. We also develop natural language processing methods that use the narrative radiology report for contrastive learning and other multi-modal methods that improve the accuracy and capability of machine learning systems.",
+  "profile": "https://profiles.stanford.edu/curtis-langlotz",
+  "orgs": [
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "HAI"
+  ],
+  "methods": [
+   "Foundation models & NLP",
+   "Machine learning",
+   "Vision, imaging & sensing"
+  ],
+  "domains": [
+   "Health & clinical care"
+  ],
+  "native": [
+   "Biology & molecular",
+   "Health & clinical care"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Nigam H. Shah, MBBS, PhD",
+  "slug": "nigam-shah",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Clinical decisions",
+  "lab": "Computational medicine; AIMI",
+  "lab_url": "https://aimi.stanford.edu/people",
+  "title": "Professor of Medicine (Computational Medicine), of Biomedical Data Science and, by courtesy, of Computer Science",
+  "interests": "We answer clinical questions using aggregate patient data at the bedside. The Informatics Consult Service (https://greenbutton.stanford.edu/) put this idea in action and led to the creation of Atropos Health. We build predictive models that allow taking mitigating actions, keeping the human in the loop.",
+  "profile": "https://profiles.stanford.edu/nigam-shah",
+  "orgs": [
+   "SoE",
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Machine learning"
+  ],
+  "domains": [],
+  "native": [
+   "Biology & molecular",
+   "Compute, chips & systems",
+   "Health & clinical care"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Possu Huang",
+  "slug": "possu-huang",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Protein design",
+  "lab": "Protein Design Lab",
+  "lab_url": "http://www.proteindesign.org/",
+  "title": "Assistant Professor of Bioengineering",
+  "interests": "Protein design: molecular engineering, method development and novel therapeutics",
+  "profile": "https://profiles.stanford.edu/possu-huang",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X"
+  ],
+  "methods": [],
+  "domains": [
+   "Health & clinical care",
+   "Biology & molecular"
+  ],
+  "native": [
+   "Biology & molecular",
+   "Health & clinical care"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Michael Snyder, Ph.D.",
+  "slug": "michael-snyder",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Genomics, wearables",
+  "lab": "Genetics; Healthcare Innovation Lab",
+  "lab_url": "https://innovations.stanford.edu/proteomics/",
+  "title": "Stanford W. Ascherman Professor of Genetics",
+  "interests": "Our laboratory use different omics approaches to study a) regulatory networks, b) intra- and inter-species variation which differs primarily at the level of regulatory information c) human health and disease. For the later we have established integrated Personal Omics Profiling (iPOP), an analysis that combines longitudinal analyses of genomic, transcriptomic, proteomic, metabolomic, DNA methylation, microbiome and autoantibody profiles to monitor healthy and disease states",
+  "profile": "https://profiles.stanford.edu/michael-snyder",
+  "orgs": [
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Genomic & molecular tools"
+  ],
+  "domains": [
+   "Biology & molecular"
+  ],
+  "native": [
+   "Biology & molecular"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Stephen Quake",
+  "slug": "stephen-quake",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Biophysics",
+  "lab": "Bioengineering and applied physics",
+  "lab_url": "https://profiles.stanford.edu/stephen-quake",
+  "title": "Lee Otterson Professor in the School of Engineering and Professor of Bioengineering, of Applied Physics and, by courtesy, of Physics",
+  "interests": "Single molecule biophysics, precision force measurement, micro and nano fabrication with soft materials, integrated microfluidics and large scale biological automation.",
+  "profile": "https://profiles.stanford.edu/stephen-quake",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Devices & nanofabrication"
+  ],
+  "domains": [],
+  "native": [
+   "Biology & molecular",
+   "Health & clinical care",
+   "Space"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Jennifer Dionne",
+  "slug": "jennifer-dionne",
+  "cluster": "AI x biology & medicine",
+  "xdomain": "Proteomics",
+  "lab": "Founder and CEO, Pumpkinseed Bio",
+  "lab_url": "https://www.pumpkinseed.bio/",
+  "title": "Professor of Materials Science and Engineering, Senior Fellow at the Precourt Institute for Energy and Professor, by courtesy, of Radiology (Molecular Imaging Program at Stanford)",
+  "interests": "Jennifer (Jen) Dionne is a Professor of Materials Science and Engineering and, by courtesy, of Radiology at Stanford. She is also a Chan Zuckerberg Biohub Investigator, deputy director of Q-NEXT (a DOE National Quantum Initiative), and co-founder of Pumpkinseed, a company developing quantum sensors to understand and optimize the immune system. From 2020-2023, Jen served as Stanford’s Inaugural Vice Provost of Shared Facilities, raising capital to modernize instrumentation, fund experiential education, foster staff development, and support new and existing users of the shared facilities. Jen received her B.S. degrees in Physics and Systems Science and Mathematics from Washington University in St. Louis, her Ph. D. in Applied Physics at the California Institute of Technology in 2009, and her postdoctoral training in Chemistry at Berkeley. As a pioneer of nanophotonics, she is passionate about developing methods to observe and control chemical and biological processes as they unfold with nanometer scale resolution, emphasizing critical challenges in global health and sustainability. Her research has developed culture-free methods to detect pathogens and their antibiotic susceptibility; amplification-free methods to detect and sequence nucleic acids and proteins; and new methods to image light-driven chemical reactions with atomic-scale resolution. Jen’s work has been featured in NPR, the Economist, Science, and Nature, and recognized with the NSF Alan T. Waterman Award, a NIH Director’s New Innovator Award, a Moore Inventor Fellowship, and the Presidential Early Career Award for Scientists and Engineers. She was also featured on Oprah’s list of “50 Things that will make you say ‘Wow’!”. She also perceives outreach as a critical component of her role and frequently collaborates with visual and performing artists to convey the beauty of science to the broader public.",
+  "profile": "https://profiles.stanford.edu/jennifer-dionne",
+  "orgs": [
+   "SoE",
+   "Med",
+   "Sustain",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro",
+   "Precourt"
+  ],
+  "methods": [],
+  "domains": [
+   "Health & clinical care",
+   "Materials & chemistry"
+  ],
+  "native": [
+   "Health & clinical care",
+   "Materials & chemistry"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Jaimie Henderson, MD",
+  "slug": "jaimie-henderson",
+  "cluster": "Neurotechnology",
+  "xdomain": "",
+  "lab": "Neural Prosthetics Translational Lab; Paradromics research partner",
+  "lab_url": "https://nptl.stanford.edu/",
+  "title": "John and Jene Blume - Robert and Ruth Halperin Professor, Professor of Neurosurgery and, by courtesy, of Neurology and Neurological Sciences",
+  "interests": "My research interests encompass several areas of stereotactic and functional neurosurgery, including frameless stereotactic approaches for therapy delivery to deep brain nuclei; cortical physiology and its relationship to normal and pathological movement; brain-computer interfaces; and the development of novel neuromodulatory techniques for the treatment of movement disorders, epilepsy, pain, and other neurological diseases.",
+  "profile": "https://profiles.stanford.edu/jaimie-henderson",
+  "orgs": [
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [],
+  "domains": [
+   "Health & clinical care",
+   "Neuroscience & brain"
+  ],
+  "native": [
+   "Health & clinical care",
+   "Neuroscience & brain"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Francis Robert Willett",
+  "slug": "francis-willett",
+  "cluster": "Neurotechnology",
+  "xdomain": "",
+  "lab": "Neural decoding, NPTL; Paradromics research partner",
+  "lab_url": "https://nptl.stanford.edu/",
+  "title": "Assistant Professor of Neurosurgery",
+  "interests": "Frank Willett is co-director of the Neural Prosthetics Translational Laboratory. Our group develops brain-computer interfaces (BCIs) to restore movement and communication to people with neurological disorders. Recent contributions include handwriting and speech-based BCIs that set new records for communication speed and accuracy in people with paralysis. More broadly, we are interested in computational approaches to understanding brain function and recordings, with a focus on how the human brain represents movement and language.",
+  "profile": "https://profiles.stanford.edu/francis-willett",
+  "orgs": [
+   "Med",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [
+   "Health & clinical care",
+   "Neuroscience & brain"
+  ],
+  "native": [
+   "Health & clinical care",
+   "Neuroscience & brain"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Kwabena Boahen",
+  "slug": "kwabena-boahen",
+  "cluster": "Neurotechnology",
+  "xdomain": "Neuromorphic chips",
+  "lab": "Brains in Silicon",
+  "lab_url": "https://profiles.stanford.edu/kwabena-boahen",
+  "title": "Professor of Bioengineering and of Electrical Engineering",
+  "interests": "Boahen's group analyzes neural behavior computationally to elucidate principles of neural design at the cellular, circuit, and systems levels; and synthesizes neuromorphic electronic systems that scale energy-use with size as efficiently as the brain does. This interdisciplinary research program bridges neurobiology and medicine with electronics and computer science, bringing together these seemingly disparate fields.",
+  "profile": "https://profiles.stanford.edu/kwabena-boahen",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [
+   "Biology & molecular",
+   "Compute, chips & systems",
+   "Health & clinical care"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Yi Cui",
+  "slug": "yi-cui",
+  "cluster": "Energy, materials & sustainability",
+  "xdomain": "",
+  "lab": "Faculty director, Sustainability Accelerator; founder of Amprius, EnerVenue, EEnotech, 4C Air, LifeLabs Design",
+  "lab_url": "https://sustainability-accelerator.stanford.edu/",
+  "title": "Fortinet Founders Professor, Professor of Materials Science and Engineering, of Energy Science and Engineering, of Photon Science, Senior Fellow at Woods, at Precourt and Professor, by courtesy, of Chemistry",
+  "interests": "Cui studies fundamentals and applications of nanomaterials and develops tools for their understanding. Research Interests: nanotechnology, batteries, electrocatalysis, wearables, 2D materials, environmental technology (water, air, soil), cryogenic electron microscopy.",
+  "profile": "https://profiles.stanford.edu/yi-cui",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "Sustain",
+   "SLAC",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro",
+   "Precourt",
+   "Woods"
+  ],
+  "methods": [
+   "Vision, imaging & sensing",
+   "Devices & nanofabrication"
+  ],
+  "domains": [
+   "Energy & power",
+   "Materials & chemistry"
+  ],
+  "native": [
+   "Energy & power",
+   "Materials & chemistry"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Jelena Vuckovic",
+  "slug": "jelena-vuckovic",
+  "cluster": "Semiconductors, photonics & quantum",
+  "xdomain": "",
+  "lab": "Nanoscale and Quantum Photonics Lab",
+  "lab_url": "https://nqp.stanford.edu/",
+  "title": "Jensen Huang Professor of Global Leadership, Professor of Electrical Engineering and, by courtesy, of Applied Physics",
+  "interests": "Jelena Vuckovic’s research interests are broadly in the areas of nanophotonics, quantum and nonlinear optics. Her lab develops semiconductor-based photonic chip-scale systems with goals to probe new regimes of light-matter interaction, as well as to enable platforms for future classical and quantum information processing technologies. She also works on transforming conventional photonics with the concept of inverse design, where optimal photonic devices are designed from scratch using computer algorithms with little to no human input. Her current projects include quantum and nonlinear optics, cavity QED, and quantum information processing with color centers in diamond and in silicon carbide, heterogeneously integrated chip-scale photonic systems, and on-chip laser driven particle accelerators.",
+  "profile": "https://profiles.stanford.edu/jelena-vuckovic",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro",
+   "PULSE"
+  ],
+  "methods": [
+   "Devices & nanofabrication",
+   "Quantum"
+  ],
+  "domains": [
+   "Compute, chips & systems"
+  ],
+  "native": [
+   "Compute, chips & systems",
+   "Space"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Amir Safavi-Naeini",
+  "slug": "amir-safavi-naeini",
+  "cluster": "Semiconductors, photonics & quantum",
+  "xdomain": "",
+  "lab": "LINQS Lab",
+  "lab_url": "https://web.stanford.edu/~safavi/",
+  "title": "Associate Professor of Applied Physics and, by courtesy, of Electrical Engineering",
+  "interests": "",
+  "profile": "https://profiles.stanford.edu/amir-safavi-naeini",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "VPDoR",
+   "Bio-X"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems",
+   "Space"
+  ],
+  "cross": []
+ },
+ {
+  "name": "H.-S. Philip Wong",
+  "slug": "philip-wong",
+  "cluster": "Semiconductors, photonics & quantum",
+  "xdomain": "",
+  "lab": "Chief Scientist of TSMC in an advisory role since 2020",
+  "lab_url": "https://web.stanford.edu/~hspwong/",
+  "title": "Willard R. and Inez Kerr Bell Professor in the School of Engineering",
+  "interests": "H.-S. Philip Wong is the Willard R. and Inez Kerr Bell Professor in the School of Engineering at Stanford University. He joined Stanford University as Professor of Electrical Engineering in 2004. From 1988 to 2004, he was with the IBM T.J. Watson Research Center. From 2018 to 2020, he was on leave from Stanford and was the Vice President of Corporate Research at TSMC, the largest semiconductor foundry in the world, and since 2020 remains the Chief Scientist of TSMC in a consulting, advisory role. He is a member of the National Academy of Engineering and a Fellow of the IEEE. He received the IEEE Andrew S. Grove Award, the IEEE Technical Field Award to honor individuals for outstanding contributions to solid-state devices and technology, as well as the IEEE Electron Devices Society J.J. Ebers Award, the society’s highest honor to recognize outstanding technical contributions to the field of electron devices that have made a lasting impact. He is the Principal Investigator of the Microelectronics Commons California-Pacific-Northwest AI Hardware Hub, a consortium of over 60 companies and academic institutions funded by the CHIPS Act. He was a member of the US Department of Commerce Industrial Advisory Committee on microelectronics. He serves on the Executive Committee of the UC Berkeley think tank Technology Competitiveness and Industrial Policy (TCIP) Center.",
+  "profile": "https://profiles.stanford.edu/philip-wong",
+  "orgs": [
+   "SoE",
+   "Sustain",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro",
+   "Precourt"
+  ],
+  "methods": [],
+  "domains": [
+   "Compute, chips & systems"
+  ],
+  "native": [],
+  "cross": []
+ },
+ {
+  "name": "Kunle Olukotun",
+  "slug": "kunle-olukotun",
+  "cluster": "Semiconductors, photonics & quantum",
+  "xdomain": "AI compute",
+  "lab": "Co-founder, SambaNova Systems",
+  "lab_url": "https://profiles.stanford.edu/kunle-olukotun",
+  "title": "Cadence Design Systems Professor, Professor of Electrical Engineering and of Computer Science",
+  "interests": "Kunle Olukotun is the Cadence Design Professor of Electrical Engineering and Computer Science at Stanford University. Olukotun is a pioneer in multicore processor design and the leader of the Stanford Hydra chip multiprocessor (CMP) research project. He founded Afara Websystems to develop high-throughput, low-power multicore processors for server systems. The Afara multi-core processor, called Niagara, was acquired by Sun Microsystems and now powers Oracle's SPARC-based servers. In 2017, Olukotun co-founded SambaNova Systems, a Machine Learning and Artificial Intelligence company, and continues to lead as their Chief Technologist. Olukotun is the Director of the Pervasive Parallel Lab and a member of the Data Analytics tor What's Next (DAWN) Lab, developing infrastructure for usable machine learning. He is a member of the National Academy of Engineering, an ACM Fellow, and an IEEE Fellow for contributions to multiprocessors on a chip design and the commercialization of this technology. He also received the Harry H. Goode Memorial Award. Olukotun received his Ph.D. in Computer Engineering from The University of Michigan.",
+  "profile": "https://profiles.stanford.edu/kunle-olukotun",
+  "orgs": [
+   "SoE",
+   "VPDoR",
+   "HAI",
+   "WuTsaiNeuro"
+  ],
+  "methods": [
+   "Machine learning"
+  ],
+  "domains": [
+   "Compute, chips & systems"
+  ],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Mark Horowitz",
+  "slug": "mark-horowitz",
+  "cluster": "Semiconductors, photonics & quantum",
+  "xdomain": "",
+  "lab": "Co-founder of Rambus; SRC faculty",
+  "lab_url": "https://src.stanford.edu/about-people",
+  "title": "Fortinet Founders Chair of the Department of Electrical Engineering, Yahoo! Founders Professor in the School of Engineering, Professor of Computer Science, and Senior Fellow at the Hoover Institution",
+  "interests": "Professor Horowitz initially focused on designing high-performance digital systems by combining work in computer-aided design tools, circuit design, and system architecture. During this time, he built a number of early RISC microprocessors, and contributed to the design of early distributed shared memory multiprocessors. In 1990, Dr. Horowitz took leave from Stanford to help start Rambus Inc., a company designing high-bandwidth memory interface technology. After returning in 1991, his research group pioneered many innovations in high-speed link design, and many of today’s high speed link designs are designed by his former students or colleagues from Rambus. In the 2000s he started a long collaboration with Prof. Levoy on computational photography, which included work that led to the Lytro camera, whose photographs could be refocused after they were captured.. Dr. Horowitz's current research interests are quite broad and span using EE and CS analysis methods to problems in neuro and molecular biology to creating new agile design methodologies for analog and digital VLSI circuits. He remains interested in learning new things, and building interdisciplinary teams.",
+  "profile": "https://profiles.stanford.edu/mark-horowitz",
+  "orgs": [
+   "SoE",
+   "Sustain",
+   "VPDoR",
+   "Bio-X",
+   "WuTsaiNeuro",
+   "Precourt"
+  ],
+  "methods": [],
+  "domains": [
+   "Biology & molecular"
+  ],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Srabanti Chowdhury",
+  "slug": "srabanti-chowdhury",
+  "cluster": "Semiconductors, photonics & quantum",
+  "xdomain": "Energy",
+  "lab": "Wide-bandgap devices",
+  "lab_url": "https://profiles.stanford.edu/srabanti-chowdhury",
+  "title": "Professor of Electrical Engineering, Senior Fellow at the Precourt Institute for Energy and Professor, by courtesy, of Materials Science and Engineering",
+  "interests": "Wide bandap materials & devices for RF, Power and energy efficient electronics",
+  "profile": "https://profiles.stanford.edu/srabanti-chowdhury",
+  "orgs": [
+   "SoE",
+   "Sustain",
+   "Precourt"
+  ],
+  "methods": [],
+  "domains": [
+   "Materials & chemistry"
+  ],
+  "native": [
+   "Compute, chips & systems",
+   "Materials & chemistry"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Sara Achour",
+  "slug": "sara-achour",
+  "cluster": "Semiconductors, photonics & quantum",
+  "xdomain": "",
+  "lab": "Unconventional computing substrates",
+  "lab_url": "https://profiles.stanford.edu/sara-achour",
+  "title": "Assistant Professor of Computer Science and of Electrical Engineering",
+  "interests": "I am an Assistant Professor jointly appointed to both the Computer Science and the Electrical Engineering Departments at Stanford University. My research focuses on new techniques and tools, specifically new programming languages, compilers, and runtime systems, that enable end-users to more easily develop computations that exploit the potential of emerging computing platforms that exhibit analog behaviors.",
+  "profile": "https://profiles.stanford.edu/sara-achour",
+  "orgs": [
+   "SoE"
+  ],
+  "methods": [],
+  "domains": [
+   "Compute, chips & systems"
+  ],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Simone D'Amico",
+  "slug": "simone-damico",
+  "cluster": "Space & aerospace",
+  "xdomain": "",
+  "lab": "Space Rendezvous Laboratory",
+  "lab_url": "https://profiles.stanford.edu/simone-damico",
+  "title": "Associate Professor of Aeronautics and Astronautics",
+  "interests": "Simone D’Amico is Associate Professor of Aeronautics and Astronautics (AA), W.M. Keck Faculty Scholar in the School of Engineering, Associate Professor of Geophysics (by Courtesy), Science Fellow at the Hoover Institution and Chief Science Officer at EraDrive Inc. He is the Founding Director of the Stanford Space Rendezvous Laboratory, Founding Co-Director of the Center for AEroSpace Autonomy Research (CAESAR), and Director of the Undergraduate Program in Aerospace Engineering at Stanford. He has 23+ years of experience in research and development of autonomous spacecraft and distributed space systems. He developed and deployed the distributed Guidance, Navigation, and Control (GNC) system of several formation-flying, rendezvous and proximity operations missions such as GRACE (NASA/DLR), PRISMA (OHB/DLR/CNES/DTU), TanDEM-X (DLR), BIROS (DLR) and PROBA-3 (ESA). Currently, he is the institutional PI of four autonomous satellite swarms funded by NASA (STARLING, STARI) and by NSF (VISORS, SWARM-EX). Dr. D'Amico is Fellow of AAS, Associate Fellow of AIAA, Associate Editor of the AIAA's JGCD and he is in the Advisory Board of four space start-ups focusing on distributed space systems for future applications in SAR remote sensing, orbital lifetime prolongation, and space-based solar power. He was the recipient of several awards, most recently the 2024 NASA Ames Honor Award for the Starling mission, Best Paper Awards at IAF (2022), IEEE (2021), AIAA (2021), AAS (2019) conferences, the M. Barry Carlton Award by IEEE (2020), the Leonardo 500 Award by the Leonardo da Vinci Society/ISSNAF (2019), FAI/NAA’s Group Diploma of Honor (2018), DLR’s Sabbatical/Forschungssemester (2012) and Wissenschaft Preis (2006), and NASA’s Group Achievement Award for the GRACE mission (2004). He received the B.S. and M.S. degrees from Politecnico di Milano (2003) and the Ph.D. degree from Delft University of Technology (2010).",
+  "profile": "https://profiles.stanford.edu/simone-damico",
+  "orgs": [
+   "SoE"
+  ],
+  "methods": [
+   "Vision, imaging & sensing"
+  ],
+  "domains": [
+   "Climate, earth & ocean",
+   "Space"
+  ],
+  "native": [
+   "Space"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Juan Alonso",
+  "slug": "juan-alonso",
+  "cluster": "Space & aerospace",
+  "xdomain": "Mobility & transport",
+  "lab": "Aerospace Design Lab",
+  "lab_url": "https://profiles.stanford.edu/juan-alonso",
+  "title": "Vance D. and Arlene C. Coffman Professor and the James and Anna Marie Spilker Chair of the Department of Aeronautics and Astronautics",
+  "interests": "Prof. Alonso is the founder and director of the Aerospace Design Laboratory (ADL) where he specializes in the development of high-fidelity computational design methodologies to enable the creation of realizable and efficient aerospace systems. Prof. Alonso’s research involves a large number of different manned and unmanned applications including transonic, supersonic, and hypersonic aircraft, helicopters, turbomachinery, and launch and re-entry vehicles. He is the author of over 200 technical publications on the topics of computational aircraft and spacecraft design, multi-disciplinary optimization, fundamental numerical methods, and high-performance parallel computing. Prof. Alonso is keenly interested in the development of an advanced curriculum for the training of future engineers and scientists and has participated actively in course-development activities in both the Aeronautics & Astronautics Department (particularly in the development of coursework for aircraft design, sustainable aviation, and UAS design and operation) and for the Institute for Computational and Mathematical Engineering (ICME) at Stanford University. He was a member of the team that currently holds the world speed record for human powered vehicles over water. A student team led by Prof. Alonso also holds the altitude record for an unmanned electric vehicle under 5 lbs of mass.",
+  "profile": "https://profiles.stanford.edu/juan-alonso",
+  "orgs": [
+   "SoE",
+   "ICME"
+  ],
+  "methods": [
+   "Robotics & embodied",
+   "Simulation & scientific computing"
+  ],
+  "domains": [
+   "Space",
+   "Mobility & transport"
+  ],
+  "native": [
+   "Space"
+  ],
+  "cross": [
+   "Mobility & transport"
+  ]
+ },
+ {
+  "name": "Charbel Farhat",
+  "slug": "charbel-farhat",
+  "cluster": "Space & aerospace",
+  "xdomain": "Simulation",
+  "lab": "Computational aerosciences",
+  "lab_url": "https://profiles.stanford.edu/charbel-farhat",
+  "title": "Vivian Church Hoff Professor of Aircraft Structures and Professor of Aeronautics and Astronautics",
+  "interests": "Charbel Farhat and his Research Group (FRG) develop mathematical models, advanced computational algorithms, and high-performance software for the design, analysis, and digital twinning of complex systems in aerospace, marine, mechanical, and naval engineering. They contribute major advances to Simulation-Based Engineering Science. Current engineering foci in research are on reliable autonomous carrier landing in rough seas; dissipation of vertical landing energies through structural flexibility; nonlinear aeroelasticity of N+3 aircraft with High Aspect Ratio (HAR) wings; pulsation and flutter of a parachute; pendulum motion in main parachute clusters; coupled fluid-structure interaction (FSI) in supersonic inflatable aerodynamic decelerators for Mars landing; flight dynamics of hypersonic systems and their trajectories; and advanced digital twinning. Current theoretical and computational emphases in research are on high-performance, multi-scale modeling for the high-fidelity analysis of multi-component, multi-physics problems; discrete-event-free embedded boundary methods for CFD and FSI; efficient Bayesian optimization using physics-based surrogate models; modeling and quantifying model-form uncertainty; probabilistic, physics-based machine learning; mechanics-informed artificial neural networks for data-driven constitutive modeling; and efficient nonlinear projection-based model order reduction for time-critical applications such as design, active control, and digital twinning.",
+  "profile": "https://profiles.stanford.edu/charbel-farhat",
+  "orgs": [
+   "SoE",
+   "ICME"
+  ],
+  "methods": [
+   "Machine learning",
+   "Simulation & scientific computing",
+   "Statistics & causal inference"
+  ],
+  "domains": [
+   "Mobility & transport"
+  ],
+  "native": [
+   "Space"
+  ],
+  "cross": [
+   "Mobility & transport"
+  ]
+ },
+ {
+  "name": "Debbie Senesky",
+  "slug": "debbie-senesky",
+  "cluster": "Space & aerospace",
+  "xdomain": "Extreme-environment devices",
+  "lab": "Extreme environment microsystems",
+  "lab_url": "https://profiles.stanford.edu/debbie-senesky",
+  "title": "Associate Professor of Aeronautics and Astronautics, of Electrical Engineering, Senior Fellow at the Precourt Institute for Energy and Associate Professor, by courtesy, of Photon Science",
+  "interests": "Debbie G. Senesky is an Associate Professor at Stanford University in the Aeronautics and Astronautics Department and the Electrical Engineering Department. In addition, she is the Principal Investigator of the EXtreme Environment Microsystems Laboratory (XLab). Her research interests include the development of nanomaterials for extreme harsh environments, high-temperature electronics for Venus exploration, and microgravity synthesis of nanomaterials. In the past, she has held positions at GE Sensing (formerly known as NovaSensor), GE Global Research Center, and Hewlett Packard. She received the B.S. degree (2001) in mechanical engineering from the University of Southern California. She received the M.S. degree (2004) and Ph.D. degree (2007) in mechanical engineering from the University of California, Berkeley. Prof. Senesky is the Site Director of nano@stanford. She is currently the co-editor of two technical journals: IEEE Journal of Microelectromechanical Systems and Sensors. In recognition of her research, she received the Presidential Early Career Award for Scientists and Engineers (PECASE) in 2025, Emerging Leader Abie Award from AnitaB.org in 2018, Early Faculty Career Award from the National Aeronautics and Space Administration (NASA) in 2012, Gabilan Faculty Fellowship Award in 2012, and Sloan Ph.D. Fellowship from the Alfred P. Sloan Foundation in 2004. Prof. Senesky's career path and research has been featured by Scientific American, Seeker, People Behind the Science podcast, The Future of Everything radio show, Space.com, and NPR's Tell Me More program. More information about Prof. Senesky can be found at https://xlab.stanford.edu and on Instagram (@astrodebs).",
+  "profile": "https://profiles.stanford.edu/debbie-senesky",
+  "orgs": [
+   "SoE",
+   "Sustain",
+   "SLAC",
+   "VPDoR",
+   "Bio-X",
+   "Precourt"
+  ],
+  "methods": [
+   "Devices & nanofabrication"
+  ],
+  "domains": [],
+  "native": [
+   "Compute, chips & systems",
+   "Space"
+  ],
+  "cross": []
+ },
+ {
+  "name": "Manan Arya",
+  "slug": "manan-arya",
+  "cluster": "Space & aerospace",
+  "xdomain": "Materials & chemistry",
+  "lab": "Deployable space structures",
+  "lab_url": "https://profiles.stanford.edu/manan-arya",
+  "title": "Assistant Professor of Aeronautics and Astronautics",
+  "interests": "Manan Arya leads the Morphing Space Structures Laboratory. His research is on structures that can adapt their shape to respond to changing requirements. Examples include deployable structures for spacecraft that can stow in constrained volumes for launch and then unfold to larger sizes in space, terrestrial structures with variable geometry, and morphing robots. Key research thrusts include lightweight fiber-reinforced composite materials to enable innovative designs for flexible structures, and the algorithmic generation of the geometry of morphing structures – the arrangement of stiff and compliant elements – to enable novel folding mechanisms. He has published more than 20 journal and conference papers and has been awarded 5 US patents. Prior to joining Stanford, he was a Technologist at the Advanced Deployable Structures Laboratory at the Jet Propulsion Laboratory, California Institute of Technology, where he developed and tested breakthrough designs for space structures, including deployable reflectarrays, starshades, and solar arrays.",
+  "profile": "https://profiles.stanford.edu/manan-arya",
+  "orgs": [
+   "SoE"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [
+   "Materials & chemistry",
+   "Space"
+  ],
+  "native": [
+   "Space"
+  ],
+  "cross": [
+   "Materials & chemistry"
+  ]
+ },
+ {
+  "name": "Maria Sakovsky",
+  "slug": "maria-sakovsky",
+  "cluster": "Space & aerospace",
+  "xdomain": "Materials & chemistry",
+  "lab": "Adaptive space structures",
+  "lab_url": "https://profiles.stanford.edu/maria-sakovsky",
+  "title": "Assistant Professor of Aeronautics and Astronautics",
+  "interests": "Maria Sakovsky's work focuses on the use of shape adaptation to realize space structures with reconfigurable geometry, stiffness, and even non-mechanical performance (e.g., electromagnetic, optical). Particular focus is placed on the mechanics of thin fiber reinforced composite structures, the interplay between composite material properties and structural geometry, as well as embedded functionality and actuation of lightweight structures. The work has led to applications in deployable space structures, reconfigurable antennas, and soft robotics. Maria Sakovsky received her BSc in Aerospace Engineering from the University of Toronto. Following this, she completed her MSc and PhD in Space Engineering at Caltech, where she developed a deployable satellite antenna based on origami concepts utilizing elastomer composites. She concurrently worked with NASA’s Jet Propulsion Laboratory on developing cryogenically rated thin-​ply composite antennas for deep space missions. She was awarded the ETH Zurich Postdoctoral Fellowship in 2018 as well as the DARPA Young Faculty Award in 2024.",
+  "profile": "https://profiles.stanford.edu/maria-sakovsky",
+  "orgs": [
+   "SoE"
+  ],
+  "methods": [
+   "Robotics & embodied"
+  ],
+  "domains": [
+   "Materials & chemistry",
+   "Space"
+  ],
+  "native": [
+   "Space"
+  ],
+  "cross": [
+   "Materials & chemistry"
+  ]
+ },
+ {
+  "name": "Dan Boneh",
+  "slug": "dan-boneh",
+  "cluster": "Security & cryptography",
+  "xdomain": "",
+  "lab": "Applied cryptography group",
+  "lab_url": "https://profiles.stanford.edu/dan-boneh",
+  "title": "Cryptography Professor and Professor of Electrical Engineering",
+  "interests": "Professor Boneh heads the applied cryptography group and co-direct the computer security lab. Professor Boneh's research focuses on applications of cryptography to computer security. His work includes cryptosystems with novel properties, web security, security for mobile devices, and cryptanalysis. He is the author of over a hundred publications in the field and is a Packard and Alfred P. Sloan fellow. He is a recipient of the 2014 ACM prize and the 2013 Godel prize. In 2011 Dr. Boneh received the Ishii award for industry education innovation. Professor Boneh received his Ph.D from Princeton University and joined Stanford in 1997.",
+  "profile": "https://profiles.stanford.edu/dan-boneh",
+  "orgs": [
+   "SoE"
+  ],
+  "methods": [],
+  "domains": [
+   "Security & defense"
+  ],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ },
+ {
+  "name": "James Landay",
+  "slug": "james-landay",
+  "cluster": "AI institutions & capital",
+  "xdomain": "",
+  "lab": "Denning Director, Stanford HAI, which merged with Stanford Data Science on 4 May 2026",
+  "lab_url": "https://hai.stanford.edu/",
+  "title": "Denning Director of Stanford Institute for Human-Centered AI, Anand Rajaraman and Venky Harinarayan Professor and Senior Fellow at the Stanford Institute for Human-Centered AI",
+  "interests": "Landay's current research interests include Technology to Support Behavior Change (especially for health and sustainability), Demonstrational User Interfaces, Mobile & Ubiquitous Computing, Cross-Cultural Interface Design, Human-Centered AI, and User Interface Design Tools. He has developed tools, techniques, and a top professional book on Web Interface Design.",
+  "profile": "https://profiles.stanford.edu/james-landay",
+  "orgs": [
+   "SoE",
+   "H&S",
+   "VPDoR",
+   "Bio-X",
+   "HAI",
+   "WuTsaiNeuro",
+   "WuTsaiHPA"
+  ],
+  "methods": [],
+  "domains": [],
+  "native": [],
+  "cross": []
+ },
+ {
+  "name": "John Hennessy",
+  "slug": "john-hennessy",
+  "cluster": "AI institutions & capital",
+  "xdomain": "",
+  "lab": "Co-chair, HAI advisory council",
+  "lab_url": "https://hai.stanford.edu/",
+  "title": "President Emeritus, Shriram Family Director of the Knight-Hennessy Scholars Program, James F. and Mary Lynn Gibbons Professor and Professor of Electrical Engineering and of Computer Science",
+  "interests": "John L. Hennessy joined Stanford’s faculty in 1977 as an assistant professor of electrical engineering. He rose through the academic ranks to full professorship in 1986 and was the inaugural Willard R. and Inez Kerr Bell Professor of Electrical Engineering and Computer Science from 1987 to 2004. From 1983 to 1993, Dr. Hennessy was director of the Computer Systems Laboratory, a research and teaching center operated by the Departments of Electrical Engineering and Computer Science that fosters research in computer systems design. He served as chair of computer science from 1994 to 1996 and, in 1996, was named dean of the School of Engineering. As dean, he launched a five-year plan that laid the groundwork for new activities in bioengineering and biomedical engineering. In 1999, he was named provost, the university’s chief academic and financial officer. As provost, he continued his efforts to foster interdisciplinary activities in the biosciences and bioengineering and oversaw improvements in faculty and staff compensation. In October 2000, he was inaugurated as Stanford University’s 10th president, a position he held until 2016. In 2016, he cofounded the Knight-Hennessy Scholars Program, which provides scholarships and leadership development for a global community of scholars enrolled in graduate programs at Stanford. The program admitted it's first class in 2018 and will provide full scholarships for up to 100 100 students every year. A pioneer in computer architecture, in 1981 Dr. Hennessy drew together researchers to focus on a computer architecture known as RISC (Reduced Instruction Set Computer), a technology that has revolutionized the computer industry by increasing performance while reducing costs. In addition to his role in the basic research, Dr. Hennessy helped transfer this technology to industry. In 1984, he cofounded MIPS Computer Systems, now MIPS Technologies, which designs microprocessors. In recent years, his research has focused on the architecture of high-performance computers. Dr. Hennessy is a recipient of the 2000 IEEE John von Neumann Medal, the 2000 ASEE Benjamin Garver Lamme Award, the 2001 ACM Eckert-Mauchly Award, the 2001 Seymour Cray Computer Engineering Award, a 2004 NEC C&C Prize for lifetime achievement in computer science and engineering, a 2005 Founders Award from the American Academy of Arts and Sciences and the 2012 IEEE Medal of Honor, IEEE's highest award. He is a member of the National Academy of Engineering and the National Academy of Sciences, and he is a fellow of the American Academy of Arts and Sciences, the Association for Computing Machinery, and the Institute of Electrical and Electronics Engineers. He has lectured and published widely and is the co-author of two internationally used undergraduate and graduate textbooks on computer architecture design. Dr. Hennessy earned his bachelor’s degree in electrical engineering from Villanova University and his master’s and doctoral degrees in computer science from the State University of New York at Stony Brook.",
+  "profile": "https://profiles.stanford.edu/john-hennessy",
+  "orgs": [
+   "SoE"
+  ],
+  "methods": [],
+  "domains": [
+   "Compute, chips & systems"
+  ],
+  "native": [
+   "Compute, chips & systems"
+  ],
+  "cross": []
+ }
+]

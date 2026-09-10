@@ -98,31 +98,88 @@ window.LIBRARY = [
   ]
 },
 {
-  id: "stanford-faculty-census",
+  id: "stanford-frontier-map",
   axis: "new",
   kind: "dashboard",
-  title: "Stanford faculty & lab census",
-  dek: "Every Stanford faculty profile across 21 schools, institutes and centres, with research-interest text. The YC census method pointed at the people within walking distance.",
-  status: "running",
+  title: "Stanford frontier map",
+  dek: "7,394 faculty deduplicated from a 12,827-row census across 21 org units, 86 hand-checked lab nodes, 28 Stanford-linked companies, and an institute co-affiliation matrix built from Stanford's own affiliation records.",
+  status: "live",
   date: "2026-09-10",
   owner: "anshu",
-  tags: ["profiles.stanford.edu", "21 orgs", "crawl in flight"],
+  open: "reports/stanford-frontier-map.html",
+  openLabel: "Open dashboard",
+  tags: ["7,394 faculty", "86 labs", "28 companies", "6 tabs"],
   metrics: [
-    { v: "690", l: "School of Engineering faculty listings" },
-    { v: "189", l: "HAI" },
-    { v: "1,763", l: "Vice Provost & Dean of Research" },
-    { v: "5,156", l: "School of Medicine, the largest listing set" }
+    { v: "0", l: "Unique people added by all 13 institutes — they are pure overlays on department appointments" },
+    { v: "74.8%", l: "Faculty holding no institute seat at all (5,529 of 7,394); 853 hold two or more, one holds six" },
+    { v: "494", l: "Faculty shared by Bio-X and Wu Tsai Neurosciences, the densest institute pair" },
+    { v: "66 of 189", l: "HAI faculty who are Engineering faculty" }
   ],
   body: [
-    ["Why", "Stated aim, verbatim: \"me being at stanford is very powerful. I right now only know chelsea finn and PI. I am sure there are so many more stalwarts out there here doing crazy stuff.\" Same census method as the YC pass, pointed at Stanford instead of a batch list."],
-    ["Method", "profiles.stanford.edu /browse/<org> with ?affiliations=capFaculty&ps=100&p=N, parsed out of the mini-profile-holder list items: slug, name, title, and the research-interest paragraph. Pages are cached to disk so the crawl is resumable. Faculty appearing in several orgs are deduplicated by slug, keeping the longest interest text."],
-    ["Coverage mapped", "21 orgs: SoE 690, H&S 1,395, Medicine 5,156, Doerr Sustainability 357, GSB 149, GSE 122, SLAC 92, VPDoR 1,763, Bio-X 1,151, HAI 189, Sarafan ChEM-H 112, Stanford Data Science 10, Wu Tsai Neurosciences 658, Wu Tsai Human Performance Alliance 364, Precourt 116, Woods 164, PULSE 20, ICME 78, Stem Cell 51, FSI 91, SIEPR 99."],
-    ["Status", "The crawl was live as of 2026-09-10 08:15 in a parallel session. The harvest scripts are preserved here so the method survives that session; the finished dashboard drops into reports/ when it lands and appears on the Reports tab automatically."]
+    ["Why", "Stated aim, verbatim: \"me being at stanford is very powerful. I right now only know chelsea finn and PI. I am sure there are so many more stalwarts out there here doing crazy stuff.\" Scoped to the entire picture — core AI and robotics plus the hard-science frontier — because, in the stated reason, \"often times people use AI and robotics as a tool in powerful sense to crack problems in other domains. I want to see this.\" Cross-domain application is therefore a first-class filter axis, not a footnote."],
+    ["Method, reusable", "Stanford Profiles has an undocumented but public census engine: profiles.stanford.edu/browse/<org-path>?affiliations=capFaculty&ps=100&p=N returns server-rendered listings carrying name, full appointment title and the free-text research-interest field, parseable from <li class=\"mini-profile-holder\"> blocks. ps caps at 100. The org tree itself sits in the define('app-config') JSON blob under c.browseOrgs — 6 schools, 14 institutes, 8 administrations. The CAP API at api.stanford.edu/cap/v1 requires auth and returns 401, and profiles.stanford.edu/proxy/api/cap 404s, so the HTML browse endpoint is the way in. Department sites are not uniform: only ee.stanford.edu uses the Drupal orglist markup with research-area UUID facets, so per-department parsers are not worth building."],
+    ["Census result", "12,827 rows across 21 org units, deduplicated to 7,394 unique faculty, at a 99.8% parse rate against Stanford's own stated result counts. Only 4,369 of 7,394 (59%) filled in the research-interest field, so every keyword-derived number is a floor, not a total. School of Medicine alone is 5,143 of the 7,394."],
+    ["What the affiliation records show, with no inference", "All 13 institutes added zero unique people — they are overlays on department appointments. 5,529 faculty (74.8%) hold no institute seat; 853 hold two or more; one person holds six. Bio-X and Wu Tsai Neurosciences share 494 faculty. HAI shares 77 with Bio-X and 49 with Wu Tsai Neuro, but only 4 with Precourt (energy) and 2 with Sarafan ChEM-H. On Stanford's own data the AI institute overlaps heavily with bio and neuro and barely touches energy or chemical biology."],
+    ["The cross-domain evidence", "The Stanford Robotics Center's 42-faculty roster includes appointments in Oceans, Pathology, Surgery, Radiology, Chemical Engineering and Civil Engineering. That is the cleanest available evidence for the cross-domain reading, and it comes from a roster rather than from keyword matching."],
+    ["Stated limits — read these before quoting a count", "The regex method-by-domain classifier ran at roughly two-in-three precision on hand inspection: clinical faculty trip on \"robotic surgery\" and then an unrelated second keyword trips a domain. Those counts were demoted in the deliverable, the precision limit is labelled inline, and all 128 flagged names are published with profile links so they can be judged directly. The institute co-affiliation matrix is the reliable signal instead. Two census gaps are named openly: Dan Jurafsky, an active CS and Linguistics professor, does not appear in the harvest at all; and Christopher Manning's harvested title reads as Linguistics emeritus, because a person with several appointments shows only whichever listing caught them."],
+    ["Deferred to a second pass", "Per-lab grant dollar amounts, affiliate fee schedules beyond HAI's stated $550K, the full StartX and alumni company set, and techfinder.stanford.edu's licensable-technology listings across its four collections."]
   ],
   files: [
+    { p: "reports/stanford-frontier-map.html", d: "The dashboard — six tabs, self-contained, 272 KB" },
+    { p: "reports/stanford-faculty-census/method-and-findings.md", d: "Full method notes, findings and stated limits" },
     { p: "reports/stanford-faculty-census/harvest.py", d: "Resumable crawler and parser" },
-    { p: "reports/stanford-faculty-census/org_counts.json", d: "The 21 org paths and their faculty counts" },
-    { p: "reports/stanford-faculty-census/orgs.py", d: "Org discovery" }
+    { p: "reports/stanford-faculty-census/nodes.json", d: "The 86 lab nodes" },
+    { p: "reports/stanford-faculty-census/companies.json", d: "The 28 companies with per-row sources" },
+    { p: "reports/stanford-faculty-census/theses.json", d: "Cluster theses and market-size layer" },
+    { p: "reports/stanford-faculty-census/org_counts.json", d: "The 21 org paths and their faculty counts" }
+  ]
+},
+{
+  id: "stanford-money-layer",
+  axis: "money",
+  kind: "brief",
+  title: "What Stanford research money actually looks like",
+  dek: "Sponsored research, the corporate-affiliate mechanics, and the 2026 valuations of the companies that came out of the labs.",
+  status: "current",
+  date: "2026-09-10",
+  owner: "anshu",
+  open: "reports/stanford-frontier-map.html",
+  openLabel: "Open the companies tab",
+  tags: ["$2.3B", "28 companies", "sourced 2026-09-10"],
+  metrics: [
+    { v: "$2.3B", l: "Stanford sponsored research, FY ended 2025-08-31, incl. SLAC — over 70% federal, 7,500+ awards" },
+    { v: "$550K", l: "The stated HAI \"Wallet\" of research tokens per corporate affiliate, directable to a named lab" },
+    { v: "$120B", l: "StartX reported portfolio valuation — zero equity taken, no fees charged" },
+    { v: "35", l: "SystemX Alliance members, incl. Apple, TSMC, Samsung, Tencent, Ant Group, Bosch, Caterpillar" }
+  ],
+  body: [
+    ["The institutional change of the year", "Stanford HAI absorbed Stanford Data Science on 4 May 2026, keeping the HAI name: 400+ scholars, $60M in cumulative grants, and the Marlowe HPC cluster. James Landay is Denning Director; Fei-Fei Li and John Hennessy co-chair the advisory council. In the census, Stanford Data Science still shows only 10 faculty of its own."],
+    ["Company facts, all web-retrieved 2026-09-10 — cite the outlet, not this card", "Physical Intelligence: $5.6B confirmed at the Nov 2025 $600M Series B led by Google CapitalG, $1.6B total across two rounds per Dealroom; Bloomberg reported March 2026 talks above $11B, not confirmed closed. World Labs: $5B after $1B closed 18 Feb 2026, about $1.23B total, with Autodesk putting in $200M and taking a strategic advisory role alongside NVIDIA and AMD. Together AI: $8.3B at an $800M Series C, July 2026, claiming over $1.15B in annual bookings — Chris Ré and Percy Liang are co-founders. SambaNova: $11B post-money at the Series F first close of $1B on 8 July 2026 led by General Atlantic — Kunle Olukotun and Chris Ré are co-founders. Shield AI: $12.7B, March 2026; co-founder Ryan Tseng holds a Stanford AI PhD. Dexterity: $1.65B, founded by Samir Menon out of Oussama Khatib's lab."],
+    ["Smaller and less reported", "Genesis Therapeutics $806.79M per Forge Global — out of Vijay Pande's lab, founded by Evan Feinberg and Ben Sklaroff, with Pande now the a16z general partner whose firm led its Series A. Inertia: $450M milestone-based Series A, Feb 2026, from Bessemer and GV, co-founded by Mike Dunne who directed SLAC's Linac Coherent Light Source. Astranis: over $1.2B raised, valuation above $2B, prime on the DoD programs of record PTS-G, Resilient GPS and Andromeda. Human Intelligence: James Zou reported raising about $100M at roughly $1B, April 2026, unconfirmed. Pumpkinseed Bio: $20M Series A, with Jen Dionne both the source researcher and the CEO. Amprius (NYSE: AMPX): 2025 revenue $73M, guiding above $125M for 2026."],
+    ["Two people worth noting for how they operate", "Yi Cui has founded five companies — Amprius, EnerVenue, EEnotech, 4C Air, LifeLabs Design — and is faculty director of the Sustainability Accelerator. H.-S. Philip Wong has been TSMC's Chief Scientist in an advisory role since 2020 while remaining Stanford faculty."],
+    ["Stanford's own taxonomy of the frontier", "The Stanford Emerging Technology Review 2026 frames it as exactly ten areas: AI, biotech and synthetic biology, cryptography and computer security, energy, materials, neuroscience, quantum, robotics, semiconductors, space."]
+  ]
+},
+{
+  id: "market-size-spread",
+  axis: "macro",
+  kind: "brief",
+  title: "The market-size estimates disagree by up to 8.4×, and the spread is the finding",
+  dek: "Four research firms sizing the same 2026 market do not agree within an order of magnitude. One number in the sector is firm: hyperscaler capex.",
+  status: "current",
+  date: "2026-09-10",
+  owner: "anshu",
+  tags: ["estimates", "8.4x spread", "capex"],
+  metrics: [
+    { v: "$725–800B", l: "2026 hyperscaler capex guided by five operators — roughly 3× the ~$238B of 2024" },
+    { v: "55–60%", l: "Share of that capex flowing to NVIDIA" },
+    { v: "8.4×", l: "AI drug discovery 2026: $2.9B (Grand View) to $24.51B (Towards Healthcare)" },
+    { v: "2.3×", l: "Grid-scale battery storage 2026: $8.32B to $19.09B across four firms" }
+  ],
+  body: [
+    ["What the spread means in practice", "Quantum computing 2026 is sized between $1.82B and $5.09B, and the high 2026 estimate already exceeds QED-C's $3B-by-2028 revenue projection — so the two cannot be measuring the same thing. When four firms sizing one market land eight times apart, the number is not a measurement; it is a definition choice about what counts as in-scope revenue. Any deck built on a single sourced TAM figure inherits that choice silently."],
+    ["The one firm number", "Hyperscaler 2026 capex, at $725–800B guided by five named operators, is a company-guided figure rather than a modelled one, roughly tripling the ~$238B of 2024, with 55–60% flowing to NVIDIA. It is the largest single capital flow in the sector and the one with the least estimation risk."],
+    ["Convention adopted from this", "Where a market size appears anywhere in this portal it carries its source and its date, and it is labelled an estimate with its basis. Where firms disagree materially, the range is shown rather than a midpoint."]
   ]
 },
 

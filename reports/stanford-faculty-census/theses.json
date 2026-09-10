@@ -1,0 +1,126 @@
+{
+ "note": "Each cluster carries (a) what is observably happening, (b) who is paying, (c) a market-size figure with its source and the arithmetic, and (d) what the Stanford-linked equity in that cluster adds up to. Market-size figures are third-party research-firm estimates; where firms disagree the spread is shown rather than a single number, because the spread is itself information. Arithmetic marked 'my calculation' is division and addition over the cited figures, nothing more.",
+ "clusters": [
+  {
+   "id":"robotics",
+   "name":"Robotics & physical AI",
+   "observation":"Stanford opened a dedicated Robotics Center in autumn 2024 with six test bays built as a kitchen, bedroom, hospital and warehouse. Its faculty roster of 42 includes people appointed in Oceans, Pathology, Surgery, Radiology, Chemical Engineering and Civil Engineering, not only CS, EE, ME and Aero/Astro. The centre is an overlay on existing departments rather than a new department.",
+   "who_pays":"Venture capital for the spinouts (CapitalG, Thrive, Lux, Kleiner Perkins, Lightspeed, Sumitomo); federal grants for the labs; corporate affiliate fees via SystemX, whose 35 members include Apple, TSMC, Samsung, Bosch, Caterpillar and Tencent.",
+   "market_size":"Humanoid robots in 2026 estimated at $5.41B (MarketsandMarkets), $6.09B (Straits Research) and $6.24B (Fortune Business Insights), with 2026-2034/35 CAGRs quoted between 28.1% and 50.6%. A separate industry report puts the total robotics market at $38B in 2026.",
+   "arithmetic":"Physical Intelligence ($5.6B confirmed) plus Dexterity ($1.65B) equals $7.25B of Stanford-linked private valuation. Against the $38B stated total robotics market that is 19.1%; against the $5.41B-$6.24B humanoid market it is 116%-134%. My calculation. Both companies together are therefore valued at more than the entire current humanoid market they are usually grouped with, which means the valuations are priced on future capability rather than present revenue.",
+   "stanford_equity":7250000000,
+   "sources":["https://www.marketsandmarkets.com/PressReleases/humanoid-robot.asp","https://www.roboticscenter.ai/state-of-robotics-2026","https://news.stanford.edu/stories/2024/11/meet-few-roboticists-designing-tomorrows-technology-new-robotics-center"]
+  },
+  {
+   "id":"world",
+   "name":"World models & spatial AI",
+   "observation":"World Labs went from a $1B seed valuation in September 2024 to $5B in February 2026, and shipped Marble publicly on 12 November 2025. Fei-Fei Li's stated thesis is that language models have no native model of geometry, persistence, occlusion or gravity, so the LLM paradigm is the wrong shape for robots and simulated environments.",
+   "who_pays":"NVIDIA, AMD and Autodesk are all strategic rather than purely financial investors; Autodesk put in $200M and took a strategic advisory role. That is chip vendors and a CAD incumbent buying position in the same category.",
+   "market_size":"No established third-party market-size series exists for 'spatial intelligence' or 'world models' as a category. The adjacent measurable pools are CAD/simulation software and game engines, neither of which the research firms have relabelled.",
+   "arithmetic":"$5B of valuation against zero published category market size. My observation, not an estimate: this cluster is priced entirely on the thesis, because there is no revenue series to divide by.",
+   "stanford_equity":5000000000,
+   "sources":["https://www.worldlabs.ai/blog/funding-2026","https://valueaddvc.com/blog/world-labs-valuation-what-fei-fei-lis-spatial-intelligence-startup-is-worth-at-5b"]
+  },
+  {
+   "id":"compute",
+   "name":"AI compute, chips & infrastructure",
+   "observation":"Two of the largest Stanford-faculty-founded companies are both in the compute layer rather than the model layer: SambaNova (Olukotun, Re) and Together AI (Re, Liang). H.-S. Philip Wong has been Chief Scientist of TSMC in an advisory capacity since 2020 while remaining Stanford faculty.",
+   "who_pays":"Hyperscaler capital expenditure, and General Atlantic and Salesforce Ventures at the equity level. The five largest operators (Amazon, Alphabet, Microsoft, Meta, Oracle) have guided to a combined $725B-$800B of 2026 capex, roughly three times the ~$238B deployed in 2024, of which about 75% is AI-specific.",
+   "market_size":"2026 hyperscaler capex $725B-$800B guided. Of combined hyperscaler AI capex, roughly 55-60% is reported to flow directly or indirectly to NVIDIA, 7-9% to AMD, and 8-10% to TSMC for custom silicon.",
+   "arithmetic":"SambaNova ($11B) plus Together AI ($8.3B) equals $19.3B of Stanford-linked private valuation, which is 2.4%-2.7% of a single year of guided hyperscaler capex. My calculation. Put the other way: the alternative-silicon and neocloud challengers founded by two Stanford professors are together worth about one per cent of what the incumbents plan to spend in one year.",
+   "stanford_equity":19300000000,
+   "sources":["https://alcapitaladvisory.com/research/intelligence/ai-infrastructure.html","https://quantflowlab.com/ai-semiconductor-spending/","https://techcrunch.com/2026/07/01/neocloud-together-ai-raises-800m-leaps-to-8-3b-valuation/"]
+  },
+  {
+   "id":"drug",
+   "name":"AI for drug discovery & molecules",
+   "observation":"Stanford has both the method side (Ron Dror on ML plus molecular simulation, Possu Huang on protein design) and a commercial exit path that runs through a16z: Genesis Therapeutics came out of Vijay Pande's Stanford lab, and Pande is now a general partner at a16z, which led Genesis's Series A.",
+   "who_pays":"Pharma milestone money more than venture equity. Genesis has a Genentech partnership from 2020 and an Eli Lilly deal from 2022 with $20M upfront and up to $670M in potential milestones, against $304M of equity raised in total.",
+   "market_size":"2026 estimates for AI in drug discovery range from $2.9B (Grand View Research) to $4.0B (Global Market Insights) to $5.0B (Fortune Business Insights) to $24.51B (Towards Healthcare). That is an 8.4x spread between the lowest and highest published 2026 figure.",
+   "arithmetic":"Genesis at $806.79M is 27.8% of the lowest published 2026 market estimate and 3.3% of the highest. My calculation. The 8.4x disagreement between research firms is the finding: the category boundary (software tools only, versus the value of the resulting drug pipelines) is not agreed, so any single market-size number for this cluster is a choice of definition.",
+   "stanford_equity":806790000,
+   "sources":["https://www.grandviewresearch.com/industry-analysis/artificial-intelligence-drug-discovery-market","https://www.towardshealthcare.com/insights/artificial-intelligence-in-drug-discovery","https://forgeglobal.com/genesis-therapeutics_stock/"]
+  },
+  {
+   "id":"clinical",
+   "name":"AI for clinical medicine",
+   "observation":"This is the largest cluster by headcount and the smallest by disclosed market size. The School of Medicine alone accounts for 5,143 of Stanford's 7,394 faculty, and 917 Medicine faculty hold a Bio-X affiliation. James Zou's route is instructive: an FDA-cleared cardiac model (EchoNet) and a Nature paper first, a company second.",
+   "who_pays":"NIH and federal grants for the research; venture for the spinouts; and the health systems themselves as eventual buyers. Stanford's total sponsored research was $2.3B in the fiscal year ended 31 August 2025, with over 70% federally sponsored.",
+   "market_size":"AI in medical imaging in 2026 estimated at $2.20B (Coherent Market Insights) and $2.4B (a second firm), with CAGRs of 26.7%-34.8% to 2033.",
+   "arithmetic":"Human Intelligence targeting roughly $1B while raising about $100M equals 42%-45% of the entire 2026 imaging-AI market size, at a company with no disclosed revenue. My calculation. The gap between 4,929 faculty whose stated interests touch health and a $2.2B software market is the structural fact of this cluster: the research supply is enormous and the software market it feeds is small.",
+   "stanford_equity":1000000000,
+   "sources":["https://www.coherentmarketinsights.com/industry-reports/ai-in-medical-imaging-market","https://facts.stanford.edu/research","https://www.bloomberg.com/news/articles/2026-04-24/stanford-professor-targets-1-billion-valuation-for-ai-for-physiology-startup"]
+  },
+  {
+   "id":"neuro",
+   "name":"Neurotechnology & brain interfaces",
+   "observation":"Stanford's position here is the clinical evidence base rather than an equity stake. The Neural Prosthetics Translational Lab, founded in 2009 by Krishna Shenoy (died 2023) and Jaimie Henderson, set the intracortical BCI communication records; Henderson and Frank Willett are now named research partners of Paradromics, not founders of it.",
+   "who_pays":"A mix that is unusual in this map: Paradromics holds $18M in NIH and DARPA grants alongside $105M+ of venture. Science Corp's Series C investors include IQT, the CIA-linked venture arm, alongside Lightspeed and Khosla.",
+   "market_size":"Brain-computer interface market in 2026 estimated at $2.75B (Coherent Market Insights) and $3.75B (Precedence Research), growing at 14.6%-16.7%.",
+   "arithmetic":"Total disclosed private capital in the two named companies is roughly $613M ($490M plus $123M), against a $2.75B-$3.75B stated 2026 market. My calculation. Note the mismatch with the clinical reality: the field's headline results are single-digit patient counts, so the 'market' figure is not being generated by implanted-device revenue.",
+   "stanford_equity":0,
+   "sources":["https://www.coherentmarketinsights.com/market-insight/brain-computer-interface-market-4467","https://paradromics.com/news/paradromics-receives-fda-approval-for-the-connect-one-clinical-study-with-the-connexus-brain-computer-interface/","https://nptl.stanford.edu/"]
+  },
+  {
+   "id":"energy",
+   "name":"Energy storage, fusion & materials",
+   "observation":"One Stanford professor, Yi Cui, has founded five companies (Amprius, EnerVenue, EEnotech, 4C Air, LifeLabs Design) and is faculty director of the Sustainability Accelerator, which has awarded nearly $5M across teams in 22 departments. Separately, Mike Dunne left the directorship of SLAC's Linac Coherent Light Source to co-found a fusion company.",
+   "who_pays":"For storage, public markets and defence/aviation customers: Amprius trades on the NYSE and sells into aviation and defense. For fusion, milestone-based venture: Bessemer led Inertia's $450M Series A with GV participating. Precourt Institute for Energy has 116 faculty and only 4 of them also hold an HAI affiliation.",
+   "market_size":"Grid-scale battery storage in 2026 estimated at $8.32B, $11.8B, $16.9B and $19.09B by four different firms, a 2.3x spread. Physical deployment is less ambiguous: 353.4 GWh of storage expected to be added in 2026, and BESS shipments rose 75.5% to 421.2 GWh in 2025 with roughly 600 GWh projected for 2026.",
+   "arithmetic":"Amprius revenue went from roughly $24M implied in 2024 to $73M in 2025 to company guidance above $125M for 2026, i.e. roughly 3x then roughly 1.7x. My calculation from the reported figures. Against 600 GWh of projected 2026 BESS shipments, the deployment series is growing faster than the dollar market-size estimates suggest, because cell prices are falling.",
+   "stanford_equity":null,
+   "sources":["https://www.fortunebusinessinsights.com/industry-reports/grid-scale-battery-market","https://energyindustryreview.com/power/battery-storage-capacity-record-growth-and-trends-in-2026/","https://markets.financialcontent.com/stocks/article/finterra-2026-3-13-amprius-technologies-ampx-the-silicon-anode-inflection-point"]
+  },
+  {
+   "id":"space",
+   "name":"Space & defence autonomy",
+   "observation":"Stanford's aero/astro faculty work on the technical layer (Simone D'Amico on rendezvous, Manan Arya and Maria Sakovsky on deployable structures, Grace Gao on navigation) while the capital has gone to alumni-founded companies. Reported student preference has shifted: Palantir, Anduril and defense-selling startups are described as the sought-after destinations.",
+   "who_pays":"The Department of Defense, directly. Astranis is a prime on multiple DoD programs of record (PTS-G, Resilient GPS, Andromeda), which is contract revenue rather than venture runway; its equity investors include a16z, BlackRock-affiliated funds, Baillie Gifford and Fidelity.",
+   "market_size":"No single figure retrieved for this pass. The comparators are the private valuations themselves: Anduril $61B at a $5B raise (May 2026), Shield AI $12.7B at a $2B raise (March 2026), Astranis above $2B.",
+   "arithmetic":"Anduril plus Shield AI equals $73.7B of private defence-tech valuation, against Astranis at just above $2B, i.e. Astranis is roughly 2.7% of those two combined. My calculation. Stanford's direct equity exposure here is via alumni founders, not faculty spinouts, which is a different transmission mechanism from robotics or compute.",
+   "stanford_equity":14700000000,
+   "sources":["https://www.astranis.com/blog/series-e-raise-advanced-high-orbit-spacecraft","https://valueaddvc.com/blog/defense-tech-in-2025-the-startups-building-the-future-of-national-security","https://sfstandard.com/2025/03/12/stanford-students-want-in-on-the-military-tech-gold-rush/"]
+  },
+  {
+   "id":"quantum",
+   "name":"Quantum & photonics",
+   "observation":"Stanford has the device physics (Jelena Vuckovic's Nanoscale and Quantum Photonics Lab, Amir Safavi-Naeini's LINQS Lab) and a joint Stanford-SLAC initiative in Q-FARM, but no large Stanford-founded quantum company surfaced in this pass. Of the 21 faculty whose stated interests mention quantum methods, the commercialisation path is not visible in the funding record.",
+   "who_pays":"Federal science funding and national quantum centres (Stanford Applied Physics faculty are founding members of the Q-NEXT national centre), plus Q-FARM's own seed-grant programme. Not venture, at least not yet.",
+   "market_size":"2026 quantum computing market estimated at $1.82B, $1.9B and $5.09B by three firms. QED-C's State of the Global Quantum Industry 2026 report projects the market doubling by 2028 to reach $3B in revenue.",
+   "arithmetic":"Two of the three 2026 estimates ($1.82B, $1.9B) are consistent with QED-C's $3B-by-2028 projection; the third ($5.09B for 2026) already exceeds the 2028 projection. My observation: the 2.8x spread and the internal contradiction mean the quantum market figures cannot all be measuring the same thing, and the honest read is QED-C's, which is revenue rather than 'market'.",
+   "stanford_equity":0,
+   "sources":["https://thequantuminsider.com/2026/04/14/global-quantum-computing-market-to-double-by-2028-reaching-3-billion-in-revenue-qed-c-state-of-the-global-quantum-industry-2026-report-finds/","https://www.precedenceresearch.com/quantum-computing-market","https://qfarm.stanford.edu/"]
+  },
+  {
+   "id":"student",
+   "name":"Student & dropout companies",
+   "observation":"A visible 2026 pattern of Stanford students leaving to raise seed rounds: Carina Hong left graduate study in March 2026 and raised $64M for Axiom Math, hiring from Meta FAIR, Meta GenAI and Google Brain. Two Stanford students separately launched a $2M accelerator for student founders nationally in February 2026. StartX, the Stanford-affiliated accelerator, takes zero equity and charges no fees.",
+   "who_pays":"Seed funds and angels, and in several cases Y Combinator. StartX itself is unusual: no fee, no equity, funded through the Stanford-StartX Fund structure.",
+   "market_size":"StartX reports a total portfolio valuation of $120B with an average of $42M raised per company; as of May 2026 roughly 123 startups supported with 5 unicorns and 32 exits, while the wider StartX community reached 1,300 companies by 2025 with 20 unicorns and 165 companies valued above $100M.",
+   "arithmetic":"Of the six named 2026 student or dropout rounds found in this pass, disclosed totals are $64M (Axiom Math), $10M (Known), $8M (Phia), $4.5M (Willow), $4.1M (Golpo), summing to $90.6M. Axiom Math alone is 70.6% of that. My calculation. The distribution is concentrated: one AI-for-mathematics company accounts for most of the visible student-founder capital.",
+   "stanford_equity":null,
+   "sources":["https://spotlightonstartups.com/young-ai-founders-raising-millions-in-2026-how-teenagers-and-students-are-building-the-future-of-artificial-intelligence/","https://tracxn.com/d/accelerator-incubator/startx/__gxYoGzqu_WhoNA3T186PTnxju_ddH2nwu2Eng3OAiT0","https://techcrunch.com/2026/02/02/two-stanford-students-launch-2m-startup-accelerator-for-students-nationwide/"]
+  }
+ ],
+ "timeline": [
+  {"date":"2024-09","label":"World Labs seed at a $1B valuation","kind":"company"},
+  {"date":"2024-11","label":"Stanford Robotics Center opens with six test bays (kitchen, bedroom, hospital, warehouse)","kind":"institution"},
+  {"date":"2025-03","label":"Dexterity reaches $1.65B on a $95M round led by Lightspeed and Sumitomo","kind":"company"},
+  {"date":"2025-05","label":"Snorkel AI Series D at $1.3B post-money","kind":"company"},
+  {"date":"2025-08","label":"Stanford fiscal year ends: $2.3B total sponsored research including SLAC, over 70% federal","kind":"money"},
+  {"date":"2025-11","label":"Physical Intelligence $600M Series B at $5.6B, led by Google CapitalG","kind":"company"},
+  {"date":"2025-11","label":"World Labs ships Marble publicly","kind":"company"},
+  {"date":"2026-02","label":"Inertia (ex-SLAC LCLS director Mike Dunne) raises a $450M milestone-based Series A from Bessemer and GV","kind":"company"},
+  {"date":"2026-02","label":"World Labs closes $1B at a $5B valuation","kind":"company"},
+  {"date":"2026-02","label":"SambaNova announces a $350M+ strategic Series E","kind":"company"},
+  {"date":"2026-02","label":"Two Stanford students launch a $2M accelerator for student founders","kind":"institution"},
+  {"date":"2026-03","label":"Shield AI raises $2B at $12.7B; Physical Intelligence reported in talks above $11B","kind":"company"},
+  {"date":"2026-03","label":"Science Corp raises a $230M Series C, taking total funding to about $490M","kind":"company"},
+  {"date":"2026-04","label":"James Zou reported targeting roughly $1B for Human Intelligence","kind":"company"},
+  {"date":"2026-05","label":"Stanford HAI and Stanford Data Science merge into one institute on 4 May, keeping the HAI name: 400+ scholars, $60M cumulative grant funding, the Marlowe HPC cluster","kind":"institution"},
+  {"date":"2026-05","label":"Astranis announces $450M, taking total raised above $1.2B","kind":"company"},
+  {"date":"2026-07","label":"Together AI raises $800M at $8.3B","kind":"company"},
+  {"date":"2026-07","label":"SambaNova Series F first close: $1B at $11B post-money, led by General Atlantic","kind":"company"},
+  {"date":"2026-08","label":"Simile raises a $200M Series B at $2B, five months after a $100M Series A","kind":"company"}
+ ]
+}

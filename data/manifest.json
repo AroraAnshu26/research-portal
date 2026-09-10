@@ -1,11 +1,67 @@
 {
  "static": true,
- "builtAt": "2026-09-10T15:39:30.088Z",
+ "builtAt": "2026-09-10T15:42:06.795Z",
  "authors": [
   "anshu",
   "veer"
  ],
  "reports": [
+  {
+   "p": "reports/stanford-faculty-census/method-and-findings.md",
+   "name": "method-and-findings.md",
+   "ext": ".md",
+   "bytes": 8748,
+   "mtime": 1789054836780.0254
+  },
+  {
+   "p": "reports/stanford-faculty-census/companies.json",
+   "name": "companies.json",
+   "ext": ".json",
+   "bytes": 17675,
+   "mtime": 1789054836728.4158
+  },
+  {
+   "p": "reports/stanford-faculty-census/theses.json",
+   "name": "theses.json",
+   "ext": ".json",
+   "bytes": 18949,
+   "mtime": 1789054836676.7463
+  },
+  {
+   "p": "reports/stanford-faculty-census/nodes.json",
+   "name": "nodes.json",
+   "ext": ".json",
+   "bytes": 129830,
+   "mtime": 1789054836624.6182
+  },
+  {
+   "p": "reports/stanford-faculty-census/nodes.py",
+   "name": "nodes.py",
+   "ext": ".py",
+   "bytes": 12067,
+   "mtime": 1789054836566.9214
+  },
+  {
+   "p": "reports/stanford-faculty-census/classify2.py",
+   "name": "classify2.py",
+   "ext": ".py",
+   "bytes": 8418,
+   "mtime": 1789054836516.1797
+  },
+  {
+   "p": "reports/stanford-faculty-census/build.py",
+   "name": "build.py",
+   "ext": ".py",
+   "bytes": 39785,
+   "mtime": 1789054836461.0217
+  },
+  {
+   "p": "reports/stanford-frontier-map.html",
+   "name": "stanford-frontier-map.html",
+   "ext": ".html",
+   "bytes": 272422,
+   "mtime": 1789054836401.6438
+  },
   {
    "p": "reports/stanford-faculty-census/probe2.py",
    "name": "probe2.py",
@@ -81,16 +137,16 @@
   "anshu": [
    {
     "date": "2026-09-10",
-    "bytes": 1335,
-    "words": 232,
+    "bytes": 2475,
+    "words": 417,
     "preview": "Two censuses running the same method against two different populations. YC's directory gave the capital-and-fashion read; Stanford's faculty",
-    "mtime": 1789053936019.3132
+    "mtime": 1789054926669.311
    }
   ],
   "veer": []
  },
  "contents": {
-  "anshu/2026-09-10": "# 10 September 2026 — Thursday\n\nTwo censuses running the same method against two different populations. YC's directory\ngave the capital-and-fashion read; Stanford's faculty directory gives the people read.\nBoth are just \"scrape the public index, classify, then look at the diff over time.\"\n\n> The assurance seam is no longer empty. Roughly seven to eight YC entrants in the\n> 2025–26 batches are in it — Robocurve, Physical Turing, One Robot, Valgo, Risklytics,\n> PRINCEPS, Hebbian Robotics, Standard Machines. That is a fact about the uncrowdedness\n> axis on nodes C1, W4 and L3, and those need re-scoring before they get ranked.\n\n> Agentic language peaked at 50.8% of the batch in Spring 2026 and has fallen two batches\n> in a row, to 32.6%. Robotics went the other way over the same window. First sustained\n> decline in the term since it appeared.\n\n? Does the Fall 2026 crypto RFS request mean YC is calling a bottom, or is it a hedge?\n  Five crypto companies across eleven batches against fifteen in W22+S22 alone.\n\n? Which of the 21 Stanford orgs actually contains the people doing frontier work —\n  raw faculty counts are dominated by Medicine (5,156) and that is not the signal.\n\nSet the portal up today. Columns are the five mandate axes so a thin column reads as a\ngap in the worldview rather than as a vague feeling.\n"
+  "anshu/2026-09-10": "# 10 September 2026 — Thursday\n\nTwo censuses running the same method against two different populations. YC's directory\ngave the capital-and-fashion read; Stanford's faculty directory gives the people read.\nBoth are just \"scrape the public index, classify, then look at the diff over time.\"\n\n> The assurance seam is no longer empty. Roughly seven to eight YC entrants in the\n> 2025–26 batches are in it — Robocurve, Physical Turing, One Robot, Valgo, Risklytics,\n> PRINCEPS, Hebbian Robotics, Standard Machines. That is a fact about the uncrowdedness\n> axis on nodes C1, W4 and L3, and those need re-scoring before they get ranked.\n\n> Agentic language peaked at 50.8% of the batch in Spring 2026 and has fallen two batches\n> in a row, to 32.6%. Robotics went the other way over the same window. First sustained\n> decline in the term since it appeared.\n\n? Does the Fall 2026 crypto RFS request mean YC is calling a bottom, or is it a hedge?\n  Five crypto companies across eleven batches against fifteen in W22+S22 alone.\n\n? Which of the 21 Stanford orgs actually contains the people doing frontier work —\n  raw faculty counts are dominated by Medicine (5,156) and that is not the signal.\n\nSet the portal up today. Columns are the five mandate axes so a thin column reads as a\ngap in the worldview rather than as a vague feeling.\n\nStanford pass landed the same day. The finding I did not expect:\n\n> All 13 Stanford institutes add **zero** unique people to the faculty census. They are\n> overlays on department appointments, not populations. 74.8% of faculty hold no institute\n> seat at all. So \"which institute is doing X\" is the wrong question — the co-affiliation\n> matrix is the real structure, and HAI overlaps heavily with bio and neuro (77 with Bio-X,\n> 49 with Wu Tsai Neuro) while touching energy almost not at all (4 with Precourt).\n\n> The Stanford Robotics Center roster carries appointments in Oceans, Pathology, Surgery,\n> Radiology, Chemical Engineering and Civil Engineering. That is roster evidence for the\n> cross-domain read, not keyword evidence.\n\n? Four research firms size AI drug discovery 2026 between $2.9B and $24.51B — 8.4x apart.\n  When that happens the number is a definition choice, not a measurement. Which means any\n  deck citing one sourced TAM inherits someone's scoping decision silently. Worth a rule.\n\nOnly firm number in the whole sector: $725–800B of 2026 hyperscaler capex, company-guided,\n~3x 2024, 55–60% of it to NVIDIA.\n"
  },
  "userCards": []
 }
