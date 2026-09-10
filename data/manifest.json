@@ -1,11 +1,18 @@
 {
  "static": true,
- "builtAt": "2026-09-10T15:42:06.795Z",
+ "builtAt": "2026-09-10T19:28:54.209Z",
  "authors": [
   "anshu",
   "veer"
  ],
  "reports": [
+  {
+   "p": "reports/agent-system-plan-2026-09-10.md",
+   "name": "agent-system-plan-2026-09-10.md",
+   "ext": ".md",
+   "bytes": 92087,
+   "mtime": 1789062788056.3032
+  },
   {
    "p": "reports/stanford-faculty-census/method-and-findings.md",
    "name": "method-and-findings.md",

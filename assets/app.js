@@ -17,6 +17,8 @@
     online: false,      // server.mjs is answering — reads and writes go to disk
     snapshot: null,     // data/manifest.json — static host, reads work, writes are local
     author: localStorage.getItem("portal.author") || "anshu",
+    density: localStorage.getItem("portal.density") || "compact",
+    closed: JSON.parse(localStorage.getItem("portal.closed") || "{}"),
     date: null,
     meta: { logs: { anshu: [], veer: [] }, reports: [], userCards: [] },
     cards: []
@@ -72,6 +74,12 @@
 
   /* ───────────────────────── cards ───────────────────────── */
 
+  var PROV_LABEL = {
+    "own-prior-work": "your prior work",
+    "web-2026-09-10": "new to you",
+    "agent": "agent output"
+  };
+
   function allCards() {
     var user = (STATE.meta.userCards || []).map(function (c) {
       return {
@@ -79,10 +87,15 @@
         status: c.status || "current", date: c.date, owner: c.owner || STATE.author,
         open: c.open || "", openLabel: c.open ? "Open" : "",
         tags: c.tags || [], metrics: [], userAdded: true,
-        body: c.body ? [["Notes", c.body]] : []
+        body: c.body ? [["Notes", c.body]] : [],
+        prov: { kind: "own-prior-work", note: "Added by you from the portal on " + (c.date || "") + "." }
       };
     });
-    return user.concat(window.LIBRARY || []);
+    var curated = (window.LIBRARY || []).map(function (c) {
+      var p = (window.PROVENANCE || {})[c.id];
+      return p ? Object.assign({}, c, { prov: p }) : c;
+    });
+    return user.concat(curated);
   }
 
   function cardText(c) {
@@ -95,7 +108,8 @@
 
   function stClass(s) {
     var k = String(s || "").split(" ")[0].toLowerCase();
-    return "st st-" + (["live", "running", "current", "done", "closed", "planned", "ready"].indexOf(k) >= 0 ? k : "current");
+    var known = ["live", "running", "current", "done", "closed", "planned", "ready", "build", "blocked"];
+    return "st st-" + (known.indexOf(k) >= 0 ? k : "current");
   }
 
   function renderBoard() {
@@ -115,20 +129,29 @@
       var col = el("div", "col");
       col.setAttribute("data-axis", ax.id);
       var mine = visible.filter(function (c) { return c.axis === ax.id; });
+      var shut = STATE.closed[ax.id];
+      if (shut) col.classList.add("shut");
 
-      var h = el("div", "col-h");
+      var h = el("button", "col-h");
+      h.title = shut ? "Show this column" : "Collapse this column";
       var t = el("div", "t");
       t.appendChild(el("span", null, ax.label));
-      t.appendChild(el("span", "c", String(mine.length)));
+      t.appendChild(el("span", "c", (shut ? "+" : "") + mine.length));
       h.appendChild(t);
-      h.appendChild(el("div", "b", ax.blurb));
+      if (!shut) h.appendChild(el("div", "b", ax.blurb));
+      h.onclick = function () {
+        STATE.closed[ax.id] = !STATE.closed[ax.id];
+        localStorage.setItem("portal.closed", JSON.stringify(STATE.closed));
+        renderBoard();
+      };
       col.appendChild(h);
 
-      mine.forEach(function (c) { col.appendChild(cardNode(c)); });
-
-      var add = el("button", "addcard", "+ add to " + ax.label.toLowerCase());
-      add.onclick = function () { openAdd(ax.id); };
-      col.appendChild(add);
+      if (!shut) {
+        mine.forEach(function (c) { col.appendChild(cardNode(c)); });
+        var add = el("button", "addcard", "+ add");
+        add.onclick = function () { openAdd(ax.id); };
+        col.appendChild(add);
+      }
 
       board.appendChild(col);
     });
@@ -136,36 +159,44 @@
     $("#m-cards").textContent = STATE.cards.length + " cards";
   }
 
+  /* Compact is the default. The card face carries only what you need to decide
+     whether to open it: kind, status, title, one number, and where the claims
+     came from. Everything else lives one click away in the drawer. */
   function cardNode(c) {
-    var n = el("div", "card");
+    var full = STATE.density === "full";
+    var n = el("div", "card" + (full ? " full" : ""));
     n.onclick = function () { openDrawer(c); };
 
     var k = el("div", "kind");
-    k.appendChild(el("span", null, c.kind + (c.userAdded ? " · added" : "")));
-    var right = el("span", null, "");
-    var st = el("span", stClass(c.status), c.status);
-    right.appendChild(st);
-    k.appendChild(right);
+    k.appendChild(el("span", null, c.kind));
+    k.appendChild(el("span", stClass(c.status), c.status));
     n.appendChild(k);
 
     n.appendChild(el("div", "ct", c.title));
-    if (c.dek) n.appendChild(el("div", "cd", c.dek));
+
+    if (full && c.dek) n.appendChild(el("div", "cd", c.dek));
 
     var m = (c.metrics || [])[0];
     if (m) {
       var cm = el("div", "cm");
       cm.appendChild(el("div", "v", m.v));
-      cm.appendChild(el("div", "l", m.l));
+      cm.appendChild(el("div", "l" + (full ? "" : " clamp"), m.l));
       n.appendChild(cm);
     }
 
-    if ((c.tags || []).length) {
+    if (full && (c.tags || []).length) {
       var tg = el("div", "tgs");
       c.tags.slice(0, 4).forEach(function (t) {
-        var isHot = /^(EDGE|DATE|CROWD)$/.test(t);
-        tg.appendChild(el("span", "tg" + (isHot ? " hot" : ""), t));
+        tg.appendChild(el("span", "tg" + (/^(EDGE|DATE|CROWD)$/.test(t) ? " hot" : ""), t));
       });
       n.appendChild(tg);
+    }
+
+    if (c.prov) {
+      var pv = el("div", "prov prov-" + c.prov.kind);
+      pv.appendChild(el("span", "dot", ""));
+      pv.appendChild(el("span", null, PROV_LABEL[c.prov.kind] || c.prov.kind));
+      n.appendChild(pv);
     }
     return n;
   }
@@ -179,6 +210,13 @@
     d.appendChild(el("div", "dr-k", c.kind + " · " + c.status + (c.date ? " · " + c.date : "") + " · " + (c.owner || "anshu")));
     d.appendChild(el("div", "dr-nm", c.title));
     if (c.dek) d.appendChild(el("div", "dr-sub", c.dek));
+
+    if (c.prov) {
+      var pb = el("div", "provbox prov-" + c.prov.kind);
+      pb.appendChild(el("div", "pl", "Provenance · " + (PROV_LABEL[c.prov.kind] || c.prov.kind)));
+      pb.appendChild(el("div", "pn", c.prov.note));
+      d.appendChild(pb);
+    }
 
     if ((c.tags || []).length) {
       var tg = el("div", "tgs");
@@ -207,13 +245,15 @@
       a.rel = "noopener";
       acts.appendChild(a);
     }
-    var cp = el("button", "btn", "Copy as markdown");
-    cp.onclick = function () { copy(cardMarkdown(c)); };
+    var cp = el("button", "btn", c.copyText ? "Copy charter" : "Copy as markdown");
+    cp.onclick = function () { copy(c.copyText || cardMarkdown(c)); };
     acts.appendChild(cp);
 
-    var toPad = el("button", "btn", "Cite in today's log");
-    toPad.onclick = function () { citeInPad(c); };
-    acts.appendChild(toPad);
+    if (!c.copyText) {
+      var toPad = el("button", "btn", "Cite in today's log");
+      toPad.onclick = function () { citeInPad(c); };
+      acts.appendChild(toPad);
+    }
 
     if (c.userAdded && STATE.online) {
       var del = el("button", "btn", "Remove card");
@@ -413,56 +453,92 @@
 
     var host = $("#agents");
     host.innerHTML = "";
-    $("#tn-agents").textContent = (window.AGENTS || []).length;
+    var agents = window.AGENTS || [];
+    $("#tn-agents").textContent = agents.length;
 
-    (window.AGENTS || []).forEach(function (a) {
-      var n = el("div", "ag");
-      var h = el("div", "ah");
-      h.appendChild(el("div", "an", a.name));
-      h.appendChild(el("span", stClass(a.status), a.status));
-      n.appendChild(h);
+    var FAMILIES = [
+      { id: "flow", label: "Flow · what moved", blurb: "Perishable. Value is in the delta. Succeeds by saying nothing happened on a quiet day." },
+      { id: "stock", label: "Stock · what you understand", blurb: "Durable. Value compounds. Succeeds if you can explain the domain to a practitioner six weeks later without notes." },
+      { id: "meta", label: "Meta · writing and memory", blurb: "The editor selects and never fetches. The ledger keeper makes repetition impossible." }
+    ];
 
-      var axis = (window.AXES || []).filter(function (x) { return x.id === a.axis; })[0];
-      n.appendChild(el("div", "ac", a.cadence + (axis ? "  ·  feeds " + axis.label.toLowerCase() : "")));
+    FAMILIES.forEach(function (fam) {
+      var mine = agents.filter(function (a) { return a.family === fam.id; });
+      if (!mine.length) return;
+      var head = el("div", "sec-h");
+      head.appendChild(el("span", null, fam.label + "  ·  " + mine.length));
+      head.appendChild(el("span", null, fam.blurb));
+      host.appendChild(head);
 
-      function list(title, items, cls) {
-        if (!items || !items.length) return;
-        n.appendChild(el("h4", null, title));
-        var ul = el("ul", cls || null);
-        items.forEach(function (i) { ul.appendChild(el("li", null, i)); });
-        n.appendChild(ul);
-      }
-      list("Sources", a.sources);
-      list("What the report must contain", a.output);
-      list("Watchlist it carries forward", a.watchlist);
-      list("Blocked on", a.needs, "needs");
+      var grid = el("div", "agrid");
+      mine.forEach(function (a) { grid.appendChild(agentNode(a)); });
+      host.appendChild(grid);
+    });
+  }
 
-      var foot = el("div", "afoot");
-      var cc = el("button", "btn solid", "Copy charter");
-      cc.onclick = function () {
-        copy(a.charter + "\n\nHouse rules:\n" + (window.AGENT_RULES || []).map(function (r, i) {
-          return (i + 1) + ". " + r;
-        }).join("\n"));
-      };
-      foot.appendChild(cc);
-      var vc = el("button", "btn", "Read charter");
-      vc.onclick = function () {
-        openDrawer({
-          kind: "agent charter", status: a.status, date: a.cadence, owner: "portal",
-          title: a.name, dek: "Standing brief. " + a.cadence + ".",
-          tags: (a.needs && a.needs.length ? ["blocked"] : []).concat([a.axis]),
-          metrics: [],
-          body: [["Charter, verbatim", a.charter]]
-            .concat(a.watchlist ? [["Watchlist", a.watchlist.join("\n\n")]] : [])
-            .concat([["House rules it inherits", (window.AGENT_RULES || []).map(function (r, i) {
-              return (i + 1) + ". " + r;
-            }).join("\n\n")]])
-        });
-      };
-      foot.appendChild(vc);
-      n.appendChild(foot);
+  function agentNode(a) {
+    var n = el("div", "ag");
+    var h = el("div", "ah");
+    h.appendChild(el("div", "an", a.name));
+    h.appendChild(el("span", stClass(a.status), a.status));
+    n.appendChild(h);
 
-      host.appendChild(n);
+    var axis = (window.AXES || []).filter(function (x) { return x.id === a.axis; })[0];
+    n.appendChild(el("div", "ac", a.cadence + (axis ? "  ·  feeds " + axis.label.toLowerCase() : "")));
+
+    var spec = el("div", "aspec");
+    if (a.model) spec.appendChild(kv("Model", a.model));
+    if (a.ceiling) spec.appendChild(kv("Ceiling", a.ceiling));
+    n.appendChild(spec);
+
+    if (a.needs && a.needs.length) {
+      n.appendChild(el("h4", null, a.status === "blocked" ? "Blocked on" : "Needs before it runs"));
+      var ul = el("ul", "needs");
+      a.needs.forEach(function (i) { ul.appendChild(el("li", null, i)); });
+      n.appendChild(ul);
+    }
+
+    var foot = el("div", "afoot");
+    var vc = el("button", "btn solid", "Open charter");
+    vc.onclick = function () { openAgentDrawer(a); };
+    foot.appendChild(vc);
+    var cc = el("button", "btn", "Copy charter");
+    cc.onclick = function () { copy(charterText(a)); };
+    foot.appendChild(cc);
+    n.appendChild(foot);
+    return n;
+  }
+
+  function kv(k, v) {
+    var row = el("div", "kvrow");
+    row.appendChild(el("b", null, k));
+    row.appendChild(el("span", null, v));
+    return row;
+  }
+
+  function charterText(a) {
+    return a.charter + "\n\n=== HOUSE RULES, inherited ===\n" +
+      (window.AGENT_RULES || []).map(function (r, i) { return (i + 1) + ". " + r; }).join("\n\n");
+  }
+
+  function openAgentDrawer(a) {
+    var body = [];
+    if (a.sources && a.sources.length) body.push(["Sources", a.sources.map(function (s, i) { return (i + 1) + ". " + s; }).join("\n")]);
+    if (a.output && a.output.length) body.push(["What the output must contain", a.output.map(function (s) { return "· " + s; }).join("\n\n")]);
+    if (a.watchlist && a.watchlist.length) body.push(["Watchlist it carries forward", a.watchlist.map(function (s) { return "· " + s; }).join("\n")]);
+    if (a.needs && a.needs.length) {
+      body.push([a.status === "blocked" ? "Blocked on" : "Needs before it runs",
+                 a.needs.map(function (s) { return "· " + s; }).join("\n")]);
+    }
+    body.push(["The charter, verbatim", a.charter]);
+    body.push(["House rules it inherits", (window.AGENT_RULES || []).map(function (r, i) { return (i + 1) + ". " + r; }).join("\n\n")]);
+
+    openDrawer({
+      kind: "agent charter", status: a.status, date: a.cadence, owner: a.family,
+      title: a.name,
+      dek: a.model ? "Runs on: " + a.model + ". Ceiling: " + a.ceiling + "." : "",
+      tags: [], metrics: [], body: body,
+      copyText: charterText(a)
     });
   }
 
@@ -749,8 +825,18 @@
     $("#fkind").addEventListener("change", renderBoard);
     $("#fstatus").addEventListener("change", renderBoard);
     $("#clear").onclick = function () {
-      $("#q").value = ""; $("#fkind").value = ""; $("#fstatus").value = ""; renderBoard();
+      $("#q").value = ""; $("#fkind").value = ""; $("#fstatus").value = "";
+      STATE.closed = {};
+      localStorage.setItem("portal.closed", "{}");
+      renderBoard();
     };
+    $("#density").onclick = function () {
+      STATE.density = STATE.density === "full" ? "compact" : "full";
+      localStorage.setItem("portal.density", STATE.density);
+      this.textContent = STATE.density === "full" ? "Compact view" : "Full view";
+      renderBoard();
+    };
+    $("#density").textContent = STATE.density === "full" ? "Compact view" : "Full view";
     $("#toggleadd").onclick = function () { $("#addform").classList.toggle("on"); };
     $("#a-save").onclick = saveCard;
     $("#a-cancel").onclick = resetAdd;

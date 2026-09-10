@@ -15,10 +15,8 @@
       <div>
         <div class="kicker">Standing mandate · become the best CTO out there</div>
         <h1>Where the money is going, <em>and what the ambitious are building</em></h1>
-        <p class="dek">Five axes held continuously: <b>where capital is moving</b>, <b>macro cycles</b>,
-        <b>geopolitics as it bears on technology</b>, <b>what is genuinely new</b>, and a portfolio of
-        <b>explicit theses</b> about how the world turns. Research materials land in the columns below;
-        agents will file into them on a cadence; the day's thinking goes in the scratchpad.</p>
+        <p class="dek">Five axes, held continuously. Research lands in the columns; agents file into them on a
+        cadence; the day's thinking goes in the scratchpad.</p>
       </div>
       <div class="who">
         Logged as
@@ -51,8 +49,10 @@
       <input type="text" id="q" placeholder="Filter cards — title, tag, body text, number…">
       <select id="fkind"><option value="">All kinds</option></select>
       <select id="fstatus"><option value="">All statuses</option></select>
-      <button class="btn" id="clear">Clear</button>
+      <button class="btn" id="density">Full view</button>
+      <button class="btn" id="clear">Reset</button>
       <button class="btn solid" id="toggleadd">+ Add material</button>
+      <span class="hintline">Click a column heading to collapse it. Click any card for the full text and its provenance.</span>
     </div>
 
     <div id="addform">
@@ -94,9 +94,11 @@
       <h4>House rules every agent inherits</h4>
       <ol id="agrules"></ol>
     </div>
-    <div class="sec-h">Standing briefs
-      <span>Nothing runs yet. Each card holds a complete charter — copy it into a Claude session to run the pass by hand today, or wire it to a schedule once the sources are authorised.</span></div>
-    <div class="agrid" id="agents"></div>
+    <p class="dek" style="margin-bottom:20px">Nine agents in two families, plus an editor and a ledger. Nothing runs yet.
+    Each card holds a complete charter: open it to read the prompt, or copy it straight into a session to run
+    the pass by hand today. The reasoning, the sources and the newsletter format are in
+    <a href="reports/agent-system-plan-2026-09-10.md" target="_blank" rel="noopener">the plan</a>.</p>
+    <div id="agents"></div>
   </section>
 
   <!-- ─────────── SCRATCHPAD ─────────── -->

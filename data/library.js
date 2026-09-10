@@ -289,6 +289,36 @@ window.LIBRARY = [
   ]
 },
 
+{
+  id: "agent-system-plan",
+  axis: "new",
+  kind: "plan",
+  title: "The research agent system: nine agents, the guardrails, the newsletter format",
+  dek: "What Karpathy, Graham, Anthropic's engineering team and the expertise researchers actually say, turned into an architecture: five flow agents, four stock agents, eleven guardrails, and a daily format written out as a worked sample.",
+  status: "current",
+  date: "2026-09-10",
+  owner: "anshu",
+  open: "reports/agent-system-plan-2026-09-10.md",
+  openLabel: "Read the plan",
+  tags: ["9 agents", "11 guardrails", "format to agree"],
+  metrics: [
+    { v: "45% / 31% / 20%", l: "EBU-BBC study of 3,000+ AI news answers: significant issues, sourcing failures, accuracy failures. The reason for every guardrail." },
+    { v: "+90% / 15×", l: "Anthropic's orchestrator gain over a single agent on parallel research, and its token cost" },
+    { v: "1–2k tokens", l: "Condensed summary each sub-agent returns, so the editor never touches raw material" },
+    { v: "<700 words", l: "The daily page ceiling. Review speed is the binding constraint on agentic work." }
+  ],
+  body: [
+    ["The finding the architecture rests on", "Karpathy's formulation is that \"you can outsource your thinking, but you can't outsource your understanding\". That single line is why your two categories need two systems rather than one better newsletter. Flow is perishable and its value is the delta. Stock is durable and compounds. A flow agent succeeds when it says nothing happened on a quiet day; a stock agent succeeds when you can explain the domain to a skeptical practitioner six weeks later without notes. Those tests reward opposite behaviour, so one prompt cannot hold both."],
+    ["Why the guardrails are shaped the way they are", "In June and July 2025, researchers from 22 public service media organisations across 18 countries and 14 languages evaluated more than 3,000 AI assistant answers to news questions. 45% carried at least one significant issue, 31% had significant sourcing problems including fabricated citations, and 20% had major accuracy problems. Sourcing failures exceeding accuracy failures is the operative detail: a wrong fact eventually contradicts something you know, a wrong citation never does. Hence rule one, no link no claim, and rule two, quote the number."],
+    ["The one design decision that matters most", "Separate collection from writing, and give the writer a hard budget. Almost every disappointing research agent fails identically: one agent gathers and then writes, it gathers more than it can hold, and it writes to fill the expected length. Collectors extract, which is verifiable and cheap. The editor selects, which is where intelligence should be spent. The budget converts the editor's job from describing everything it received into choosing what earns the space."],
+    ["Where the build should start", "Three agents, not nine. F3 Policy Diff, because its sources are free, primary, machine-readable and almost unread, and because it serves the one thesis with a dated deadline. F1 Capital Ledger, because it is the axis you already trust and it calibrates the format fast. S3 Explainer on one domain, because it is the only one that changes what you are capable of noticing. F4 Frontier Claims is the most appealing and should wait, because it is blocked on X access and on a hand-built account list."],
+    ["The six decisions that are yours, not mine", "The funding floor. Delivery time and channel. Whether weekends run. One newsletter or five, which is the one where I argue against your stated preference in the document. Which domain the stock side starts with. And the X account list, which is unavoidably manual and is the entire asset of F4."]
+  ],
+  files: [
+    { p: "reports/agent-system-plan-2026-09-10.md", d: "The full plan, 13,700 words, sources cited inline" }
+  ]
+},
+
 /* ============================ MACRO & CYCLES ============================ */
 {
   id: "freight-cycle-2026",
@@ -314,3 +344,27 @@ window.LIBRARY = [
 }
 
 ];
+
+/* ── Provenance ───────────────────────────────────────────────────────────
+   Where each card's claims actually came from. Three cases that are
+   otherwise indistinguishable on a card face:
+     own-prior-work   you did this research in an earlier session; the
+                      reasoning is in gbrain and you have seen it
+     web-2026-09-10   web research run on 2026-09-10, in this session or the
+                      parallel Stanford one. NEW TO YOU.
+     agent            produced by one of the agents in data/agents.js
+   Merged onto cards by assets/app.js and shown on the card face.           */
+window.PROVENANCE = {
+  "yc-batch-census":            { kind: "own-prior-work", note: "Your own census pass, 2026-09-10. Method and findings recorded in gbrain; all 3,009 records scraped from YC's public Algolia index." },
+  "physical-ai-capital-map":    { kind: "own-prior-work", note: "Your Noctem-pivot research sessions of 2026-09-07, recorded in gbrain. Valuations were web-retrieved then, not re-verified since." },
+  "physical-intelligence-review": { kind: "own-prior-work", note: "You wrote it. 36,765 words, 2026-09-03, with the source list in the document." },
+  "stanford-frontier-map":      { kind: "own-prior-work", note: "Your census pass, 2026-09-10. Faculty structure is computed from Stanford's own affiliation records; the classifier limits are stated on the card and in the deliverable." },
+  "stanford-money-layer":       { kind: "web-2026-09-10", note: "NEW TO YOU. Web-retrieved 2026-09-10 in the parallel Stanford session. Every company figure carries the outlet that reported it; the Bloomberg $11B talks and the Human Intelligence round are explicitly unconfirmed." },
+  "market-size-spread":         { kind: "web-2026-09-10", note: "NEW TO YOU. Research-firm estimates collected 2026-09-10. The spread is the finding; no single figure here should be quoted as a market size." },
+  "eu-machinery-2027":          { kind: "own-prior-work", note: "Your regulatory research of 2026-09-07, recorded in gbrain. Regulation numbers, annex citations and dates are from the primary instruments." },
+  "assurance-seam":             { kind: "own-prior-work", note: "Your thesis, developed across the 2026-09-07 and 09-08 sessions. The 2026-09-10 crowding update comes from your own YC census." },
+  "sc-node-map":                { kind: "own-prior-work", note: "Your 38-node map and ledger, 2026-09-08. The scope correction and the nine-field record template are your decisions, recorded verbatim in gbrain." },
+  "twin-certification":         { kind: "own-prior-work", note: "Your research of 2026-09-07. Lightwheel round and the SRCC literature were web-retrieved then; the repositioning argument is from that session." },
+  "freight-cycle-2026":         { kind: "own-prior-work", note: "Your 2026-09-07 session. Kept as a closed card deliberately so the question is not reopened as new." },
+  "agent-system-plan":          { kind: "web-2026-09-10", note: "NEW TO YOU. Research run 2026-09-10 against Karpathy, Graham, Anthropic engineering, Commoncog and the EBU/BBC study, cited inline in the document. The architecture and the nine agents are proposals, not findings." }
+};
