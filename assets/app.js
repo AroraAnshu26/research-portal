@@ -718,10 +718,14 @@
     $("#author").value = STATE.author;
     STATE.date = localDate();
 
-    api("/api/meta").then(function (m) {
+    /* ?static=1 skips the server and reads data/manifest.json instead — the same
+       path a shared visitor takes. Useful for checking what they actually see. */
+    var forceStatic = /[?&]static=1/.test(location.search);
+
+    (forceStatic ? Promise.reject() : api("/api/meta")).then(function (m) {
       STATE.meta = m;
       setOnline(true);
-    }).catch(function () {
+    }, function () {
       return loadSnapshot().then(function () { setOnline(false); });
     }).then(function () {
       STATE.cards = allCards();
