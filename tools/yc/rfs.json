@@ -1,0 +1,182 @@
+{
+  "note": "RFS editions. Fall 2026 is transcribed from ycombinator.com/rfs directly (server-rendered, primary source). Earlier editions are not served in the page HTML (they load client-side and the Wayback Machine was unreachable from this machine), so they are reconstructed from secondary sources, each named per edition. Edition attribution between Winter 2025 and Spring 2025 is inconsistent across secondary sources and is flagged where it matters. Winter 2022 through Winter 2024 are absent because YC published no RFS in that window: the list in force was the 2018 edition, and YC's own Feb 2024 blog post describes that refresh as its first since 2018.",
+  "editions": [
+    {
+      "id": "F26",
+      "label": "Fall 2026",
+      "date": "2026 (current)",
+      "source": "ycombinator.com/rfs — primary, server-rendered",
+      "framing": "\"AI is moving into the physical world.\" YC frames the batch around startups rebuilding the systems that power the real world — education, healthcare, defense, finance, infrastructure and work itself — and notes it includes, for the first time, a request from the sitting U.S. Secretary of the Army.",
+      "items": [
+        {"t": "The Primer", "a": "Andrew Miklas", "d": "A product that adaptively teaches young children to read, write and do arithmetic at the quality of a devoted private tutor, at consumer scale — the on-ramp to a Diamond Age-style Primer."},
+        {"t": "The Future of American Defense", "a": "Daniel P. Driscoll, US Secretary of the Army", "d": "Low-cost interceptors and anything that lowers cost per kill; next-gen sensors, payloads and hardware that plug into the Army's open system architecture; drones, resilient logistics, advanced manufacturing, survivable in extreme climates."},
+        {"t": "A Cloud for Small Software", "a": "Pete Koomen", "d": "A cloud built for 'small software' — purpose-built tools with one or a handful of users — where deploying and sharing is as easy as a Google Doc, solving auth, permissions and safe sharing of arbitrary code."},
+        {"t": "Multiplayer AI", "a": "Aaron Epstein", "d": "AI that goes multiplayer the way Docs and Figma did: teams and agents working in a shared space rather than each person in a private chat box."},
+        {"t": "Compute at Sea", "a": "YC partners", "d": "Moving compute offshore — siting data centers at sea to escape land, power and cooling constraints."},
+        {"t": "AI-Powered Consumer Products for 1 Billion People", "a": "YC partners", "d": "Consumer AI at billion-user scale rather than prosumer niches."},
+        {"t": "AI for the Aging Population", "a": "YC partners", "d": "Products for the demographic inversion — care, monitoring, companionship and administration for old age."},
+        {"t": "New Operating Systems for the Physical World", "a": "YC partners", "d": "Control and coordination layers for physical systems — the software substrate under robots, facilities and infrastructure."},
+        {"t": "The Best Time to Build in Crypto", "a": "YC partners", "d": "Crypto reframed post-regulation, after two years of near-total absence from the batches."},
+        {"t": "Data for the Real World", "a": "YC partners", "d": "Capture and structuring of physical-world data — the training substrate embodied models are short of."},
+        {"t": "Proving You're Human", "a": "YC partners", "d": "Proof-of-humanity infrastructure as generated content and agents saturate the network."},
+        {"t": "AI-Native Compliance Infrastructure", "a": "YC partners", "d": "Compliance rebuilt for a world where both the filer and the reviewer are models."},
+        {"t": "Self-Maintaining APIs", "a": "YC partners", "d": "APIs that repair and adapt themselves, so agent-to-software integration stops breaking."}
+      ]
+    },
+    {
+      "id": "S26",
+      "label": "Summer 2026",
+      "date": "2026",
+      "source": "Secondary: thevccorner.com compilation of the Summer 2026 edition",
+      "framing": "Space, semiconductors and hardware supply chain appear as first-class requests alongside AI-native services. Three of fifteen requests are chip- or space-hardware requests.",
+      "items": [
+        {"t": "AI for Low-Pesticide Agriculture", "a": "Garry Tan", "d": "AI and robotics to cut chemical use while raising yield."},
+        {"t": "AI-Native Service Companies", "a": "Gustaf Alströmer", "d": "Own the service business and staff it with AI, rather than selling tools to the incumbent firm."},
+        {"t": "AI Personalized Medicine", "a": "—", "d": "Genomics plus AI for individualized diagnosis and treatment."},
+        {"t": "Company Brain", "a": "Tom Blomfield", "d": "Extract and structure scattered company knowledge so agents can use it."},
+        {"t": "Counter-Swarm Defense", "a": "Tyler Bosmeny", "d": "Defense against coordinated drone swarms using distributed systems."},
+        {"t": "Dynamic Software Interfaces", "a": "Ankit Gupta", "d": "Let users reshape software interfaces via AI without engineering."},
+        {"t": "Electronics in Space", "a": "—", "d": "Inference chips designed for the space environment and radiation tolerance."},
+        {"t": "Hardware Supply Chain", "a": "Nicolas Dessaigne", "d": "Compress physical part manufacturing and hardware iteration cycles."},
+        {"t": "Industrial Capabilities in Space", "a": "Adi Oltean", "d": "Manufacturing infrastructure that makes lunar operations economically viable."},
+        {"t": "Inference Chips for Agent Workflows", "a": "Diana Hu", "d": "Silicon optimized for agent loops rather than single-shot inference."},
+        {"t": "SaaS Challengers", "a": "Jared Friedman", "d": "Replace entrenched legacy software with AI-native alternatives, domain by domain."},
+        {"t": "Software for Agents", "a": "Aaron Epstein", "d": "Machine-readable interfaces and APIs built for agents as the user."},
+        {"t": "Startups Selling to Huge Companies", "a": "Harshita Arora, Brad Flora", "d": "Let early teams land enterprise pilots and deals fast."},
+        {"t": "Supply Chain 2.0 for Semiconductors", "a": "Diana Hu", "d": "Real-time tracking and compliance for semiconductor manufacturing."},
+        {"t": "The AI Operating System for Companies", "a": "Diana Hu", "d": "Unify company data sources into one continuously learning intelligence layer."}
+      ]
+    },
+    {
+      "id": "X26",
+      "label": "Spring 2026",
+      "date": "early 2026",
+      "source": "Secondary: the-ai-corner.com, vccafe.com, inc.com coverage of the Spring 2026 edition",
+      "framing": "Seven requests, six of them explicitly AI. Two are physical-economy requests (metal mills, guidance for physical work); one is stablecoin financial services tied to named legislation.",
+      "items": [
+        {"t": "Cursor for Product Managers", "a": "—", "d": "Agentic tooling for deciding what to build, not just writing the code."},
+        {"t": "AI-Native Hedge Funds", "a": "—", "d": "Funds built agent-first, analysing filings, calls and markets at machine scale — the argument being AI is where quant was in the 1980s."},
+        {"t": "AI-Native Agencies", "a": "—", "d": "Rebuild agency and consulting workflows with AI rather than sell software to them."},
+        {"t": "Stablecoin Financial Services", "a": "—", "d": "Compliant yield-bearing accounts and cross-border infrastructure on stablecoins, with the GENIUS and CLARITY Acts named as the opening."},
+        {"t": "AI for Government", "a": "—", "d": "Agencies need AI to process the volume the private sector now generates; sticky customers, large contracts."},
+        {"t": "Modern Metal Mills", "a": "—", "d": "Software-defined aluminium and steel mills with AI planning and modern automation, to cut lead times and energy cost."},
+        {"t": "AI Guidance for Physical Work", "a": "—", "d": "Multimodal models plus wearables that see, reason and coach physical tasks in real time."}
+      ]
+    },
+    {
+      "id": "F25",
+      "label": "Fall 2025",
+      "date": "mid 2025",
+      "source": "Secondary: the-ai-corner.com and inc.com coverage of the Fall 2025 edition",
+      "framing": "All six requests are AI-at-the-core. The first is about the physical labour shortage created by the AI build-out itself.",
+      "items": [
+        {"t": "Reskilling Workers for the AI Economy", "a": "—", "d": "A new vocational school for the AI build-out: electricians, HVAC techs, welders, tied to the government AI Action Plan's worker-first retraining funding."},
+        {"t": "Video Generation", "a": "—", "d": "Video models at near-zero marginal cost become a basic building block of software."},
+        {"t": "Multi-Agent System Infrastructure", "a": "—", "d": "Infrastructure for fan-out agent workflows and 'agentic mapreduce' over large corpora."},
+        {"t": "AI-Native Enterprise Software", "a": "—", "d": "The Salesforce/ServiceNow moment repeated: systems of record with AI embedded throughout."},
+        {"t": "The First 10-Person, $100 Billion Company", "a": "—", "d": "Optimize revenue per employee; small teams beating incumbents on speed."},
+        {"t": "Consumer AI Products", "a": "—", "d": "Intelligence is good enough to treat an agent like a person, and token cost is falling ~10x/year."}
+      ]
+    },
+    {
+      "id": "S25",
+      "label": "Summer 2025",
+      "date": "May 2025",
+      "source": "Secondary: vccafe.com Part 3 compilation; the same 14 topics were indexed by Exa in May 2025",
+      "framing": "Fourteen topics, dominated by 'full-stack AI' — own the firm instead of selling to it. Two robotics entries appear for the first time as their own requests.",
+      "items": [
+        {"t": "Full-stack AI Companies", "a": "—", "d": "Start your own AI-staffed company to take on slow-moving incumbents (e.g. your own law firm, not an agent sold to law firms)."},
+        {"t": "More Design Founders", "a": "—", "d": "As coding gets cheap, taste and UX become the scarce input; designers should found."},
+        {"t": "Voice AI", "a": "—", "d": "Business phone calls have not changed in 100 years."},
+        {"t": "AI for Scientific Advancement", "a": "—", "d": "Drug discovery, chemical optimization, metals and mining, power grid."},
+        {"t": "AI Personal Assistant", "a": "—", "d": "Email, scheduling and tasks handled without supervision."},
+        {"t": "Healthcare AI", "a": "—", "d": "Attack the $1T+ in US healthcare administrative cost."},
+        {"t": "AI Personal Tutor", "a": "—", "d": "Multimodal, adaptive, real-time feedback."},
+        {"t": "Software Tools For Robots", "a": "—", "d": "Build the software foundation for the 'ChatGPT moment' in robotics."},
+        {"t": "The Future of Education", "a": "—", "d": "Reshape how 1.5 billion students learn."},
+        {"t": "AI Residential Security", "a": "—", "d": "Commercial-grade AI security for the ~$20B home security market."},
+        {"t": "Internal Agent Builder", "a": "—", "d": "Let non-technical employees build their own automation agents."},
+        {"t": "AI Research Labs", "a": "—", "d": "Deep, open-ended research that may take years to commercialize."},
+        {"t": "AI Voice Assistants for Email", "a": "—", "d": "Hands-free email with summarization and drafting."},
+        {"t": "AI for Personal Finance", "a": "—", "d": "Unbiased personalized financial advice at near-zero cost."}
+      ]
+    },
+    {
+      "id": "X25",
+      "label": "Spring 2025",
+      "date": "Jan–Feb 2025",
+      "source": "Secondary: vccafe.com 'Extended Requests for Startups 2025 list' (6 Feb 2025). Caution: several sources file some of these items under Winter 2025 instead; the boundary between the two editions is not clean in secondary coverage.",
+      "framing": "Fourteen requests, almost all agent-and-infrastructure shaped. First appearance of data centers as an explicit YC request.",
+      "items": [
+        {"t": "A Secure AI App Store", "a": "—", "d": "An OS layer with per-app data permissions, shared user memory, vetting and payments."},
+        {"t": "Datacenters", "a": "—", "d": "Build data centers faster and cheaper — power, cooling, materials procurement, and the software to construct and operate them."},
+        {"t": "Compliance and Audit", "a": "—", "d": "Automate compliance by parsing regulatory documents and financial statements."},
+        {"t": "DocuSign 2.0", "a": "—", "d": "Rethink document creation and distribution for e-signature, with AI templates and voice agents."},
+        {"t": "Browser & Computer Automation", "a": "—", "d": "Turn web and desktop workflows into usable APIs via agents."},
+        {"t": "AI Personal Staff for Everyone", "a": "—", "d": "Personalized assistants doing real knowledge work — accounting, tutoring."},
+        {"t": "Devtools for AI Agents", "a": "—", "d": "The tooling and infrastructure layer for building and deploying agents."},
+        {"t": "The Future of Software Engineering", "a": "—", "d": "Generalist developers managing teams of coding agents."},
+        {"t": "AI Commercial Open Source Software", "a": "—", "d": "The Red Hat model applied to open-source AI tooling."},
+        {"t": "AI Coding Agents for Hardware-Optimized Code", "a": "—", "d": "Generate hardware-optimized kernels to make Nvidia alternatives viable."},
+        {"t": "B2A: Software for Agent Customers", "a": "—", "d": "Software whose primary customer is an agent, not a person."},
+        {"t": "Vertical AI Agents", "a": "—", "d": "Automate a category of work entirely rather than make humans faster."},
+        {"t": "Founders with Systems Programming Expertise", "a": "—", "d": "A request for a kind of founder rather than a product."},
+        {"t": "Inference AI Infrastructure", "a": "—", "d": "Attack rising inference cost through better software and GPU utilization."}
+      ]
+    },
+    {
+      "id": "W25",
+      "label": "Winter 2025",
+      "date": "Dec 2024",
+      "source": "Secondary and PARTIAL: medium/review.exe and swipefile coverage name these items; no complete list of the Winter 2025 edition was recoverable from this machine without the Wayback Machine.",
+      "framing": "The most politically inflected edition: reshoring, government, public safety, jobs. Physical-world and state-facing requests dominate; this is the edition where 'US-based manufacturing' first appears.",
+      "items": [
+        {"t": "Next-Generation Construction", "a": "—", "d": "AI applied to construction and engineering processes."},
+        {"t": "Government Software", "a": "—", "d": "AI to automate government administrative work."},
+        {"t": "Public Safety Technologies", "a": "—", "d": "Computer vision for detecting suspicious activity; better emergency response."},
+        {"t": "US-Based Manufacturing", "a": "—", "d": "Reshoring via robotic systems and machine learning for automated production."},
+        {"t": "One Million Jobs 2.0", "a": "—", "d": "Restated jobs-creation request."},
+        {"t": "Industrial Robots", "a": "—", "d": "Named in coverage of this edition alongside reshoring."},
+        {"t": "Stablecoin Platforms", "a": "—", "d": "Named in coverage of this edition."},
+        {"t": "[list incomplete]", "a": "—", "d": "Additional Winter 2025 items exist that could not be verified from an accessible source; treat this edition as partially reconstructed."}
+      ]
+    },
+    {
+      "id": "S24",
+      "label": "Summer 2024",
+      "date": "14 Feb 2024",
+      "source": "Primary: ycombinator.com/blog/ycs-latest-request-for-startups",
+      "framing": "The first RFS refresh since 2018, and the last edition before YC moved to a per-batch cadence. Twenty categories. Robotics, defense, space, reshoring and climate all appear; agents do not appear as a category at all, and there is no 'physical AI' language yet.",
+      "items": [
+        {"t": "Applying machine learning to robotics", "a": "YC Group Partners", "d": "ML for robotic systems."},
+        {"t": "Using machine learning to simulate the physical world", "a": "YC Group Partners", "d": "Learned physics simulation."},
+        {"t": "New defense technology", "a": "YC Group Partners", "d": "Defense and security."},
+        {"t": "Bring manufacturing back to America", "a": "YC Group Partners", "d": "Reshoring production."},
+        {"t": "New space companies", "a": "YC Group Partners", "d": "Commercial space."},
+        {"t": "Climate tech", "a": "YC Group Partners", "d": "Environmental and sustainability technology."},
+        {"t": "Commercial open source companies", "a": "YC Group Partners", "d": "Monetizing open source."},
+        {"t": "Spatial computing", "a": "YC Group Partners", "d": "Immersive and spatial platforms."},
+        {"t": "New enterprise resource planning software", "a": "YC Group Partners", "d": "Modern ERP alternatives."},
+        {"t": "Developer tools inspired by internal tools", "a": "YC Group Partners", "d": "Productize internal engineering tooling."},
+        {"t": "Explainable AI", "a": "YC Group Partners", "d": "Interpretable systems."},
+        {"t": "LLMs for manual back office processes", "a": "YC Group Partners", "d": "Legacy enterprise back-office automation."},
+        {"t": "AI to build enterprise software", "a": "YC Group Partners", "d": "AI-driven software construction."},
+        {"t": "Stablecoin finance", "a": "YC Group Partners", "d": "Stablecoin-based financial services."},
+        {"t": "A way to end cancer", "a": "YC Group Partners", "d": "Cancer breakthroughs."},
+        {"t": "Foundation models for biological systems", "a": "YC Group Partners", "d": "Bio foundation models."},
+        {"t": "The managed service organization model for healthcare", "a": "YC Group Partners", "d": "Restructured care delivery."},
+        {"t": "Eliminating middlemen in healthcare", "a": "YC Group Partners", "d": "Direct provider connections."},
+        {"t": "Better enterprise glue", "a": "YC Group Partners", "d": "Integration between enterprise systems."},
+        {"t": "Small fine-tuned models", "a": "YC Group Partners", "d": "Specialized models instead of giant generic ones."}
+      ]
+    },
+    {
+      "id": "NONE",
+      "label": "Winter 2022 – Winter 2024",
+      "date": "2022 – early 2024",
+      "source": "Inference from YC's own Feb 2024 post plus contemporaneous press (TechCrunch, 14 Feb 2024) describing that post as the first RFS refresh since 2018.",
+      "framing": "No batch-specific RFS existed for these six batches (W22, S22, W23, S23, W24 and the run-up to S24). The list in force dated from 2018. Anything the batches did in this window was therefore not RFS-directed — which makes the 2022–23 batch composition a clean control against the post-2024 editions.",
+      "items": []
+    }
+  ]
+}

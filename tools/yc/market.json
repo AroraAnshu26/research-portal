@@ -1,0 +1,203 @@
+{
+  "disclaimer": "Every number in the 'estimate' and 'equity' fields below is my own order-of-magnitude estimate, with the arithmetic shown so you can disagree with the inputs. They are not sourced market-research figures. The 'pool' field is closer to fact but still mixes public statistics with claims made by the companies themselves — where a company is the source, it says so. Company descriptions, batch, team size and status come verbatim from YC's own directory.",
+  "clusters": [
+    {
+      "id": "warehouse-manip",
+      "name": "Warehouse & logistics manipulation",
+      "pool": "US warehouse labour spend ≈ $75B/yr (Manifold's own figure, consistent with ~1.9M US warehouse workers at ~$40k). Manifold also claims only ~10% of US warehouses have any automation.",
+      "estimate": "$15–30B/yr of addressable robot revenue at maturity",
+      "basis": "If robots take 25–40% of the task-hours in that $75B pool and price at 60–80% of the wage they displace: 75 × 0.3 × 0.7 ≈ $16B; upper case doubles it as adoption moves past 10%.",
+      "equity": "$80–240B of aggregate equity value across all winners at 5–8× revenue",
+      "companies": ["Manifold", "Remy AI", "Servo7", "InLoop Robotics", "Relling"]
+    },
+    {
+      "id": "humanoid-home",
+      "name": "Home & general-purpose humanoids",
+      "pool": "~130M US households; ~$2k price points now being quoted by YC companies (Nori $1,688; Piggy Robotics 'iPhone prices'). Vassar Robotics frames the value as '20 hours/week' returned per household.",
+      "estimate": "$25–90B/yr at maturity (hardware + subscription)",
+      "basis": "10% of 130M US households at $2k hardware amortised over 3 years plus $30/mo software = 13M × ($670 + $360) ≈ $13B/yr US; global multiple of 2–4× and higher price points on capable units gets to the upper end. Highly sensitive to whether the $2k bill of materials is real.",
+      "equity": "$100B+ if one platform wins; the data flywheel argument (every unit sold generates training data) is the reason several are pricing below cost",
+      "companies": ["Nori", "Piggy Robotics", "Thesis", "Vassar Robotics", "OS3", "Twolabs", "Eden Robotics", "Innate"]
+    },
+    {
+      "id": "robot-data",
+      "name": "Physical-AI training data & RL environments",
+      "pool": "Comparable: AI data-labelling spend of roughly $5–9B/yr in 2025, of which Scale AI was ~$1.4B revenue in 2024 before Meta's $14.3B-for-49% investment. The physical slice is currently near zero — every company here is selling into frontier-lab budgets that did not exist in 2023.",
+      "estimate": "$1.5–4B/yr by 2029 for embodied data and environments specifically",
+      "basis": "There are perhaps 15–25 buyers with real budgets (frontier labs plus funded humanoid companies). At $20–150M/yr of data spend each once robot pretraining is industrialised: 20 × $75M ≈ $1.5B, upper case if humanoid fleets scale and data becomes a recurring line item rather than a project.",
+      "equity": "$10–40B aggregate. The structural question is whether this is a services business at 2–4× revenue or a data-moat business at 10×+ — Praxis's embedded-in-conglomerates position and Human Archive's 100-person global capture operation are bets on the latter.",
+      "companies": ["Praxis Robotics", "Human Archive", "Cortex AI", "Asimov", "Hub", "Datoric", "DeepReach Inc.", "Sureform", "Enact", "Fern", "Hemlock", "Moving Atoms", "Origami Robotics", "Hebbian Robotics", "Osseus"]
+    },
+    {
+      "id": "robot-eval",
+      "name": "Robot evaluation, benchmarking & assurance",
+      "pool": "Robotics-as-a-Service is ~$32B and 35–40% of commercial robot deployments, and 2026 saw the shift to performance-based contracts with ~95% uptime SLAs at $1.5k–8k/unit/month. Testing, inspection and certification services overall head toward ~$38B by 2033. Independent replication of humanoid autonomy claims currently does not exist — every published number is a company self-report.",
+      "estimate": "$0.4–2B/yr by 2030 for third-party evaluation, benchmarking and conformity work on learned policies",
+      "basis": "Two revenue routes. (1) Vendor-side: if 200k deployed commercial units carry performance-based contracts and 1–2% of contract value goes to measurement, at $3k/unit/month that is 200k × $36k × 0.015 ≈ $108M/yr, growing with the fleet. (2) Certification/insurance-side: robot and AV premium pool of $2–6B/yr by 2030, of which risk-modelling and evidence packages take 5–15% ≈ $100–900M/yr. The binding constraint is arithmetic, not appetite: resolving a 5pp difference in success rate needs on the order of 1,500 rollouts per arm, and 2pp needs ~9,800 — so measurement cost rises as policies converge.",
+      "equity": "$3–15B for the layer. Small relative to the robot makers, and that is the point: it is the unfashionable corner of a fashionable field.",
+      "companies": ["Robocurve", "Physical Turing", "One Robot", "Valgo", "Risklytics", "PRINCEPS", "Standard Machines"]
+    },
+    {
+      "id": "robot-infra",
+      "name": "Physical-AI compute & runtime infrastructure",
+      "pool": "No established market. Dreamscale's premise is that physical-AI models are outgrowing on-robot GPUs; it claims 40–50% lower latency than existing neoclouds.",
+      "estimate": "$1–5B/yr by 2032",
+      "basis": "If 2–5M deployed robots each consume $30–80/month of off-board inference: 3M × $50 × 12 ≈ $1.8B/yr. Entirely gated on whether cloud inference is viable for real-time control, which is a latency-physics question, not a market question.",
+      "equity": "$5–25B, but the incumbent risk is severe — this is a feature the neoclouds and chip vendors can absorb.",
+      "companies": ["Dreamscale Labs", "General Instinct", "6thSense", "Iron Grid", "Verne Robotics", "Mbodi AI", "Almond"]
+    },
+    {
+      "id": "dc-robots",
+      "name": "Robots for data-center and infrastructure build-out",
+      "pool": "Proprio cites 400,000 unstaffed data-center technician positions in the US. Cosmic Robotics reports deployment on some of the largest US solar farms with labour productivity more than doubled across tens of thousands of panel installs, plus a NASA lunar construction contract. Libra Robotics targets solar farms and data centers.",
+      "estimate": "$5–20B/yr by 2032",
+      "basis": "US data-center construction and O&M labour is on the order of $30–60B/yr at current capex run-rates; utility-scale solar install labour adds roughly $4–6B/yr at ~40GW/yr and $0.10–0.15/W. Capture 15–25% of the addressable subset of that labour.",
+      "equity": "$25–100B. This is the cluster where the buyer is already spending the money badly and knows it.",
+      "companies": ["Proprio Robotics", "Boost Robotics", "Cosmic Robotics", "Libra Robotics", "Shepherd Robotics", "Lambda Robotics", "Salem Robotics Inc"]
+    },
+    {
+      "id": "counter-uas",
+      "name": "Counter-UAS, interceptors & air defense",
+      "pool": "US DoD counter-UAS funding requests have run in the low billions per year, and the Golden Dome architecture was announced at a ~$175B programme scale. Company-stated demand in this batch cohort is unusually concrete: Vernius claims $580M in LOIs from primes in Ukraine, the EU and the Middle East; 9 Mothers reports $1.6M of systems already sold and delivered to the DoW; Edgerun claims $100M+ in Ukrainian LOIs.",
+      "estimate": "$6–18B/yr addressable by 2030 across interceptors, seekers, sensing and C2",
+      "basis": "The cost-per-kill inversion is the whole thesis: a $500 drone answered by a $2M interceptor is unsustainable, so volume shifts to $10k–100k effectors. If NATO-plus-allies field 200k–800k engagements-worth of magazine depth per year at a $30k blended unit cost: 400k × $30k ≈ $12B/yr. Seekers are the highest-margin slice — Vernius's claim is a 100x cost reduction on a component that today takes a 200-person Raytheon team.",
+      "equity": "$40–150B, concentrated in whoever gets a programme of record",
+      "companies": ["Wardstone", "Perseus Defense", "Vernius Systems, Inc.", "Earendil Robotics", "Arlo Industries", "9 Mothers", "Surtr Defense Systems", "Milliray", "Tenet Industries", "Isengard Industries Inc", "Greypoint Industries"]
+    },
+    {
+      "id": "attritable",
+      "name": "Attritable & autonomous platforms (air, sea, ground)",
+      "pool": "Ukraine's consumption established the reference: millions of small drones per year, with production, not design, as the constraint. Isengard's framing is explicit — 'sovereign production', the means for allied nations to make systems by the thousand on their own soil.",
+      "estimate": "$10–30B/yr by 2030 outside the primes",
+      "basis": "Global small-UAS and loitering-munition production heading to several million units per year at $2k–50k each; unmanned surface and subsurface vessels add a smaller but higher-ticket line. Assume non-prime share of 25–40%.",
+      "equity": "$50–200B, but with the highest political risk in this dataset: revenue depends on procurement reform holding.",
+      "companies": ["Tenet Industries", "Isengard Industries Inc", "Albacore Inc.", "AICE", "Splash Inc.", "Icarus", "Hop Aero", "Edgerun", "GUILD", "Mass Magnetics"]
+    },
+    {
+      "id": "satcom",
+      "name": "Sovereign satellite communications",
+      "pool": "Global satellite communications is roughly a $120B/yr industry; Starlink revenue is estimated in the low teens of billions and rising. Exosat's wedge is regulatory rather than technical: satellites designed with zero ITAR/EAR-controlled content, so they can be built and launched anywhere.",
+      "estimate": "$3–10B/yr for a genuine non-US-controlled alternative",
+      "basis": "Sovereignty-motivated demand — EU, Gulf, India, ASEAN — plausibly 5–10% of global satcom spend once buyers price the dependency risk. The bottleneck is launch capacity and capital, not customers.",
+      "equity": "$20–60B if a constellation actually flies; near zero if it does not. Binary.",
+      "companies": ["Exosat", "Constellation Space", "Apolink", "Basalt", "Reditus Space"]
+    },
+    {
+      "id": "eo",
+      "name": "Earth observation & persistent ISR",
+      "pool": "Commercial EO is roughly $4–8B/yr. AxionOrbital's stated problem is precise: legacy optical satellites are useless ~70% of the time because of weather and darkness, and SAR data is unintelligible to standard vision pipelines. Icarus positions solar aircraft at 60,000 ft as the cheaper substitute for satellites and U-2s.",
+      "estimate": "$12–25B/yr by 2032",
+      "basis": "Defence ISR budgets migrating to commercial provision, plus insurance, agriculture and infrastructure monitoring. 3x growth off the current base is consistent with the last decade's rate.",
+      "equity": "$40–90B",
+      "companies": ["AxionOrbital Space", "Array Labs", "Icarus", "Voltair", "Orbital Operations", "Orca Aerospace"]
+    },
+    {
+      "id": "space-mfg",
+      "name": "In-space manufacturing & lunar industry",
+      "pool": "Effectively pre-revenue. Dispatch's framing is the honest one: companies making materials that can only be made in microgravity currently have no practical way to get them back. Ethos's claim is that the Moon's surface is 21% silicon and can be electrolysed into solar feedstock. Beyond Reach notes all satellites together use ~20MW today.",
+      "estimate": "$0.5–3B/yr by 2032; $20B+ only under scenarios where orbital compute or orbital pharma become real",
+      "basis": "Reentry-service pricing of $0.5–2M per capsule against a few hundred flights per year is a sub-billion business. The large number only appears if space-based data centers happen, which requires the power and thermal problems Beyond Reach and Zephyr are working on to be solved first.",
+      "equity": "$5–40B, with the widest error bars in the dataset",
+      "companies": ["Dispatch", "Ethos Space Resources", "Beyond Reach Labs", "Zephyr Fusion", "Galactic Resource Utilization Space, Inc. (GRU Space)", "General Astronautics", "Velontra"]
+    },
+    {
+      "id": "dc-power",
+      "name": "Data-center power, interconnect & siting",
+      "pool": "Astro cites 2,000 GW of new US generation needed by 2035 for AI and electrification, and states that surprise interconnection costs kill 80–90% of renewable projects. Pacific claims delayed infrastructure projects bleed ~$1B/week in the US alone while data centers wait years for power. Voxel's line is the sharpest statement of the constraint: 'the best grid connection is no grid connection.'",
+      "estimate": "$10–35B/yr of addressable services and equipment revenue by 2032",
+      "basis": "Global data-center capex is in the $400–600B/yr range; the power, interconnect and siting layer is roughly 15–25% of that, and the software/development margin available to new entrants is a low-single-digit share of the layer. Behind-the-meter generation and second-life storage is the part a startup can actually own.",
+      "equity": "$50–150B, the most crowded of the frontier clusters because every energy incumbent is also chasing it",
+      "companies": ["Astro", "NODI Energy", "Voxel Energy", "Pacific", "Condor Energy", "Atomarine"]
+    },
+    {
+      "id": "dc-cooling",
+      "name": "Data-center cooling & thermal",
+      "pool": "Cooling is roughly 8–12% of data-center capex and a comparable share of operating power. Madrone claims 30% less power and water using dew-point cooling in Texas, where most new sites are. NetworkOcean claims up to 30% power reduction by putting the capsule underwater and has a 1MW unit in the SF Bay.",
+      "estimate": "$40–70B/yr market; $2–8B/yr realistically addressable by new entrants",
+      "basis": "$500B/yr global DC capex × ~10% cooling ≈ $50B/yr. New thermal architectures win single-digit share against Vertiv, Schneider and the hyperscalers' in-house designs.",
+      "equity": "$10–40B",
+      "companies": ["Madrone", "NetworkOcean", "Kara", "Inviscid AI"]
+    },
+    {
+      "id": "nuclear",
+      "name": "Nuclear, fusion & fuel supply",
+      "pool": "SMR capex runs roughly $5,000–8,000/kW installed. Fuel is the upstream constraint Terranox is attacking — uranium exploration trained on 70+ years of outcomes. Maritime Fusion is explicit that first-of-a-kind fusion will be 5–10x grid electricity cost, which is why it targets ships and off-grid rather than the grid.",
+      "estimate": "$30–90B of cumulative capex through 2035 for advanced/compact fission serving compute and industry; fusion revenue ≈ $0 before 2035 under most assumptions",
+      "basis": "10–15 GW of SMR and microreactor capacity by 2035 at $6k/kW ≈ $60–90B cumulative. Fuel and exploration is a few percent of that. The dating matters more than the sizing: NRC licensing timelines, not demand, set the schedule.",
+      "equity": "$20–80B for the reactor vendors; the fuel and services layer is smaller but earlier-revenue",
+      "companies": ["Apollo Atomics, Inc.", "Atomarine", "Maritime Fusion", "Terranox AI", "Zephyr Fusion"]
+    },
+    {
+      "id": "silicon",
+      "name": "AI silicon & novel compute",
+      "pool": "Nvidia's data-center revenue is running well over $100B/yr, which is the pool every challenger is quoting against. Lamb Labs' specific claim: hardcode LLM weights on-chip, 20,000+ tok/s and 63× higher intelligence per watt. Kara's: diamond wafers moving heat ~5× better than copper.",
+      "estimate": "$5–15B/yr for non-Nvidia AI silicon by 2030, excluding hyperscaler in-house parts",
+      "basis": "3–8% of a $200B+ accelerator market. Inference specialisation is where the share is winnable, because the training market is defended by CUDA and the interconnect.",
+      "equity": "$30–120B, but the capital requirement is the filter: a tapeout at an advanced node plus HBM supply is a nine-figure commitment before revenue.",
+      "companies": ["Baud", "Lamb Labs", "Kara", "Synapse Semiconductor", "Dipole Labs", "Visibl Semiconductors", "Sygaldry Technologies", "Frontier Computing"]
+    },
+    {
+      "id": "eda",
+      "name": "Chip design automation & materials discovery",
+      "pool": "EDA is roughly an $18B/yr market growing ~12%/yr, controlled by three vendors. Partcl claims 700× faster than legacy tools; SigmanticAI positions as 'Cursor for HDL'. Discovered Materials states that finding a novel semiconductor material takes 10+ years of lab work and that its founder's nanoscale interconnect materials are on Intel and TSMC roadmaps.",
+      "estimate": "$2–6B/yr for AI-native design tooling by 2032",
+      "basis": "10–30% of the EDA pool shifting to AI-native tools, plus a new materials-discovery services line. The moat question is whether Synopsys and Cadence simply ship the same features.",
+      "equity": "$15–50B",
+      "companies": ["Partcl", "SigmanticAI", "Standard Machines", "Discovered Materials", "Aerogen Systems", "hardware intelligence", "Atum Works"]
+    },
+    {
+      "id": "metals",
+      "name": "Critical metals & reshored materials",
+      "pool": "Duranium states plainly that China and Russia control the world's critical minerals, and targets titanium, magnesium, aluminium, zirconium and hafnium via a CO2-recycling carbochlorination reactor. Mass Magnetics turns recycled rare-earth scrap into DFARS-compliant magnets. 1849 bio estimates ~$800B of copper sits in waste and stranded ore that current processes cannot economically extract, against biomining at ~$1/ton versus ~$7/ton conventional.",
+      "estimate": "$8–25B/yr of US-domiciled production value by 2032",
+      "basis": "US imports of the named critical metals run several billion per year; rare-earth magnet demand heads from ~$2B toward $8–12B by 2035 as motors and robots scale. Reshoring capture depends on tariff and DFARS rules holding, which is a policy bet with a date on it.",
+      "equity": "$20–70B, heavily dependent on whether these stay commodity businesses (2–3× EBITDA) or become defence-qualified sole-source suppliers (much higher)",
+      "companies": ["Duranium", "Nox Metals", "Mass Magnetics", "1849 bio", "Ultrasonium", "Mineflow"]
+    },
+    {
+      "id": "am-mfg",
+      "name": "AI-native manufacturing & advanced fabrication",
+      "pool": "Ultrasonium claims a new metal-forming method 15× faster and 75% cheaper than the advanced methods it replaces, aimed at parts for data centers, rockets, satellites and robots. ProvenMetal targets US circuit-board lead times of days instead of weeks. Advanced Metal Research quotes the American Welding Society: 320,500 new welding professionals needed by 2029, ~80,000 jobs/yr, with 157,000+ current welders approaching retirement. Tensr operates a 12,000 sq ft Bay Area robot factory building for large US robotics customers and the ISS.",
+      "estimate": "$15–40B/yr addressable by 2032",
+      "basis": "US contract manufacturing of precision metal and electronics assemblies is a low-hundreds-of-billions market; AI-native entrants plausibly take 5–15% of the segments where lead time, not unit price, is the binding constraint.",
+      "equity": "$40–120B, but these are gross-margin-constrained businesses — the equity multiple is the risk, not the demand",
+      "companies": ["Ultrasonium", "ProvenMetal", "Advanced Metal Research", "Tensr", "Antropi Robotics", "Prototyping.io", "Control Seat", "Neuron Industries", "GUILD"]
+    },
+    {
+      "id": "chem",
+      "name": "AI for chemistry & formulations",
+      "pool": "Ligo Biosciences frames it as a $6T chemical industry responsible for 20% of industrial greenhouse gases and 15% of global energy use, where each enzyme takes years of trial and error. Rasyn's framing is sharper: almost nothing you buy is a single chemical — data-center coolant, GPU thermal paste, paint, glue are ~10-ingredient formulations, the search space is untestable, and one formulation takes 3–5 years to market. Rise Reforming states the US wastes or flares 60% of biogas that could make $20B/yr of chemicals.",
+      "estimate": "$5–20B/yr of addressable R&D and licensing value by 2032",
+      "basis": "Global chemical R&D spend is $40–60B/yr. Compress formulation timelines and you address a chunk of that plus a royalty on the resulting products. The value capture mechanism — services, licence, or own-the-molecule — is unsettled across all of these companies.",
+      "equity": "$20–60B",
+      "companies": ["Rasyn", "Ligo Biosciences", "Rise Reforming", "Molagri", "b12 Labs"]
+    },
+    {
+      "id": "bio-frontier",
+      "name": "Programmable therapeutics & AI-native pharma",
+      "pool": "Global pharma R&D is roughly $250–300B/yr. Kopra Bio benchmarks itself against Keytruda at ~$25B/yr and reports survival improving from 0% to 90% in the most challenging glioblastoma model. FinalDose claims a programmable DNA drug unlocking 80% of currently undruggable targets. TareBio claims a platform producing a personalized or population vaccine in weeks, already curing cancer in mice. RonanRx reports going from no pharmacy to licensed in 33 states in 10 weeks with 50% week-over-week growth. Convexia runs sourcing, scientific, commercial and clinical agents to buy, trial and sell drugs '10x faster and 20x leaner'.",
+      "estimate": "Per-asset: $1–15B of risk-adjusted value for a first-in-class oncology or autoimmune platform. Compounding/direct pharma: $5–15B/yr revenue pool.",
+      "basis": "A single approved oncology drug in a large indication carries $2–10B/yr peak sales at 10–20% probability of technical success from preclinical — hence the wide range. The compounded-peptide and GLP-1 direct-to-patient market is a different animal: real revenue now, regulatory exposure now.",
+      "equity": "Binary per company. The platform claims here are all pre-clinical except RonanRx, which is already selling.",
+      "companies": ["Kopra Bio", "FinalDose", "TareBio", "RonanRx Inc.", "Convexia", "Granza Bio", "ParcelBio", "Uncommon Therapeutics", "Ligo Biosciences", "TwentyTwo"]
+    },
+    {
+      "id": "lab-robots",
+      "name": "Wet-lab & scientific automation",
+      "pool": "Lab automation is roughly $6–9B/yr. Neuromorphic's distinction is the important one: rather than dedicated automation islands with fixed workflows, a robot that moves between workstations and manipulates the existing equipment a human technician uses — managed over Slack, email and phone.",
+      "estimate": "$10–20B/yr by 2032",
+      "basis": "Existing base roughly doubles as automation reaches the ~90% of labs that could not justify fixed automation, which is the segment brownfield-compatible robots unlock.",
+      "equity": "$20–50B",
+      "companies": ["Neuromorphic", "Zeon Systems", "Andromeda Surgical", "SuperRadiant"]
+    },
+    {
+      "id": "field-robots",
+      "name": "Field, agriculture & heavy-equipment autonomy",
+      "pool": "Polymath Robotics reports being on more robots than it has engineers, with a general autonomy stack for cautious industrial vehicles behind a REST API. Flywheel AI retrofits existing excavators for remote operation and harvests the resulting dataset to train policies.",
+      "estimate": "$8–25B/yr by 2032",
+      "basis": "Global construction and agricultural equipment sales are $150–200B/yr; autonomy retrofit and software attach at 5–15% of fleet value. Retrofit is the wedge because the installed base dwarfs new sales.",
+      "equity": "$25–80B",
+      "companies": ["Polymath Robotics", "Flywheel AI", "Synphony", "Brumby (Formerly GrazeMate)", "OctaPulse", "Grip", "RoboDock", "Aseon Labs"]
+    }
+  ]
+}
