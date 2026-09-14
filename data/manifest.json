@@ -1,11 +1,32 @@
 {
  "static": true,
- "builtAt": "2026-09-14T20:32:30.694Z",
+ "builtAt": "2026-09-14T20:38:24.757Z",
  "authors": [
   "anshu",
   "veer"
  ],
  "reports": [
+  {
+   "p": "reports/agent-system-plan-2026-09-10.md",
+   "name": "agent-system-plan-2026-09-10.md",
+   "ext": ".md",
+   "bytes": 94155,
+   "mtime": 1789418237031.281
+  },
+  {
+   "p": "reports/terrain-map.md",
+   "name": "terrain-map.md",
+   "ext": ".md",
+   "bytes": 16373,
+   "mtime": 1789418095118.6548
+  },
+  {
+   "p": "reports/knowledge-state.md",
+   "name": "knowledge-state.md",
+   "ext": ".md",
+   "bytes": 7548,
+   "mtime": 1789418013343.6567
+  },
   {
    "p": "reports/iris-and-robotics-market-2026-09-13.md",
    "name": "iris-and-robotics-market-2026-09-13.md",
@@ -54,13 +75,6 @@
    "ext": ".html",
    "bytes": 565806,
    "mtime": 1789395180829.2788
-  },
-  {
-   "p": "reports/agent-system-plan-2026-09-10.md",
-   "name": "agent-system-plan-2026-09-10.md",
-   "ext": ".md",
-   "bytes": 93565,
-   "mtime": 1789392833053.6907
   },
   {
    "p": "reports/nanorobotics-field-map-2026-09-11.md",

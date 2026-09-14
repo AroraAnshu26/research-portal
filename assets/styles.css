@@ -322,3 +322,4 @@ article.brief li:before{content:"";position:absolute;left:2px;top:9px;width:4px;
 #p-reports .fold{margin-top:16px}
 #briefdays .daylist{max-height:none}
 .st-contested{color:var(--c5);border-color:var(--c5)}
+.st-waiting{color:var(--ink-3);border-color:var(--baseline)}

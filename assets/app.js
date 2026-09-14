@@ -110,7 +110,7 @@
 
   function stClass(s) {
     var k = String(s || "").split(" ")[0].toLowerCase();
-    var known = ["live", "running", "current", "done", "closed", "planned", "ready", "build", "blocked", "contested"];
+    var known = ["live", "running", "current", "done", "closed", "planned", "ready", "build", "blocked", "contested", "waiting"];
     return "st st-" + (known.indexOf(k) >= 0 ? k : "current");
   }
 

@@ -305,6 +305,36 @@ window.LIBRARY = [
 },
 
 {
+  id: "terrain-map",
+  axis: "new",
+  kind: "map",
+  title: "Terrain map: three domains, breadth before depth",
+  dek: "Certification, the robot policy layer, and the datacenter buildout, each on the same six headings so they stay comparable. A map, not the territory.",
+  status: "live",
+  date: "2026-09-14",
+  owner: "anshu",
+  open: "reports/terrain-map.md",
+  openLabel: "Open the map",
+  tags: ["breadth first", "3 domains", "serialised daily"],
+  metrics: [
+    { v: "16.3%", l: "Bureau Veritas FY2025 adjusted operating margin. Certification division 18.2%. Not a software business." },
+    { v: "~98%", l: "Share of the machinery sector that is SMEs, per recital 27 of the Regulation itself" },
+    { v: "2 weeks / 2 months", l: "Notified-body objection window with accreditation, against without. Accreditation is the long pole." },
+    { v: "$254B–$321B", l: "2026 TIC market across four research houses. A 26% spread on a mature market; the spread is the finding." }
+  ],
+  body: [
+    ["Why breadth rather than one domain", "Your decision of 2026-09-14, verbatim: \"cover it broadly as of now. as time goes by, we can filtr it as my undersatnding also gets more nuanced.\" That is a different design from the one in the plan, which assumed a single domain taken to the frontier immediately. So the stock side now has two stages: a cheap breadth pass across all three candidates, which an agent can do, and then the expensive six-part explainer on one of them, which needs fifteen to twenty hours of your reading and cannot be delegated."],
+    ["How the narrowing actually happens, so it does not drift", "The attention table in reports/knowledge-state.md counts which domains the daily brief items fall into and which ONE QUESTION prompts you actually answer in the scratchpad. When the map is fully delivered, the domain with the most answered questions and the least depth is the candidate for the full explainer. The tally is the input, not the decision."],
+    ["What section 1 closed, and what it did not", "The gap I claimed existed was how a notified body works as a business, and it is now partly closed from primary text. Article 30(8) of Regulation 2023/1230 states that assessor and management remuneration \"shall not depend on the number of conformity assessments carried out or on the results of those assessments\", which removes the two levers a normal services business uses to scale and is the actual mechanism behind the notified-body capacity shortage. Article 25(5) obliges notified bodies to take SME interests into account when setting fees, against a sector that recital 27 puts at roughly 98% SMEs. Article 34(5) sets the objection window at two weeks with an accreditation certificate and two months without. Still not found: any published fee schedule or day rate, revenue per assessor, the duration of the accreditation step, and the count of bodies designated under 2023/1230, because NANDO did not respond to four retrieval attempts and the Single Market Compliance Space API returns a page shell rather than data."],
+    ["The live disagreement it surfaced", "Whether 20 January 2027 is a hard forcing function or a soft one. Hard: Annex I Part A item 5 removes self-certification for self-evolving ML safety components and was confirmed untouched by the Digital Omnibus, since Regulation (EU) 2026/1744 Article 3 amends only Machinery Articles 8, 20 and 47. Soft: no harmonised standards for the AI requirements had been submitted as of August 2026, the AI-specific content is deferred to a delegated act that \"shall apply by 2 August 2028\", and new Article 20(10) lets manufacturers lean on AI Act harmonised standards in the interim. The hard reading requires notified bodies to assess without a cited standard on their own judgment; the soft reading requires enforcement to tolerate a sixteen-month gap between an obligation applying and a method existing."],
+    ["Sections 2 and 3 are honest about being incomplete", "The robot policy layer is a skeleton: vocabulary, value chain, valuations and a candidate constraint are sourced, while deployment unit economics, anyone's gross margin, and the live disagreement are not. Symbotic is public and no filing in the sector has been read, which is the cheapest available fix. The datacenter section is scope only, carrying one sourced figure, and says so rather than appearing complete."]
+  ],
+  files: [
+    { p: "reports/terrain-map.md", d: "The map. Section 1 written, 2 skeleton, 3 scope only." },
+    { p: "reports/knowledge-state.md", d: "The state file the agents read: watchlist, theses, attention tally, open questions" }
+  ]
+},
+{
   id: "agent-system-plan",
   axis: "new",
   kind: "plan",
@@ -519,5 +549,6 @@ window.PROVENANCE = {
   "twin-certification":         { kind: "own-prior-work", note: "Your research of 2026-09-07. Lightwheel round and the SRCC literature were web-retrieved then; the repositioning argument is from that session." },
   "freight-cycle-2026":         { kind: "own-prior-work", note: "Your 2026-09-07 session. Kept as a closed card deliberately so the question is not reopened as new." },
   "nanorobotics-field-map":     { kind: "web-2026-09-11", note: "NEW TO YOU. Web research run 2026-09-11 across four parallel tracks (medical/clinical, molecular machines and DNA nanotech, the enabling stack, capital and institutions) plus a lead track. ~130 searches and ~80 direct fetches before the session budget ran out. Primary sources preferred; arXiv and PMC mirrors used where publishers returned 403. Physics calculations in §4, §5, §8.1 and §8.2 are derived here from standard relations, not quoted — the arithmetic is shown so it can be checked. Fifteen items could not be confirmed and are listed in §15." },
+  "terrain-map":                { kind: "web-2026-09-10", note: "NEW TO YOU. Breadth pass written 2026-09-14. The Machinery Regulation provisions were read at primary through the Publications Office CELLAR service and every quoted article was verified by grep against the retrieved text. The Bureau Veritas margin is a company results release. The TIC market range is four research houses and no single figure in it should be quoted. Sections 2 and 3 are deliberately incomplete and name their own gaps." },
   "agent-system-plan":          { kind: "web-2026-09-10", note: "NEW TO YOU. Research run 2026-09-10 against Karpathy, Graham, Anthropic engineering, Commoncog and the EBU/BBC study, cited inline in the document. The architecture and the nine agents are proposals, not findings." }
 };

@@ -932,7 +932,7 @@ Everything below comes from sources retrieved on 2026-09-10 during the research 
 
 Four things. That single-source items are labelled rather than laundered into confident prose. That the stock section is omitted rather than filled when there is nothing to put in it. That every item's second sentence does interpretive work on the number rather than restating it, since a restated number is the definition of filler. And that the provenance block is honest enough to name which figures in the newsletter you should not yet repeat in a meeting, which is information you cannot get from any published newsletter.
 
-### 7.3 The knobs, settled 2026-09-14
+### 7.3 The knobs, settled 2026-09-14 (all six)
 
 Five of the six are decided and are now live in `data/agents.js`. One remains open. Recorded here so that a future run can tell a decision from a default.
 
@@ -946,7 +946,13 @@ Five of the six are decided and are now live in `data/agents.js`. One remains op
 
 **X: deferred.** Dropped as a source. The function it was serving, which is hearing what a small number of people actually think, is now agent **F6 Voices**, which reads named people at their own publication venue instead: Dario Amodei at darioamodei.com, Paul Graham at paulgraham.com, Andrej Karpathy at karpathy.bearblog.dev and karpathy.github.io, with room for the list to reach eight to twelve names. This is a better trade than it looks. The platform was never the point, and reading the primary essay rather than the posts about it is the only way to catch the highest-value observation this agent can make, which is when one of these people changes position. A side effect is that F4 Frontier Claims is no longer blocked, since dropping X removed its only external dependency; it now reads arXiv, lab publication pages, and the papers' own discussion in OpenReview threads, rebuttals and replication notes.
 
-**Still open: which domain the stock side starts with.** My recommendation is unchanged and this week strengthened it. Industrial certification and standards bodies as a business is the candidate, because three separate regimes have now independently created demand for third-party attestation, and there is still not a single primary document in this portal about how a notified body prices work, obtains accreditation, or structures its costs. The alternatives remain the robot policy layer, which you already know well enough that an explainer would mostly tell you things you know, and the datacenter and power buildout.
+**Which domain the stock side starts with: all three, broadly, then narrow.** Settled the same day, and it revises the design rather than choosing one of the options I offered. The instruction was to "cover it broadly as of now" and to filter later as understanding sharpens, which is a better answer than the question I asked, because it separates a cheap decision from an expensive one. Breadth across three domains is delegable and costs you almost nothing. Depth on one is fifteen to twenty hours of your own reading and cannot be delegated, so committing to it before seeing the terrain was the wrong order.
+
+The stock side therefore gained a stage. A new agent, **S0 Terrain**, maintains `reports/terrain-map.md`: one section per candidate domain, all on the same six headings so the domains stay comparable, each capped at about a thousand words, and each closing with a mandatory statement of what was searched for and not found. **S1 Curriculum no longer fires first.** It waits until a domain is chosen, and its status is now "waiting on a domain".
+
+The narrowing is given a mechanism rather than left to feeling, which matters because "we can filter it later" is exactly the kind of intention that quietly never happens. The `attention` table in `reports/knowledge-state.md` counts which domains the daily brief's items fall into and, more usefully, which of its ONE QUESTION prompts actually get answered in the scratchpad. When the map is fully delivered, the domain with the most answered questions and the least depth is the candidate for the full explainer. The tally is the input; the choice stays yours. My recommendation for that later choice is unchanged, industrial certification and standards bodies as a business, and section 1 of the map is now written and already closes part of the gap I said existed.
+
+One consequence worth noting because it fixes a visible hole: the brief's FROM THE STOCK SIDE section was omitted on 14 September for want of a domain in progress. The editor now serialises the terrain map into that block at no more than 400 words a weekday, carrying its actual sentences and figures rather than summarising them, and omits the section again once the map is exhausted.
 
 ---
 
