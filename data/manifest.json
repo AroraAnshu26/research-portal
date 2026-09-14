@@ -1,11 +1,39 @@
 {
  "static": true,
- "builtAt": "2026-09-14T14:27:04.562Z",
+ "builtAt": "2026-09-14T20:32:30.694Z",
  "authors": [
   "anshu",
   "veer"
  ],
  "reports": [
+  {
+   "p": "reports/iris-and-robotics-market-2026-09-13.md",
+   "name": "iris-and-robotics-market-2026-09-13.md",
+   "ext": ".md",
+   "bytes": 140425,
+   "mtime": 1789399781816.4182
+  },
+  {
+   "p": "reports/stanford-faculty-census/build_students.py",
+   "name": "build_students.py",
+   "ext": ".py",
+   "bytes": 22402,
+   "mtime": 1789399743156.778
+  },
+  {
+   "p": "reports/stanford-faculty-census/students.json",
+   "name": "students.json",
+   "ext": ".json",
+   "bytes": 25184,
+   "mtime": 1789399743088.943
+  },
+  {
+   "p": "reports/stanford-students-building.html",
+   "name": "stanford-students-building.html",
+   "ext": ".html",
+   "bytes": 51015,
+   "mtime": 1789399742974.7446
+  },
   {
    "p": "reports/newsletter/2026-09-14.md",
    "name": "2026-09-14.md",

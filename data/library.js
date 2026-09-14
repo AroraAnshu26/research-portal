@@ -36,10 +36,20 @@ window.LIBRARY = [
     ["Method, reusable", "YC's public directory is fully scrapeable through its Algolia index. App ID 45BWZJ1SGC; the search key is NOT stable — read it live from window.AlgoliaOpts in the HTML of ycombinator.com/companies. Endpoint 45bwzj1sgc-dsn.algolia.net/1/indexes/YCCompany_production/query, filter batch:\"Winter 2022\", hitsPerPage 1000. Fields include one_liner, long_description, industry, subindustry, tags, regions, team_size, status, stage, launched_at. top_company is always false in the public index — do not rely on it."],
     ["Observations across the full census", "Physical-AI vocabulary (embodied / VLA / sim-to-real / teleop / world model / manipulation / humanoid): 2 of 1,126 companies in W22–S23 (0.2%) against 42 of 672 in W26–F26 (6.2%). Data centres as a subject 0.5% → 8.1%, the fastest-moving flag. Defense 1.2% → 6.4%. Semis: zero companies in W22 and S22, seven in S26 alone. Frontier and deep-tech keywords 6.0% → 26.1%. Crypto: 15 companies in W22+S22 alone, five across all eleven batches W24 → F26 — yet crypto returns as a Fall 2026 RFS request. Structurally: batch size 398 → 234 while cadence doubled to four batches a year, median team size 10 → 2, US share 56% → 92%. 537 companies are still active and carry a frontier flag, 318 of them in the 2025–26 batches."],
     ["RFS against reality", "No RFS existed at all from W22 through the run-up to S24 — YC's February 2024 post was its first refresh since 2018 — which makes 2022–23 a clean control. The Summer 2025 request (\"software tools for robots / a ChatGPT moment in robotics\") is the one that visibly tracked. The Spring 2025 datacenter request took roughly four batches to appear in composition. The Fall 2025 \"reskill tradespeople\" request was answered sideways: founders built robots for the trades rather than vocational schools. Summer 2026 is the first batch where RFS and composition agree across every hard-tech flag at once."],
-    ["Known soft spots", "web.archive.org is unreachable from this machine, so historical page states came from secondary sources. ycombinator.com/rfs only server-renders the currently selected edition — the tab buttons are React state with no href — so earlier editions were reconstructed from secondary sources, and the Winter-2025-vs-Spring-2025 boundary is explicitly unreliable."]
+    ["Known soft spots", "web.archive.org is unreachable from this machine, so historical page states came from secondary sources. ycombinator.com/rfs only server-renders the currently selected edition — the tab buttons are React state with no href — so earlier editions were reconstructed from secondary sources, and the Winter-2025-vs-Spring-2025 boundary is explicitly unreliable."],
+    ["The pipeline is in the repo, and re-runnable", "tools/yc holds the three scripts and the 2026-09-10 datasets, so this stops being a snapshot and becomes something that can be refreshed: python scrape.py, then classify2.py, then build.py, which writes straight back into reports/. Two things were hardened on 2026-09-14 so a re-run does not silently fail. The Algolia search key rotates, so scrape.py now reads it live out of window.AlgoliaOpts in the directory page and only falls back to the stored key. And batches are discovered from the index facet rather than hardcoded, so a batch YC adds later flows through with no code edit. This is the code the batch-delta agent charter needs; tools/yc/README.md documents the delta procedure."],
+    ["What a refresh would change, as of 2026-09-14", "A test re-run four days after the pull returned 3,014 companies across 16 batches: Winter 2027 now exists as a batch with one company, Fall 2026 has grown from 46 to 51, and Summer 2022 has dropped from 234 to 233 — a company removed from the directory. The published dashboard and every figure on this card remain the verified 2026-09-10 pull. The observation prose in build.py and the metrics on this card are hand-written for that pull, so a republish means re-checking each figure rather than just re-running the scripts."]
   ],
   files: [
-    { p: "reports/yc-batch-map.html", d: "The dashboard, self-contained, 1.9 MB" }
+    { p: "reports/yc-batch-map.html", d: "The dashboard, self-contained, 1.9 MB" },
+    { p: "tools/yc/README.md", d: "How to re-run the pipeline, and how to generate a batch delta" },
+    { p: "tools/yc/scrape.py", d: "Live pull from YC's Algolia index — rotating key read at runtime, batches discovered from the facet" },
+    { p: "tools/yc/classify2.py", d: "21 themes, 22 flags, weighted keyword scoring against YC's own industry labels" },
+    { p: "tools/yc/build.py", d: "Emits the dashboard into reports/; header and counts derive from the data" },
+    { p: "tools/yc/companies.json", d: "The classified 2026-09-10 snapshot, 3,009 records" },
+    { p: "tools/yc/trends.json", d: "Per-batch theme and flag shares behind the Trends tab" },
+    { p: "tools/yc/rfs.json", d: "Eight RFS editions, 97 requests, with the source named per edition" },
+    { p: "tools/yc/market.json", d: "22 market clusters — spend today, estimate, arithmetic, equity scale" }
   ]
 },
 {
@@ -416,6 +426,72 @@ window.LIBRARY = [
     { p: "reports/stanford-labs-map-2026-09-14.md", d: "Markdown companion \u2014 rosters, scores with component breakdowns, alumni table, faculty records" }
   ]
 }
+,
+{
+  id: "stanford-student-companies",
+  axis: "new",
+  kind: "dashboard",
+  title: "What the Stanford students are building",
+  dek: "Every company founded 2021–2026 with at least one Stanford undergrad, master's, PhD or postdoc founder — 28 of them, $1.97B raised, filterable by founder stage, domain and the investor who actually wrote the cheque — plus the 18 entry points they came through.",
+  status: "live",
+  date: "2026-09-11",
+  owner: "anshu",
+  open: "reports/stanford-students-building.html",
+  openLabel: "Open dashboard",
+  tags: ["28 companies", "$1.97B raised", "7 at $1B+", "18 entry points", "2021–2026"],
+  metrics: [
+    { v: "$32M vs $630M", l: "Capital behind the 5 YC-backed student companies versus the 4 Sequoia-backed ones — cheque size tracks whether the founder authored a named method, not founder age" },
+    { v: "7 of 28", l: "At or above $1B: Humans&, Simile, Axiom Math, Wispr Flow, Flapping Airplanes, Applied Compute, Rox" },
+    { v: "22", l: "Stanford founders in YC's W26 batch, against Berkeley 30 and Harvard 18 — Stanford is no longer the top YC feeder" },
+    { v: "none", l: "Official count of Stanford students who left to found companies: the university does not track why students take leave, so no real number exists" }
+  ],
+  body: [
+    ["Why", "Asked for directly, on 2026-09-11: find the student-native layer specifically, excluding anyone who spent more than about five years in industry first, and name the top-tier backer on each, \"so that i can also go and build with them.\" This is the companion to the Stanford frontier map (faculty and institutes) and the IRIS/REALab board (two labs, person by person). Same five-axis card, same visual system."],
+    ["Inclusion rule, and who it deliberately excludes", "In: at least one founder was a Stanford undergrad, master's student, PhD candidate or postdoc at founding, or left that programme to found it. Out, by the rule rather than by oversight: World Labs (Fei-Fei Li, faculty), Physical Intelligence (faculty plus DeepMind veterans), SambaNova, Together AI and Snorkel. Those are Stanford companies but they belong to the faculty-and-operator layer, which the frontier map already covers. Keeping the two layers apart is the whole point of this card."],
+    ["The capital pattern, which is the sharpest thing in the data", "Filter by backer and the shape appears. Y Combinator: 5 companies, $32M between them. a16z: 2 companies, $40M. Sequoia: 4 companies, $630M. The PhD tier on any backer: 7 companies, $1.18B. Age is not the variable — Applied Compute's founders are all 25 or under and raised at roughly $700M. The variable is whether the founder authored a named research result. YC funds students at $0.5M–$5M; Sequoia funds method-authors at $50M–$200M."],
+    ["The PhD tier", "The Chris Ré pipeline at full speed, plus its neighbours. Humans& — Eric Zelikman, Stanford CS PhD then xAI, $480M seed at $4.48B in Jan 2026, one of the largest seed rounds on record, from NVIDIA, Bezos and GV. Simile — Joon Sung Park, whose Smallville generative-agents dissertation won Stanford's Arthur Samuel Award, now $2B with Sequoia and Greenoaks. Cartesia — Goel, Gu, Desai and Yang, all four Ré PhDs who founded on the day they graduated in 2023, productising the State Space Models they had invented in his lab. Engram — $98M at $600M with thirteen employees. Flapping Airplanes — Ben Spector, Stanford statistics PhD, $180M seed and reported talks at $5B. Radical Numerics — $50M, built Evo. Phylo — Kexin Huang's PhD under Jure Leskovec finished weeks before, $13.5M from a16z and Menlo. Pika — Demi Guo and Chenlin Meng walked out of their Stanford AI Lab PhDs in April 2023, now $470M."],
+    ["The undergrad tier", "Voice, video and analytics; small cheques, fast. Willow, Human Behavior ($5M in two days from YC, General Catalyst, Paul Graham and Vercel Ventures), Golpo, Known, Phia, Verita AI, TensorPool, Candor. The exception proves the shape: Wispr Flow was founded straight out of Stanford undergrad in 2021 and is now reported at $2B — but it took five years and killing its own original product. One hybrid worth staring at: Valar Labs, three researchers who met in Andrew Ng's lab, through PearX S21, now $26M from a16z Bio+Health and DCVC with an FDA-track bladder-cancer product. Students doing the hard-science path successfully."],
+    ["The founding mechanism is physical proximity", "TensorPool's three founders met on the same freshman dorm floor. Human Behavior's team met at a hacker house one founder started after leaving. Phia was two roommates. Vori's three met at Stanford. This is the only part of the dataset that cannot be reproduced from off campus, and it is the argument for being in those rooms rather than in any particular programme."],
+    ["Entry points, lowest barrier first", "Stanford Venture Studio has non-competitive admission — guaranteed to any Stanford student who submits the form — and runs mixers specifically for co-founder formation. StartX takes zero equity and charges no fees. The highest-yield small programme found in this pass, relative to its size, is the Stanford ML Group's AI for Healthcare Bootcamp: its alumni started both Valar Labs and Wispr. Money aimed specifically at Stanford students: NFX FAST for Stanford ($150K uncapped SAFE or $1.5–3M for 15%, deadline 12 April), Pear Garage and Pear Dorm ($100K uncapped SAFE), Neo Scholars (~30 a year, $20K) and Neo Residency ($40K to take a semester off), Thiel Fellowship ($250K over two years in the 2026 class), YC Early Decision (apply as a student, funded on acceptance, do YC after graduating), a16z Speedrun (up to $1M, sub-0.4% acceptance), Z Fellows ($10K at a $1B cap)."],
+    ["Verified out, so they are not rediscovered as new", "Four companies that look Stanford-student on first pass and are not: Noble Machines (Wenlong Ma plus Apple, Caltech and NASA people — not Stanford's Wenlong Huang, a real and easy confusion), Density AI (ex-Tesla Dojo team), Deep Cogito (IIT Delhi, ex-Google Search), Goodfire (Yale, NYU, DeepMind). Mercor, frequently filed under Stanford, is Georgetown and Harvard dropouts."],
+    ["Known gaps, stated on the card itself", "This is a floor, not a census: there is no registry of student-founded companies, and Stanford does not record why students take leave. One dropout founder put his own count of classmates who left for AI at about a dozen; a Stanford economics professor separately knew of at least five in his own classes. Candor, Revere Technologies, SoranoAI and 10x Science have no public funding figures; Known and Golpo disclose amounts but not investors; Axiom Math's investors were not named in any source found. Most importantly, press coverage skews to consumer AI, so hardware, bio and defence student companies are undercounted here — treat the domain mix as partly a map of media attention rather than of activity. SPARK and the Stanford Biotechnology Group run real pipelines that rarely get written up."]
+  ],
+  files: [
+    { p: "reports/stanford-students-building.html", d: "Dashboard, four tabs, filterable, source link on every row" },
+    { p: "reports/stanford-faculty-census/students.json", d: "The 28 company records and 18 entry points, with provenance" },
+    { p: "reports/stanford-faculty-census/build_students.py", d: "Builder, so the dashboard regenerates from the JSON" }
+  ]
+},
+{
+  id: "iris-robotics-decision",
+  axis: "thesis",
+  kind: "report",
+  title: "IRIS, the robotics market, and whether there is a company here",
+  dek: "The 19,944-word decision document. Two kill arguments against the business, the narrower thesis that survived them, and the market verdicts to reuse.",
+  status: "current",
+  date: "2026-09-13",
+  owner: "anshu",
+  open: "reports/iris-and-robotics-market-2026-09-13.md",
+  openLabel: "Open report",
+  tags: ["decision", "kill test", "DATE", "EDGE"],
+  metrics: [
+    { v: "2 kill args", l: "The commons argument and the self-liquidation argument, both against the BUSINESS. The research case survives both." },
+    { v: "92% / 36%", l: "Gemini Robotics 2 unscrews a lightbulb, then screws it back in, same model and same hand. Insertion is the blocker, not perception." },
+    { v: "1,800 + 47,000", l: "TRI real and simulated rollouts across 29 tasks, after which its CIs were still 20-30 points wide at n=50" },
+    { v: "~1,570/arm", l: "Trials needed to resolve the 5pp effect PI's RECAP claims on 300 trajectories per iteration" }
+  ],
+  body: [
+    ["Why it is on the board", "It was the single most decision-relevant robotics artefact not reachable from the portal. Registered under the standing rule that robotics, Stanford and startup artefacts get a space here (gbrain concepts/portal-artefact-rule). The original stays at Desktop/Research; this is a copy, so nothing linked elsewhere breaks."],
+    ["The two kill arguments", "THE COMMONS ARGUMENT: every sophisticated actor that felt this pain built the tool and gave it away \u2014 TRI open-sourced lbm_eval across 49 tasks, Berkeley open-sourced RoboArena, and Bi-DexHands, DaXBench, GarmentLab and SoftGym all went the same way. The field has priced evaluation tooling at zero every single time. THE SELF-LIQUIDATION ARGUMENT: DYNA reports 99.4% towel folding across 850+ napkins and 99% acceptance across 200,000+ towels, so when reliability is real the trial counts arrive free from production telemetry. Valid evaluation is cheapest exactly where the business would work."],
+    ["What survived", "Production telemetry cannot tell you whether an OTA update is a regression, because you cannot run the previous policy counterfactually without surrendering throughput. Non-regression AT THE MOMENT OF MODEL UPDATE is the defensible wedge \u2014 not general evaluation. Also a reversal worth keeping: NHTSA withdrawing AV STEP cuts the OPPOSITE way from the Sept 7 reading, because the regulator declined to create a market for third-party evaluators, which makes each safety case a services engagement rather than a product."],
+    ["Market verdicts to reuse", "STRONG: certification and evaluation for learned controllers; collapsing integration cost (Rethink Robotics died twice on it \u2014 usability without precision does not sell); geofenced autonomy (but Waymo took $27B and Cruise died on $10B+). CONTESTED: arbitrary-SKU picking; deformable food and meat cutting \u2014 the most underattacked gap relative to value, with huge processors as buyers and the worst injury profiles in manufacturing. WEAK: humanoid labour (no disclosed revenue anywhere, yet $8.6B of the $18.8B 2026 robotics funding); restaurant automation (Zume took $375M from SoftBank and shut); elder care (largest labour gap at 4.68M jobs and 760.5k annual openings, but Medicaid does not reimburse robots)."],
+    ["The co-founder verdict, delivered bluntly", "The arrangement is upside down, not merely imperfect. Buyers here are reliability engineers, actuaries, standards-committee members and VPs of deployment \u2014 none reachable through freight brokerage and none buying on relationship. Actuaries buy on model documentation, committees on technical contribution, engineers on reproducible benchmarks. In this market the publication record is the primary sales asset, which inverts the assumed division of labour. One narrow surviving role: running the falsification interviews, because interviewing transfers even when the network does not."],
+    ["Correction now on record", "This document states 33 IRIS members and 13 PhD students. The lab page lists 12 PhD students by name, so the correct count is 32 excluding Finn. The 2026-09-14 labs board (card: stanford-labs-map) supersedes the roster section and adds the per-person scoring, verbatim abstracts, alumni founder trace and faculty map."]
+  ],
+  files: [
+    { p: "reports/iris-and-robotics-market-2026-09-13.md", d: "The decision document, 19,944 words \u2014 roster, market map, dexterity evidence, synthesis, five ranked project proposals, risk register, 60-day falsification plan" }
+  ]
+}
 ];
 
 /* ── Provenance ───────────────────────────────────────────────────────────
@@ -428,8 +504,10 @@ window.LIBRARY = [
      agent            produced by one of the agents in data/agents.js
    Merged onto cards by assets/app.js and shown on the card face.           */
 window.PROVENANCE = {
-  "stanford-labs-map":          { kind: "web-2026-09-14", note: "NEW TO YOU. Rosters fetched 2026-09-13/14 from irislab.stanford.edu/people.html and real.stanford.edu/lab.html \u2014 REALab's roster and its 91-paper list are JavaScript literals in the page, so the raw HTML must be read directly. All 60 abstracts were fetched from their arXiv pages and are quoted verbatim, none paraphrased. Faculty ranks, courses and advising loads from profiles.stanford.edu. Emails only where actually published; nothing pattern-guessed. The two scores per person were requested explicitly on 2026-09-13, which suspends house rule 1 \u2014 each decomposes into five stated components so it stays auditable." },
-  "yc-batch-census":            { kind: "own-prior-work", note: "Your own census pass, 2026-09-10. Method and findings recorded in gbrain; all 3,009 records scraped from YC's public Algolia index." },
+  "iris-robotics-decision":     { kind: "own-prior-work", note: "Your decision document of 2026-09-13, recorded in gbrain at inbox/2026-09-13-e406a4a4. The roster was verified against the lab's own pages that day; the market figures were web-retrieved then and are not re-verified since. The roster section is SUPERSEDED by the 2026-09-14 labs board, which corrects the member count from 33 to 32." },
+  "stanford-student-companies": { kind: "web-2026-09-11", note: "Web research run 2026-09-11 in the Stanford session; you saw the summary in chat, so the new material here is the per-company rows and the entry-point list. Roughly 60 searches plus direct fetches of the South Park Commons and a16z Speedrun portfolios, the SF Standard dropout and defence pieces, the GSB Demo Day 2025 listing and the STVP fellows page. Every figure carries the outlet that reported it. Four look-alike companies were checked and discarded rather than left in. Student-company coverage is media-skewed by construction and the card says so." },
+  "stanford-labs-map":        { kind: "web-2026-09-14", note: "NEW TO YOU. Rosters fetched 2026-09-13/14 from irislab.stanford.edu/people.html and real.stanford.edu/lab.html \u2014 REALab's roster and its 91-paper list are JavaScript literals in the page, so the raw HTML must be read directly. All 60 abstracts were fetched from their arXiv pages and are quoted verbatim, none paraphrased. Faculty ranks, courses and advising loads from profiles.stanford.edu. Emails only where actually published; nothing pattern-guessed. The two scores per person were requested explicitly on 2026-09-13, which suspends house rule 1 \u2014 each decomposes into five stated components so it stays auditable." },
+  "yc-batch-census":            { kind: "own-prior-work", note: "Your own census pass, 2026-09-10. Method and findings recorded in gbrain; all 3,009 records scraped from YC's public Algolia index. The pipeline that produced it was moved into tools/yc on 2026-09-14 and re-run to prove it still works — that test run is NOT what the published dashboard shows, and the delta it found is described on the card." },
   "physical-ai-capital-map":    { kind: "own-prior-work", note: "Your Noctem-pivot research sessions of 2026-09-07, recorded in gbrain. Valuations were web-retrieved then, not re-verified since." },
   "physical-intelligence-review": { kind: "own-prior-work", note: "You wrote it. 36,765 words, 2026-09-03, with the source list in the document." },
   "stanford-frontier-map":      { kind: "own-prior-work", note: "Your census pass, 2026-09-10. Faculty structure is computed from Stanford's own affiliation records; the classifier limits are stated on the card and in the deliverable." },

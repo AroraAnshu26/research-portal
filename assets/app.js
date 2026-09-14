@@ -131,6 +131,9 @@
       var col = el("div", "col");
       col.setAttribute("data-axis", ax.id);
       var mine = visible.filter(function (c) { return c.axis === ax.id; });
+      /* Newest first, so the CAP below folds the oldest rather than whatever
+         happens to sit last in the library array. Undated cards sort last. */
+      mine.sort(function (a, b) { return String(b.date || "").localeCompare(String(a.date || "")); });
       var shut = STATE.closed[ax.id];
       if (shut) col.classList.add("shut");
 
