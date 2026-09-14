@@ -19,8 +19,10 @@
     author: localStorage.getItem("portal.author") || "anshu",
     density: localStorage.getItem("portal.density") || "compact",
     closed: JSON.parse(localStorage.getItem("portal.closed") || "{}"),
+    expanded: {},
+    briefDate: null,
     date: null,
-    meta: { logs: { anshu: [], veer: [] }, reports: [], userCards: [] },
+    meta: { logs: { anshu: [], veer: [] }, reports: [], briefs: [], userCards: [] },
     cards: []
   };
 
@@ -108,7 +110,7 @@
 
   function stClass(s) {
     var k = String(s || "").split(" ")[0].toLowerCase();
-    var known = ["live", "running", "current", "done", "closed", "planned", "ready", "build", "blocked"];
+    var known = ["live", "running", "current", "done", "closed", "planned", "ready", "build", "blocked", "contested"];
     return "st st-" + (known.indexOf(k) >= 0 ? k : "current");
   }
 
@@ -147,7 +149,23 @@
       col.appendChild(h);
 
       if (!shut) {
-        mine.forEach(function (c) { col.appendChild(cardNode(c)); });
+        /* A column shows five cards. Everything older folds, so a column that
+           accumulates twenty cards over six months still reads as five. */
+        var CAP = 5;
+        var open = STATE.expanded[ax.id];
+        var shown = open ? mine : mine.slice(0, CAP);
+        shown.forEach(function (c) { col.appendChild(cardNode(c)); });
+
+        if (mine.length > CAP) {
+          var more = el("button", "fold thin",
+            open ? "▾ fold " + (mine.length - CAP) + " older" : "▸ " + (mine.length - CAP) + " older");
+          more.onclick = function () {
+            STATE.expanded[ax.id] = !STATE.expanded[ax.id];
+            renderBoard();
+          };
+          col.appendChild(more);
+        }
+
         var add = el("button", "addcard", "+ add");
         add.onclick = function () { openAdd(ax.id); };
         col.appendChild(add);
@@ -388,6 +406,182 @@
     $("#addform").classList.remove("on");
   }
 
+  /* ───────────────────────── brief ─────────────────────────
+     The one surface designed to grow. Briefs accumulate one file per weekday,
+     so the archive is grouped by month and everything but the current month is
+     folded. Only one brief is ever in the DOM at a time. */
+
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  /* Small markdown renderer. Deliberately partial: it covers exactly what the
+     editor prompt is allowed to emit, so anything unexpected renders as plain
+     text rather than silently disappearing. */
+  function md(src) {
+    var inline = function (t) {
+      t = esc(t);
+      t = t.replace(/`([^`]+)`/g, '<code>$1</code>');
+      t = t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener">$1</a>');
+      t = t.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+      t = t.replace(/(^|[\s(])\*([^*\n]+)\*/g, "$1<em>$2</em>");
+      return t;
+    };
+    var out = [], lines = String(src).replace(/\r/g, "").split("\n"), i = 0;
+    while (i < lines.length) {
+      var L = lines[i];
+      if (/^\s*$/.test(L)) { i++; continue; }
+      if (/^---+\s*$/.test(L)) { out.push("<hr>"); i++; continue; }
+      var h = /^(#{1,4})\s+(.*)$/.exec(L);
+      if (h) { var n = h[1].length; out.push("<h" + n + ">" + inline(h[2]) + "</h" + n + ">"); i++; continue; }
+      if (/^>\s?/.test(L)) {
+        var q = [];
+        while (i < lines.length && /^>\s?/.test(lines[i])) { q.push(lines[i].replace(/^>\s?/, "")); i++; }
+        out.push("<blockquote>" + md(q.join("\n")) + "</blockquote>");
+        continue;
+      }
+      if (/^\s*[-*]\s+/.test(L)) {
+        var items = [];
+        while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) {
+          items.push("<li>" + inline(lines[i].replace(/^\s*[-*]\s+/, "")) + "</li>"); i++;
+        }
+        out.push("<ul>" + items.join("") + "</ul>");
+        continue;
+      }
+      var para = [];
+      while (i < lines.length && !/^\s*$/.test(lines[i]) && !/^(#{1,4}\s|>|---+\s*$|\s*[-*]\s)/.test(lines[i])) {
+        para.push(lines[i]); i++;
+      }
+      out.push("<p>" + inline(para.join(" ")) + "</p>");
+    }
+    return out.join("\n");
+  }
+
+  function briefList() { return (STATE.meta.briefs || []); }
+
+  function renderBriefDays() {
+    var host = $("#briefdays");
+    host.innerHTML = "";
+    var days = briefList();
+    $("#tn-brief").textContent = days.length || "";
+
+    if (!days.length) {
+      host.appendChild(el("div", "empty", "No brief yet."));
+      return;
+    }
+
+    /* Recent five in full, everything older folded by month. */
+    var recent = days.slice(0, 5), older = days.slice(5);
+    var box = el("div", "daylist");
+    recent.forEach(function (d) { box.appendChild(briefDayNode(d)); });
+    host.appendChild(box);
+
+    if (older.length) {
+      var months = {};
+      older.forEach(function (d) {
+        var k = d.date.slice(0, 7);
+        (months[k] = months[k] || []).push(d);
+      });
+      Object.keys(months).sort().reverse().forEach(function (k) {
+        var open = false;
+        var head = el("button", "fold");
+        var label = function () {
+          return (open ? "▾ " : "▸ ") + monthName(k) + "  ·  " + months[k].length;
+        };
+        head.textContent = label();
+        var body = el("div", "daylist");
+        body.style.display = "none";
+        months[k].forEach(function (d) { body.appendChild(briefDayNode(d)); });
+        head.onclick = function () {
+          open = !open;
+          body.style.display = open ? "" : "none";
+          head.textContent = label();
+        };
+        host.appendChild(head);
+        host.appendChild(body);
+      });
+    }
+  }
+
+  function monthName(k) {
+    var p = k.split("-");
+    var mo = ["January", "February", "March", "April", "May", "June", "July",
+              "August", "September", "October", "November", "December"][Number(p[1]) - 1];
+    return mo + " " + p[0];
+  }
+
+  function briefDayNode(d) {
+    var n = el("div", "day" + (d.date === STATE.briefDate ? " on" : ""));
+    n.setAttribute("data-brief", d.date);
+    var dd = el("div", "dd");
+    dd.appendChild(el("span", null, d.date + "  " + dow(d.date).slice(0, 3)));
+    dd.appendChild(el("span", null, d.words + "w"));
+    n.appendChild(dd);
+    if (d.lede) n.appendChild(el("div", "dp", d.lede));
+    n.onclick = function () { loadBrief(d.date); };
+    return n;
+  }
+
+  function loadBrief(date) {
+    var host = $("#briefbody");
+    var days = briefList();
+    if (!days.length) {
+      host.innerHTML = "";
+      var e = el("div", "empty");
+      e.appendChild(el("div", null, "No brief has been written yet."));
+      var sub = el("div", "hint", "The first one lands at reports/newsletter/. Weekdays at 07:00, Monday covering the weekend.");
+      e.appendChild(sub);
+      host.appendChild(e);
+      return;
+    }
+    STATE.briefDate = date || days[0].date;
+    $$(".day[data-brief]").forEach(function (n) {
+      n.classList.toggle("on", n.getAttribute("data-brief") === STATE.briefDate);
+    });
+
+    var render = function (text) {
+      host.innerHTML = "";
+      var art = el("article", "brief");
+      art.innerHTML = md(text);
+      host.appendChild(art);
+      var foot = el("div", "brieffoot");
+      var a = el("a", "btn", "Open the markdown");
+      a.href = "reports/newsletter/" + STATE.briefDate + ".md";
+      a.target = "_blank"; a.rel = "noopener";
+      foot.appendChild(a);
+      var cp = el("button", "btn", "Copy");
+      cp.onclick = function () { copy(text); };
+      foot.appendChild(cp);
+      var q = el("button", "btn", "Answer the question in today's log");
+      q.onclick = function () {
+        var m = /##\s*ONE QUESTION\s*\n+([\s\S]*?)(\n##|\n---)/.exec(text);
+        var question = m ? m[1].trim().replace(/\s+/g, " ") : "";
+        STATE.date = localDate();
+        showPage("pad");
+        loadDay(STATE.date).then(function () {
+          var pad = $("#pad");
+          var sep = pad.value && !/\n\n$/.test(pad.value) ? "\n\n" : "";
+          pad.value = pad.value + sep + "? " + question + "\n\n";
+          pad.focus();
+          pad.setSelectionRange(pad.value.length, pad.value.length);
+          queueSave();
+          toast("Question copied into today's log");
+        });
+      };
+      foot.appendChild(q);
+      host.appendChild(foot);
+      host.scrollIntoView({ block: "start" });
+    };
+
+    var cached = (STATE.snapshot && STATE.snapshot.briefContents) || {};
+    if (cached[STATE.briefDate]) { render(cached[STATE.briefDate]); return; }
+    if (!STATE.online) { render("Brief text is not in this copy. Open the markdown file directly."); return; }
+    api("/api/brief?date=" + STATE.briefDate)
+      .then(function (r) { render(r.content); })
+      .catch(function () { render("Could not load the brief for " + STATE.briefDate + "."); });
+  }
+
   /* ───────────────────────── reports ───────────────────────── */
 
   var KIND_BY_EXT = {
@@ -399,6 +593,7 @@
     var q = $("#rq").value.toLowerCase().trim();
     var host = $("#reports");
     host.innerHTML = "";
+    host.className = "";
     var rows = (STATE.meta.reports || []).filter(function (r) {
       return !q || r.p.toLowerCase().indexOf(q) >= 0;
     });
@@ -415,6 +610,39 @@
       return;
     }
 
+    /* Grouped by month, current month open, everything older folded. This list
+       only grows, so folding is the difference between a page and a wall. */
+    var groups = {};
+    rows.forEach(function (r) {
+      var k = new Date(r.mtime).toISOString().slice(0, 7);
+      (groups[k] = groups[k] || []).push(r);
+    });
+    var keys = Object.keys(groups).sort().reverse();
+    keys.forEach(function (k, gi) {
+      var openByDefault = gi === 0 || !!q;
+      if (keys.length > 1) {
+        var open = openByDefault;
+        var head = el("button", "fold");
+        var label = function () { return (open ? "▾ " : "▸ ") + monthName(k) + "  ·  " + groups[k].length + " files"; };
+        head.textContent = label();
+        var wrap = el("div");
+        wrap.style.display = open ? "" : "none";
+        wrap.appendChild(reportTable(groups[k]));
+        head.onclick = function () {
+          open = !open;
+          wrap.style.display = open ? "" : "none";
+          head.textContent = label();
+        };
+        host.appendChild(head);
+        host.appendChild(wrap);
+      } else {
+        host.appendChild(reportTable(groups[k]));
+      }
+    });
+  }
+
+  function reportTable(rows) {
+    var sheet = el("div", "sheet");
     var tbl = el("table");
     var thead = el("thead");
     var tr = el("tr");
@@ -441,7 +669,8 @@
       tb.appendChild(row);
     });
     tbl.appendChild(tb);
-    host.appendChild(tbl);
+    sheet.appendChild(tbl);
+    return sheet;
   }
 
   /* ───────────────────────── agents ───────────────────────── */
@@ -723,6 +952,7 @@
     var local = JSON.parse(localStorage.getItem("portal.cards") || "[]");
     if (STATE.snapshot) {
       STATE.meta.reports = STATE.snapshot.reports || [];
+      STATE.meta.briefs = STATE.snapshot.briefs || [];
       STATE.meta.logs = JSON.parse(JSON.stringify(STATE.snapshot.logs || { anshu: [], veer: [] }));
       STATE.meta.userCards = (STATE.snapshot.userCards || []).concat(local);
     } else {
@@ -765,6 +995,7 @@
       STATE.meta = m;
       STATE.cards = allCards();
       renderDays();
+      renderBriefDays();
       if (!quiet) { renderBoard(); renderReports(); }
       else { $("#m-days").textContent = (m.logs[STATE.author] || []).length + " days logged"; }
     });
@@ -810,10 +1041,12 @@
       renderReports();
       renderAgents();
       renderDays();
+      renderBriefDays();
+      loadBrief(null);
       return loadDay(STATE.date);
     }).then(function () {
       var h = (location.hash || "").replace("#", "");
-      if (["board", "reports", "agents", "pad", "about"].indexOf(h) >= 0) showPage(h);
+      if (["brief", "board", "reports", "agents", "pad", "about"].indexOf(h) >= 0) showPage(h);
     });
 
     /* wiring */

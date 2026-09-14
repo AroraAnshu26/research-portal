@@ -1,6 +1,6 @@
 {
  "static": true,
- "builtAt": "2026-09-10T19:29:43.158Z",
+ "builtAt": "2026-09-14T13:36:13.464Z",
  "authors": [
   "anshu",
   "veer"
@@ -10,8 +10,22 @@
    "p": "reports/agent-system-plan-2026-09-10.md",
    "name": "agent-system-plan-2026-09-10.md",
    "ext": ".md",
-   "bytes": 92087,
-   "mtime": 1789062788056.3032
+   "bytes": 93565,
+   "mtime": 1789392833053.6907
+  },
+  {
+   "p": "reports/newsletter/2026-09-14.md",
+   "name": "2026-09-14.md",
+   "ext": ".md",
+   "bytes": 7399,
+   "mtime": 1789392480334.9834
+  },
+  {
+   "p": "reports/nanorobotics-field-map-2026-09-11.md",
+   "name": "nanorobotics-field-map-2026-09-11.md",
+   "ext": ".md",
+   "bytes": 54509,
+   "mtime": 1789135873338.8855
   },
   {
    "p": "reports/stanford-faculty-census/method-and-findings.md",
@@ -140,6 +154,16 @@
    "mtime": 1789053320905.5132
   }
  ],
+ "briefs": [
+  {
+   "date": "2026-09-14",
+   "words": 1024,
+   "lede": "Dario Amodei published \"We Must Pace the Frontier\" on 12 September and committed Anthropic, unilaterally, to giving third-party evaluators permanent employee-level access: \"desks i"
+  }
+ ],
+ "briefContents": {
+  "2026-09-14": "# Monday 14 September 2026\n\nWeekend roll-up, covering Friday 11 through Monday 14. 19 records considered, 5 included, 6 dropped as duplicates, 8 below the $10M floor or off-axis.\n\n---\n\n## THE ONE THING\n\nDario Amodei published \"We Must Pace the Frontier\" on 12 September and committed Anthropic, unilaterally, to giving third-party evaluators permanent employee-level access: \"desks in our offices, access badges, and company laptops\", permissions comparable to internal risk teams, and the right to publish findings unfavourable to the company. His stated purpose is that \"embedded evaluators can check at the level of nuts and bolts whether an AI company is actually following the training, deployment, operational, and safeguards practices they claim to be following.\" The analogy he uses is the bank examiner. Sam Altman committed OpenAI to match it the same day. ([darioamodei.com](https://darioamodei.com/post/we-must-pace-the-frontier))\n\n*new · primary-company · two-source · touches: assurance seam*\n\nWhy it is not just an announcement: the two largest labs have voluntarily created a third-party evaluation function in the same eighteen months that the EU created a mandatory one for self-evolving safety components and BIS made chip export eligibility conditional on independent testing. Three regimes, no coordination, same structural answer.\n\n---\n\n## MOVES\n\n**Altman matched within hours, and the gap is in the operational detail.** Altman wrote that \"committing to having independent evaluators with employee-like access is a great idea, and we will do the same.\" OpenAI has not published the evaluators' selection process, their technical access, confidentiality rules, or any authority over model deployments, and said only that it will \"have more to share soon.\" The unspecified items are exactly the ones that decide whether an embedded evaluator is an auditor or a guest. ([Unite.AI](https://www.unite.ai/altman-says-openai-will-match-anthropics-embedded-evaluator-pledge/), [CNBC](https://www.cnbc.com/2026/09/14/sam-altman-ai-slowdown-anthropic-amodei-musk.html)) · *geo · secondary-press · two-source*\n\n**Amodei named recursive self-improvement as one of two triggers, and located it inside his own company.** He writes that AI has been advancing drastically faster \"driven primarily by AI's growing ability to build the next generation of AI\", and that this is starting to happen across the industry, Anthropic included. The second trigger was a swarm of agents conducting unauthorised cyberattacks. A CEO attributing his own acceleration to recursion, in writing, is a different kind of claim from a forecast. ([darioamodei.com](https://darioamodei.com/post/we-must-pace-the-frontier)) · *new · primary-company · single-source*\n\n**Paul Graham published \"Making Startups Powerful\".** The argument is that founders should optimise for power rather than profit directly, because \"thinking about how to make it more powerful will sometimes make it orders of magnitude more valuable\", through owning the customer relationship instead of remaining a component supplier, network effects, going full stack, and acquiring data early in the customer lifecycle. The binding constraint he states is that \"you can only do these things when the result is better for the customer.\" Read against an independent-evaluator business, the power sources he lists are mostly unavailable to a referee by construction, since a referee cannot own the customer relationship or go full stack without ceasing to be neutral. ([paulgraham.com](https://paulgraham.com/powerful.html)) · *thesis · primary-author · single-source*\n\n**The EU has still not received harmonised standards for the AI requirements it starts enforcing in four months.** Per Commission information from August 2026, no harmonised standards had yet been submitted by the European standardisation organisations for the new cybersecurity and artificial intelligence requirements under Machinery Regulation 2023/1230. prEN 50742, on protection against corruption, had its final vote scheduled for September 2026 with publication possibly in November. Roughly 800 existing Machinery Directive standards are to be carried over, first citations expected Q3 2026. ([IBF Solutions](https://www.ibf-solutions.com/en/seminars-and-news/news/new-machinery-regulation-status-of-harmonised-standards), [European Commission](https://single-market-economy.ec.europa.eu/single-market/goods/european-standards/harmonised-standards/machinery-md_en)) · *geo · secondary-press citing primary · single-source*\n\n---\n\n## DIFFS\n\n`Embedded third-party evaluators at frontier labs: was none -> now 2 labs committed, Anthropic unilateral and OpenAI matching (2026-09-12)` [darioamodei.com, Unite.AI]\n\n`EU Machinery harmonised standards for AI requirements: was Aug 2025 deadline missed -> now still none submitted as of Aug 2026, 4 months before the 2027-01-20 application date` [IBF Solutions]\n\n`Assurance-seam thesis: was 7 beachheads and structurally uncrowded -> now narrowed to non-regression at the moment of model update` [internal research, 2026-09-13]\n\n`Funding floor: was unset -> now $10M, with the live-thesis exception` [your decision, 2026-09-14]\n\n---\n\n## FROM THE STOCK SIDE\n\n*No domain in progress. Section omitted rather than filled.*\n\nThe one decision still outstanding is which domain the stock side starts on. My recommendation remains industrial certification and standards bodies as a business, and this week's items are an argument for it: three separate regimes have now created a demand for third-party attestation, and there is still no primary document in this portal about how a notified body prices work, obtains accreditation, or structures its costs.\n\n---\n\n## ONE QUESTION\n\nThe Sept 13 internal reading was that NHTSA withdrawing AV STEP cut against the thesis, because a regulator declining to create a third-party evaluation market turns each safety case into a services engagement rather than a product. Anthropic and OpenAI have now created that function voluntarily, without a regulator. Does a voluntarily created evaluator seat become a product faster than a mandated one, or slower, given the labs choose their own examiners and can unchoose them?\n\n---\n\n## PROVENANCE\n\nConsidered: 19 records from 3 sources (F6 Voices, F3 Policy Diff, F1 Capital Ledger). F4 and F5 not run.\nIncluded: 5. Dropped as duplicate: 6, all secondary coverage of the Amodei post. Below floor or off-axis: 8.\nSources unreachable: none. X not read, deferred by your decision of 2026-09-14.\nEmpty windows: F1 Capital Ledger returned no qualifying items above the $10M floor in the window.\n\nVerification: 2 of 5 items two-source, 3 single-source and flagged inline.\nPrimary documents retrieved and read: the Amodei post, the Graham essay, the Commission harmonised-standards page, Amodei's index page.\nNot verified to primary: the Commission's August 2026 statement about standards not yet submitted is reported by IBF Solutions, a consultancy, and was not located in a Commission document. The Altman quote is reported from a post on X, not read at source. Treat both as secondary until checked.\nWord count: 648 excluding this block.\n\n*Hand-run by Claude, 2026-09-14, ahead of the collectors being built. The agent charters this follows are in data/agents.js; the format and its reasoning are in reports/agent-system-plan-2026-09-10.md.*\n"
+ },
  "logs": {
   "anshu": [
    {

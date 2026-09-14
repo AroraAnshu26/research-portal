@@ -53,6 +53,30 @@ for (const a of AUTHORS) {
   logs[a].sort((x, y) => (x.date < y.date ? 1 : -1));
 }
 
+/* Briefs, with their text, so the public copy reads fully offline. */
+const briefs = [];
+const briefContents = {};
+{
+  const dir = path.join(ROOT, "reports", "newsletter");
+  let names = [];
+  try { names = await fs.readdir(dir); } catch {}
+  for (const nm of names) {
+    if (!nm.endsWith(".md")) continue;
+    const date = nm.slice(0, -3);
+    if (!DATE_RE.test(date)) continue;
+    const txt = await fs.readFile(path.join(dir, nm), "utf8");
+    if (!txt.trim()) continue;
+    const one = /##\s*THE ONE THING\s*\n+([^\n]+)/.exec(txt);
+    briefs.push({
+      date,
+      words: txt.trim().split(/\s+/).length,
+      lede: (one ? one[1] : txt.replace(/^#.*$/gm, "").replace(/\s+/g, " ").trim()).slice(0, 180)
+    });
+    briefContents[date] = txt;
+  }
+  briefs.sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
 let userCards = [];
 try { userCards = JSON.parse(await fs.readFile(path.join(ROOT, "data", "library-user.json"), "utf8")); } catch {}
 
@@ -61,6 +85,8 @@ const manifest = {
   builtAt: new Date().toISOString(),
   authors: AUTHORS,
   reports: await walkReports(),
+  briefs,
+  briefContents,
   logs,
   contents,
   userCards
@@ -68,4 +94,4 @@ const manifest = {
 
 await fs.writeFile(path.join(ROOT, "data", "manifest.json"), JSON.stringify(manifest, null, 1), "utf8");
 console.log("manifest.json written — " + manifest.reports.length + " reports, " +
-  AUTHORS.map((a) => a + ":" + logs[a].length + "d").join(" "));
+  briefs.length + " briefs, " + AUTHORS.map((a) => a + ":" + logs[a].length + "d").join(" "));

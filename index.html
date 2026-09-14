@@ -36,15 +36,32 @@
   </header>
 
   <nav class="tabs" id="tabs">
-    <button class="tab on" data-page="board">Library</button>
+    <button class="tab on" data-page="brief">Brief<span class="n" id="tn-brief"></span></button>
+    <button class="tab" data-page="board">Library</button>
     <button class="tab" data-page="reports">Reports<span class="n" id="tn-reports"></span></button>
     <button class="tab" data-page="agents">Agents<span class="n" id="tn-agents"></span></button>
     <button class="tab" data-page="pad">Scratchpad</button>
     <button class="tab" data-page="about">How this works</button>
   </nav>
 
+  <!-- ─────────── BRIEF ─────────── -->
+  <section class="page on" id="p-brief">
+    <div class="briefwrap">
+      <div class="briefmain">
+        <div id="briefbody"></div>
+      </div>
+      <div class="side">
+        <div class="sec-h">Archive</div>
+        <div id="briefdays"></div>
+        <p class="hint">Weekdays only. Monday covers Friday to Sunday. One page,
+          under 700 words, with a provenance block you can audit.
+          Files live at <code>reports/newsletter/YYYY-MM-DD.md</code>.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ─────────── LIBRARY ─────────── -->
-  <section class="page on" id="p-board">
+  <section class="page" id="p-board">
     <div class="controls">
       <input type="text" id="q" placeholder="Filter cards — title, tag, body text, number…">
       <select id="fkind"><option value="">All kinds</option></select>
@@ -85,7 +102,7 @@
     <div class="controls">
       <input type="text" id="rq" placeholder="Filter files…">
     </div>
-    <div class="sheet" id="reports"></div>
+    <div id="reports"></div>
   </section>
 
   <!-- ─────────── AGENTS ─────────── -->
@@ -139,6 +156,22 @@ Anything under a  ?  is an open question. Anything under a  >  is a claim you ar
   <section class="page" id="p-about">
     <div class="sec-h">How this works</div>
     <div style="max-width:80ch;font-size:13.8px;color:var(--ink-2);line-height:1.68">
+      <p style="margin-bottom:14px"><b style="color:var(--ink)">Three surfaces, designed to grow differently.</b>
+      This is the answer to the portal getting cluttered as days accumulate, and it is worth knowing because it
+      decides where anything new lands. The <b>Brief</b> is the only surface meant to grow: one file per weekday,
+      about 250 a year, so the archive shows the last five in full and folds everything older by month. The
+      <b>Library</b> is meant to stay small, because a card is durable reference rather than news; a column shows
+      five and folds the rest, and the rule is that a flow item only becomes a card if it will still matter in
+      thirty days. <b>Reports</b> grows steadily and is grouped by month with only the current month open. The
+      consequence: the newsletter archive gets long, the board does not.</p>
+
+      <p style="margin-bottom:14px"><b style="color:var(--ink)">The brief arrives on its own.</b>
+      Weekdays at 07:00, Monday covering Friday to Sunday, with a notification in Claude when it lands. One
+      caveat that will otherwise confuse you: scheduled tasks only run while the Claude desktop app is open, and
+      a run that comes due while it is closed executes on next launch. So a brief can be stamped Monday and
+      delivered Tuesday. The dateline tells you which happened, and a second run on a day that already has a
+      brief appends an update rather than overwriting it.</p>
+
       <p style="margin-bottom:14px"><b style="color:var(--ink)">The columns are the mandate.</b>
       Money flows, macro cycles, geopolitics × tech, what is genuinely new, and theses. Every piece of
       research lands in one of them, so a gap in the worldview shows up as a short column rather than as a

@@ -101,6 +101,29 @@ async function walkReports() {
   return out;
 }
 
+/* The daily briefs. One file per weekday under reports/newsletter/.
+   This list only ever grows, so it is deliberately metadata-only: the Brief
+   tab loads one day's text at a time rather than all of them. */
+async function listBriefs() {
+  const dir = path.join(ROOT, "reports", "newsletter");
+  await fs.mkdir(dir, { recursive: true });
+  const out = [];
+  for (const nm of await fs.readdir(dir)) {
+    if (!nm.endsWith(".md")) continue;
+    const date = nm.slice(0, -3);
+    if (!DATE_RE.test(date)) continue;
+    const txt = await fs.readFile(path.join(dir, nm), "utf8");
+    const one = /##\s*THE ONE THING\s*\n+([^\n]+)/.exec(txt);
+    out.push({
+      date,
+      words: txt.trim() ? txt.trim().split(/\s+/).length : 0,
+      lede: (one ? one[1] : txt.replace(/^#.*$/gm, "").replace(/\s+/g, " ").trim()).slice(0, 180)
+    });
+  }
+  out.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return out;
+}
+
 async function readUserCards() {
   try { return JSON.parse(await fs.readFile(USER_CARDS, "utf8")); } catch { return []; }
 }
@@ -119,7 +142,20 @@ const server = http.createServer(async (req, res) => {
     if (p === "/api/meta") {
       const logs = {};
       for (const a of AUTHORS) logs[a] = await listLogs(a);
-      return j(res, 200, { ok: true, authors: AUTHORS, logs, reports: await walkReports(), userCards: await readUserCards(), today: localDate() });
+      return j(res, 200, {
+        ok: true, authors: AUTHORS, logs,
+        reports: await walkReports(), briefs: await listBriefs(),
+        userCards: await readUserCards(), today: localDate()
+      });
+    }
+
+    if (p === "/api/brief") {
+      const date = u.searchParams.get("date") || "";
+      if (!DATE_RE.test(date)) return j(res, 400, { ok: false, error: "bad date" });
+      try {
+        const content = await fs.readFile(path.join(ROOT, "reports", "newsletter", date + ".md"), "utf8");
+        return j(res, 200, { ok: true, date, content });
+      } catch { return j(res, 404, { ok: false, error: "no brief for " + date }); }
     }
 
     if (p === "/api/log") {
