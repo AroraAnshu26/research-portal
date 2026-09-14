@@ -216,7 +216,7 @@ window.LIBRARY = [
   axis: "thesis",
   kind: "thesis",
   title: "The assurance seam",
-  dek: "Seven industrial openings were the same problem in seven costumes. Two kill arguments landed on 13 September and the surviving claim is narrower: non-regression at the moment of a model update.",
+  dek: "Seven industrial openings were the same problem in seven costumes. Two kill arguments landed on 13 September and the surviving claim is narrower: non-regression at the moment of a model update. Two further weakening items landed on 14 September, one moving the EU obligation's AI content to a 2028 delegated act.",
   status: "contested",
   date: "2026-09-14",
   owner: "anshu",
@@ -225,7 +225,8 @@ window.LIBRARY = [
     { v: "7", l: "Independent beachheads: W4, W5, L2, L3, C1, C2, C4" },
     { v: "~7–8", l: "YC entrants now inside this seam, 2025–26 batches" },
     { v: "2", l: "Frontier labs that committed to embedded third-party evaluators, 2026-09-12" },
-    { v: "0", l: "Times the field has paid for evaluation tooling rather than open-sourcing it" }
+    { v: "0", l: "Times the field has paid for evaluation tooling rather than open-sourcing it" },
+    { v: "2028-08-02", l: "Delegated act carrying high-risk AI requirements into the Machinery Regulation, after Reg (EU) 2026/1744 moved it to AI Act Annex I Section B" }
   ],
   body: [
     ["The claim", "Everyone wants to train the policy; almost nobody wants to do measurement theory. Unbundling, performance contracts and a dated EU obligation together create demand for a neutral party that can state, with validity, what a learned policy can actually do. The nearest historical shape is a metrology house or a rating agency, not a SaaS company."],
@@ -235,6 +236,7 @@ window.LIBRARY = [
     ["What is already crowding in — material update, 2026-09-10", "The YC census surfaced roughly seven to eight entrants in this exact seam in the 2025–26 batches: Robocurve (S26, evals for robots, open-source independent benchmarks, arguing explicitly that no standardised robotics benchmarks exist and labs self-evaluate), Physical Turing (S25, evaluating humanoids in the real world — procures, staffs and operates target environments for rollouts), One Robot (W26, world models for robot evals), Valgo (W26, insurance risk layer for physical AI — notes car insurance draws on 30 billion claims records while autonomous trucks and robots have nearly zero), Risklytics (S26, AI-native insurance for frontier tech), PRINCEPS (S26, insurance for the compute economy), Hebbian Robotics (S26, APIs to verify robotics data quality), Standard Machines (S26, environments and evals for chip design). The seam is no longer empty. Nodes C1, W4 and L3 need re-scoring on the uncrowdedness axis before they are ranked."],
     ["REVISED 2026-09-13: two kill arguments, and the thesis is now narrower", "The commons argument: every sophisticated actor that felt this pain built the tool and gave it away. TRI open-sourced lbm_eval with 49 tasks, Berkeley open-sourced RoboArena, and the same happened with Bi-DexHands, DaXBench, GarmentLab and SoftGym. The field has priced evaluation tooling at zero every time it has been asked. The self-liquidation argument: DYNA reports 99.4% on towel folding across 850+ napkins and 99% acceptance across 200,000+ towels, so where reliability is real the trial counts arrive free from production telemetry, meaning valid evaluation is cheapest exactly where the business would work. Also a correction to the 2026-09-07 reading: NHTSA withdrawing AV STEP cuts against the thesis rather than for it, because a regulator declining to create a third-party evaluation regime makes each safety case a services engagement rather than a product. WHAT SURVIVES, and it is narrower: production telemetry cannot tell you whether an over-the-air update is a regression, because you cannot run the previous policy counterfactually without surrendering throughput. Non-regression at the moment of model update is the defensible wedge, not general evaluation."],
     ["The other side of the ledger, 2026-09-14", "Dario Amodei committed Anthropic unilaterally to giving third-party evaluators permanent employee-level access, with the right to publish adverse findings, and Sam Altman committed OpenAI to match it the same day. That is a third-party evaluation function created voluntarily by the two largest labs, with no regulator involved, in the same eighteen months in which the EU made third-party conformity assessment mandatory for self-evolving safety components and BIS made chip export eligibility conditional on independent third-party performance testing. Direction: this weakens the commons argument in one specific respect, because these labs are inviting an outside examiner rather than open-sourcing a tool. It does not answer whether the examiner's seat is a product or a services engagement, and the labs choose their own examiners and can unchoose them."],
+    ["Two weakening items, 2026-09-14 afternoon run", "The dated EU obligation is one assessment, not two, and its AI-specific content is deferred. Regulation (EU) 2026/1744, the Digital Omnibus on AI, in force 27 July 2026, moved Regulation (EU) 2023/1230 out of Section A of Annex I to the AI Act and added it as point 21 of Section B, so a manufacturer no longer runs a separate AI Act conformity assessment on a safety component on top of the Machinery one, and the delegated act carrying the high-risk AI technical requirements into the Machinery Regulation is due 2 August 2028 rather than biting on 20 January 2027. On this reading Machinery Annex I Part A item 5 is untouched and still routes self-evolving ML safety components through a notified body under Module B, G or H, but that was not confirmed against the primary text and EUR-Lex could not be retrieved. Separately, FoldNet++ (arXiv 2609.12433, submitted 11 September 2026) reports 120K synthetic episodes across 6 embodiments and states that policies trained solely on synthetic data exceed 90% end-to-end success deployed zero-shot to unseen real T-shirts and environments. That extends the self-liquidation argument from production telemetry to pre-deployment: a simulator good enough to train a transferable policy is available to the buyer as an evaluation instrument at no marginal cost. It holds only if the FEM cloth dynamics match reality on the actions used, which is self-reported and unreplicated."],
     ["Open fork", "Certificate — metrology house, hardware plus accredited method, slow-compounding, regulatory, rating-agency terminal economics. Or tooling — pure software, faster to ship and sell, competing directly with NVIDIA giving eval infrastructure away and with Lightwheel's funded twin platform."],
     ["Rule carried over from the last failure", "The pain must be learned from someone already spending money badly on it — never from a friend or a warm introduction. Borrowed pain is what broke the previous attempt: nine LOIs were the same warm connections counted repeatedly, and the pre-registered test (\"when the recorder silently dies, does anyone complain? silence is louder than install-day success\") resolved negative."]
   ]
@@ -379,7 +381,41 @@ window.LIBRARY = [
     { p: "reports/nanorobotics-field-map-2026-09-11.md", d: "Full report — progression, seven-subsystem stack, bottlenecks with who is attacking each, company table, capital layer, unverified register" }
   ]
 }
-
+,
+{
+  id: "stanford-labs-map",
+  axis: "new",
+  kind: "dashboard",
+  title: "IRIS and REALab, person by person",
+  dek: "Every current member of both robot-learning labs \u2014 programme, open question, published email, papers with verbatim abstracts \u2014 scored on startup relevance and ease of entry, plus every alumnus traced to a company and the Stanford faculty worth talking to.",
+  status: "live",
+  date: "2026-09-14",
+  owner: "anshu",
+  open: "reports/stanford-labs-map.html",
+  openLabel: "Open dashboard",
+  tags: ["IRIS", "REALab", "51 members", "69 alumni", "12 founders", "EDGE"],
+  metrics: [
+    { v: "51", l: "current members scored (32 IRIS, 19 REALab); 7 more unscored because no public work exists" },
+    { v: "12 of 69", l: "traced alumni who founded a company \u2014 founding is the exception, not the path" },
+    { v: "$1.15B", l: "Sunday Robotics, whose two co-founders are one from each lab" },
+    { v: "0", l: "companies founded by Khatib, Cutkosky, Okamura, Kochenderfer, Schwager, Sadigh, Bohg, C. Karen Liu, Jiajun Wu and Pavone combined" }
+  ],
+  body: [
+    ["What it is", "Six tabs: Overview, People and scores (filterable, sortable, click-through drawer per person), IRIS vs REALab, Alumni and founders with founders colour-coded vermilion, Faculty in eight clusters, and Method and rubric. Two scores out of ten per person, each decomposing into five stated components visible in the drawer \u2014 so a number can be argued with by pointing at a component rather than at a judgement."],
+    ["The single most striking fact", "Sunday Robotics has one co-founder from each lab. Tony Z. Zhao left the IRIS PhD in his third year and is CEO; Cheng Chi did his PhD under Shuran Song and is CTO. $165M Series B led by Coatue at $1.15B post-money, reported 2026-03-12, roughly fifteen months from founding. Hojung Choi and Alper Canberk are there too as early hires. Chi also wrote Diffusion Policy and the Universal Manipulation Interface, so this is the clearest case of lab research becoming a field default and then a company."],
+    ["Someone is already building the thesis", "Govind Chada, an IRIS undergraduate alumnus, is Founder and CTO of Enact in YC Summer 2026 \u2014 \u2018the post-training layer for robotics\u2019: deploy policies on real robots, find failure states, recreate them, collect recovery demonstrations, retrain. They quote 99/100 rollouts against a 90/100 baseline. Validation that the problem is real, and evidence the wedge is not unclaimed."],
+    ["The faculty who match the thesis are not in CS", "Statistical validation of stochastic policies is owned by Mykel Kochenderfer (Aero/Astro; wrote Algorithms for Validation, MIT Press 2026; his earlier work became the FAA\u2019s ACAS X certification basis; 27 MS advisees, zero commercial conflicts), Mac Schwager (Aero/Astro; co-author of the tighter-than-Clopper-Pearson bounds the arithmetic rests on), Somil Bansal (Aero/Astro; safety filters) and Emma Brunskill (CS; off-policy evaluation without a simulator, and she states she is accepting students). Neither Finn nor Song is on that list."],
+    ["Lineage, not operating experience", "Ten core robotics faculty have founded a combined zero companies. What they hold is lineage \u2014 Khatib trained the CEO of Dexterity ($1.65B). The most commercially experienced person at the Robotics Center is not faculty: Steve Cousins, its Executive Director, co-founded Savioke and was CEO of Willow Garage, which gave ROS away and spun out eight companies, two acquired by Google. He has lived both sides of the commons argument."],
+    ["A six-week window", "Thomas Berrueta starts as Assistant Professor of ME on 1 November 2026 (his own site and the ME department agree; the SRC roster says January 2027 and is wrong). Stated foundations: RL, optimal control and information theory. Area: real-time learning for safety-critical systems. PAL Lab page is live. No students yet."],
+    ["Lab asymmetry worth acting on", "REALab is 100% robotics across all 91 papers on its page, dominated by compliance and contact-rich control, with no Physical Intelligence conflict (channels are NVIDIA, Amazon FAR, Boston Dynamics, Meta, 1X, Anthropic), and it publishes member emails almost universally \u2014 18 of the 19 pages that loaded. IRIS has four of twelve PhD students working entirely on language models with no robot, routes applications through a form, and carries the PI conflict. Mean startup-relevance 8.5 REALab against 5.8 IRIS, though part of that gap is the rubric rewarding contact-rich work by construction."],
+    ["Four false founder claims killed", "Huaxiu Yao did not co-found Ricursive Intelligence (Anna Goldie and Azalia Mirhoseini did). Moo Jin Kim is not CollectedAI\u2019s CTO \u2014 a hallucinated search summary with zero corroboration. Suraj Nair is a \u2018founding researcher\u2019 at Physical Intelligence, an early-employee designation. J. Kenneth Salisbury did not found Intuitive Surgical; he was its scientific advisor 1997\u20142003. Repeating these in the field would cost credibility, so they are recorded rather than dropped."],
+    ["Known gaps", "Seven of 51 members unscored: no public research record exists. IRIS emails largely absent because genuinely unpublished \u2014 nothing pattern-guessed. Gordon Wetzstein and Leonidas Guibas flagged but not researched, startup score left blank rather than zeroed. Shuran Song\u2019s own founding record was never individually probed, so \u2018none surfaced\u2019 is not \u2018confirmed none\u2019. Eleven clinical and cross-domain SRC faculty named but unscored. Two REALab papers have no arXiv record at all, so their abstracts are blank by choice."]
+  ],
+  files: [
+    { p: "reports/stanford-labs-map.html", d: "The dashboard, self-contained, ~560 KB" },
+    { p: "reports/stanford-labs-map-2026-09-14.md", d: "Markdown companion \u2014 rosters, scores with component breakdowns, alumni table, faculty records" }
+  ]
+}
 ];
 
 /* ── Provenance ───────────────────────────────────────────────────────────
@@ -392,6 +428,7 @@ window.LIBRARY = [
      agent            produced by one of the agents in data/agents.js
    Merged onto cards by assets/app.js and shown on the card face.           */
 window.PROVENANCE = {
+  "stanford-labs-map":          { kind: "web-2026-09-14", note: "NEW TO YOU. Rosters fetched 2026-09-13/14 from irislab.stanford.edu/people.html and real.stanford.edu/lab.html \u2014 REALab's roster and its 91-paper list are JavaScript literals in the page, so the raw HTML must be read directly. All 60 abstracts were fetched from their arXiv pages and are quoted verbatim, none paraphrased. Faculty ranks, courses and advising loads from profiles.stanford.edu. Emails only where actually published; nothing pattern-guessed. The two scores per person were requested explicitly on 2026-09-13, which suspends house rule 1 \u2014 each decomposes into five stated components so it stays auditable." },
   "yc-batch-census":            { kind: "own-prior-work", note: "Your own census pass, 2026-09-10. Method and findings recorded in gbrain; all 3,009 records scraped from YC's public Algolia index." },
   "physical-ai-capital-map":    { kind: "own-prior-work", note: "Your Noctem-pivot research sessions of 2026-09-07, recorded in gbrain. Valuations were web-retrieved then, not re-verified since." },
   "physical-intelligence-review": { kind: "own-prior-work", note: "You wrote it. 36,765 words, 2026-09-03, with the source list in the document." },

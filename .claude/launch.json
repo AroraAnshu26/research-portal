@@ -4,8 +4,21 @@
     {
       "name": "portal",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["C:/Users/anshu/Desktop/CTO-Portal/server.mjs", "--no-open"],
+      "runtimeArgs": [
+        "C:/Users/anshu/Desktop/CTO-Portal/server.mjs",
+        "--no-open"
+      ],
       "port": 4173
+    },
+    {
+      "name": "portal-preview",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:/Users/anshu/Desktop/CTO-Portal/server.mjs",
+        "--no-open"
+      ],
+      "port": 4174,
+      "autoPort": true
     }
   ]
 }
