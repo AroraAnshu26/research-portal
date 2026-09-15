@@ -1,6 +1,6 @@
 {
  "static": true,
- "builtAt": "2026-09-14T22:32:19.689Z",
+ "builtAt": "2026-09-15T00:21:50.022Z",
  "authors": [
   "anshu",
   "veer"
@@ -10,8 +10,8 @@
    "p": "reports/stanford-students-building.html",
    "name": "stanford-students-building.html",
    "ext": ".html",
-   "bytes": 320958,
-   "mtime": 1789424955591.5894
+   "bytes": 1078044,
+   "mtime": 1789427024339.1667
   },
   {
    "p": "reports/agent-system-plan-2026-09-10.md",
