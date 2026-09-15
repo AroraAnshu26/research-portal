@@ -305,6 +305,38 @@ window.LIBRARY = [
 },
 
 {
+  id: "synthetic-robot-data-landscape",
+  axis: "thesis",
+  kind: "report",
+  title: "Synthetic robot data and sim-to-real landscape",
+  dek: "The material companies, infrastructure platforms and 29 research papers behind the synthetic-data thesis, separated by what they actually generate: pixels, trajectories, calibrated twins or policy evidence.",
+  status: "current",
+  date: "2026-09-14",
+  owner: "anshu",
+  open: "reports/synthetic-robot-data-landscape-2026-09-14.md",
+  openLabel: "Open report",
+  tags: ["sim-to-real", "synthetic data", "29 papers", "Lightwheel", "FoldNet++", "EDGE"],
+  metrics: [
+    { v: "~93%", l: "FoldNet++ synthetic-only real success on Galbot: 14 of 15 reported trials, with a wide confidence interval" },
+    { v: "~67%", l: "FoldNet++ on the out-of-distribution ARX embodiment, exposing the remaining transfer gap" },
+    { v: "100:1", l: "Lightwheel's company-reported simulated-to-real data ratio in its Geely deployment" },
+    { v: "29", l: "Research papers and projects mapped across randomisation, demonstration multiplication, real-to-sim, world models, deformables and evaluation" }
+  ],
+  body: [
+    ["The thesis, stated precisely", "A small amount of real measurement or demonstration can anchor a simulator or world model, after which synthetic variation can multiply the useful training distribution far more cheaply than collecting every case on hardware. The evidence is strong for bounded tasks and not yet proof of broad sim-only autonomy."],
+    ["The market is not one market", "Perception vendors generate labelled pixels; simulation engines generate physics rollouts; demonstration systems turn a few examples into many trajectories; Real2Sim firms calibrate a customer-specific twin; evaluation platforms ask whether simulated policy ranking predicts hardware. Only the last four address action validity, and only a small group combines them."],
+    ["Closest companies", "Lightwheel is the closest direct commercial competitor to the complete Real2Sim2Real thesis. Bifrost and Duality overlap horizontally. Applied Intuition has the capital and AV tooling to move into general physical AI. Intrinsic owns the industrial workcell path. NVIDIA is the enabling platform incumbent. AgiBot and Ai2/MolmoBot show that raw synthetic trajectories may be commoditised through open releases."],
+    ["What FoldNet++ does and does not prove", "Its best synthetic-only system reports about 14 successes in 15 real Galbot trials, roughly matching pretrained pi0 on that protocol. The same method falls to roughly 67% on an out-of-distribution ARX embodiment. Fourteen of fifteen is excellent evidence of feasibility but statistically compatible with a much wider range of true reliability, and it would still imply too many interventions for many production tasks."],
+    ["The open commercial layer", "Raw synthetic episodes are getting cheaper. The scarce layer is measured validity: for this robot, task and site, which generated experience is action-correct, which scenario classes remain invalid, how well does simulated performance predict real performance, and how many real trials does the synthetic evidence actually replace?"],
+    ["Nocteam wedge", "Do not begin as another general synthetic-data studio. Test an independent validity layer, a synthetic-data acceptance test, or a last-mile calibration kit for smaller fleets. The first artifact should compare real-only, synthetic-only, a naive mixture, and calibrated synthetic plus real-failure replay on one contact-rich task across two embodiments."],
+    ["Evidence discipline", "Company deployment figures are labelled as vendor-reported. Different folding tasks and initial-state distributions are not treated as matched benchmarks. The report excludes thin lead-generation sites and generic consultancies without a concrete product, dataset, paper or deployment." ]
+  ],
+  files: [
+    { p: "reports/synthetic-robot-data-landscape-2026-09-14.md", d: "Full report, company matrix, infrastructure map, 29-paper reading list, failure modes and proposed thesis test" }
+  ]
+},
+
+{
   id: "terrain-map",
   axis: "new",
   kind: "map",
@@ -546,6 +578,7 @@ window.LIBRARY = [
      agent            produced by one of the agents in data/agents.js
    Merged onto cards by assets/app.js and shown on the card face.           */
 window.PROVENANCE = {
+  "synthetic-robot-data-landscape": { kind: "web-2026-09-14", note: "NEW TO YOU. Researched 2026-09-14 from company product pages, official project pages, primary papers and the existing gbrain record of the Nocteam robotics thesis. Company-reported deployment and performance claims are marked as such. The company universe includes material publicly verifiable vendors, infrastructure providers and adopters; thin SEO sites and firms with no concrete technical evidence were excluded. FoldNet++ comparison and uncertainty arithmetic were checked separately in the same session." },
   "iris-robotics-decision":     { kind: "own-prior-work", note: "Your decision document of 2026-09-13, recorded in gbrain at inbox/2026-09-13-e406a4a4. The roster was verified against the lab's own pages that day; the market figures were web-retrieved then and are not re-verified since. The roster section is SUPERSEDED by the 2026-09-14 labs board, which corrects the member count from 33 to 32." },
   "stanford-student-companies": { kind: "web-2026-09-14", note: "REBUILT TWICE on 2026-09-14. Third source added the same day from a link you supplied: the full StartX community directory, 1,270 companies harvested across 53 pages, giving accelerator membership as a directory fact rather than a press mention. A dedupe-on-domain bug was found and fixed during the merge — it had briefly attributed Humans&'s $4.48B to an unrelated StartX company, because the hand-verified layer's link field is a source article and six companies shared techcrunch.com. Degree level is stated for 268 of 1,522 and left unknown for the rest, because StartX publishes no founder data and guessing would be worse than a blank. FIRST REBUILD, same day: after you pushed back on the count, and the pushback was correct. Two layers now. The systematic layer fetched all 3,014 YC company pages and read 5,830 founder bios (97.6% coverage, zero fetch failures), classifying each Stanford mention by proximity with a nearest-university rule — that is primary-source data, not press. The hand-verified layer is the earlier 2026-09-11 press pass, kept because it carries valuations, backers and the large non-YC companies; it is media-skewed and the card says so. Company-level precision was measured on a hand-read random sample of 14 and was 14 of 14; tie-kind precision is lower and is reported as an 'unspecified' bucket rather than forced. One collaboration-only false positive excluded, 13 ambiguous held back for a human read." },
   "stanford-labs-map":        { kind: "web-2026-09-14", note: "NEW TO YOU. Rosters fetched 2026-09-13/14 from irislab.stanford.edu/people.html and real.stanford.edu/lab.html \u2014 REALab's roster and its 91-paper list are JavaScript literals in the page, so the raw HTML must be read directly. All 60 abstracts were fetched from their arXiv pages and are quoted verbatim, none paraphrased. Faculty ranks, courses and advising loads from profiles.stanford.edu. Emails only where actually published; nothing pattern-guessed. The two scores per person were requested explicitly on 2026-09-13, which suspends house rule 1 \u2014 each decomposes into five stated components so it stays auditable." },

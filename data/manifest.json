@@ -1,6 +1,6 @@
 {
  "static": true,
- "builtAt": "2026-09-15T00:21:50.022Z",
+ "builtAt": "2026-09-15T00:33:03.609Z",
  "authors": [
   "anshu",
   "veer"
@@ -12,6 +12,13 @@
    "ext": ".html",
    "bytes": 1078044,
    "mtime": 1789427024339.1667
+  },
+  {
+   "p": "reports/synthetic-robot-data-landscape-2026-09-14.md",
+   "name": "synthetic-robot-data-landscape-2026-09-14.md",
+   "ext": ".md",
+   "bytes": 38647,
+   "mtime": 1789423858640.394
   },
   {
    "p": "reports/agent-system-plan-2026-09-10.md",
