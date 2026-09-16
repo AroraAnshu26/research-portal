@@ -258,7 +258,7 @@ Each agent below is specified the way Anthropic's multi-agent write-up recommend
 ### 4.1 F1 Capital Ledger
 
 **What it watches:** SEC Form D filings, Crunchbase and PitchBook round announcements, fund formation and close announcements, sovereign vehicle activity, corporate venture arms.
-**Cadence:** daily at 07:00 PT, with a weekly roll-up on Monday.
+**Cadence:** weekdays at 03:00 PT, with Monday covering Friday to Sunday.
 **Runs on:** a fast cheap model. This is extraction, not judgment.
 **Output ceiling:** 2,000 tokens, maximum 12 records.
 
@@ -938,7 +938,7 @@ Five of the six are decided and are now live in `data/agents.js`. One remains op
 
 **The funding floor: $10M, with the live-thesis exception.** F1 admits any round at or above ten million dollars in the allowed sectors, and admits any round of any size in a company whose one-liner matches a live thesis. The floor protects your attention; the exception exists because a four million dollar seed by a new entrant into the assurance seam is worth more to you than a four hundred million dollar growth round in a sector you are not building in. Expect roughly twenty to forty items a week reaching F1 and three to six surviving the editor.
 
-**Delivery: the portal, plus a push notification when the brief lands.** The brief is written to `reports/newsletter/YYYY-MM-DD.md` and appears on the Brief tab, and a notification fires in Claude on completion so you are not checking an empty page. One consequence is worth knowing in advance: scheduled tasks run only while the Claude desktop app is open, and a run that comes due while it is closed executes on next launch. So a Monday brief may arrive stamped Monday but delivered Tuesday morning if the app was shut over the weekend, and the dateline will tell you which happened.
+**Delivery: the portal at 03:00 on weekdays, plus a push notification when the brief lands.** The brief is written to `reports/newsletter/YYYY-MM-DD.md` and appears on the Brief tab, and a notification fires in Claude on completion so you are not checking an empty page. The 03:00 slot was chosen on 2026-09-16 for a specific reason: the run consumes credits, and at three in the morning it is very unlikely to be competing with your own work for them. Two consequences follow and both are worth knowing in advance. First, scheduled tasks run only while the Claude desktop app is open, and a run that comes due while it is closed executes on next launch instead, which means that if the machine sleeps overnight the 03:00 run fires when you open the app in the morning and spends the credits then anyway. Getting the overnight slot in practice requires leaving the app running and the machine awake. Second, a 03:00 run means the window closes before the working day starts, so Monday daytime news appears in Tuesday's brief rather than Monday's. That is the ordinary newspaper arrangement and nothing is lost, because the system is a diff and an item delayed by a day is still an item; the dateline tells you which window it came from.
 
 **Weekends: off.** No Saturday or Sunday run. Monday's window covers Friday, Saturday and Sunday, which makes Monday a three-day roll-up. The editor prompt is told this explicitly and told to be harder on duplicates on Mondays, because three days of coverage of the same event produces three records of it.
 

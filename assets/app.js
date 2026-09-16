@@ -533,7 +533,7 @@
       host.innerHTML = "";
       var e = el("div", "empty");
       e.appendChild(el("div", null, "No brief has been written yet."));
-      var sub = el("div", "hint", "The first one lands at reports/newsletter/. Weekdays at 07:00, Monday covering the weekend.");
+      var sub = el("div", "hint", "The first one lands at reports/newsletter/. Weekdays at 03:00, Monday covering the weekend.");
       e.appendChild(sub);
       host.appendChild(e);
       return;

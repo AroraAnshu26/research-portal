@@ -1,11 +1,18 @@
 {
  "static": true,
- "builtAt": "2026-09-15T16:15:27.825Z",
+ "builtAt": "2026-09-16T08:08:53.225Z",
  "authors": [
   "anshu",
   "veer"
  ],
  "reports": [
+  {
+   "p": "reports/agent-system-plan-2026-09-10.md",
+   "name": "agent-system-plan-2026-09-10.md",
+   "ext": ".md",
+   "bytes": 95831,
+   "mtime": 1789546124056.9746
+  },
   {
    "p": "reports/knowledge-state.md",
    "name": "knowledge-state.md",
@@ -33,13 +40,6 @@
    "ext": ".md",
    "bytes": 38647,
    "mtime": 1789423858640.394
-  },
-  {
-   "p": "reports/agent-system-plan-2026-09-10.md",
-   "name": "agent-system-plan-2026-09-10.md",
-   "ext": ".md",
-   "bytes": 94155,
-   "mtime": 1789418237031.281
   },
   {
    "p": "reports/terrain-map.md",
