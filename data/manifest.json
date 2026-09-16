@@ -1,11 +1,18 @@
 {
  "static": true,
- "builtAt": "2026-09-16T08:15:48.428Z",
+ "builtAt": "2026-09-16T18:33:45.412Z",
  "authors": [
   "anshu",
   "veer"
  ],
  "reports": [
+  {
+   "p": "reports/four-theses-analysis-2026-09-16.md",
+   "name": "four-theses-analysis-2026-09-16.md",
+   "ext": ".md",
+   "bytes": 30643,
+   "mtime": 1789583617915.087
+  },
   {
    "p": "reports/agent-system-plan-2026-09-10.md",
    "name": "agent-system-plan-2026-09-10.md",
