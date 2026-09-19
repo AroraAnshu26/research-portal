@@ -1,11 +1,32 @@
 {
  "static": true,
- "builtAt": "2026-09-19T05:46:49.026Z",
+ "builtAt": "2026-09-19T16:30:08.743Z",
  "authors": [
   "anshu",
   "veer"
  ],
  "reports": [
+  {
+   "p": "reports/measurement-rig-spec-2026-09-19.md",
+   "name": "measurement-rig-spec-2026-09-19.md",
+   "ext": ".md",
+   "bytes": 14940,
+   "mtime": 1789835313780.4038
+  },
+  {
+   "p": "reports/iris-outreach-drafts-2026-09-18.md",
+   "name": "iris-outreach-drafts-2026-09-18.md",
+   "ext": ".md",
+   "bytes": 32534,
+   "mtime": 1789835303579.2866
+  },
+  {
+   "p": "reports/robotics-primer-2026-09-18.md",
+   "name": "robotics-primer-2026-09-18.md",
+   "ext": ".md",
+   "bytes": 88645,
+   "mtime": 1789821406042.9663
+  },
   {
    "p": "reports/astra-hackathon-plan-2026-09-18.md",
    "name": "astra-hackathon-plan-2026-09-18.md",
