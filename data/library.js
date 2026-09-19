@@ -549,6 +549,39 @@ window.LIBRARY = [
   ]
 },
 {
+  id: "astra-hackathon-plan",
+  axis: "thesis",
+  kind: "report",
+  title: "The certificate desk at the Astra hackathon",
+  dek: "A one-day plan for the 24 Oct Saturday Robotics × Robotics Center hackathon that runs the thesis-2 kill test in twelve hours instead of six weeks.",
+  status: "current",
+  date: "2026-09-18",
+  owner: "anshu",
+  open: "reports/astra-hackathon-plan-2026-09-18.md",
+  openLabel: "Open plan",
+  tags: ["hackathon", "kill test", "measurement", "24 Oct 2026"],
+  metrics: [
+    { v: "100–200", l: "Failures the six-week kill test asks for. A floor of frontier models grasping real objects for ten hours produces that many before dinner." },
+    { v: "12 h vs 6 wk", l: "What the kill test costs here against what four-theses-analysis budgeted for it" },
+    { v: "n=1", l: "The sample size behind every demo the judges will rank at 20:00, and the name of the 13:00 lightning talk" },
+    { v: "$0 vs $5,000", l: "Cost of a judge-adjacent seat via the instrument, against the Prize Track sponsor tier" }
+  ],
+  body: [
+    ["Why it is on the board", "Registered under the standing rule that robotics, Stanford and startup artefacts get a space here (gbrain concepts/portal-artefact-rule). It is a plan, not a finished artefact — carded now so the 24 October date is visible from the board and so the result can be written back onto the same card."],
+    ["The event", "GPT-6 Astra Robotics Hardware Hackathon, Saturday Robotics × Robotics Center of Silicon Valley, 24 October 2026, 09:00–21:00, 90 Welsh St, San Francisco. Approval-based registration; hosts Junfan Zhu, Aurora Feng and Jerry Huang. On the floor: M1 mobile manipulator, Unitree G1, Unitree Go2, OpenArm, Wuji Hand 2, Wuji Glove, ALOHA leader arms, tactile kits and cameras. Community-run and explicitly not affiliated with OpenAI."],
+    ["The idea", "Every other team spends twelve hours producing a demo that runs once in front of judges. This is the instrument that says whether any of them worked, and it hands each team a signed number at 20:00. Design rule, and it is the whole project: nothing in the scoring path reads the robot's own logs — external camera, AprilTag task frame, tactile ground truth. Independence is what separates a dashboard from a certificate."],
+    ["Why this event and not another", "It is a one-room, one-day, many-policies, same-hardware natural experiment, and that configuration is expensive to buy and is being given away. More importantly it runs Experiment A from the four-theses analysis — attribute 100–200 real failures across perception / policy / embodiment / latency / capability-ceiling, then ask for what fraction the attribution changes what the operator does next. Here the operators are standing beside the robot and can be asked directly. The prior being tested is the Gemini Robotics lightbulb asymmetry, 92% out against 36% in; if the modal answer is 'capability ceiling, collect more data', thesis 2 dies cheaply and in public."],
+    ["Scope discipline", "The floor-wide version needs other teams to opt in, so it is not on the critical path. CRITICAL PATH: one arm, one task family, one policy, 40 trials, one receipt, dependent on nobody, demoable alone at 20:00. UPSIDE: every team that opts in is a strictly additive row. The harness is built and validated before 24 October against an SO-101 or in sim, so the day is calibration and data rather than authoring code — the most credible claim available to an applicant, and it must be true before it is written down."],
+    ["The statistics are the product", "The operator declares a claim, a Wald sequential probability ratio test stops as soon as the evidence decides rather than burning a fixed n, and the receipt prints the estimate, the interval, the n actually needed and the claims the data did NOT support. The VLM success judge is itself measured against 20 hand-labelled trials and its agreement rate is printed on every receipt it issues; an evaluator that will not state its own error rate is not an evaluator. Across teams the leaderboard is bootstrapped and the report states how often the ranking flips."],
+    ["Hardware ask, deliberately small", "OpenArm for the full day, Wuji Hand 2 plus Wuji Glove for about two hours to get a human teleoperator baseline, a tactile kit, two cameras, a tripod and a corner of a table. Not the G1 and not the M1. Capacity is gated by the number of robots in the room and the approval queue will be full of teams asking for the humanoid; asking for less is a positioning decision."],
+    ["What it is worth even if it goes badly", "A floor of failures attributed and paired with operators' stated next actions, from a room of frontier-model teams, in one day. That either kills thesis 2 or gives it its first proof point, and it does so in October rather than December."]
+  ],
+  files: [
+    { p: "reports/astra-hackathon-plan-2026-09-18.md", d: "The plan: concept, scope discipline, the 13:00 unlock, hardware ask, failure modes" },
+    { p: "reports/four-theses-analysis-2026-09-16.md", d: "Source of Experiment A, the six-week kill test this event compresses" }
+  ]
+},
+{
   id: "iris-robotics-decision",
   axis: "thesis",
   kind: "report",
@@ -591,6 +624,7 @@ window.LIBRARY = [
    Merged onto cards by assets/app.js and shown on the card face.           */
 window.PROVENANCE = {
   "synthetic-robot-data-landscape": { kind: "web-2026-09-14", note: "NEW TO YOU. Researched 2026-09-14 from company product pages, official project pages, primary papers and the existing gbrain record of the Nocteam robotics thesis. Company-reported deployment and performance claims are marked as such. The company universe includes material publicly verifiable vendors, infrastructure providers and adopters; thin SEO sites and firms with no concrete technical evidence were excluded. FoldNet++ comparison and uncertainty arithmetic were checked separately in the same session." },
+  "astra-hackathon-plan":       { kind: "own-prior-work", note: "Written 2026-09-18 in this session. The event details were read off the Luma page (luma.com/jzbe8ytd) in a browser pane on that date under the browser-pane-retrieval procedure, and are point-in-time: the page itself says the date and location are TBD pending confirmation, and tracks and prizes are unannounced. The plan, the scope discipline and the hardware ask are the agent's proposal, not yet reviewed by you and not yet submitted. Experiment A, the TRI and RECAP trial-count figures and the ISO 9283 precedent are carried from your own prior work — reports/four-theses-analysis-2026-09-16.md and gbrain inbox/2026-09-07-a3b77cb4 — and are not re-verified here." },
   "iris-robotics-decision":     { kind: "own-prior-work", note: "Your decision document of 2026-09-13, recorded in gbrain at inbox/2026-09-13-e406a4a4. The roster was verified against the lab's own pages that day; the market figures were web-retrieved then and are not re-verified since. The roster section is SUPERSEDED by the 2026-09-14 labs board, which corrects the member count from 33 to 32." },
   "stanford-student-companies": { kind: "web-2026-09-14", note: "REBUILT TWICE on 2026-09-14. Third source added the same day from a link you supplied: the full StartX community directory, 1,270 companies harvested across 53 pages, giving accelerator membership as a directory fact rather than a press mention. A dedupe-on-domain bug was found and fixed during the merge — it had briefly attributed Humans&'s $4.48B to an unrelated StartX company, because the hand-verified layer's link field is a source article and six companies shared techcrunch.com. Degree level is stated for 268 of 1,522 and left unknown for the rest, because StartX publishes no founder data and guessing would be worse than a blank. FIRST REBUILD, same day: after you pushed back on the count, and the pushback was correct. Two layers now. The systematic layer fetched all 3,014 YC company pages and read 5,830 founder bios (97.6% coverage, zero fetch failures), classifying each Stanford mention by proximity with a nearest-university rule — that is primary-source data, not press. The hand-verified layer is the earlier 2026-09-11 press pass, kept because it carries valuations, backers and the large non-YC companies; it is media-skewed and the card says so. Company-level precision was measured on a hand-read random sample of 14 and was 14 of 14; tie-kind precision is lower and is reported as an 'unspecified' bucket rather than forced. One collaboration-only false positive excluded, 13 ambiguous held back for a human read." },
   "stanford-labs-map":        { kind: "web-2026-09-14", note: "NEW TO YOU. Rosters fetched 2026-09-13/14 from irislab.stanford.edu/people.html and real.stanford.edu/lab.html \u2014 REALab's roster and its 91-paper list are JavaScript literals in the page, so the raw HTML must be read directly. All 60 abstracts were fetched from their arXiv pages and are quoted verbatim, none paraphrased. Faculty ranks, courses and advising loads from profiles.stanford.edu. Emails only where actually published; nothing pattern-guessed. The two scores per person were requested explicitly on 2026-09-13, which suspends house rule 1 \u2014 each decomposes into five stated components so it stays auditable." },
