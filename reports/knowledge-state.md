@@ -4,9 +4,7 @@ The file every agent reads to answer "what does he already know". Maintained by
 M2 Ledger Keeper after each editor run. This is a state file, not a document:
 no prose, no commentary, no history beyond what is needed to compute a diff.
 
-Last updated 2026-09-17 by the M1/M2 run. No run happened on 2026-09-16: the
-03:00 task was deferred to next launch, so the 2026-09-17 window covered
-15 to 17 September.
+Last updated 2026-09-18 by the M1/M2 run. Window 17 to 18 September.
 
 ---
 
@@ -40,15 +38,18 @@ The F3 watchlist. Carry every row forward every run.
 | Machinery Art. 8 delegated acts, AI health and safety into Annex III | not adopted; Art. 3(1) of the Omnibus sets "shall apply by 2 August 2028" | 2028-08-02 |
 | Machinery Art. 20(10) | added by the Omnibus; AI Act harmonised standards give presumption of conformity in the interim | when Machinery AI hStds are cited |
 | CEN/CENELEC AI harmonised standards for machinery | none submitted to the Commission as of Aug 2026 (secondary: IBF Solutions) | unknown |
-| prEN 50742, protection against corruption | no ballot result published as of 2026-09-17. CORRECTION, do not re-read this as movement: the IBF sentence "Following a positive final vote in September, publication is scheduled for November 2026" sits on a page last updated 2026-07-31 and is prospective. standards.cencenelec.eu returned HTTP 500, so no ballot page has been read | 2026-11 |
+| prEN 50742, protection against corruption | no ballot result published as of 2026-09-18. CORRECTION, do not re-read this as movement: the IBF sentence "Following a positive final vote in September, publication is scheduled for November 2026" sits on a page last updated 2026-07-31 and is prospective. standards.cencenelec.eu returned HTTP 500 again on 2026-09-18, a third consecutive run, so no ballot page has been read | 2026-11 |
 | ~800 carried-over Machinery Directive hStds | first citations expected Q3 2026 | Q3 2026 |
-| ISO 25785-1, humanoid safety | unpublished | unknown |
+| ISO 25785-1, humanoid safety | **ISO/CD 25785-1**, Committee Draft, stage 30.60 "Close of comment period", ISO/TC 299, read at source 2026-09-18. Scope: "safety requirements for industrial mobile robots with actively controlled stability". Part 2, on integration, to be developed separately. The page carries no date for the stage, so this is a state reading and not a dated movement | unknown |
 | NHTSA post-AV-STEP exemption regime | AV STEP withdrawn 2026-06-26; case-by-case exemptions | none stated |
 | ISO 10218-1/-2:2025, ANSI/A3 R15.06-2025, UL 3300 | in force; UL 3300 on OSHA NRTL list 2025-12-31 | none stated |
 | BIS advanced computing licence policy | case-by-case review; TPP < 21,000 and DRAM bw < 6,500 GB/s; independent third-party performance testing required | none stated |
 | FMCSA broker bond and double-brokering penalties | $150k bond; penalties $50k | none stated |
 | EAC ESTEP, Election Supporting Technology Evaluation Program | voluntary; Application for Testing form published 2026-09-15; agency sizes it at 9 submissions/yr, 1,296 hours, $101,217.60 | comment period per FR notice |
-| ISO 25785-1, humanoid safety, retrieval | iso.org returns HTTP 403 to non-browser clients; stage unverified for three consecutive runs, 2026-09-15, 09-16 (not run) and 09-17. Needs a browser fetch or a different route | unknown |
+| ISO 25785-1, retrieval | RESOLVED 2026-09-18 by loading iso.org in a browser pane; curl still returns HTTP 403. Also corrected: catalogue ID 89619, retried on prior runs, is ISO/FDIS 25256 on road sweepers. The correct record is iso.org/standard/91469.html | n/a |
+| Notified bodies designated under Reg (EU) 2023/1230 | 40 active, against 153 active under Directive 2006/42/EC, both read from the Commission's Single Market Compliance Space register on 2026-09-18 with notification status Active. Closes the gap terrain-map.md §1 named as not retrieved | 2027-01-20 |
+| NANDO / Single Market Compliance Space, retrieval | RESOLVED 2026-09-18. The register renders and filters in a browser pane; it returns an application shell to HTTP clients. Filter path: Legislation dropdown, then Refine results | n/a |
+| NIST / NIBIB medical metrology and standards RFI | NEW, published 2026-09-18. Asks for "Suggested changes to the medical metrology and standards process to allow improved and cost-effective healthcare in a time of rapidly changing technology and incorporation of AI". Creates no obligation. Symposium 2026-09-24 | comment period per FR notice |
 
 ---
 
@@ -62,6 +63,9 @@ The F3 watchlist. Carry every row forward every run.
 | non-NVIDIA inference silicon, largest private round tracked | EUCLYD, over EUR 200M Series A, co-led by Samsung | 2026-09-15 | company release |
 | industrial world models, seed rounds tracked | Noetive, $41M seed led by Eclipse, no valuation disclosed | 2026-09-16 | company release |
 | free public robot-manipulation evaluation benchmarks | 3: lbm_eval (TRI), RoboArena (Berkeley), RoboVAD (Zenodo 22754659) | 2026-09-17 | own count |
+| AI-infrastructure round, largest tracked | Crusoe, $3.9B Series F initial closing at $30.9B post-money, co-led by Atreides Management, Mubadala Capital, Valor Equity Partners | 2026-09-17 | company release |
+| datacenter capacity, first line tracked | Crusoe "6GW+ of gross contracted capacity across data centers and cloud, including 1 GW of gross capacity delivered and operational today"; over $140B total contracted value | 2026-09-17 | company release |
+| robotics-sector round, largest tracked | D-Robotics, US$400M Series C. Primary release names no investor, only "a leading global internet company, alongside with top-tier investment institutions"; no valuation. Cumulative Sunrise chip shipments "exceeded 8 million units" | 2026-09-17 | company release |
 
 ---
 
@@ -69,8 +73,8 @@ The F3 watchlist. Carry every row forward every run.
 
 | id | claim | state | kill test | last moved |
 |---|---|---|---|---|
-| assurance-seam | A neutral party that can state with validity what a learned policy does becomes structurally necessary | **contested** | Does any buyer pay for third-party attestation rather than open-sourcing the tool or using its own telemetry | 2026-09-14 |
-| assurance-seam, surviving form | Production telemetry cannot establish whether an OTA update is a regression, because the previous policy cannot be run counterfactually without surrendering throughput | live | Show one buyer paying for paired non-regression testing | 2026-09-17 |
+| assurance-seam | A neutral party that can state with validity what a learned policy does becomes structurally necessary | **contested** | Does any buyer pay for third-party attestation rather than open-sourcing the tool or using its own telemetry | 2026-09-18 |
+| assurance-seam, surviving form | Production telemetry cannot establish whether an OTA update is a regression, because the previous policy cannot be run counterfactually without surrendering throughput | **contested** | Show one buyer paying for paired non-regression testing | 2026-09-18 |
 | twin-certification | Nobody certifies the twin; SRCC-style validity claims are the sellable product | live | Show NVIDIA or Lightwheel successfully self-certifying, or a notified body accepting vendor sim evidence unaudited | 2026-09-17 |
 | sc-node-map | 38 nodes, 7 of them the same assurance problem in different costumes | current | per-node kill tests in the ledger | 2026-09-08 |
 
@@ -104,6 +108,33 @@ regression from ordinary wear. Also arXiv 2609.18293, function-preserving
 synthetic data generation reporting zero-shot deployment "without real-world
 fine-tuning", which extends the self-liquidation argument to pre-deployment.
 
+Added 2026-09-18, and the weakening side is the better-evidenced again.
+Weakening: arXiv 2609.20625, Chronicle, performs the counterfactual the
+surviving form says cannot be performed. Its "cut-point replay, serves a
+chosen subset of boundaries from the record and executes the complementary
+subset live with new code, turning a recorded incident into a regression
+test", at "23 microseconds per crossing (0.008% of an assumed 300 ms model
+call)", with replay issuing "zero model calls" and "bit-stable across 20
+repetitions". Public on GitHub, which is the commons argument running again.
+The bound: an LLM agent's non-determinism sits at recordable boundaries, and a
+robot policy's contact with the world does not, so the transfer to physical
+policies is not demonstrated. Also weakening: arXiv 2609.20016,
+Governance-as-Code, renders EU AI Act Articles 8 to 15 as "43 machine-checkable
+acceptance criteria" in a CI/CD pipeline and reports it "reproduces all of the
+manual audit's findings, including three penalty-triggering violations, while
+cutting audit labor by roughly 75%", which automates the attestation labour on
+the obligated party's own side. And arXiv 2609.19607, DeltaSelect, prices a
+repeated baseline-versus-candidate comparison at USD 27.86 across 13
+evaluations, while independently measuring the aggregate-versus-instance gap:
+only 19.5% of tasks (22 of 113) reached a fifth-percentile Pearson correlation
+of 0.50 with full-benchmark performance.
+Supporting, at equal prominence: arXiv 2609.19844, SecTB-RTL, reports that
+"The provider accepted 1,857 responses, but only nine passed the production
+semantic validator" and concludes that "provider or schema acceptance does not
+establish execution validity". Self-attestation and independent validation
+disagreed by two orders of magnitude on the same artefacts. One incident, one
+provider, hardware verification rather than a learned policy.
+
 Further evidence for, added 2026-09-17: arXiv 2609.18820 argues that step-
 scoped governance of agentic workflows cannot detect a class it names
 Compositional Policy Violations, because "a predicate over a single step
@@ -120,7 +151,7 @@ Stock-side state. Decision of 2026-09-14: **breadth first, narrow later.**
 
 | domain | depth | document | status |
 |---|---|---|---|
-| industrial certification and standards bodies | terrain | reports/terrain-map.md §1 | written 2026-09-14 |
+| industrial certification and standards bodies | terrain | reports/terrain-map.md §1 | written 2026-09-14; §1 "what is missing" partly closed 2026-09-18, the notified-body count is now retrieved at 40 under 2023/1230 and 153 under 2006/42/EC. Fee schedules, day rates and assessor utilisation remain not found |
 | the robot policy layer | terrain | reports/terrain-map.md §2 | skeleton, gaps named |
 | datacenter and power buildout | none | reports/terrain-map.md §3 | scope only, not researched |
 
@@ -129,7 +160,7 @@ Serialise it in order, at most 400 words per weekday, and record the last
 section delivered in the `serialised` line below. When the file is exhausted,
 omit the section rather than inventing a new domain.
 
-serialised: §1 vocabulary COMPLETE, through "lose the self-certification option" (2026-09-17). Next: §1 the value chain, carrying its ASCII diagram, the named notified bodies and the working-group-as-commercial-asset paragraph. Then §1 the money.
+serialised: §1 the value chain COMPLETE, ASCII diagram carried whole plus the working-group-as-commercial-asset paragraph (2026-09-18). §1 vocabulary completed 2026-09-17. Next: §1 the money, carrying the Bureau Veritas FY2025 figures, the four-house TIC market spread and the Recital 27 / Article 25(5) SME fee duty. Then §1 the constraint.
 
 Narrowing trigger, so this does not drift forever: after the terrain map is
 fully delivered, compare the attention tally below against depth. The domain
@@ -145,17 +176,25 @@ ranking data than anything the agents can infer. M2 increments these.
 
 | domain | brief items | questions answered | questions skipped |
 |---|---|---|---|
-| certification and standards | 7 | 0 | 0 |
+| certification and standards | 10 | 0 | 0 |
 | robot policy layer | 4 | 0 | 0 |
-| datacenter and power | 3 | 0 | 0 |
-| capital flows, general | 4 | 0 | 0 |
+| datacenter and power | 4 | 0 | 0 |
+| capital flows, general | 5 | 0 | 0 |
 
 2026-09-17: certification +2 (the two arXiv assurance claims), datacenter and
 power +1 (the EPA repeal, the first dated federal instrument this system has
-logged on that domain), capital +1 (Noetive). Five consecutive ONE QUESTIONs
-are now unanswered, so the narrowing input is still empty and the tally is
-counting items rather than attention. That is worth knowing before the tally
-is used to pick the S1 domain.
+logged on that domain), capital +1 (Noetive).
+
+2026-09-18: certification +3 (the notified-body count, the ISO 25785-1 stage,
+and the Chronicle / SecTB-RTL pair), datacenter and power +1 (Crusoe's 6GW
+contracted and 1GW operational, the first capacity figures on that domain),
+capital +1 (Crusoe and D-Robotics counted once as a capital item). Six
+consecutive ONE QUESTIONs are now unanswered. The tally is still counting
+items rather than attention, so it cannot yet do the job the 2026-09-14
+narrowing decision assigned it. Note the shape it has anyway: certification
+leads 10 to 5 to 4, and it leads because the agents keep finding items there,
+not because Anshu has signalled anything. Do not read the lead as a
+preference until at least one question is answered.
 
 ---
 
@@ -171,6 +210,7 @@ addresses them.
 | 2026-09-15 | If the only independent measurement of the non-regression gap so far was published free on arXiv by two authors, is the defensible asset the method or the accredited seat that signs the certificate | no |
 | 2026-09-10 | What does the buyer of an attestation actually purchase, and is it the same thing in export control and in machinery safety | no |
 | 2026-09-17 | If loss of stability is detectable from a robot's own telemetry before it reaches outcomes, is the non-regression wedge now confined to the case where neither policy is degrading | no |
+| 2026-09-18 | If the register shows 40 notified bodies for the Regulation against 153 for the Directive it replaces in 124 days, is the binding constraint on 20 January 2027 the missing standard or the missing assessors | no |
 
 ---
 
@@ -193,3 +233,12 @@ can diff rather than re-derive.
 | projected US electricity load growth rate, increase attributed largely to AI datacenter demand | nearly 2.6-fold | EPA final rule, FR 2026-19071, footnote 109 | 2026-09-17 |
 | RoboVAD hardest cross-domain setup, best frame-level AUC | all methods below 70% micro-averaged | arXiv 2609.17843 | 2026-09-15 |
 | global physical economy, as the vendor sizes it | $30 trillion | Noetive release, vendor claim about its own market | 2026-09-16 |
+| notified bodies active under Reg (EU) 2023/1230 | 40 | Commission Single Market Compliance Space register | 2026-09-18 |
+| notified bodies active under Directive 2006/42/EC | 153 | same register, same reading | 2026-09-18 |
+| Crusoe gross contracted datacenter capacity | 6GW+ contracted, 1GW delivered and operational | company release | 2026-09-17 |
+| Crusoe total contracted value | over $140B | company release, company's own figure | 2026-09-17 |
+| Chronicle record-and-replay overhead | 23 microseconds per crossing, 0.008% of an assumed 300 ms model call | arXiv 2609.20625 | 2026-09-17 |
+| provider schema acceptance versus independent validator pass | 1,857 accepted, 9 passed | arXiv 2609.19844 | 2026-09-17 |
+| EU AI Act compliance audit labour reduction, self-reported | roughly 75% | arXiv 2609.20016 | 2026-09-17 |
+| cost of a repeated baseline-versus-candidate agent comparison | USD 27.86 across 13 evaluations | arXiv 2609.19607 | 2026-09-17 |
+| tasks whose single run tracks full-benchmark performance | 19.5%, 22 of 113, at a fifth-percentile Pearson correlation of 0.50 | arXiv 2609.19607 | 2026-09-17 |

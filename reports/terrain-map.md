@@ -72,9 +72,9 @@ The designation mechanics, since the two-step structure is what causes the delay
 
 ### What is missing from this section
 
-The count of notified bodies designated under 2023/1230 was not retrieved. NANDO at nando.ec.europa.eu did not respond to four retrieval attempts and the Single Market Compliance Space API returns a single-page-application shell rather than data, so the register was not read. Three individual designations are named above from company and press sources, which is not a count.
+RESOLVED 2026-09-18, and the method is the finding. The Single Market Compliance Space returns a single-page-application shell to an HTTP client, but it renders and filters normally when loaded in a browser pane. Filtered on notification status Active, the register returns 40 bodies under Regulation (EU) 2023/1230 and 153 under Directive 2006/42/EC, the instrument 2023/1230 replaces on 20 January 2027. So the capacity question described qualitatively above now has a number against it: the new regime has 26.1% of the notified bodies the outgoing one has, 124 days before it applies. The three individual designations named above remain the only ones traced to a company or press source; the counts come from the Commission's own register.
 
-Also not found: any published fee schedule or day rate for a machinery conformity assessment, the utilisation rate or revenue per assessor of a notified body, and the duration of the accreditation step rather than the notification step. Bureau Veritas is used above as the margin reference because it publishes; TÜV SÜD, TÜV Rheinland and DEKRA are structured such that comparable segment margins were not located. No primary document on what a notified body charges has been read, which was the specific gap this section was written to close and which it has only partly closed.
+Still not found: any published fee schedule or day rate for a machinery conformity assessment, the utilisation rate or revenue per assessor of a notified body, and the duration of the accreditation step rather than the notification step. Bureau Veritas is used above as the margin reference because it publishes; TÜV SÜD, TÜV Rheinland and DEKRA are structured such that comparable segment margins were not located. No primary document on what a notified body charges has been read, which was the specific gap this section was written to close and which it has only partly closed.
 
 ---
 
@@ -118,4 +118,4 @@ Agent **S1 Curriculum** does not fire until a domain is chosen. When it does, it
 
 ---
 
-*Sources retrieved 2026-09-14 and cited inline. Machinery Regulation text read at primary through the Publications Office CELLAR service using `tools/eurlex.mjs`, because eur-lex.europa.eu returns HTTP 202 with an empty body to non-browser clients. Internal grounding: the physical-intelligence review of 2026-09-03, the supply-chain node map of 2026-09-08, and the IRIS and robotics-market decision document of 2026-09-13.*
+*Sources retrieved 2026-09-14 and cited inline, except the notified-body counts in section 1, read from the Commission's Single Market Compliance Space register on 2026-09-18. Machinery Regulation text read at primary through the Publications Office CELLAR service using `tools/eurlex.mjs`, because eur-lex.europa.eu returns HTTP 202 with an empty body to non-browser clients. Internal grounding: the physical-intelligence review of 2026-09-03, the supply-chain node map of 2026-09-08, and the IRIS and robotics-market decision document of 2026-09-13.*
