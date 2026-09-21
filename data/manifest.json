@@ -1,11 +1,18 @@
 {
  "static": true,
- "builtAt": "2026-09-19T16:30:08.743Z",
+ "builtAt": "2026-09-21T04:13:57.989Z",
  "authors": [
   "anshu",
   "veer"
  ],
  "reports": [
+  {
+   "p": "reports/astra-embodiment-transfer-2026-09-20.md",
+   "name": "astra-embodiment-transfer-2026-09-20.md",
+   "ext": ".md",
+   "bytes": 8909,
+   "mtime": 1789963963171.448
+  },
   {
    "p": "reports/measurement-rig-spec-2026-09-19.md",
    "name": "measurement-rig-spec-2026-09-19.md",
