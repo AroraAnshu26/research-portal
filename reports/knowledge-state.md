@@ -4,8 +4,11 @@ The file every agent reads to answer "what does he already know". Maintained by
 M2 Ledger Keeper after each editor run. This is a state file, not a document:
 no prose, no commentary, no history beyond what is needed to compute a diff.
 
-Last updated 2026-09-22 by the M1/M2 run. Window 19 to 22 September, extended
-because no run published on Monday 21 September.
+Last updated 2026-09-30 by the M1/M2 run. Window 23 to 30 September, extended
+because no run published between 23 and 29 September. That seven-day gap is
+unexplained by anything in the repository: the 22 September run completed and
+committed normally at 16:34 PT. If it recurs, the scheduled task itself is the
+thing to check, not the collectors.
 
 ---
 
@@ -15,10 +18,10 @@ The F6 list. Keep between 8 and 12 names. Read at the person's own venue only.
 
 | person | venue | newest seen | date |
 |---|---|---|---|
-| Dario Amodei | darioamodei.com, short posts | We Must Pace the Frontier | 2026-09-12 |
+| Dario Amodei | darioamodei.com, short posts | We Must Pace the Frontier, still newest on 2026-09-30. A link scrape on 09-30 returned six short-post titles where the 09-22 reading recorded four; no item on the page is dated in window, so this is an extraction difference and not new writing. Count the titles, not the links, next run | 2026-09-12 |
 | Dario Amodei | darioamodei.com/essay/ | The Adolescence of Technology, dated "January 2026" on the page; /archive returns HTTP 404 | 2026-01 |
 | Paul Graham | paulgraham.com/articles.html | Making Startups Powerful | 2026-09 |
-| Andrej Karpathy | karpathy.bearblog.dev/blog | newest is Sequoia Ascent 2026 summary, unchanged. RETRIEVAL, settled 2026-09-22: the venue flaps between HTTP 200 and 404 for HTTP clients (200 on 09-17, 404 on 09-15 and 09-22) and renders reliably in a browser pane. Read it there and stop recording the 404 as a venue outage | 2026-04-30 |
+| Andrej Karpathy | karpathy.bearblog.dev/blog | newest is Sequoia Ascent 2026 summary, unchanged, re-read 2026-09-30. RETRIEVAL, settled 2026-09-22 and confirmed a fourth time on 09-30: the venue flaps between HTTP 200 and 404 for HTTP clients (200 on 09-17, 404 on 09-15, 09-22 and 09-30) and renders reliably in a browser pane. Read it there and stop recording the 404 as a venue outage | 2026-04-30 |
 | Andrej Karpathy | karpathy.github.io | (older) | 2026-02-12 |
 
 Slots open: 8. Candidates not yet added, decide before adding: Chelsea Finn,
@@ -30,7 +33,7 @@ Dorsa Sadigh, Ben Thompson, Dylan Patel, Jack Clark, Cedric Chin.
 
 The F3 watchlist. Carry every row forward every run.
 
-| instrument | state as of 2026-09-17 | next date |
+| instrument | state as of 2026-09-30 | next date |
 |---|---|---|
 | EPA Carbon Pollution Standards for fossil fuel-fired EGUs, 40 CFR Part 60 | partial repeal final rule published 2026-09-17; repeals the CCS-based Phase 2 standards for new base load stationary combustion turbines; rule text names AI datacenter load as driving a "nearly 2.6-fold increase in projected growth rates"; a concurrent supplemental proposal seeks comment on rescinding all GHG requirements for EGUs | effective 2026-11-16 |
 | EU harmonised-standard citations, Commission throughput | Implementing Decision (EU) 2026/2048, published 2026-09-16, cited EN 18060:2025 under the Batteries Regulation 2023/1542. Not machinery, carried as evidence the citation machinery is running | none stated |
@@ -39,42 +42,71 @@ The F3 watchlist. Carry every row forward every run.
 | Machinery Art. 8 delegated acts, AI health and safety into Annex III | not adopted; Art. 3(1) of the Omnibus sets "shall apply by 2 August 2028" | 2028-08-02 |
 | Machinery Art. 20(10) | added by the Omnibus; AI Act harmonised standards give presumption of conformity in the interim | when Machinery AI hStds are cited |
 | CEN/CENELEC AI harmonised standards for machinery | none submitted to the Commission as of Aug 2026 (secondary: IBF Solutions) | unknown |
-| prEN 50742, protection against corruption | no ballot result published as of 2026-09-18. CORRECTION, do not re-read this as movement: the IBF sentence "Following a positive final vote in September, publication is scheduled for November 2026" sits on a page last updated 2026-07-31 and is prospective. standards.cencenelec.eu returned HTTP 500 again on 2026-09-22, a fourth consecutive run. ESCALATION EXHAUSTED: the browser pane also returns HTTP 500, so this is a server-side outage and not the browser-pane pattern. A nen.nl mirror was tried and 404ed. Do not retry the same URL a fifth time; find a different national mirror or drop the row to dormant | 2026-11 |
+| prEN 50742, protection against corruption | no ballot result published as of 2026-09-18. CORRECTION, do not re-read this as movement: the IBF sentence "Following a positive final vote in September, publication is scheduled for November 2026" sits on a page last updated 2026-07-31 and is prospective. standards.cencenelec.eu returned HTTP 500 again on 2026-09-22, a fourth consecutive run. ESCALATION EXHAUSTED: the browser pane also returns HTTP 500, so this is a server-side outage and not the browser-pane pattern. A nen.nl mirror was tried and 404ed. NOT RETRIED on 2026-09-30, per that decision, and the row is now **DORMANT**: stop spending a collector slot on it each run. Re-open it only on a different national mirror (candidates not yet tried: din.de, afnor.org, une.org, uni.com) or on a CEN/CENELEC announcement reached some other way. The prospective IBF sentence about a November 2026 publication remains prospective and is not evidence | 2026-11, dormant |
 | ~800 carried-over Machinery Directive hStds | first citations expected Q3 2026 | Q3 2026 |
-| ISO 25785-1, humanoid safety | **ISO/CD 25785-1**, unchanged at stage 30.60 on 2026-09-22. Full official title, read at source: "Robotics — Safety requirements for dynamically stable industrial mobile robots (legged, wheeled, or other forms of locomotion) — Part 1: Robots". Committee Draft, stage 30.60 "Close of comment period", ISO/TC 299, first read 2026-09-18. Scope: "safety requirements for industrial mobile robots with actively controlled stability". Part 2, on integration, to be developed separately. The page carries no date for the stage, so this is a state reading and not a dated movement | unknown |
+| ISO 25785-1, humanoid safety | **ISO/CD 25785-1**, unchanged at stage 30.60 on 2026-09-30, a third consecutive reading. Full official title, read at source: "Robotics — Safety requirements for dynamically stable industrial mobile robots (legged, wheeled, or other forms of locomotion) — Part 1: Robots". Committee Draft, stage 30.60 "Close of comment period", ISO/TC 299, first read 2026-09-18. Scope: "safety requirements for industrial mobile robots with actively controlled stability". Part 2, on integration, to be developed separately. NEW on 2026-09-30, the exclusions read at source: the document excludes "robots whose travel speed and travel direction is solely under control of a driver or an operator (e.g., human remote control, human continuous local control)", and also excludes ridden robots, worn robots such as exoskeletons, road vehicles, airborne and underwater robots, floor-cleaning robots and non-industrial environments. This is the exact complement of the FDA RASD scope below, which covers only teleoperated systems. The page carries no date for the stage, so this is a state reading and not a dated movement | unknown |
 | NHTSA post-AV-STEP exemption regime | AV STEP withdrawn 2026-06-26; case-by-case exemptions | none stated |
 | ISO 10218-1/-2:2025, ANSI/A3 R15.06-2025, UL 3300 | in force; UL 3300 on OSHA NRTL list 2025-12-31 | none stated |
 | BIS advanced computing licence policy | case-by-case review; TPP < 21,000 and DRAM bw < 6,500 GB/s; independent third-party performance testing required | none stated |
 | FMCSA broker bond and double-brokering penalties | $150k bond; penalties $50k | none stated |
 | EAC ESTEP, Election Supporting Technology Evaluation Program | voluntary; Application for Testing form published 2026-09-15; agency sizes it at 9 submissions/yr, 1,296 hours, $101,217.60 | comment period per FR notice |
 | ISO 25785-1, retrieval | RESOLVED 2026-09-18 by loading iso.org in a browser pane; curl still returns HTTP 403. Also corrected: catalogue ID 89619, retried on prior runs, is ISO/FDIS 25256 on road sweepers. The correct record is iso.org/standard/91469.html | n/a |
-| Notified bodies designated under Reg (EU) 2023/1230 | **41 active, against 152 under Directive 2006/42/EC**, re-read 2026-09-22 with notification status Active. Was 40 / 153 on 2026-09-18, so both lines moved in four days and the ratio went 26.1% to 27.0%. Intertek Deutschland GmbH NB 0905 now appears under the Regulation, closing the designation question terrain-map.md §1 left open. The body that took the count from 40 to 41 is NOT identifiable, because the 09-18 reading stored only a count. Names read on 09-22 are stored below so the next run diffs names | 2027-01-20 |
+| Notified bodies designated under Reg (EU) 2023/1230 | **41 active, against 153 under Directive 2006/42/EC**, re-read 2026-09-30 with notification status Active. The Regulation line is unchanged from 09-22. The Directive line went 153 (09-18) to 152 (09-22) to 153 (09-30), so it has now moved twice and returned to its starting value; treat single-unit moves on that line as noise unless a name changes with them. Ratio 26.8%, against 27.0% on 09-22 and 26.1% on 09-18, 112 days before the Regulation applies. The complete 41-name list was captured on 09-30 across two pages with no overlap and is stored below, replacing the incomplete 37 from 09-22 | 2027-01-20 |
 | NANDO / Single Market Compliance Space, retrieval | RESOLVED 2026-09-18. The register renders and filters in a browser pane; it returns an application shell to HTTP clients. Filter path: Legislation dropdown, then Refine results | n/a |
 | Reg (EU) 2026/2108, Union Customs Code recast | NEW, published 2026-09-19, in force 2026-09-20, applies 2027-09-21 (Art. 287(2)) with staged provisions to 2028-07-01. Art. 27(2) binds the importer to ensure goods "comply with relevant other legislation applied by the customs authorities and provide or make available and keep appropriate records of such compliance"; only one importer at a time; the importer "shall be established in the customs territory of the Union". Buried: "The release of the goods shall not be considered to be proof of conformity." Links customs to Reg (EU) 2019/1020 market surveillance and the EU Product Compliance Network | 2027-09-21 |
+| FDA draft guidance, Robotically-Assisted Surgical Devices, Premarket Submissions | NEW, published 2026-09-25, Docket FDA-2026-N-9505, FR Doc 2026-19704, guidance document number GUI01500081. Provides "draft recommendations regarding non-clinical and clinical testing and premarket submission content for RASDs". Creates no binding obligation: "This draft guidance is not final nor is it for implementation at this time" and it "does not establish any rights for any person and is not binding on FDA or the public". THE SCOPE IS THE FINDING: RASDs are defined as "teleoperated, software-controlled systems that integrate robotic technologies and subassemblies that are designed to assist qualified practitioners in precisely positioning and controlling multiple surgical instruments", so a learned autonomous surgical policy is outside this document. Read against ISO/CD 25785-1, which excludes teleoperated robots, the two instruments are exact complements and neither covers an autonomous policy in a clinical setting. Fifth instance of the pattern already on the board, a US regulator addressing robots without creating a third-party regime | comments close 2026-11-24 |
 | NIST / NIBIB medical metrology and standards RFI | NEW, published 2026-09-18. Asks for "Suggested changes to the medical metrology and standards process to allow improved and cost-effective healthcare in a time of rapidly changing technology and incorporation of AI". Creates no obligation. Symposium 2026-09-24 | comment period per FR notice |
 
-Notified bodies read active under Reg (EU) 2023/1230 on 2026-09-22. The register
-counter said 41; the two-page scrape overlapped and yielded these 37 unique
-names, so the list is incomplete and the next run should use the CSV export
-rather than scraping pages. Stored so a later run diffs names and not only
-counts.
+Notified bodies read active under Reg (EU) 2023/1230 on 2026-09-30. COMPLETE:
+all 41 names, captured across two pages (30 + 11) with no overlap, against the
+incomplete 37 stored on 09-22. Method that worked: filter Legislation to
+"Regulation (EU) 2023/1230 on machinery" and Notification status to Active,
+click Refine results, then read the table rows out of the DOM with a script
+rather than from page text, and page with the paginator's "2" control. The
+"Items per page: 100" control is present in the markup but sits outside the
+viewport and cannot be clicked. Stored so a later run diffs names, not counts.
 
 NB 0035 TUV Rheinland Industrie Service; NB 0036 TUV SUD Industrie Service;
-NB 0044 TUV NORD CERT; NB 0050 not seen; NB 0080 INERIS; NB 0090 TUV Thueringen;
-NB 0102 PTB; NB 0121 IFA / DGUV Test; NB 0123 TUV SUD Product Service;
-NB 0158 DEKRA Testing and Certification; NB 0197 TUV Rheinland LGA Products;
-NB 0340 DGUV Test Elektrotechnik; NB 0363 KWF Services; NB 0366 VDE Pruef- und
+NB 0044 TUV NORD CERT; NB 0080 INERIS; NB 0090 TUV Thueringen; NB 0102 PTB;
+NB 0121 IFA / DGUV Test; NB 0123 TUV SUD Product Service; NB 0158 DEKRA Testing
+and Certification; NB 0197 TUV Rheinland LGA Products; NB 0340 DGUV Test
+Elektrotechnik; NB 0363 KWF Services; NB 0366 VDE Pruef- und
 Zertifizierungsinstitut; NB 0370 LGAI Applus+; NB 0408 TUV AUSTRIA;
 NB 0417 DGUV Test Verkehr und Landschaft; NB 0424 Kiwa Tarkastus;
 NB 0515 DGUV Test Bauwesen; NB 0556 DGUV Test Nahrungsmittel und Verpackung;
-NB 0598 SGS FIMKO; NB 0697 DGUV Test Holz und Metall; NB 0905 Intertek
-Deutschland; NB 1015 Strojirensky zkusebni ustav; NB 1073 Danish Technological
-Institute Dancert; NB 1339 Seilbahnbuero Schupfer; NB 1411 Certification and
-Testing Center (LV); NB 1433 Urzad Dozoru Technicznego; NB 1456 KOMAG;
-NB 2187 POTA; NB 2261 TUV CYPRUS; NB 2703 ICR Polska; NB 2805 Safenet
-Certification Services; NB 2828 CAC Conformity Assessment Center;
-NB 2881 Boesmueller & Partner; NB 2902 FINN-Tarkastus; NB 2981 Exida IRL;
+NB 0598 SGS FIMKO; NB 0697 DGUV Test Holz und Metall; NB 0739 DGUV Test Druck
+und Papierverarbeitung; NB 0905 Intertek Deutschland; NB 1015 Strojirensky
+zkusebni ustav; NB 1073 Danish Technological Institute Dancert; NB 1339
+Seilbahnbuero Schupfer; NB 1384 Technicke laboratore Opava; NB 1411
+Certification and Testing Center (LV); NB 1433 Urzad Dozoru Technicznego;
+NB 1456 KOMAG; NB 2187 POTA; NB 2261 TUV CYPRUS; NB 2703 ICR Polska;
+NB 2805 Safenet Certification Services; NB 2828 CAC Conformity Assessment
+Center; NB 2834 CCQS Certification Services; NB 2881 Boesmueller & Partner;
+NB 2902 FINN-Tarkastus; NB 2957 Intercert Global; NB 2981 Exida IRL;
 NB 3133 Technicka inspekce-CZ.
+
+Four of these were absent from the 09-22 list: NB 0739, NB 1384, NB 2834 and
+NB 2957. They are artefacts of that run's incomplete scrape and NOT new
+designations, because the counter read 41 on both dates. NB 0050, recorded as
+"not seen" on 09-22, is not in the register under this filter and that row
+should not be carried forward.
+
+Concentration, computed from the complete list on 2026-09-30 and not previously
+visible because earlier runs held only a count. Germany holds 18 of the 41.
+Seven of those 18 are DGUV Test units of the same body, the Deutsche
+Gesetzliche Unfallversicherung: NB 0121 IFA, NB 0340 Elektrotechnik, NB 0417
+Verkehr und Landschaft, NB 0515 Bauwesen, NB 0556 Nahrungsmittel und
+Verpackung, NB 0697 Holz und Metall and NB 0739 Druck und Papierverarbeitung.
+So one German statutory accident-insurance institution accounts for 7 of the 41
+notified bodies under the new Regulation, and six further German entities carry
+a TUV brand across four groups (NB 0035 and 0197 Rheinland, NB 0036 and 0123
+SUD, NB 0044 NORD, NB 0090 Thueringen); NB 2261 TUV CYPRUS is a seventh
+TUV-branded body outside Germany. Remaining countries: Poland 4, Austria 4, Finland 3, Czech Republic
+3, Ireland 3, Spain 1, France 1, Croatia 1, Latvia 1, Denmark 1, Cyprus 1.
+This bears on terrain-map.md §1 "the constraint", which reads the capacity
+limit as accredited assessor headcount: the register says the new regime's
+capacity is concentrated in a handful of institutions rather than spread across
+41 independent firms.
 
 ---
 
@@ -100,7 +132,7 @@ NB 3133 Technicka inspekce-CZ.
 | id | claim | state | kill test | last moved |
 |---|---|---|---|---|
 | assurance-seam | A neutral party that can state with validity what a learned policy does becomes structurally necessary | **contested** | Does any buyer pay for third-party attestation rather than open-sourcing the tool or using its own telemetry | 2026-09-18 |
-| assurance-seam, surviving form | Production telemetry cannot establish whether an OTA update is a regression, because the previous policy cannot be run counterfactually without surrendering throughput | **contested** | Show one buyer paying for paired non-regression testing | 2026-09-22 |
+| assurance-seam, surviving form | Production telemetry cannot establish whether an OTA update is a regression, because the previous policy cannot be run counterfactually without surrendering throughput | **contested, and the kill test may have fired** | Show one buyer paying for paired non-regression testing | 2026-09-30 |
 | twin-certification | Nobody certifies the twin; SRCC-style validity claims are the sellable product | live | Show NVIDIA or Lightwheel successfully self-certifying, or a notified body accepting vendor sim evidence unaudited | 2026-09-22 |
 | sc-node-map | 38 nodes, 7 of them the same assurance problem in different costumes | current | per-node kill tests in the ledger | 2026-09-08 |
 
@@ -207,6 +239,71 @@ to accept either. Note for Anshu specifically: this cuts against the world-model
 route he stated on 2026-09-19 as the better approach, and it was cut from MOVES
 on the charter's ranking rules rather than on its interest.
 
+Added 2026-09-30, and this is the run the surviving form has been waiting for.
+THE UNRESOLVED POINT carried since 2026-09-18 was that every replay system built
+so far replays a digital boundary and nothing has replayed physical contact. That
+is no longer true. arXiv 2609.30608, "Audit Before You Commit", 24 September,
+audits a probe-then-commit insertion pipeline and reports that "replaying the
+recorded taps under an injected model error shows the audit's signature on real
+data", on a physical arm inserting a tool into a rigid pocket by touch. Its other
+figures: in simulated insertion the truth leaves the belief's support on 16.9% of
+episodes while the failure score "turns optimistic by 0.31"; "Conformal
+calibration restores coverage but not the decision: confidently wrong instances
+still pass a confidence gate"; a hand scan found a 2.1 mm error in the tap
+boundary and correcting that one number cut failure from 0.354 to 0.112 on
+untouched instances, transferring unrefitted to a second engine. Seven task
+families, three engines. THE BOUND, and it decides whether the kill test actually
+fired: what is replayed is recorded proprioceptive probes re-scored under a
+changed observation model, not contact dynamics re-executed under a different
+action. So the physical world was replayed in the sense the 09-18 capture feared,
+but only for the passive sensing half of it. The decision Anshu has not made,
+carried forward for a second run and now with a concrete artefact attached: state
+the thesis as non-replayability of *contact under a changed action* or concede it.
+
+Supporting, added 2026-09-30: arXiv 2609.37771 audited seven simulated
+manipulation benchmarks including RoboTwin, LIBERO-Plus and VLABench and found
+"22 bugs of these types and 4 design limitations", where fixes "can reverse
+method rankings, moving the baseline from last to first on one task" and on
+another the baseline "moves from 21 percentage points behind an accelerated
+method to 5 points ahead". The field's own published scores were wrong by more
+than the effect being claimed, and a party auditing the harness rather than
+running it is what found it. Bound: the auditors are inside the field and shipped
+fixes rather than a verdict. Also arXiv 2609.32495, Hearsay: across sixteen
+deployed agent frameworks "none writes one in full", an append-only log kept
+outside the harness "reports all 28 omissions and fabrications we made a harness
+commit as it ran, where a hash chain over the harness's own record passes all
+28", and "What makes a record evidence is who writes it, not what is captured."
+That is the seam's structural claim tested directly, bounded to agent harnesses
+rather than robot policies, and with the same authors building attack and remedy.
+Also arXiv 2609.36518, LIBERO-MAX, 8,000 paired cases holding "the task, initial
+state, policy seed, and pre-event action sequence fixed" so as to distinguish
+"event-associated regressions from failures already present without the change",
+with success falling 11.0 to 25.7 percentage points across fourteen policies:
+the paired protocol LIBERO-CTRL began is now a standing benchmark.
+
+Weakening, added 2026-09-30 at equal prominence: arXiv 2609.30557 audited
+latent-space failure monitors on two autonomous-driving tasks and found a monitor
+using only LaneSegNet's prediction outputs reaches AUROC 0.825 while for VAD ego
+state, driving command and predicted trajectory reach 0.924, with "Adding latent
+features to either baseline yields no statistically resolved improvement". If
+observable inputs and outputs predict failure as well as privileged internal
+access does, the examiner's claim to need access the operator must grant gets
+weaker. Bound: failure prediction is not regression detection and neither task
+involves a policy update. Also weakening on the commons argument: arXiv 2609.31374
+(RECAST) lifts driving-log replay into closed-loop simulation and raises the
+no-collision rate from 22.2% to 63.0%, and arXiv 2609.28952 (RoboRecover)
+reconstructs deviation states "by replaying action prefixes", both in simulation
+and both public.
+
+For twin-certification, added 2026-09-30: arXiv 2609.34300, "When World Models
+Lie", states that world-model predictions "can be biased, miscalibrated, or
+confidently wrong" and that the auxiliary signals normally used to detect this,
+ensemble disagreement and value-target consistency residuals, "can remain small
+even when the world model's predictions deviate from observations". Direction:
+supports, because the twin's own internal confidence signals do not reveal its
+error. Bound, and it is why this did not reach MOVES: the remedy proposed is an
+adaptive conformal filter the operator runs on itself, not an outside check.
+
 Also carried, on self-issued certificates: arXiv 2609.23478, 20 September,
 shows the "label-free certificate" used to validate latent action models does
 not establish what it claims, since "a trained but unconstrained counterpart
@@ -224,7 +321,7 @@ Stock-side state. Decision of 2026-09-14: **breadth first, narrow later.**
 
 | domain | depth | document | status |
 |---|---|---|---|
-| industrial certification and standards bodies | terrain | reports/terrain-map.md §1 | written 2026-09-14; §1 "what is missing" partly closed 2026-09-18 and updated 2026-09-22 to 41 under 2023/1230 and 152 under 2006/42/EC, with Intertek Deutschland NB 0905 now designated. Fee schedules, day rates and assessor utilisation remain not found |
+| industrial certification and standards bodies | terrain | reports/terrain-map.md §1 | written 2026-09-14; §1 "what is missing" partly closed 2026-09-18, updated 2026-09-22, and updated again 2026-09-30 to 41 under 2023/1230 and 153 under 2006/42/EC with the complete 41-name list and the DGUV / TUV concentration finding. Fee schedules, day rates and assessor utilisation remain not found, which is now the only substantive gap left in §1 |
 | the robot policy layer | terrain | reports/terrain-map.md §2 | skeleton, gaps named |
 | datacenter and power buildout | none | reports/terrain-map.md §3 | scope only, not researched |
 
@@ -233,7 +330,7 @@ Serialise it in order, at most 400 words per weekday, and record the last
 section delivered in the `serialised` line below. When the file is exhausted,
 omit the section rather than inventing a new domain.
 
-serialised: §1 vocabulary completed 2026-09-17. §1 the value chain COMPLETE, ASCII diagram carried whole plus the working-group-as-commercial-asset paragraph (2026-09-18). §1 the money PARTIAL (2026-09-22): the margin paragraph was carried whole, with the Bureau Veritas FY2025 revenue of EUR 6.5 billion, adjusted operating profit of EUR 1,052.9 million, 16.3% adjusted operating margin and 18.2% Certification division margin. It was cut short of the full subsection to hold the brief under 700 words. Next, in this order: the Recital 27 / Article 25(5) SME fee duty, then the four-house TIC market spread (USD 254.41bn / 275.39bn / 280.2bn / 320.55bn and the 26% spread), then §1 the constraint.
+serialised: §1 vocabulary completed 2026-09-17. §1 the value chain COMPLETE, ASCII diagram carried whole plus the working-group-as-commercial-asset paragraph (2026-09-18). §1 the money PARTIAL (2026-09-22): the margin paragraph was carried whole, with the Bureau Veritas FY2025 revenue of EUR 6.5 billion, adjusted operating profit of EUR 1,052.9 million, 16.3% adjusted operating margin and 18.2% Certification division margin. §1 the money, second instalment (2026-09-30): the Recital 27 and Article 25(5) SME fee paragraph carried whole, with the 98% SME figure, the recital's "consider adapting the fees" language and Article 25(5)'s "Notified bodies shall take into account the specific interests and needs of small and medium sized enterprises when setting the fees for conformity assessment". Taken out of document order, following the marker written on 22 September rather than the file. STILL OUTSTANDING from §1 the money: the four-house TIC market spread (USD 254.41bn / 275.39bn / 280.2bn / 320.55bn, the 26% spread, Asia Pacific at roughly 38%), which is the paragraph the file places second. Next, in this order: the TIC market spread, then §1 the constraint, which now has the concentration finding above to carry with it.
 
 Narrowing trigger, so this does not drift forever: after the terrain map is
 fully delivered, compare the attention tally below against depth. The domain
@@ -249,8 +346,8 @@ ranking data than anything the agents can infer. M2 increments these.
 
 | domain | brief items | questions answered | questions skipped |
 |---|---|---|---|
-| certification and standards | 13 | 0 | 0 |
-| robot policy layer | 5 | 0 | 0 |
+| certification and standards | 16 | 0 | 0 |
+| robot policy layer | 7 | 0 | 0 |
 | datacenter and power | 4 | 0 | 0 |
 | capital flows, general | 6 | 0 | 0 |
 
@@ -280,6 +377,22 @@ working until a question gets answered, so either the questions need to be
 easier to answer in one line, or the narrowing decision needs a different input.
 That is a decision for Anshu, not a number the agents can produce.
 
+2026-09-30: certification +3 (the FDA RASD scope, the benchmark audit reversing
+rankings, and the DGUV / TUV concentration in the register), robot policy layer
++2 (the physical-contact replay and LIBERO-MAX). Eight consecutive ONE QUESTIONs
+are now unanswered, and this is the third consecutive run reporting that the
+tally measures agent output rather than attention. STOP RE-STATING THIS. The
+design assumed the questions would be answered in a scratchpad that no run has
+ever found; there is no scratchpad file in the repository and none of the eight
+questions has an answer recorded anywhere. Either the answer channel does not
+exist or it is somewhere the agents do not read. Until one of those is fixed the
+narrowing decision of 2026-09-14 has no input and the certification lead, now
+16 to 7 to 4, reflects only where the collectors keep finding items. A concrete
+proposal so this is not deferred a fourth time: today's question is a yes or no
+with a named consequence, which is the cheapest possible answer format, and if
+it too goes unanswered the attention mechanism should be declared dead and
+replaced by Anshu choosing the domain directly.
+
 ---
 
 ## questions
@@ -296,6 +409,7 @@ addresses them.
 | 2026-09-17 | If loss of stability is detectable from a robot's own telemetry before it reaches outcomes, is the non-regression wedge now confined to the case where neither policy is degrading | no |
 | 2026-09-18 | If the register shows 40 notified bodies for the Regulation against 153 for the Directive it replaces in 124 days, is the binding constraint on 20 January 2027 the missing standard or the missing assessors | no |
 | 2026-09-22 | Replay-based non-regression testing is now funded and shipping for agent traffic, while nothing has replayed physical contact: is the surviving thesis about non-regression at all, or only about the non-replayability of the physical world | no |
+| 2026-09-30 | Recorded taps on a real arm have now been replayed under an injected model error, which the 18 September capture said would kill the surviving thesis outright: does that fire the kill test, or do proprioceptive probes fall short of contact under a changed action, in which case the thesis needs restating in those words | no |
 
 ---
 
@@ -318,9 +432,17 @@ can diff rather than re-derive.
 | projected US electricity load growth rate, increase attributed largely to AI datacenter demand | nearly 2.6-fold | EPA final rule, FR 2026-19071, footnote 109 | 2026-09-17 |
 | RoboVAD hardest cross-domain setup, best frame-level AUC | all methods below 70% micro-averaged | arXiv 2609.17843 | 2026-09-15 |
 | global physical economy, as the vendor sizes it | $30 trillion | Noetive release, vendor claim about its own market | 2026-09-16 |
-| notified bodies active under Reg (EU) 2023/1230 | 41, was 40 on 2026-09-18 | Commission Single Market Compliance Space register | 2026-09-22 |
-| notified bodies active under Directive 2006/42/EC | 152, was 153 on 2026-09-18 | same register, same reading | 2026-09-22 |
-| new machinery regime as a share of the outgoing one | 27.0%, was 26.1% on 2026-09-18 | own arithmetic on the two counts | 2026-09-22 |
+| notified bodies active under Reg (EU) 2023/1230 | 41, unchanged from 2026-09-22, was 40 on 2026-09-18 | Commission Single Market Compliance Space register | 2026-09-30 |
+| notified bodies active under Directive 2006/42/EC | 153, was 152 on 2026-09-22 and 153 on 2026-09-18 | same register, same reading | 2026-09-30 |
+| new machinery regime as a share of the outgoing one | 26.8%, was 27.0% on 2026-09-22 and 26.1% on 2026-09-18 | own arithmetic on the two counts | 2026-09-30 |
+| DGUV Test units among the 41 notified bodies under Reg (EU) 2023/1230 | 7 of 41, one German institution | own count on the complete register list | 2026-09-30 |
+| German share of notified bodies under Reg (EU) 2023/1230 | 18 of 41 | same count | 2026-09-30 |
+| belief support loss on a probe-then-commit insertion pipeline | truth leaves the belief's support on 16.9% of episodes, failure score optimistic by 0.31 | arXiv 2609.30608 | 2026-09-24 |
+| failure rate after correcting a 2.1 mm observation-model error | 0.354 to 0.112 on untouched instances | arXiv 2609.30608 | 2026-09-24 |
+| bugs and design limitations found auditing seven manipulation benchmarks | 22 bugs, 4 design limitations; one baseline moved from 21pp behind to 5pp ahead | arXiv 2609.37771 | 2026-09-29 |
+| success drop under a mid-execution change, fourteen policies | 11.0 to 25.7 percentage points, 8,000 paired cases | arXiv 2609.36518 | 2026-09-29 |
+| outputs-only versus latent failure monitor, autonomous driving | AUROC 0.825 and 0.924, latent features add no statistically resolved improvement | arXiv 2609.30557 | 2026-09-24 |
+| deployed agent harnesses writing a fully evidentiary record | 0 of 16; an external log caught 28 of 28 fabrications a hash chain missed | arXiv 2609.32495 | 2026-09-26 |
 | self-modifications that improved the triggering failure while degrading a previously working case | 55%, 211 of 383 replay-decided proposals | arXiv 2609.24130 | 2026-09-21 |
 | goal-conditioned action selection under a rewritten action parameterization | falls from 53% to 15% on the identical commanded trajectory | arXiv 2609.23252 | 2026-09-19 |
 | share of a latent-action "label-free certificate" reduction already reached by an unconstrained baseline | 83-97% | arXiv 2609.23478 | 2026-09-20 |
