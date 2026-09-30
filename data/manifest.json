@@ -1,11 +1,25 @@
 {
  "static": true,
- "builtAt": "2026-09-22T23:34:27.455Z",
+ "builtAt": "2026-09-30T06:02:36.442Z",
  "authors": [
   "anshu",
   "veer"
  ],
  "reports": [
+  {
+   "p": "reports/stanford-robotics-labs-2026-09-28.md",
+   "name": "stanford-robotics-labs-2026-09-28.md",
+   "ext": ".md",
+   "bytes": 25162,
+   "mtime": 1790657277131.3447
+  },
+  {
+   "p": "reports/ros2-primer-2026-09-27.md",
+   "name": "ros2-primer-2026-09-27.md",
+   "ext": ".md",
+   "bytes": 53196,
+   "mtime": 1790552604524.7778
+  },
   {
    "p": "reports/knowledge-state.md",
    "name": "knowledge-state.md",
