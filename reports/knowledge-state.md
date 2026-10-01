@@ -4,11 +4,9 @@ The file every agent reads to answer "what does he already know". Maintained by
 M2 Ledger Keeper after each editor run. This is a state file, not a document:
 no prose, no commentary, no history beyond what is needed to compute a diff.
 
-Last updated 2026-09-30 by the M1/M2 run. Window 23 to 30 September, extended
-because no run published between 23 and 29 September. That seven-day gap is
-unexplained by anything in the repository: the 22 September run completed and
-committed normally at 16:34 PT. If it recurs, the scheduled task itself is the
-thing to check, not the collectors.
+Last updated 2026-10-01 by the M1/M2 run. Window 30 September to 1 October, the
+Thursday default, no extension. The 30 September run published normally, so the
+seven-day gap recorded last run has not recurred.
 
 ---
 
@@ -18,11 +16,11 @@ The F6 list. Keep between 8 and 12 names. Read at the person's own venue only.
 
 | person | venue | newest seen | date |
 |---|---|---|---|
-| Dario Amodei | darioamodei.com, short posts | We Must Pace the Frontier, still newest on 2026-09-30. A link scrape on 09-30 returned six short-post titles where the 09-22 reading recorded four; no item on the page is dated in window, so this is an extraction difference and not new writing. Count the titles, not the links, next run | 2026-09-12 |
-| Dario Amodei | darioamodei.com/essay/ | The Adolescence of Technology, dated "January 2026" on the page; /archive returns HTTP 404 | 2026-01 |
-| Paul Graham | paulgraham.com/articles.html | Making Startups Powerful | 2026-09 |
-| Andrej Karpathy | karpathy.bearblog.dev/blog | newest is Sequoia Ascent 2026 summary, unchanged, re-read 2026-09-30. RETRIEVAL, settled 2026-09-22 and confirmed a fourth time on 09-30: the venue flaps between HTTP 200 and 404 for HTTP clients (200 on 09-17, 404 on 09-15, 09-22 and 09-30) and renders reliably in a browser pane. Read it there and stop recording the 404 as a venue outage | 2026-04-30 |
-| Andrej Karpathy | karpathy.github.io | (older) | 2026-02-12 |
+| Dario Amodei | darioamodei.com, short posts | We Must Pace the Frontier, still newest on 2026-10-01. RESOLVED 2026-10-01, close this line of enquiry: an href scrape returns exactly four `/post/` URLs and two `/essay/` URLs, so the "six titles" counted on 09-30 was posts and essays added together. Four short posts, unchanged since 09-12: on-deepseek-and-export-controls, policy-on-the-ai-exponential, the-urgency-of-interpretability, we-must-pace-the-frontier | 2026-09-12 |
+| Dario Amodei | darioamodei.com/essay/ | Two essays, unchanged: Machines of Loving Grace and The Adolescence of Technology, the latter dated "January 2026" on the page. /archive still returns HTTP 404 on 2026-10-01 while appearing in the site navigation | 2026-01 |
+| Paul Graham | paulgraham.com/articles.html | Making Startups Powerful, unchanged, re-read 2026-10-01. Next four below it: How Universities Should Prepare Founders, How to Earn a Billion Dollars, How to Convert Between Wealth and Income Tax, The Brand Age. Store these so a later run diffs titles rather than re-reading position | 2026-09 |
+| Andrej Karpathy | karpathy.bearblog.dev/blog | newest is Sequoia Ascent 2026 summary, unchanged, re-read 2026-10-01. RETRIEVAL, settled 2026-09-22 and confirmed a fifth time on 10-01: the venue flaps between HTTP 200 and 404 for HTTP clients (200 on 09-17, 404 on 09-15, 09-22, 09-30 and 10-01) and renders reliably in a browser pane. Read it there and do not record the 404 as a venue outage or as a DIFF | 2026-04-30 |
+| Andrej Karpathy | karpathy.github.io | newest is microgpt, 12 Feb 2026, unchanged, re-read 2026-10-01 | 2026-02-12 |
 
 Slots open: 8. Candidates not yet added, decide before adding: Chelsea Finn,
 Dorsa Sadigh, Ben Thompson, Dylan Patel, Jack Clark, Cedric Chin.
@@ -38,7 +36,7 @@ The F3 watchlist. Carry every row forward every run.
 | EPA Carbon Pollution Standards for fossil fuel-fired EGUs, 40 CFR Part 60 | partial repeal final rule published 2026-09-17; repeals the CCS-based Phase 2 standards for new base load stationary combustion turbines; rule text names AI datacenter load as driving a "nearly 2.6-fold increase in projected growth rates"; a concurrent supplemental proposal seeks comment on rescinding all GHG requirements for EGUs | effective 2026-11-16 |
 | EU harmonised-standard citations, Commission throughput | Implementing Decision (EU) 2026/2048, published 2026-09-16, cited EN 18060:2025 under the Batteries Regulation 2023/1542. Not machinery, carried as evidence the citation machinery is running | none stated |
 | Machinery Regulation (EU) 2023/1230 | applies 2027-01-20; Annex I Part A item 5 confirmed untouched by the Digital Omnibus | 2027-01-20 |
-| Reg (EU) 2026/1744, Digital Omnibus on AI | in force 2026-07-27; moved 2023/1230 from AI Act Annex I Section A to Section B point 21 | 2028-08-02 |
+| Reg (EU) 2026/1744, Digital Omnibus on AI | in force 2026-07-27; moved 2023/1230 from AI Act Annex I Section A to Section B point 21. **MOVED 2026-09-29**, corrigendum `32026R1744R(01)`, OJ ref 2026/90810, German only. It replaces one word in Article 1 point 8, page 18, which inserts AI Act Article 6(1b): "Unbeschadet des Absatzes 1a" becomes "Ungeachtet des Absatzes 1a". English 1b reads "Notwithstanding paragraph 1a, AI systems the failure or malfunctioning of which would endanger health and safety shall qualify as safety components." Verified this run: the English text contains "Notwithstanding" exactly once (at 1b) and "Without prejudice" 21 times; the published German contained "Unbeschadet" 11 times including at 1b and "Ungeachtet" zero times. So the German rendering of the overriding clause matched the Regulation's own rendering of "without prejudice to" for 67 days. NEW TO THE BOARD, and the more consequential half: Article 1 point 8 also inserts 6(1a), "AI systems that are solely used for non-safety related aspects of user assistance, performance optimisation, service efficiency, automation or convenience or quality control shall not qualify as safety components", and 6(1c), excluding a product that needs third-party assessment "solely due to risks other than risks to health and safety, in particular risks relating to the distribution of radio spectrum or electromagnetic interference". Recital 7 states the amended Art. 3(14) definition exists because the old one "risks extending the high-risk classification of AI systems beyond what is justified". RETRIEVAL: `tools/eurlex.mjs get` and the CELLAR REST route both 404 on the corrigendum CELEX and on its ELI; it was retrieved by SPARQL for the expression URI then fetching `http://publications.europa.eu/resource/cellar/1d32c7c2-bb9e-11f1-81de-01aa75ed71a1.0001` | 2028-08-02 |
 | Machinery Art. 8 delegated acts, AI health and safety into Annex III | not adopted; Art. 3(1) of the Omnibus sets "shall apply by 2 August 2028" | 2028-08-02 |
 | Machinery Art. 20(10) | added by the Omnibus; AI Act harmonised standards give presumption of conformity in the interim | when Machinery AI hStds are cited |
 | CEN/CENELEC AI harmonised standards for machinery | none submitted to the Commission as of Aug 2026 (secondary: IBF Solutions) | unknown |
@@ -55,6 +53,7 @@ The F3 watchlist. Carry every row forward every run.
 | NANDO / Single Market Compliance Space, retrieval | RESOLVED 2026-09-18. The register renders and filters in a browser pane; it returns an application shell to HTTP clients. Filter path: Legislation dropdown, then Refine results | n/a |
 | Reg (EU) 2026/2108, Union Customs Code recast | NEW, published 2026-09-19, in force 2026-09-20, applies 2027-09-21 (Art. 287(2)) with staged provisions to 2028-07-01. Art. 27(2) binds the importer to ensure goods "comply with relevant other legislation applied by the customs authorities and provide or make available and keep appropriate records of such compliance"; only one importer at a time; the importer "shall be established in the customs territory of the Union". Buried: "The release of the goods shall not be considered to be proof of conformity." Links customs to Reg (EU) 2019/1020 market surveillance and the EU Product Compliance Network | 2027-09-21 |
 | FDA draft guidance, Robotically-Assisted Surgical Devices, Premarket Submissions | NEW, published 2026-09-25, Docket FDA-2026-N-9505, FR Doc 2026-19704, guidance document number GUI01500081. Provides "draft recommendations regarding non-clinical and clinical testing and premarket submission content for RASDs". Creates no binding obligation: "This draft guidance is not final nor is it for implementation at this time" and it "does not establish any rights for any person and is not binding on FDA or the public". THE SCOPE IS THE FINDING: RASDs are defined as "teleoperated, software-controlled systems that integrate robotic technologies and subassemblies that are designed to assist qualified practitioners in precisely positioning and controlling multiple surgical instruments", so a learned autonomous surgical policy is outside this document. Read against ISO/CD 25785-1, which excludes teleoperated robots, the two instruments are exact complements and neither covers an autonomous policy in a clinical setting. Fifth instance of the pattern already on the board, a US regulator addressing robots without creating a third-party regime | comments close 2026-11-24 |
+| Dir (EU) 2024/2853, Product Liability Directive | NEW to the watchlist 2026-10-01, added because it is the liability counterpart to certification and a corrigendum in window surfaced it. Corrigendum `32024L2853R(02)`, OJ ref 2026/90830, published 2026-09-29, **Dutch only**: "In de gehele richtlijn worden de woorden 'gratis en opensourcesoftware' vervangen door de woorden 'vrije en opensourcesoftware'." That replaces a free-of-charge reading with a libre one throughout the Dutch version, 680 days after publication on 2024-11-18. Not promoted to MOVES: changes no tracked number. Carried so a later run diffs the FOSS carve-out, which bears on the commons argument against assurance-seam | not read in full; transposition deadline not yet checked |
 | NIST / NIBIB medical metrology and standards RFI | NEW, published 2026-09-18. Asks for "Suggested changes to the medical metrology and standards process to allow improved and cost-effective healthcare in a time of rapidly changing technology and incorporation of AI". Creates no obligation. Symposium 2026-09-24 | comment period per FR notice |
 
 Notified bodies read active under Reg (EU) 2023/1230 on 2026-09-30. COMPLETE:
@@ -123,6 +122,7 @@ capacity is concentrated in a handful of institutions rather than spread across
 | AI-infrastructure round, largest tracked | Crusoe, $3.9B Series F initial closing at $30.9B post-money, co-led by Atreides Management, Mubadala Capital, Valor Equity Partners | 2026-09-17 | company release |
 | datacenter capacity, first line tracked | Crusoe "6GW+ of gross contracted capacity across data centers and cloud, including 1 GW of gross capacity delivered and operational today"; over $140B total contracted value | 2026-09-17 | company release |
 | non-regression testing as a product, first round tracked | Raindrop, Series A led by CRV, total funding USD 50M, no valuation stated. Lightspeed, Y Combinator and named OpenAI / Anthropic / Thinking Machines researchers participating. Sells replay of production traffic against a proposed change | 2026-09-17 | company release via Business Wire |
+| colocation liquid cooling, first unit price tracked | Nasdaq NY11-5: Nasdaq-provided liquid-cooled cabinet at approximately 28.75 kVA, ongoing monthly fee $28,751.20 on a one-year commitment, $25,876.08 on two, $23,000.96 on three; installation $56,312.16 / $51,999.48 / $47,686.80, being a $4,560 standard NY11-4/-5 installation fee plus 28.75 kVA at $1,800 / $1,650 / $1,500 per kVA. Implied monthly per-kVA rates are $1,000 / $900 / $800, which is this system's arithmetic on the filing's worked examples. Two smaller tiers at approximately 14.38 and 23.00 kVA. A customer-provided cabinet carries "an installation fee of $2,500 and no ongoing monthly fee", and unlike air-cooled cabinets it may be customer-supplied. Immediately effective, implementation stated for Q4 2026. Filed identically by four Nasdaq venues on 2026-09-30: ISE (2026-19949), MRX (2026-19948), Texas (2026-19951), GEMX (2026-19947) | 2026-10-01 | SRO rule filing, Federal Register full text |
 | robotics-sector round, largest tracked | D-Robotics, US$400M Series C. Primary release names no investor, only "a leading global internet company, alongside with top-tier investment institutions"; no valuation. Cumulative Sunrise chip shipments "exceeded 8 million units" | 2026-09-17 | company release |
 
 ---
@@ -131,9 +131,9 @@ capacity is concentrated in a handful of institutions rather than spread across
 
 | id | claim | state | kill test | last moved |
 |---|---|---|---|---|
-| assurance-seam | A neutral party that can state with validity what a learned policy does becomes structurally necessary | **contested** | Does any buyer pay for third-party attestation rather than open-sourcing the tool or using its own telemetry | 2026-09-18 |
-| assurance-seam, surviving form | Production telemetry cannot establish whether an OTA update is a regression, because the previous policy cannot be run counterfactually without surrendering throughput | **contested, and the kill test may have fired** | Show one buyer paying for paired non-regression testing | 2026-09-30 |
-| twin-certification | Nobody certifies the twin; SRCC-style validity claims are the sellable product | live | Show NVIDIA or Lightwheel successfully self-certifying, or a notified body accepting vendor sim evidence unaudited | 2026-09-22 |
+| assurance-seam | A neutral party that can state with validity what a learned policy does becomes structurally necessary | **contested** | Does any buyer pay for third-party attestation rather than open-sourcing the tool or using its own telemetry | 2026-10-01 |
+| assurance-seam, surviving form | Production telemetry cannot establish whether an OTA update is a regression, because the previous policy cannot be run counterfactually without surrendering throughput | **contested, and the kill test may have fired** | Show one buyer paying for paired non-regression testing | 2026-10-01 |
+| twin-certification | Nobody certifies the twin; SRCC-style validity claims are the sellable product | live | Show NVIDIA or Lightwheel successfully self-certifying, or a notified body accepting vendor sim evidence unaudited | 2026-10-01 |
 | sc-node-map | 38 nodes, 7 of them the same assurance problem in different costumes | current | per-node kill tests in the ledger | 2026-09-08 |
 
 Evidence against assurance-seam, carried so it is not forgotten: the commons
@@ -313,6 +313,116 @@ same artefacts: enforced checks "raised fresh-run reproduction from one of eight
 to eight of eight but could not detectably improve conclusion validity, because
 fifteen of sixteen agents selected the same audit-excluded entry".
 
+Added 2026-10-01. Two supporting and two weakening, and the weakening side now
+has the thing the board had been waiting for on the hardware question.
+
+Weakening, and it is the sharpest item of the day: arXiv 2609.39755, 30
+September, runs a model-replacement gate on a physical Unitree Go2. A
+continual-learning pipeline maps pre-contact images to five proprioceptive
+indicators (planar foot slip, mean normal ground-reaction force, traction
+index, cost of transport, touchdown loading rate), and "Candidate models
+replace the deployed predictor only when they improve performance on recent
+held-out data while keeping degradation on historical held-out data within a
+prescribed tolerance". On a sequential hardware stream over three unseen
+terrains, "gated replay reduces final anchor negative log-likelihood (NLL)
+degradation by 23.1% relative to replay without the gate". So an operator gated
+its own update against its own historical contact measurements, on real
+hardware, with no third party and no throughput surrendered. THE BOUND, and it
+is the whole remaining thesis: what is scored is stored proprioceptive data
+re-scored by a candidate model, and the prior predictor is never re-executed.
+That is sound for a perception predictor, whose inputs are recorded, and it is
+not available for a closed-loop control policy, whose actions determine which
+states exist to be scored. Together with 2609.30608 of 24 September, which
+replayed recorded taps under an injected observation error, the pattern is now
+clear and should be stated once rather than rediscovered: the physical half of
+replay works wherever the robot's sensing is passive, and nothing yet
+re-executes contact under a different action. The decision Anshu has not made,
+carried for a third run: state the thesis as non-replayability of contact under
+a changed action, or concede it.
+
+Also weakening, from the operations side rather than research: OpenAI's 30
+September security post gives an operator a reason to destroy replayability on
+purpose. It "closed a pathway that allowed someone who already possessed
+another user's encrypted reasoning to replay it and recover its contents", and
+states that "Systems that support portable or replayable reasoning artifacts
+may face related risks". If recordability is an extraction surface, the
+operator's incentive is to make artefacts unreplayable, which forecloses
+third-party replay audit for reasons that have nothing to do with whether it
+works. This is a different kind of objection from the commons and
+self-liquidation arguments already on the board and should be tracked as its own
+line: call it the foreclosure argument.
+
+Supporting: arXiv 2609.40027, 30 September, red-teams a causal action verifier
+(CIVeX) by corrupting only its committed graph. Omitting one bidirected edge
+takes it from zero false executions to 15.3% with "91% of its executions
+harmful"; reversing one arrowhead gives "48.9% false executions and no correct
+ones". "Every one of these actions carries an internally valid certificate." An
+attestation step testing certified executions against a bounded randomised
+sample "detected both attacks, with 2 false alarms in 555 executions". It also
+prices the seat, which almost nothing on this board does: "Recovering safety
+costs 127 experiments per 1,050 actions; recovering the lost value costs 614
+more." And it adds a structural distinction worth carrying: "An audit that
+inspects only executions protects against wrongful action. Wrongful inaction has
+to be paid for separately", because at the published confounding strength 97.1%
+of beneficial actions are still never executed. Bound: synthetic benchmark, LLM
+tool use, and the same authors built attack and remedy.
+
+Supporting: arXiv 2609.38983, Approval Laundering, 30 September, instruments
+Claude Code's PreToolUse mediation point across six failure modes at N=19-20
+runs each with inter-rater kappa=1.0, and reports that the assumption "that the
+action A a human approves is the same action A' the harness executes" fails
+"systematically and reproducibly". A keyed Approval Token, evaluated by paired
+before/after replay of 118 runs under McNemar's exact test, "fully eliminates
+Delegation laundering" and Temporal laundering at p<10^-5 "but by design leaves
+Scope laundering unaffected and shows no significant reduction in Argument"
+laundering. Same structure as Hearsay (2609.32495) but with a measured rate and
+a remedy that provably does not close all of it. Bound: coding agents, not robot
+policies, and the authors built both taxonomy and token.
+
+Carried, read and not promoted, each changing no tracked number. arXiv
+2609.38956 pushes the 30 September outputs-versus-latent finding (2609.30557)
+considerably further: under an exact label null the apparent gain from
+privileged internal routing signals is an artefact of checkpoint selection, and
+"across all output views the raw detection rate falls from 27.5% (528/1,920) to
+zero observed detections" once checkpoints are chosen on validation log loss
+rather than accuracy. Direction: weakens, because it says the examiner's claim
+to need internal access was partly a measurement artefact. arXiv 2609.39717
+proposes Runtime Assurance Contracts under which "aggregate performance cannot
+authorize action", and reports a published score rule admitting "80 of 100
+block-required injections and all 40 review-required injections"; synthetic
+cases only. arXiv 2609.40306 DynaHarness gates a self-evolving robot agent's own
+revisions, where "Paired regression checks govern admission or rejection", 75.2%
+against 17.5% for the frozen policy on 800 newly sampled initial states, in
+simulation on LIBERO-Pro; this is the Machinery Annex I "self-evolving" language
+appearing as an engineering artefact. arXiv 2609.37315 audits 34 mutating tools
+across four agent benchmarks against their advertised interfaces and confirms
+"seven tool defects and one evaluator property", including a clinical benchmark
+whose grader "takes that message as evidence, so its action success rate records
+whether a request carried the expected payload, not whether any record changed";
+same shape as 2609.37771 from 09-29, in a different domain. arXiv 2609.39537
+finds LLM-assisted classification of EU AI Act compliance evidence reaching only
+kappa 0.045 in the employment domain, "a cautionary result for automated
+fairness-related evidence retrieval", which cuts against the Governance-as-Code
+(2609.20016) weakening item already on the board and is the first item to do so.
+
+For twin-certification, added 2026-10-01, and neither reached MOVES because
+neither involves an outside party. arXiv 2609.39235 finds that a latent world
+model "guides action selection reliably only when the goal lies within, or
+slightly beyond, the trajectory it imagines during planning": with five-step
+rollouts it ranks actions reliably only five to ten control steps ahead while
+"task goals lie 16 to 53 steps away", and "Neither an 81-fold larger predictor
+nor longer-rollout training extends this range". Decisively, "the limit persists
+under perfect prediction: using the real simulator, success falls from 92% to
+41% as the target moves from five to twenty steps ahead of a five-step rollout".
+That complicates the thesis rather than supporting it: certifying a twin's
+fidelity would not buy planning competence, because the binding limit is the
+rollout horizon and not the prediction error. The certifiable property, if there
+is one, is the horizon over which the twin's ranking holds. arXiv 2609.39182
+MEND detects latent hallucination in a frozen world model "in the absence of
+ground-truth error labels" at AUROC up to 0.80 with per-token AUPRC up to 0.87,
+which is another self-administered check in the lineage of the label-free
+certificate already criticised at 2609.23478.
+
 ---
 
 ## domains
@@ -321,7 +431,7 @@ Stock-side state. Decision of 2026-09-14: **breadth first, narrow later.**
 
 | domain | depth | document | status |
 |---|---|---|---|
-| industrial certification and standards bodies | terrain | reports/terrain-map.md §1 | written 2026-09-14; §1 "what is missing" partly closed 2026-09-18, updated 2026-09-22, and updated again 2026-09-30 to 41 under 2023/1230 and 153 under 2006/42/EC with the complete 41-name list and the DGUV / TUV concentration finding. Fee schedules, day rates and assessor utilisation remain not found, which is now the only substantive gap left in §1 |
+| industrial certification and standards bodies | terrain | reports/terrain-map.md §1 | written 2026-09-14; §1 "what is missing" partly closed 2026-09-18, updated 2026-09-22, and updated again 2026-09-30 to 41 under 2023/1230 and 153 under 2006/42/EC with the complete 41-name list and the DGUV / TUV concentration finding. Fee schedules, day rates and assessor utilisation remain not found, which is now the only substantive gap left in §1. §1 "the money" fully serialised into the brief as of 2026-10-01 |
 | the robot policy layer | terrain | reports/terrain-map.md §2 | skeleton, gaps named |
 | datacenter and power buildout | none | reports/terrain-map.md §3 | scope only, not researched |
 
@@ -330,7 +440,7 @@ Serialise it in order, at most 400 words per weekday, and record the last
 section delivered in the `serialised` line below. When the file is exhausted,
 omit the section rather than inventing a new domain.
 
-serialised: §1 vocabulary completed 2026-09-17. §1 the value chain COMPLETE, ASCII diagram carried whole plus the working-group-as-commercial-asset paragraph (2026-09-18). §1 the money PARTIAL (2026-09-22): the margin paragraph was carried whole, with the Bureau Veritas FY2025 revenue of EUR 6.5 billion, adjusted operating profit of EUR 1,052.9 million, 16.3% adjusted operating margin and 18.2% Certification division margin. §1 the money, second instalment (2026-09-30): the Recital 27 and Article 25(5) SME fee paragraph carried whole, with the 98% SME figure, the recital's "consider adapting the fees" language and Article 25(5)'s "Notified bodies shall take into account the specific interests and needs of small and medium sized enterprises when setting the fees for conformity assessment". Taken out of document order, following the marker written on 22 September rather than the file. STILL OUTSTANDING from §1 the money: the four-house TIC market spread (USD 254.41bn / 275.39bn / 280.2bn / 320.55bn, the 26% spread, Asia Pacific at roughly 38%), which is the paragraph the file places second. Next, in this order: the TIC market spread, then §1 the constraint, which now has the concentration finding above to carry with it.
+serialised: §1 vocabulary completed 2026-09-17. §1 the value chain COMPLETE, ASCII diagram carried whole plus the working-group-as-commercial-asset paragraph (2026-09-18). §1 the money COMPLETE as of 2026-10-01, delivered out of document order across three instalments and now reconciled: the margin paragraph with Bureau Veritas FY2025 revenue EUR 6.5bn, adjusted operating profit EUR 1,052.9m, 16.3% adjusted operating margin and 18.2% Certification division margin (2026-09-22); the Recital 27 and Article 25(5) SME fee paragraph with the 98% figure and the "shall take into account" duty (2026-09-30); and the four-house TIC market spread carried whole on 2026-10-01, with USD 254.41bn / 275.39bn / 280.2bn / 320.55bn, the 26% spread, the "no single figure here should be quoted as the market size" instruction and Asia Pacific at roughly 38%. NOTHING FROM §1 THE MONEY IS NOW OUTSTANDING. Next, in document order: §1 the constraint, which opens on Article 30(8) "The remuneration of the top-level management and the personnel responsible for carrying out the conformity assessment tasks shall not depend on the number of conformity assessments carried out or on the results of those assessments", then its two further paragraphs on Article 30(9) liability insurance and Article 30(10) professional secrecy. Carry the DGUV concentration finding with the first of those, because the register says that assessor headcount sits inside a handful of institutions. Then §1 the live disagreement, then §1 the recent history and the designation mechanics of Articles 33(2), 33(3) and 34(5).
 
 Narrowing trigger, so this does not drift forever: after the terrain map is
 fully delivered, compare the attention tally below against depth. The domain
@@ -346,9 +456,9 @@ ranking data than anything the agents can infer. M2 increments these.
 
 | domain | brief items | questions answered | questions skipped |
 |---|---|---|---|
-| certification and standards | 16 | 0 | 0 |
-| robot policy layer | 7 | 0 | 0 |
-| datacenter and power | 4 | 0 | 0 |
+| certification and standards | 18 | 0 | 0 |
+| robot policy layer | 8 | 0 | 0 |
+| datacenter and power | 5 | 0 | 0 |
 | capital flows, general | 6 | 0 | 0 |
 
 2026-09-17: certification +2 (the two arXiv assurance claims), datacenter and
@@ -393,6 +503,24 @@ with a named consequence, which is the cheapest possible answer format, and if
 it too goes unanswered the attention mechanism should be declared dead and
 replaced by Anshu choosing the domain directly.
 
+2026-10-01: certification +2 (the Digital Omnibus corrigendum and the new
+Article 6(1a)/(1b) qualification test, counted as one; and the self-issued
+certificate result), robot policy layer +1 (the hardware model-replacement
+gate), datacenter and power +1 (the first colocation liquid-cooling price).
+Nine consecutive ONE QUESTIONs are now unanswered. Per the decision recorded on
+30 September, this is the run after the cheapest-possible-format question was
+tried, and it went unanswered like the eight before it. STATE THE CONSEQUENCE
+RATHER THAN DEFERRING IT AGAIN: the attention mechanism designed on 2026-09-14
+has never received a single input, there is no scratchpad file anywhere in the
+repository, and the tally now reads 18 to 8 to 5 purely as a record of where the
+collectors look. It should be treated as dead for the purpose of the narrowing
+decision. The narrowing input is therefore Anshu choosing the domain directly,
+and until he does, the terrain map continues to serialise in document order,
+which is the behaviour that needs no decision. Do not open a tenth run by
+re-describing this problem. Today's question is retained because it is a
+genuine fork in the eu-machinery-2027 card rather than because the mechanism
+works.
+
 ---
 
 ## questions
@@ -410,6 +538,7 @@ addresses them.
 | 2026-09-18 | If the register shows 40 notified bodies for the Regulation against 153 for the Directive it replaces in 124 days, is the binding constraint on 20 January 2027 the missing standard or the missing assessors | no |
 | 2026-09-22 | Replay-based non-regression testing is now funded and shipping for agent traffic, while nothing has replayed physical contact: is the surviving thesis about non-regression at all, or only about the non-replayability of the physical world | no |
 | 2026-09-30 | Recorded taps on a real arm have now been replayed under an injected model error, which the 18 September capture said would kill the surviving thesis outright: does that fire the kill test, or do proprioceptive probes fall short of contact under a changed action, in which case the thesis needs restating in those words | no |
+| 2026-10-01 | AI Act Article 6(1a), inserted by the Digital Omnibus, excludes an AI system solely used for quality control from qualifying as a safety component: does that put visual inspection and weld-quality policies, which is where most paying industrial deployments sit, outside the 20 January 2027 notified-body obligation, yes or no | no |
 
 ---
 
@@ -453,3 +582,14 @@ can diff rather than re-derive.
 | EU AI Act compliance audit labour reduction, self-reported | roughly 75% | arXiv 2609.20016 | 2026-09-17 |
 | cost of a repeated baseline-versus-candidate agent comparison | USD 27.86 across 13 evaluations | arXiv 2609.19607 | 2026-09-17 |
 | tasks whose single run tracks full-benchmark performance | 19.5%, 22 of 113, at a fifth-percentile Pearson correlation of 0.50 | arXiv 2609.19607 | 2026-09-17 |
+| occurrences of "Unbeschadet" in the German text of Reg (EU) 2026/1744 as published | 11, against 0 for "Ungeachtet"; the English has "Notwithstanding" once and "Without prejudice" 21 times | own count on the CELLAR German and English expressions | 2026-10-01 |
+| days the German Art. 6(1b) override read like a without-prejudice clause | 67, from OJ publication 2026-07-24 to the corrigendum 2026-09-29 | own arithmetic | 2026-10-01 |
+| colocation liquid-cooled cabinet, monthly fee at ~28.75 kVA | $28,751.20 one-year, $25,876.08 two-year, $23,000.96 three-year; implied $1,000 / $900 / $800 per kVA per month | Nasdaq ISE SR filing, FR 2026-19949 | 2026-09-30 |
+| colocation liquid-cooled cabinet, installation at ~28.75 kVA | $56,312.16 one-year, being $4,560 plus 28.75 kVA at $1,800 per kVA; customer-supplied cabinet $2,500 with no monthly fee | same filing | 2026-09-30 |
+| false executions after corrupting one edge of a committed action-verification graph | 0% to 15.3%, 91% of executions harmful; one reversed arrowhead gives 48.9% and no correct ones, every one carrying an internally valid certificate | arXiv 2609.40027 | 2026-09-30 |
+| cost of restoring an audited verifier's decisions | 127 experiments per 1,050 actions for safety, 614 more to recover the lost beneficial actions | arXiv 2609.40027 | 2026-09-30 |
+| gated model replacement on a physical quadruped | final anchor NLL degradation cut 23.1% against ungated replay, three unseen terrains, Unitree Go2 | arXiv 2609.39755 | 2026-09-30 |
+| apparent failure-prediction gain from privileged internal routing signals, under an exact label null | 27.5% (528/1,920) detection rate falls to zero once checkpoints are selected on validation log loss | arXiv 2609.38956 | 2026-09-30 |
+| world-model planning limit under perfect prediction | success falls 92% to 41% as the target moves from five to twenty steps ahead of a five-step rollout | arXiv 2609.39235 | 2026-09-30 |
+| LLM-assisted classification of EU AI Act compliance evidence, employment domain | Cohen kappa 0.045 against a 69-record gold standard | arXiv 2609.39537 | 2026-09-30 |
+| requests in the extraction campaign OpenAI attributes to individuals associated with Moonshot AI | 16,000 on 24 and 25 July from over 4,000 users, inside a cluster of more than 15,000 users; attempted, not necessarily successful | OpenAI, company post | 2026-09-30 |
