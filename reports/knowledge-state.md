@@ -623,6 +623,33 @@ across learned policies", with code on GitHub. Note the distinction that keeps
 it weakening rather than fatal: what varies is the environment, not the policy,
 so it is not the counterfactual the surviving form says is unavailable.
 
+A CONSEQUENCE OF THE RESTATEMENT THAT CUTS AGAINST THE THESIS, added 2026-10-05
+after retrieving the 2026-09-18 capture (inbox/2026-09-19-942eadd4) and reading
+it against today's item. That capture states the original framing as a binary:
+"If someone builds record-and-replay for physical contact dynamics, the
+surviving form dies outright; if the physical world genuinely cannot be put in
+an envelope, that non-replayability IS the moat and should be stated as the
+thesis rather than 'non-regression' generally." arXiv 2610.02860 does not meet
+the kill condition, because it forked a simulator rather than building contact
+replay, so the thesis survives this run on its own terms. But it shows the
+dichotomy has a third branch nobody allowed for: a case where the envelope is
+perfect, the fork is exact, and the counterfactual still fails, because the
+consequence of the changed action is absent from the observation 41.5% of the
+time. HERE IS THE PART THAT CUTS AGAINST THE THESIS AND IS NOT IN THE BRIEF. If
+the binding obstacle is identifiability rather than replayability, the claim
+stops being specific to the physical world. Non-replayability was a robotics
+moat precisely because contact cannot be enveloped while an LLM agent's
+boundaries can. Non-identifiability is not: a recorded digital boundary can be
+replayed perfectly and still fail to identify what a changed policy would have
+done, which is the same gap Chronicle (2609.20625) and the open-loop result
+(2610.01626) leave open in their own domain. So the sharper restatement buys
+accuracy at the cost of the thing that made the thesis defensible, which is
+that robots are different. Anshu should decide knowing that: the honest options
+are a narrow claim that is probably true and not robotics-specific, or a
+robotics-specific claim that today's item has made harder to state. This is the
+first time the restatement has been shown to have a price, and it should not be
+rediscovered as a fresh insight next run.
+
 THE FORECLOSURE ARGUMENT, opened 2026-10-01 and now with a second and stronger
 instance. OpenAI's 2026-10-05 text-provenance post is an operator meeting a
 statutory detectability obligation with a mark whose detector it rations:
