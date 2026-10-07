@@ -4,8 +4,9 @@ The file every agent reads to answer "what does he already know". Maintained by
 M2 Ledger Keeper after each editor run. This is a state file, not a document:
 no prose, no commentary, no history beyond what is needed to compute a diff.
 
-Last updated 2026-10-05 by the M1/M2 run. Window 2 to 5 October, the Monday
-three-day roll-up. Runs have now published on five consecutive weekdays.
+Last updated 2026-10-06 by the M1/M2 run. Window 5 to 6 October, plus the
+arXiv batch of 3 to 5 October the 10-05 run could not see. Runs have now
+published on six consecutive weekdays.
 
 ---
 
@@ -15,11 +16,11 @@ The F6 list. Keep between 8 and 12 names. Read at the person's own venue only.
 
 | person | venue | newest seen | date |
 |---|---|---|---|
-| Dario Amodei | darioamodei.com, short posts | We Must Pace the Frontier, still newest on 2026-10-05. RESOLVED 2026-10-01, close this line of enquiry: an href scrape returns exactly four `/post/` URLs and two `/essay/` URLs, so the "six titles" counted on 09-30 was posts and essays added together. Four short posts, unchanged since 09-12: on-deepseek-and-export-controls, policy-on-the-ai-exponential, the-urgency-of-interpretability, we-must-pace-the-frontier | 2026-09-12 |
+| Dario Amodei | darioamodei.com, short posts | We Must Pace the Frontier, still newest on 2026-10-06. RESOLVED 2026-10-01, close this line of enquiry: an href scrape returns exactly four `/post/` URLs and two `/essay/` URLs, so the "six titles" counted on 09-30 was posts and essays added together. Four short posts, unchanged since 09-12: on-deepseek-and-export-controls, policy-on-the-ai-exponential, the-urgency-of-interpretability, we-must-pace-the-frontier | 2026-09-12 |
 | Dario Amodei | darioamodei.com/essay/ | Two essays, unchanged: Machines of Loving Grace and The Adolescence of Technology, the latter dated "January 2026" on the page. /archive still returns HTTP 404 while appearing in the site navigation | 2026-01 |
-| Paul Graham | paulgraham.com/articles.html | Making Startups Powerful, unchanged on 2026-10-05. The stored-title diff WORKS and is now the method: the five titles below it read identically on 10-01, 10-02 and 10-05, so the page does not need reading in depth. Order: How Universities Should Prepare Founders, How to Earn a Billion Dollars, How to Convert Between Wealth and Income Tax, The Brand Age, The Shape of the Essay Field | 2026-09 |
-| Andrej Karpathy | karpathy.bearblog.dev/blog | newest is Sequoia Ascent 2026 summary, unchanged, re-read 2026-10-05. RETRIEVAL, settled 2026-09-22 and confirmed a seventh time on 10-05: the venue flaps between HTTP 200 and 404 for HTTP clients (200 on 09-17, 404 on 09-15, 09-22, 09-30, 10-01, 10-02 and 10-05) and renders reliably in a browser pane. Read it there and do not record the 404 as a venue outage or as a DIFF | 2026-04-30 |
-| Andrej Karpathy | karpathy.github.io | newest is microgpt, 12 Feb 2026, unchanged, re-read 2026-10-05 | 2026-02-12 |
+| Paul Graham | paulgraham.com/articles.html | Making Startups Powerful, unchanged on 2026-10-06. The stored-title diff WORKS and is now the method: the five titles below it read identically on 10-01, 10-02, 10-05 and 10-06, so the page does not need reading in depth. Order: How Universities Should Prepare Founders, How to Earn a Billion Dollars, How to Convert Between Wealth and Income Tax, The Brand Age, The Shape of the Essay Field | 2026-09 |
+| Andrej Karpathy | karpathy.bearblog.dev/blog | newest is Sequoia Ascent 2026 summary, unchanged, re-read 2026-10-06. RETRIEVAL, settled 2026-09-22 and confirmed an eighth time on 10-06: the venue flaps between HTTP 200 and 404 for HTTP clients (200 on 09-17, 404 on 09-15, 09-22, 09-30, 10-01, 10-02, 10-05 and 10-06) and renders reliably in a browser pane. Read it there and do not record the 404 as a venue outage or as a DIFF | 2026-04-30 |
+| Andrej Karpathy | karpathy.github.io | newest is microgpt, 12 Feb 2026, unchanged, re-read 2026-10-06 | 2026-02-12 |
 
 Slots open: 8. Candidates not yet added, decide before adding: Chelsea Finn,
 Dorsa Sadigh, Ben Thompson, Dylan Patel, Jack Clark, Cedric Chin.
@@ -30,7 +31,7 @@ Dorsa Sadigh, Ben Thompson, Dylan Patel, Jack Clark, Cedric Chin.
 
 The F3 watchlist. Carry every row forward every run.
 
-| instrument | state as of 2026-10-05 | next date |
+| instrument | state as of 2026-10-06 | next date |
 |---|---|---|
 | EPA Carbon Pollution Standards for fossil fuel-fired EGUs, 40 CFR Part 60 | partial repeal final rule published 2026-09-17; repeals the CCS-based Phase 2 standards for new base load stationary combustion turbines; rule text names AI datacenter load as driving a "nearly 2.6-fold increase in projected growth rates"; a concurrent supplemental proposal seeks comment on rescinding all GHG requirements for EGUs | effective 2026-11-16 |
 | EU harmonised-standard citations, Commission throughput | **MOVED 2026-10-02.** Implementing Decision (EU) 2026/2211, published 2026-10-02, amends Implementing Decision (EU) 2025/165 under the Pressure Equipment Directive 2014/68/EU: it inserts 19 references (EN 10253-2:2021+A1:2025, EN 12392:2025, EN 12953-2:2025, EN 12953-6:2024, EN 12953-9:2024, EN ISO 17779:2025, EN ISO 24664:2024, EN ISO 13585:2024, EN 14129:2024, EN 14222:2021+A1:2025, EN 14585:2024, EN 14917:2021+A1:2026, EN ISO 15493:2003/A11:2025, EN ISO 15613:2025, EN ISO 15614-5:2024, EN ISO 15614-11:2025, EN ISO 21009-2:2024, EN ISO 21922:2021/A1:2024, EN 14071:2024, EN ISO 14732:2025) and deletes 18 superseded rows. TWO FINDINGS WORTH CARRYING, both usable against the machinery question. First, the transition the Commission grants when a harmonised standard is merely revised: Article 2 provides "Point 1 of the Annex to this Decision shall apply from 2 April 2028", 18 months after publication, "In order to give manufacturers sufficient time to adapt their products to the revised versions of harmonised standards". Second, the Commission will cite a standard it has judged defective: EN 12953-6:2024 "satisfies several requirements which it aims to cover, but contains technical shortcomings as regards the requirements for the method of operation of pressure equipment, the exceeding of allowable limits, the design and construction of safety accessories and the protection from the risk of overheating. It is therefore appropriate to publish the reference of this standard in the Official Journal of the European Union with a corresponding restriction." Prior state, carried: Implementing Decision (EU) 2026/2048, published 2026-09-16, cited EN 18060:2025 under the Batteries Regulation 2023/1542. Neither is machinery; both are evidence the citation machinery is running and now evidence of the grace period it grants | 2028-04-02 |
@@ -60,7 +61,11 @@ The F3 watchlist. Carry every row forward every run.
 | SEC Rule 501(a)(10), professional credentials as a regulatory qualification | **NEW to the watchlist 2026-10-05**, added because it is the only instrument on this board that writes down what makes a credential count. Five notices published 2026-10-05, including Release No. 33-11445, File No. 4-931, comments close 2026-12-04: the Commission is considering designating the US CPA licence, the CFA charter, the CFP certification, the Series 79 and Series 86/87 licences, and passage of an accredited investor exam "to be developed by the Financial Industry Regulatory Authority, Inc.", as qualifying natural persons for accredited investor status. THE OPERATIVE PART IS THE FOUR-ATTRIBUTE TEST, verbatim: the credential "arises out of an examination or series of examinations administered by a self-regulatory organization or other industry body or is issued by an accredited educational institution"; the examination "is designed to reliably and validly demonstrate an individual's comprehension and sophistication in the areas of securities and investing"; holders "can reasonably be expected to have sufficient knowledge and experience in financial and business matters to evaluate the merits and risks of a prospective investment"; and "An indication that an individual holds the certification or designation is either made publicly available by the relevant self-regulatory organization or other industry body or is otherwise independently verifiable". That fourth attribute, 501(a)(10)(iv), is independent verifiability as a condition of the credential having legal effect, which is the assurance seam's structural claim stated by a regulator in a rule in force since 2020. Exam design as described: modelled on the SIE Exam, about 75 multiple-choice questions in a 65 to 85 range, two hours, English, passing score set by "standard setting" with "a committee of subject matter experts", anticipated fee "similar to the SIE Exam fee, which is currently $100", valid ten years with no anticipated waivers, open to anyone 18 or older, retake after 30 days and after 180 days following three failures in two years, FINRA creates and administers "with delivery by a third-party vendor", and a verification process so "issuers or others would be able to independently verify the status of Exam Holders". Prior state: 3 licences designated at adoption on 2020-08-26, Series 7, Series 82 and Series 65, with nothing added in over five years. Scale of the exemption a credential unlocks: "Approximately $400 billion was raised in Regulation D offerings (excluding pooled funds) between July 1, 2024 and June 30, 2025" | comments close 2026-12-04 |
 | Dir 2011/92/EU, Environmental Impact Assessment, Annex II screening list | **NEW to the watchlist 2026-10-05**, added on the datacenter and power axis because Annex II is the list of projects a Member State must screen. Corrigendum `32011L0092R(07)`, OJ ref 2026/90841, published 2026-10-05, **Danish only**, 5,364 days after the OJ of 28 January 2012. It replaces Annex II point 10(b) "Anlaegsarbejder i byzoner, herunder opforelse af butikscentre og parkeringsanlaeg" with "Byudviklingsprojekter, herunder opforelse af butikscentre og parkeringsanlaeg", which is construction works in urban areas becoming urban development projects, and point 10(f) "Anlaeg af vandveje" with "Anlaeg af indre vandveje" while "regulering af vandlob" becomes "anlaeg til beskyttelse mod oversvommelse". Buried: none, it creates no new obligation and widens the category that triggers one. Not read in full and the transposition consequence in Denmark has not been checked | not checked |
 | Reg (EU) 2026/1738, vehicle circularity and end-of-life vehicles | NEW 2026-10-05, carried not promoted. Corrigendum `32026R1738R(01)`, OJ ref 2026/90839, published 2026-10-05, **Italian only**, 73 days after the OJ of 24 July 2026. Annex VIII Part G point 2(d): "separazione pneumatica" becomes "separazione ad aria", pneumatic separation becoming air separation, in the treatment of the heavy shredder fraction. Changes no tracked number. On the board only because the Regulation amends Reg (EU) 2019/1020 on market surveillance, which this board tracks through the Customs Code recast, and because it is one of the four in the pattern below | 2027 staged |
-| corrigendum pattern, cross-instrument | **PATTERN, stated once on 2026-10-05 so later runs stop rediscovering it.** Four single-language corrigenda across three runs, each changing an operative word in exactly one language version, at 67, 73, 680 and 5,364 days after publication: German on Reg (EU) 2026/1744 Art. 6(1b), the override clause (09-29); Italian on Reg (EU) 2026/1738 Annex VIII (10-05); Dutch on Dir (EU) 2024/2853, the FOSS carve-out (09-29); Danish on Dir 2011/92/EU Annex II, the screening list (10-05). THE QUESTION THE PATTERN POINTS AT, and nothing on this board tests it: whether a manufacturer who relied on the uncorrected national text for 67, 680 or 5,364 days had a defence. RETRIEVAL, settled: `tools/eurlex.mjs get` and the CELEX REST route both 404 on every `R(nn)` CELEX. The route that works on all of them is SPARQL for the expression URI on `cdm:resource_legal_id_celex`, then a CELLAR fetch of `<uuid>.0001` with `Accept: application/xhtml+xml`. Make that the default for corrigenda rather than retrying `get` | ongoing |
+| Reg (EU) 2022/2065, Digital Services Act, Art. 33 and 37 | **NEW to the watchlist 2026-10-06**, added because it is the only instrument on this board that makes a named frontier-lab product buy a recurring independent audit by law. Notice C/2026/5181, published 2026-10-06, is the Art. 33(4) list of designated very large online platforms and search engines. ChatGPT appears as a **Very large online search engine, designation decision 31 August 2026**; also newly carried against the 25 April 2023 originals are Reddit and Roblox (both 31 August 2026) and WhatsApp (26 January 2026). Operative, read at source in CELEX 32022R2065: Art. 37(1) "Providers of very large online platforms and of very large online search engines shall be subject, at their own expense and at least once a year, to independent audits to assess compliance with the following: (a) the obligations set out in Chapter III". Buried, and the reason this is on the board: Art. 37(3)(a) sets statutory independence, barring an organisation that has "provided non-audit services related to the matters audited ... in the 12 months' period before the beginning of the audit", committed to not providing them for 12 months after, or that has audited the same provider "during a period longer than 10 consecutive years". Art. 33(6): obligations apply "from four months after the notification to the provider concerned", so ChatGPT's audit obligation falls about 2026-12-31 on the designation-decision date; the notification date the clause actually runs from is not published, and that bound is stated in the brief. RETRIEVAL NOTE: no notice matching "Very large online" appears in the OJ between 2026-08-01 and 2026-10-05, so this is the first OJ list carrying ChatGPT within that window | audit obligation ~2026-12-31 |
+| FDA 510(k) exemption, class II clinical toxicology test systems | **NEW 2026-10-06**, and it is the weakening counterpart to every mandated-attestation row above. Final amendment and final order, FR Doc 2026-20448, published 2026-10-06, immediately in effect. Amends 14 classification regulations (21 CFR 862.3100(b), .3150(b), .3170(b), .3250(b), .3270(b), .3580(b), .3610(b), .3620(b), .3630(b), .3640(b), .3650(b), .3700(b), .3870(b), .3910(b)). Operative: "In this order, FDA is removing the exception to the 510(k) exemption for devices intended for Federal drug testing programs." Stated effect: it "will decrease regulatory burdens on the medical device industry and will eliminate private costs and expenditures required to comply with certain Federal regulations". Approximately 70 commenters on the May 2026 notice (91 FR 23427). The exemption remains subject to the general limitations of 21 CFR 862.9 and to the labelling condition that the device "is intended solely for use in employment and insurance testing". THE DIRECTION IS THE FINDING: the consumer of the test result here is the federal government, and the premarket check was removed anyway | in effect 2026-10-06 |
+| Implementing Reg (EU) 2024/2215, F-gas certification of natural and legal persons | **NEW 2026-10-06.** Corrected by Implementing Regulation (EU) 2026/2214 of 5 October, published 2026-10-06, in force 2026-10-26, 757 days after the original OJ of 2024-09-09. On the board because 2024/2215 sets "minimum requirements for the issuance of certificates to natural and legal persons and the conditions for the mutual recognition of such certificates", which is the credential thread the Anthropic and SEC rows carry. Errors corrected in the Hungarian, Lithuanian and Polish versions, in Art. 3(3)(a) "as regards the responsibility for the correct execution of the activity" and across the Annex I point 4 examination table at rows 1.00, 1.02, 6.02, 6.06, 7.03, 7.07, 8.03 and 8.08, "as regards the required understanding of legislation", "as regards the required understanding of refrigerants", "as regards the type of the equipment" and "as regards the checks during operation of the equipment". Each recital states the error "affects the substance". Art. 1 reads "(Does not concern the English language.)" THE INSTRUMENT CHOICE IS THE FINDING, see the corrigendum-pattern row below: this is an amending Regulation with a prospective 20-day entry into force, not a retroactive OJ corrigendum | in force 2026-10-26 |
+| NHTSA, Assessment of Contextual Driver Monitoring Systems | NEW 2026-10-06, carried not promoted. FR Doc 2026-20394, OMB submission under the PRA, comments close 2026-11-05, new OMB control number, three-year approval requested. A "single, one-time experimental research study" to "develop and evaluate a prototype contextual DMS, which fuses data gathered from driver attention (e.g., gaze location), physiological state (e.g., heart rate variability), vehicle kinematics (e.g., lateral lane position) and environmental sensors". 48 participants recruited from 204 contacted, four ten-minute simulator drives each, one safety-critical scenario last and never counterbalanced, contractor Westat, 134 total burden hours, $120 honorarium for two hours. Creates no obligation. On the board because it prices the federal evidence base for a monitoring system against this board's own stored figure of ~390 rollouts per arm to resolve 10pp at p=0.5: 48 participants across two DMS conditions is 24 per arm | comment period per FR notice |
+| corrigendum pattern, cross-instrument | **PATTERN, stated once on 2026-10-05 so later runs stop rediscovering it.** Four single-language corrigenda across three runs, each changing an operative word in exactly one language version, at 67, 73, 680 and 5,364 days after publication: German on Reg (EU) 2026/1744 Art. 6(1b), the override clause (09-29); Italian on Reg (EU) 2026/1738 Annex VIII (10-05); Dutch on Dir (EU) 2024/2853, the FOSS carve-out (09-29); Danish on Dir 2011/92/EU Annex II, the screening list (10-05). THE QUESTION THE PATTERN POINTS AT, and nothing on this board tests it: whether a manufacturer who relied on the uncorrected national text for 67, 680 or 5,364 days had a defence. RETRIEVAL, settled: `tools/eurlex.mjs get` and the CELEX REST route both 404 on every `R(nn)` CELEX. The route that works on all of them is SPARQL for the expression URI on `cdm:resource_legal_id_celex`, then a CELLAR fetch of `<uuid>.0001` with `Accept: application/xhtml+xml`. Make that the default for corrigenda rather than retrying `get` | ongoing. **DEVELOPED 2026-10-06, and this is the first movement on the pattern rather than a fifth instance.** Implementing Regulation (EU) 2026/2214 corrects three language versions of a certification Regulation using an amending act with a stated entry into force 20 days out, not a corrigendum, and each recital gives the reason: the error "affects the substance". So the Commission's own practice distinguishes the two cases. A corrigendum is used where the correction is treated as always having been the text; a Regulation is used where it is not. That is the instrument-side answer to the reliance question, and it is not the same as a court having decided it |
 
 Notified bodies read active under Reg (EU) 2023/1230 on 2026-09-30. COMPLETE:
 all 41 names, captured across two pages (30 + 11) with no overlap, against the
@@ -132,6 +137,9 @@ capacity is concentrated in a handful of institutions rather than spread across
 | credentialed technical competence, first price tracked | Anthropic Claude Frontier Academy, USD 100,000,000 commitment to train 10,000 Frontier Deployed Engineers "by the end of 2027", so USD 10,000 a head on this system's arithmetic. Vendor sets the syllabus, grades the practical and issues the badge. Two gates: a Claude Resident Engineer badge after a multi-day in-person program finishing "with a graded practical on a new scenario", then a 12-week residency and a second assessment for the Claude Frontier Deployed Engineer badge, "with the first expected in early 2027". First cohorts named: Accenture, Bain, Capgemini, Commonwealth Bank of Australia, Deloitte, McKinsey, Morgan Stanley, Novo Nordisk. Cohorts in San Francisco, New York and London. Participation "is by nomination"  SECOND PRICE POINT, added 2026-10-05, and it is two orders of magnitude below: the SEC is considering designating passage of a FINRA-built accredited investor exam as qualifying for accredited investor status, at an anticipated fee "similar to the SIE Exam fee, which is currently $100", open to anyone 18 or older, valid ten years, with a public process so "issuers or others would be able to independently verify the status of Exam Holders". So the vendor-graded badge is 100x the SRO-examined one on this system's arithmetic, and only the cheaper one is independently verifiable, which is the property Rule 501(a)(10)(iv) makes a condition of the credential counting at all.| 2026-10-02 | company release |
 | optical interconnect for AI scale-up, first round tracked | CScale, Palo Alto. Announced 2026-09-30 as "$145 million in Series C funding", total funding "$188 million", led by Atreides Management with Valor Equity Partners and Premji Invest co-leading, Sutter Hill Ventures and Maverick Silicon continuing, "NVIDIA and Intel Capital joined as CScale's first strategic investors". The Form D filed 2026-10-01 reports totalOfferingAmount 194999885, totalAmountSold 144999891 and totalRemaining 49999994, so the authorised offering is $50m larger than the announced round. Atreides and Valor also co-led Crusoe's $3.9B Series F tracked on 2026-09-17 | 2026-10-02 | company release and SEC Form D |
 | GPU cloud round, recorded out of window | GMI Cloud, "$223 million in equity for Series B" plus a "$445 million credit facility led by CTBC", Series B led by ARCHIV with NVIDIA participating and DSC Investment, Trend Micro, KB Investment, Kyobo Life and KT Corporation named; no valuation stated. Contracted ARR "more than 9x its year-end 2025 level", live ARR "more than 4.5x", inference platform processing "approximately 4 trillion tokens per week", all the company's own figures. RECORDED, NOT REPORTED: the PR Newswire release is timestamped 1 October 2026, 09:05 CST, which is inside the window the 2026-10-02 brief covered and outside the 2026-10-05 window, so it is a miss by that run rather than news. It moves no tracked line: the largest AI-infrastructure round tracked remains Crusoe at $3.9B | 2026-10-05 | company release via PR Newswire |
+| surgical robotics round, first tracked | Virtual Incision Corp, Lincoln, Nebraska, formerly Nebraska Surgical Solutions Inc. New Form D (isAmendment false) accepted 2026-10-05 16:10:04, signature date 2026-10-02: totalOfferingAmount 80,140,041, totalAmountSold 35,140,060, totalRemaining 44,999,981, Rule 506(b), minimum investment 0, revenue range "Decline to Disclose", industry self-reported as Biotechnology. A Form D names no lead and no valuation. Company describes itself as "on a mission to miniaturize robotic surgery". Filed 11 days after the FDA RASD draft guidance of 2026-09-25 already on the watchlist | 2026-10-06 | SEC Form D and company site |
+| hiring-intelligence round, recorded not reported | Metaview Technologies Inc., Form D of 2026-10-05, totalOfferingAmount 59,999,954, totalAmountSold 59,999,954, fully sold, industry self-reported "Other Technology". Dropped from MOVES on the sector test, not the floor: no tracked sector match and no company release located in window. Recorded so a later run diffs rather than rediscovers | 2026-10-06 | SEC Form D |
+| robotics SPV, recorded not reported | NV Pillbot Series A-2 Partners LLC, Form D of 2026-10-05, 13,359,060 fully sold, industryGroupType "Pooled Investment Fund". Evidences a Series A-2 in Pillbot without stating the company-level round size, so it does not move the largest-round lines | 2026-10-06 | SEC Form D |
 | robotics-sector round, largest tracked | D-Robotics, US$400M Series C. Primary release names no investor, only "a leading global internet company, alongside with top-tier investment institutions"; no valuation. Cumulative Sunrise chip shipments "exceeded 8 million units" | 2026-09-17 | company release |
 
 ---
@@ -140,7 +148,7 @@ capacity is concentrated in a handful of institutions rather than spread across
 
 | id | claim | state | kill test | last moved |
 |---|---|---|---|---|
-| assurance-seam | A neutral party that can state with validity what a learned policy does becomes structurally necessary | **contested** | Does any buyer pay for third-party attestation rather than open-sourcing the tool or using its own telemetry | 2026-10-05 |
+| assurance-seam | A neutral party that can state with validity what a learned policy does becomes structurally necessary | **contested** | Does any buyer pay for third-party attestation rather than open-sourcing the tool or using its own telemetry | 2026-10-06, and the kill test is now answered yes for a platform and no for a physical product on the same day |
 | assurance-seam, surviving form | Production telemetry cannot establish whether an OTA update is a regression, because the previous policy cannot be run counterfactually without surrendering throughput | **contested, and the kill test may have fired** | Show one buyer paying for paired non-regression testing | 2026-10-05 |
 | twin-certification | Nobody certifies the twin; SRCC-style validity claims are the sellable product | live | Show NVIDIA or Lightwheel successfully self-certifying, or a notified body accepting vendor sim evidence unaudited | 2026-10-05 |
 | sc-node-map | 38 nodes, 7 of them the same assurance problem in different costumes | current | per-node kill tests in the ledger | 2026-09-08 |
@@ -668,6 +676,77 @@ effect, the two instruments of the same day take opposite positions on whether
 the verifier must be independent of the party being verified. That contrast,
 not either item alone, is the finding.
 
+THE SPLIT, 2026-10-06, and it is the most consequential thing this run adds.
+Two primary filings dated the same day point in opposite directions, and the
+contrast is cleaner than any single item on this board because neither is a
+research claim and both are law.
+
+Supporting, and it is the first mandated and funded evaluator seat the thesis
+has ever had in a published instrument. OJ notice C/2026/5181 of 2026-10-06
+lists ChatGPT as a designated very large online search engine under DSA Article
+33(4), decision dated 31 August 2026. Article 37(1) requires providers to be
+subject "at their own expense and at least once a year, to independent audits",
+and Article 37(3)(a) bars the auditor from having "provided non-audit services
+related to the matters audited" in the 12 months either side, or from auditing
+the same provider "during a period longer than 10 consecutive years". The
+assurance-seam kill test asks whether any buyer pays for third-party attestation
+rather than open-sourcing the tool or using its own telemetry. Here the buyer has
+no choice, pays annually, and may not buy anything else from its examiner. The
+commons argument cannot run against this, because the obligated party cannot
+discharge a statutory audit by publishing a tool.
+
+Weakening, at equal prominence, and it is the sharper of the two on the axis
+Anshu is actually building in. FDA's final order FR Doc 2026-20448, immediately
+in effect the same day, removes the exception to the 510(k) exemption for class
+II clinical toxicology test systems "intended for Federal drug testing
+programs", across 14 classification regulations, on the statutory ground that a
+510(k) "is not necessary to assure the safety and effectiveness". The consumer
+of the test result in that case is the federal government itself, and the
+premarket third-party check was removed anyway, with the order stating it "will
+eliminate private costs and expenditures required to comply".
+
+THE READING, stated once so the next run does not re-derive it. The two filings
+are consistent with each other and jointly inconsistent with the thesis as
+written. Mandated independent evaluation is arriving where the harm is
+informational and systemic and the obligated party is a platform, and it is
+being withdrawn where the artefact is a physical product with a measurable
+specification. That is the opposite of the direction the thesis assumed, which
+was that physical safety is where the neutral examiner becomes structurally
+necessary. The surviving form, non-regression at the moment of a model update,
+is untouched by either filing: a DSA audit assesses Chapter III obligations, not
+whether an update is a regression. So the thesis is not weakened in its
+surviving form today; it is the broader claim, that the seam generalises from
+platforms to machines, that has taken the hit. The ONE QUESTION of 2026-10-06 is
+written to force that call rather than to restate it, and this is the second
+consecutive run on which the restatement has been shown to have a price.
+
+Also read and not promoted, both directions, 2026-10-06. Supporting: arXiv
+2610.04699 collects roughly 22,000 labels from four models built by three labs
+across six corpora including the EU AI Act and FINRA guidance, and finds that
+"their errors run in opposite directions, so no model can be trusted as the
+conservative choice", that on a deployed credit agent's own rule-set "they err
+together, over-claiming that a fixed check will do, the direction that never
+gets escalated", and that agreement with a reference judge "climbs from 30% to
+77% across calibration bands while the genuinely decidable share does not move,
+because a judge drawn from the population under indictment ratifies the blind
+spot it shares". That last clause is the most compact argument for an outside
+examiner this board holds, and it is a measured result rather than an assertion.
+Supporting: arXiv 2610.06317 turns AI Act Article 50(2) into "a premarket
+certificate, signed detector report, and postmarket recalibration protocol",
+which is the seam's architecture drawn for the obligation the 10-05 brief led
+on, and reports that "the surviving-token rule overstates the tolerable edit
+rate roughly twofold". Supporting: arXiv 2610.04418 computes Clopper-Pearson
+bounds and a "noise certification envelope" for a policy "delivered for
+evaluation as opaque executable or remote API", which is the outside-examiner
+problem in the authors' own terms. Weakening, same weight: arXiv 2610.06235
+finds that under scene-preserving instruction interventions "all evaluated
+policies predominantly approach and pick up the incorrect original target" while
+"linear probes accurately recover instructed targets", and arXiv 2610.05818
+reports up to 95% of implied-harm robot runs completing with no flag and that
+activation monitoring "does not close this gap". Both keep locating the missing
+measurement inside the developer's own instrumentation, which is the fourth
+consecutive run on that shape, and nobody in window sold it from the outside.
+
 ---
 
 ## domains
@@ -685,7 +764,7 @@ Serialise it in order, at most 400 words per weekday, and record the last
 section delivered in the `serialised` line below. When the file is exhausted,
 omit the section rather than inventing a new domain.
 
-serialised: §1 vocabulary completed 2026-09-17. §1 the value chain COMPLETE (2026-09-18). §1 the money COMPLETE as of 2026-10-01. §1 THE CONSTRAINT COMPLETE as of 2026-10-05: the first paragraph went out 2026-10-02 with the Article 30(8) remuneration sentence verbatim and the DGUV concentration clause, and the second paragraph went out 2026-10-05, carrying Article 30(9) liability insurance "unless liability is assumed by the Member State in accordance with national law" and Article 30(10) professional secrecy as an asset rather than a compliance cost. OUTSTANDING, and next: §1 the live disagreement, whose two halves are the case for the 20 January 2027 date being real (Annex I Part A item 5, no self-certification option, untouched by the Omnibus since Reg 2026/1744 Art. 3 amends only Machinery Arts. 8, 20 and 47) and the case for it being soft (no AI harmonised standards submitted as of August 2026, the delegated act deferred to 2 August 2028, Art. 20(10) letting manufacturers lean on AI Act hStds), then what each side must believe. Then §1 the recent history and the designation mechanics of Articles 33(2), 33(3) and 34(5). Then §2, the robot policy layer, which is a skeleton with gaps named rather than prose, so the next run should expect §1 to run out and say so rather than serialising a skeleton.
+serialised: §1 vocabulary completed 2026-09-17. §1 the value chain COMPLETE (2026-09-18). §1 the money COMPLETE as of 2026-10-01. §1 THE CONSTRAINT COMPLETE as of 2026-10-05: the first paragraph went out 2026-10-02 with the Article 30(8) remuneration sentence verbatim and the DGUV concentration clause, and the second paragraph went out 2026-10-05, carrying Article 30(9) liability insurance "unless liability is assumed by the Member State in accordance with national law" and Article 30(10) professional secrecy as an asset rather than a compliance cost. OUTSTANDING, and next: §1 the live disagreement, whose two halves are the case for the 20 January 2027 date being real (Annex I Part A item 5, no self-certification option, untouched by the Omnibus since Reg 2026/1744 Art. 3 amends only Machinery Arts. 8, 20 and 47) and the case for it being soft (no AI harmonised standards submitted as of August 2026, the delegated act deferred to 2 August 2028, Art. 20(10) letting manufacturers lean on AI Act hStds), then what each side must believe. Then §1 the recent history and the designation mechanics of Articles 33(2), 33(3) and 34(5). Then §2, the robot policy layer, which is a skeleton with gaps named rather than prose, so the next run should expect §1 to run out and say so rather than serialising a skeleton. §1 THE LIVE DISAGREEMENT, FIRST HALF ONLY, delivered 2026-10-06: the opening sentence verbatim plus the whole case for real, including the Reg (EU) 2026/1744 Article 3 clause. NOT yet delivered and next in order: the case for soft, then "what each side must believe". The half-section was a word-cap decision, recorded in that brief's provenance, not a judgement that the second half matters less.
 
 Narrowing trigger, so this does not drift forever: after the terrain map is
 fully delivered, compare the attention tally below against depth. The domain
@@ -701,10 +780,10 @@ ranking data than anything the agents can infer. M2 increments these.
 
 | domain | brief items | questions answered | questions skipped |
 |---|---|---|---|
-| certification and standards | 23 | 0 | 0 |
-| robot policy layer | 11 | 0 | 0 |
+| certification and standards | 26 | 0 | 0 |
+| robot policy layer | 12 | 0 | 0 |
 | datacenter and power | 7 | 0 | 0 |
-| capital flows, general | 7 | 0 | 0 |
+| capital flows, general | 8 | 0 | 0 |
 
 2026-09-17: certification +2 (the two arXiv assurance claims), datacenter and
 power +1 (the EPA repeal, the first dated federal instrument this system has
@@ -798,6 +877,29 @@ discriminate, so the narrowing will have to run on brief-item counts alone or
 the trigger needs rewriting. That is a decision for Anshu and it is not
 urgent until §1 and §2 of the terrain map are delivered.
 
+2026-10-06: certification and standards +3 (the DSA Article 37 independent-audit
+seat with ChatGPT inside it, the FDA 510(k) removal, and the F-gas certification
+syllabus corrected by binding act), robot policy layer +1 (the NHTSA contextual
+DMS assessment at 48 participants), capital flows +1 (Virtual Incision, the
+first surgical-robotics round tracked). Datacenter and power unchanged at 7, the
+second consecutive run with nothing on that domain. Certification extends the
+lead to 26 against 12, and for a second consecutive run the items came from the
+Official Journal and the Federal Register rather than from arXiv. Questions
+answered remains 0 after 12 questions, so the narrowing trigger still cannot
+discriminate; per the decision of 1 October this is not re-described further.
+
+The one thing this run adds that bears on narrowing, and it is a shape not a
+count. Today produced a matched pair on the same day and in the same axis: one
+jurisdiction created a recurring, provider-funded, statutorily independent audit
+seat over a frontier-lab product, and another removed a premarket third-party
+check from tests its own government consumes. The assurance-seam thesis has been
+accumulating supporting and weakening evidence separately for three weeks; this
+is the first run on which both arrived as primary filings dated the same day.
+That is the strongest available argument that the thesis is not one claim but
+two, split by whether the artefact is a platform or a physical product, and the
+open question of 2026-10-06 is written to force that split rather than to
+restate it.
+
 ---
 
 ## questions
@@ -818,6 +920,7 @@ addresses them.
 | 2026-10-01 | AI Act Article 6(1a), inserted by the Digital Omnibus, excludes an AI system solely used for quality control from qualifying as a safety component: does that put visual inspection and weld-quality policies, which is where most paying industrial deployments sit, outside the 20 January 2027 notified-body obligation, yes or no | no |
 | 2026-10-02 | The EU's own supervised pre-market testing venues, AI Act Article 57 sandboxes, need not be operational until 2 August 2027, 194 days after the Machinery obligation bites on 20 January 2027, and the Commission grants 18 months of grace when a harmonised standard is merely revised: is the 20 January 2027 date therefore unenforceable in practice, yes or no | no |
 | 2026-10-05 | AI Act Article 50(2) requires an output to be "detectable as artificially generated" and does not say by whom, OpenAI has shipped a mark whose detector is rationed case by case to approved researchers, and on the same day the SEC restated that a credential counts only if holding it is "made publicly available ... or is otherwise independently verifiable": is a disclosure obligation whose only verifier is the discloser satisfied, yes or no | no |
+| 2026-10-06 | On one day the EU put a frontier lab's product under a yearly independent audit it pays for and may buy nothing else from, DSA Art. 37, while the FDA removed premarket review from tests the federal government itself consumes: is the mandated-evaluator seat a platform instrument that never crosses into physical product safety, yes or no | no |
 
 ---
 
@@ -840,9 +943,9 @@ can diff rather than re-derive.
 | projected US electricity load growth rate, increase attributed largely to AI datacenter demand | nearly 2.6-fold | EPA final rule, FR 2026-19071, footnote 109 | 2026-09-17 |
 | RoboVAD hardest cross-domain setup, best frame-level AUC | all methods below 70% micro-averaged | arXiv 2609.17843 | 2026-09-15 |
 | global physical economy, as the vendor sizes it | $30 trillion | Noetive release, vendor claim about its own market | 2026-09-16 |
-| notified bodies active under Reg (EU) 2023/1230 | 41, unchanged on 2026-10-05, same on 2026-09-30 and 2026-09-22, was 40 on 2026-09-18 | Commission Single Market Compliance Space register | 2026-10-05 |
-| notified bodies active under Directive 2006/42/EC | 153, unchanged on 2026-10-05, was 152 on 2026-09-22 and 153 on 2026-09-18 and 09-30 | same register, same reading | 2026-10-05 |
-| new machinery regime as a share of the outgoing one | 26.8%, unchanged on 2026-10-05, was 27.0% on 2026-09-22 and 26.1% on 2026-09-18 | own arithmetic on the two counts | 2026-10-05 |
+| notified bodies active under Reg (EU) 2023/1230 | 41, unchanged on 2026-10-06, a fourth consecutive reading at 41 after 10-05, 09-30 and 09-22; was 40 on 2026-09-18 | Commission Single Market Compliance Space register | 2026-10-06 |
+| notified bodies active under Directive 2006/42/EC | 153, unchanged on 2026-10-06, was 152 on 2026-09-22 and 153 on 09-18, 09-30 and 10-05 | same register, same reading | 2026-10-06 |
+| new machinery regime as a share of the outgoing one | 26.8%, unchanged on 2026-10-06, was 27.0% on 2026-09-22 and 26.1% on 2026-09-18; 106 days to application | own arithmetic on the two counts | 2026-10-06 |
 | DGUV Test units among the 41 notified bodies under Reg (EU) 2023/1230 | 7 of 41, one German institution | own count on the complete register list | 2026-09-30 |
 | German share of notified bodies under Reg (EU) 2023/1230 | 18 of 41 | same count | 2026-09-30 |
 | belief support loss on a probe-then-commit insertion pipeline | truth leaves the belief's support on 16.9% of episodes, failure score optimistic by 0.31 | arXiv 2609.30608 | 2026-09-24 |
@@ -894,3 +997,14 @@ can diff rather than re-derive.
 | safe clearance under a matched physical counterfactual on road condition only | falls 6 to 90 percentage points across learned policies as friction drops from 1.0 to 0.18, 1,024 matched 12-vehicle worlds per condition, 21 conditions | arXiv 2610.02874 | 2026-10-02 |
 | days between an EU act and a single-language corrigendum to its operative wording | 67 German (Reg 2026/1744), 73 Italian (Reg 2026/1738), 680 Dutch (Dir 2024/2853), 5,364 Danish (Dir 2011/92) | own arithmetic on four OJ references | 2026-10-05 |
 | GMI Cloud, recorded out of window | $223,000,000 equity Series B led by ARCHIV with NVIDIA participating, plus a $445,000,000 credit facility led by CTBC; no valuation; contracted ARR "more than 9x its year-end 2025 level" | company release via PR Newswire, 2026-10-01 09:05 CST | 2026-10-05 |
+| total active notified bodies, all legislations | 1,566 | same register, unfiltered, first recorded | 2026-10-06 |
+| designated very large online platforms and search engines under DSA Art. 33(4) | 28 services; ChatGPT a Very large online search engine, decision 31 August 2026, alongside Reddit and Roblox the same day and WhatsApp on 26 January 2026 | OJ C/2026/5181 | 2026-10-06 |
+| days from a DSA designation decision to the independent-audit obligation | about 122, being Art. 33(6)'s four months from notification, applied to the published decision date of 2026-08-31; the notification date is not published | own arithmetic on Reg (EU) 2022/2065 Art. 33(6) | 2026-10-06 |
+| statutory independence rules on a DSA auditor | no non-audit services to the provider for 12 months before and 12 months after the audit; no auditing the same provider for more than 10 consecutive years | Reg (EU) 2022/2065 Art. 37(3)(a) | 2026-10-06 |
+| classification regulations from which FDA removed the federal-drug-testing exception to the 510(k) exemption | 14, immediately in effect, approximately 70 commenters | FR Doc 2026-20448 | 2026-10-06 |
+| days from an EU certification Regulation to a substantive correction of its examination syllabus | 757, from the OJ of 2024-09-09 to Implementing Reg (EU) 2026/2214 of 2026-10-06, in three language versions, by amending act rather than corrigendum | own arithmetic on two OJ references | 2026-10-06 |
+| federal evidence base for a prototype contextual driver monitoring system | 48 participants from 204 contacted, four ten-minute simulator drives each, 134 burden hours, $120 a head; 24 per arm across two DMS conditions against ~390 per arm to resolve 10pp at p=0.5 | FR Doc 2026-20394 and own arithmetic | 2026-10-06 |
+| agreement with a reference judge on what an agent verifier can check | climbs from 30% to 77% across calibration bands while the genuinely decidable share does not move; ~22,000 labels, four models, three labs, six corpora | arXiv 2610.04699 | 2026-10-06 |
+| tolerable edit rate implied by the surviving-token watermark rule | overstated roughly twofold, on a reproducible tournament-watermark simulation | arXiv 2610.06317 | 2026-10-06 |
+| implied-harm robot runs completing with no monitor flag | up to 95%, and up to 90% after recalibrating the text guard on robot instructions; activation monitoring "does not close this gap" | arXiv 2610.05818 | 2026-10-06 |
+| policies picking the scene-favoured target when the instruction names a different visible object | all evaluated VLA policies and world-action models, while "linear probes accurately recover instructed targets" | arXiv 2610.06235 | 2026-10-06 |
