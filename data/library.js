@@ -840,7 +840,67 @@ window.LIBRARY = [
   files: [
     { p: "reports/linux-git-github-primer-2026-09-30.md", d: "The primer, 8,943 words, nine sections plus a glossary and the three-part closing" }
   ]
-}
+  },
+  {
+    id: "ros2-writing-nodes-primer",
+    axis: "new",
+    kind: "report",
+    title: "Writing ROS 2 nodes, from the ground up",
+    dek: "The third and longest primer in the CS237A sequence: what a ROS node IS as a running program, from the shebang and the execute bit up to the executor, written against Section 2's actual lab document.",
+    status: "current",
+    date: "2026-10-05",
+    owner: "anshu",
+    open: "reports/ros2-writing-nodes-primer-2026-10-05.md",
+    openLabel: "Read the primer",
+    tags: ["primer", "ROS 2 Humble", "rclpy", "CS237A", "AA274A", "colcon", "12,588 words"],
+    metrics: [
+      { v: "18", l: "Sections, from the lab's ask to a glossary and closing" },
+      { v: "3", l: "Nested layers the lab conflates: workspace, repository, package" },
+      { v: "2", l: "Fields of a Twist message that a differential-drive robot reads" },
+      { v: "3rd", l: "Primer in the sequence; the two before it are cited, not repeated" }
+    ],
+    body: [
+      ["What it is", "A teaching companion to CS237A / AA274A Section 2, written 2026-10-05 against the lab document last updated 2026-10-01. Section 2 is the first lab where you stop running other people's software and start writing your own: by the end you have authored a node that commands a robot, registered it with a build system, and killed it remotely over the network. Eighteen sections explain every concept and command that lab touches at the level of what the machine is actually doing, not which keys to press."],
+      ["Why it is the third primer and not a standalone", "It assumes the two earlier primers have been read - ROS 2 From the Ground Up for the middleware concepts, Linux Git and GitHub for the shell and version control - and deliberately does not repeat them. Where a topic belongs to one of those, it is referenced rather than restated. The sequence is now the infrastructure layer of the whole quarter: concepts, then tooling, then authorship."],
+      ["The part that saves the most time", "Section 5, CMakeLists.txt and the install step, named in the document as where most students lose an hour. The adjacent sections are the ones that make that failure legible: section 3 on why the lab picks ament_cmake for Python code, section 4 on when a package.xml dependency is actually needed, and section 6 on how a text file becomes a program - the shebang, the execute bit, exec. Those four together are the build system's whole failure surface."],
+      ["The conceptual spine", "Section 7 builds the rclpy object graph - context, node, the things hanging off it - and sections 8 through 11 walk the two halves of the lab against it: the publisher and what publish actually does, then timers, callbacks and what spin() is really doing, then Twist as a contract where only two of six fields matter for differential drive, then the subscription and an emergency stop that actually stops. Section 12 closes the loop with colcon, symlink-install and the edit-build-run cycle."],
+      ["Both forms", "The markdown is the source of truth and lands on the Reports tab. The self-contained HTML twin is generated from it with a contents sidebar for reading the long sections, and is listed below. Neither is a submission artefact: the primer explains the concepts the lab exercises and contains no homework solution."]
+    ],
+    files: [
+      { p: "reports/ros2-writing-nodes-primer-2026-10-05.md", d: "The primer, 12,588 words, eighteen sections plus a glossary and closing" },
+      { p: "reports/ros2-writing-nodes-primer-2026-10-05.html", d: "Self-contained HTML twin with a contents sidebar, 103 KB" }
+    ]
+  },
+  {
+    id: "so101-sim-stack",
+    axis: "new",
+    kind: "report",
+    title: "The SO-101 simulation stack, as actually built",
+    dek: "Nine layers from MuJoCo to wandb, three numbered scripts, four packages deliberately not installed, and the two Windows failures that will recur on any fresh machine.",
+    status: "current",
+    date: "2026-10-04",
+    owner: "anshu",
+    open: "reports/so101-sim-stack-2026-10-04.md",
+    openLabel: "Read the build record",
+    tags: ["SO-101", "MuJoCo", "LeRobot", "simulation", "measurement rig", "infrastructure"],
+    metrics: [
+      { v: "9", l: "Stack layers, each justified against a job it does" },
+      { v: "6", l: "Actuated joints, position-controlled exactly as the real STS3215 servos are" },
+      { v: "7.1.1", l: "The ffmpeg version that must stay pinned, or dataset video decoding dies" },
+      { v: "0", l: "Policies trained or evaluated on it so far; datasets/ is empty" }
+    ],
+    body: [
+      ["What it is", "The build record of a simulation-first SO-101 setup made on 2026-10-04 on the Windows laptop: what is installed at which version, what each layer does, what was left out and why, and the two Windows-specific failures hit during the build. An infrastructure document, not research. The machine is the source of truth; this is the portal's copy of README.md and notes/00-stack-map.md from the Robotics folder."],
+      ["Why it exists", "The measurement-rig thesis needs a body to measure policies on. The SO-101 is the cheapest credible one, a simulation of it costs nothing per rollout, and it runs with no physical arm present. The build's organising constraint is that one environment must serve both the simulation and the real arm when it arrives, so there is no second setup and no porting step."],
+      ["The distinction the API rests on", "mjModel is constant and IS the robot, built once from XML. mjData is mutable - qpos, qvel, ctrl, contacts - and is the current moment. Every MuJoCo call takes both, and confusing them is the common way to write simulation code that silently does nothing. The matching arithmetic trap is scene_box.xml, where adding one free-floating box takes the state to nq = 13 and nv = 12, the difference being the box's quaternion."],
+      ["The two Windows failures", "First, ffmpeg must stay pinned at 7.1.1: conda-forge now defaults to 9.x, but torchcodec 0.11.1 only ships loaders for ffmpeg 4 through 8, so a dataset's video decoding dies with Could not load libtorchcodec. Second, a zzz_conda_dll_dirs.pth file in site-packages puts the env's Library/bin on PATH and calls os.add_dll_directory at interpreter startup; without it native DLLs are only findable after conda activate, which silently breaks IDE run buttons and Jupyter kernels while leaving the terminal working. The second is confusing precisely because the terminal is fine."],
+      ["Why native Windows rather than WSL2", "The MuJoCo viewer gets real GPU OpenGL rather than WSLg's software path, CUDA works directly, and the physical SO-101's USB-serial adapter is a native COM port - getting USB into WSL2 needs usbipd and breaks on every reconnect. The third reason is the load-bearing one and it is a bet on the hardware arriving."],
+      ["What it does not do, stated plainly", "No policy has been trained or evaluated on this stack. datasets/ is empty, no LeRobotDataset has been recorded, there is no Gymnasium environment wrapping the arm, no evaluation harness, and no ACT / SmolVLA / zero-shot comparison - all of which the measurement-rig thesis needs. What exists is a verified physics layer, a correct robot description, a working viewer, position control, and an environment that will not have to be rebuilt to do any of it. The folder has not been opened since 2026-10-06."]
+    ],
+    files: [
+      { p: "reports/so101-sim-stack-2026-10-04.md", d: "The build record, nine stack layers, three scripts, two fixed failures" }
+    ]
+  }
 ];
 
 /* ── Provenance ───────────────────────────────────────────────────────────
@@ -853,6 +913,8 @@ window.LIBRARY = [
      agent            produced by one of the agents in data/agents.js
    Merged onto cards by assets/app.js and shown on the card face.           */
 window.PROVENANCE = {
+  "ros2-writing-nodes-primer":  { kind: "agent", note: "AGENT-WRITTEN TEACHING MATERIAL, 2026-10-05, written against the CS237A Fall 2026 Section 2 lab document as last updated 2026-10-01. No web retrieval. The ROS 2 and rclpy content - the context and node object graph, publishers, timers and the executor, Twist and differential drive, the subscription path, ament_cmake against ament_python, package.xml dependency scoping, the CMakeLists install step, colcon with symlink-install - is standard published field knowledge written from working understanding and NOT re-read against docs.ros.org on the day, so version-level and flag-level detail is point-in-time. What the lab asks for in section 1 and the command list in section 15 track the lab document itself. The claim in section 5 that the install step is where most students lose an hour is the agent's judgement from the sessions that worked through Sections 0 and 1 on this machine, not a measured figure. The document explains the concepts the lab exercises and deliberately contains no homework solution. The HTML twin is generated from the same markdown, so the two cannot drift." },
+  "so101-sim-stack":            { kind: "own-prior-work", note: "BUILD RECORD of work you did yourself on 2026-10-04, transcribed to the portal 2026-10-11 from README.md and notes/00-stack-map.md in the Robotics folder. The package versions, the six joint names and ranges, the body list, the nq = 13 / nv = 12 arithmetic, the 2.3 GB menagerie clone, the Python 3.12.14 environment path and the three script line counts were all read off the machine on 2026-10-11 and are checkable there - the machine is the source of truth and this is a copy that can go stale. The two Windows failures were real failures hit and fixed during your build, not hypotheticals, and the ffmpeg 7.1.1 pin against torchcodec 0.11.1's ffmpeg 4-8 loader range is the specific cause. The NOT-installed list and the three WSL2 reasons are your own stated decisions. The framing against the measurement rig, and section 8's statement of what does not yet exist, are the agent's reading of where this sits - section 8 is the honest part of the card and should be read before the rest." },
   "linux-git-github-primer":    { kind: "agent", note: "AGENT-WRITTEN TEACHING MATERIAL, 2026-09-30, written in the session that worked through CS237A Section 1 with you. No web retrieval. Two kinds of claim, to be trusted differently. The general Unix, git and GitHub content is standard published knowledge written from working understanding, with primary documentation cited inline (Pro Git, git-add docs, GitHub's pull-request docs, the Filesystem Hierarchy Standard 3.0, ROS 2 Humble install docs, Microsoft's WSL docs, the GitHub CLI manual) but NOT re-read against those sources on the day, so treat version-level and flag-level details as point-in-time. The macOS claims are the weakest link and are deliberately hedged in the text: APFS is case-insensitive by default with a case-sensitive variant available, and no Apple source was consulted. Every machine-specific fact WAS measured directly on this laptop in that session and is reproducible: the three nested operating systems, the two different directories both spelled /home/anshuarora, the 24 GB home total with ml-gpu at 11 GB and pip cache at 6.1 GB, the zero-byte section1.py, the stale origin/main that made a merged PR look unmerged until fetched, /usr/bin/sh being a symlink to dash, git config --unset returning exit code 5 on a missing key, and the two separately authenticated gh installations. All nine diagnosed errors are YOUR OWN from that session, not illustrative examples. The judgements are the agent's: which warnings are ignorable, the three-group taxonomy of git commands by directory sensitivity, the debugging order, and the four closing recommendations." },
   "ros2-primer":              { kind: "agent", note: "AGENT-WRITTEN TEACHING MATERIAL, 2026-09-27, produced in the same session that built the CS237A workstation. No web retrieval. Two different kinds of claim sit in it and they should be trusted differently. The ROS 2 concepts — nodes, topics, QoS, tf2, the overlay model, pose-graph SLAM, the Gazebo/Ignition renaming, the Humble-to-Ubuntu-22.04 pinning — are standard published field knowledge written from working understanding and NOT re-read against docs.ros.org on the day, so version-level details are point-in-time and worth checking before you quote them in a section. The machine-specific claims ARE measurements taken in that session and are reproducible on your laptop: the 18 built packages, the 4.81 GB image, the twenty rosdep-resolved packages, the renderer string D3D12 (NVIDIA GeForce RTX 3050 Ti Laptop GPU) at OpenGL 4.2, and the real-time factors of roughly 0.58x on software GL against 0.78x on the GPU, the latter measured once each under different background load and therefore indicative rather than a benchmark. Section 12 annotates YOUR OWN log from your own run. The rosdep-in-an-ephemeral-container bug described in section 7.2 was a real mistake made and fixed during that session, not a hypothetical. The judgements — which warnings are permanently ignorable, the debugging order in section 15, the claim that the setup is more durable than the course doc — are the agent's." },
   "robotics-primer":          { kind: "agent", note: "AGENT-WRITTEN TEACHING MATERIAL, 2026-09-18, not research. No web retrieval was performed for it. The technical content is standard published field knowledge and every primary paper is cited inline by arXiv identifier so it can be checked in one click. The connective claims \u2014 the unbundling-to-referee argument, the Lightwheel measurement factory, the SIMPLER 0.924 against 0.308 figures, the evaluation gap \u2014 are carried from YOUR OWN prior work in gbrain (2026-09-03, 2026-09-07, 2026-09-14) and from reports/synthetic-robot-data-landscape-2026-09-14.md, and were not re-verified. Product and version details for pi0.5, pi-star-0.6, GR00T N1.7, Helix and Cosmos come from that same record rather than from primary sources read on the day, so treat version numbers as point-in-time. The judgements in section 10 and the closing recommendations are the agent\u2019s, not yours." },

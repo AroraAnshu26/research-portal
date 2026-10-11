@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Writing ROS 2 Nodes, From the Ground Up</title>
+<meta name="author" content="Anshu Arora">
+<style>
+@page {
+  size: letter;
+  margin: 1in;
+  @top-center { content: "Writing ROS 2 Nodes, From the Ground Up"; font-family: Helvetica, "Liberation Sans", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; font-size: 9pt; color: #666; }
+  @bottom-center { content: counter(page) " of " counter(pages); font-family: Helvetica, "Liberation Sans", Arial, sans-serif; font-size: 9pt; color: #666; }
+}
+@page :first {
+  @top-center { content: none; }
+  @bottom-center { content: none; }
+  @bottom-right { content: none; }
+}
+@page wide {
+  size: letter landscape;
+  margin: 1in;
+}
+.page-wide {
+  page: wide;
+  text-align: center;
+}
+.page-wide img, .page-wide svg { width: 100%; height: auto; max-width: none; }
+.page-wide figure.diagram > svg { max-width: none; }
+
+html { lang: en; }
+img { max-width: 100%; height: auto; }
+body {
+  font-family: Helvetica, "Liberation Sans", Arial, "Hiragino Kaku Gothic ProN", "Noto Sans CJK JP", "Microsoft YaHei", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 12pt;
+  line-height: 1.5;
+  color: #111;
+  background: white;
+  hyphens: manual;
+  font-variant-ligatures: common-ligatures;
+  font-kerning: normal;
+  text-rendering: geometricPrecision;
+  margin: 0;
+  padding: 0;
+}
+
+.toc { page-break-after: always; break-after: page; }
+.toc h2 {
+  font-size: 16pt;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #444;
+  font-weight: 700;
+  margin: 0 0 0.4in;
+}
+.toc ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.toc li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25in;
+  font-size: 12pt;
+  line-height: 1.7;
+  padding: 3pt 0;
+}
+.toc li .toc-title { flex: 0 0 auto; }
+.toc li .toc-dots { flex: 1 1 auto; border-bottom: 1px dotted #aaa; margin: 0 6pt; transform: translateY(-4pt); }
+.toc li .toc-page { flex: 0 0 auto; color: #666; font-variant-numeric: tabular-nums; }
+.toc li.level-2 { padding-left: 0.35in; font-size: 11pt; }
+.toc li a { color: inherit; text-decoration: none; }
+
+.chapter { break-before: page; page-break-before: always; }
+.chapter:first-of-type { break-before: auto; page-break-before: auto; }
+h1 {
+  font-size: 26pt;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.25in;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+h2 { font-size: 18pt; line-height: 1.3; font-weight: 700; margin: 26pt 0 8pt; break-after: avoid; page-break-after: avoid; }
+h3 { font-size: 13.5pt; line-height: 1.4; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #333; margin: 20pt 0 5pt; break-after: avoid; page-break-after: avoid; }
+h4 { font-size: 12pt; font-weight: 700; margin: 14pt 0 5pt; break-after: avoid; page-break-after: avoid; }
+
+p {
+  margin: 0 0 12pt;
+  text-align: left;
+  widows: 3;
+  orphans: 3;
+}
+p:first-child { margin-top: 0; }
+p.lead { font-size: 14pt; line-height: 1.45; color: #222; margin: 0 0 18pt; }
+
+a {
+  color: #0055cc;
+  text-decoration: underline;
+  text-decoration-thickness: 0.5pt;
+  text-underline-offset: 1.5pt;
+}
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+code {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 10.5pt;
+  background: #f4f4f4;
+  padding: 1pt 3pt;
+  border-radius: 2pt;
+  border: 0.5pt solid #e4e4e4;
+}
+pre {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 10pt;
+  line-height: 1.4;
+  background: #f7f7f5;
+  padding: 10pt 12pt;
+  border: 0.5pt solid #e0e0e0;
+  border-radius: 3pt;
+  margin: 12pt 0;
+  overflow: hidden;
+  white-space: pre-wrap;
+}
+pre code { background: none; border: 0; padding: 0; font-size: inherit; }
+.hljs-keyword { color: #8b0000; font-weight: 500; }
+.hljs-string { color: #0d6608; }
+.hljs-comment { color: #888; font-style: italic; }
+.hljs-function, .hljs-title { color: #0044aa; }
+.hljs-number { color: #a64d00; }
+
+blockquote {
+  margin: 12pt 0;
+  padding: 0 0 0 18pt;
+  border-left: 2pt solid #111;
+  color: #333;
+  font-size: 12pt;
+  line-height: 1.5;
+}
+blockquote p { margin-bottom: 6pt; text-align: left; }
+blockquote cite { display: block; margin-top: 6pt; font-style: normal; font-size: 10pt; color: #666; letter-spacing: 0.02em; }
+blockquote cite::before { content: "— "; }
+
+figure { margin: 12pt 0; }
+figure img { display: block; max-width: 100%; height: auto; }
+figcaption { font-size: 10pt; color: #666; margin-top: 6pt; font-style: italic; }
+figure.diagram { break-inside: avoid; text-align: center; }
+figure.diagram > svg { max-width: 100%; height: auto; }
+figure.diagram .diagram-caption { text-align: center; }
+figure.diagram-error { border: 1.5pt solid #b00020; padding: 8pt 10pt; text-align: left; }
+figure.diagram-error .diagram-error-title { font-weight: 700; color: #b00020; font-style: normal; margin: 0 0 6pt; }
+figure.diagram-error .diagram-error-detail { font-size: 8.5pt; white-space: pre-wrap; margin: 0; }
+.image-missing { display: inline-block; border: 1pt dashed #b00020; color: #b00020; padding: 4pt 8pt; font-size: 9pt; }
+
+table { width: 100%; border-collapse: collapse; margin: 12pt 0; font-size: 11pt; }
+th, td { border-bottom: 0.5pt solid #ccc; padding: 5pt 8pt; text-align: left; vertical-align: top; }
+th { font-weight: 700; border-bottom: 1pt solid #111; background: transparent; }
+
+ul, ol { margin: 0 0 12pt 0; padding-left: 20pt; }
+li { margin-bottom: 3pt; line-height: 1.45; }
+li > ul, li > ol { margin-top: 3pt; margin-bottom: 0; }
+
+.footnote-ref { font-size: 0.75em; vertical-align: super; line-height: 0; text-decoration: none; color: #0055cc; }
+.footnotes { margin-top: 24pt; padding-top: 12pt; border-top: 0.5pt solid #ccc; font-size: 10pt; line-height: 1.4; }
+.footnotes ol { padding-left: 18pt; }
+
+blockquote, pre, code, table, figure, li, .keep-together { break-inside: avoid; page-break-inside: avoid; }
+</style>
+<style>
+@media screen {
+  body { max-width: 42em; margin: 0 auto; padding: 2.5em 1.5em; }
+  .chapter { break-before: auto; }
+  .watermark { display: none; }
+  figure.diagram { overflow-x: auto; }
+  .toc li .toc-page, .toc li .toc-dots { display: none; }
+}
+</style>
+</head>
+<body>
+<section class="toc">
+  <h2>Contents</h2>
+  <ol>
+  <li class="level-1">
+    <span class="toc-title"><a href="#toc-0">Writing ROS 2 Nodes, From the Ground Up</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-0"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-1">Contents</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-1"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-2">1. What Section 2 actually asks you to build</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-2"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-3">2. The three nested layers: workspace, repository, package</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-3"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-4">3. Build types: ament_cmake, ament_python, and why your lab picks CMake for Python code</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-4"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-5">4. package.xml: declaring what you depend on, and when you need it</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-5"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-6">5. CMakeLists.txt and the install step, where most students lose an hour</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-6"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-7">6. How a text file becomes a program: the shebang, the execute bit, and exec</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-7"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-8">7. rclpy: the context, the node, and the object graph you are building</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-8"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-9">8. The publisher, and what “publish” actually does</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-9"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-10">9. Timers, callbacks, and the executor: what spin() is really doing</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-10"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-11">10. Messages as contracts: Twist, differential drive, and why only two fields matter</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-11"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-12">11. The subscription, and building an emergency stop that actually stops</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-12"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-13">12. colcon, symlink-install, and the edit-build-run loop</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-13"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-14">13. Running and inspecting: run, launch, topic list, echo, pub</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-14"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-15">14. The git and GitHub workflow this lab wraps up with</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-15"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-16">15. Every command in the lab, and what it fundamentally does</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-16"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-17">16. Glossary</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-17"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-18">Closing</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-18"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-19">What you now know</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-19"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-20">Checklist, what is worth studying next</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-20"></span>
+  </li>
+  <li class="level-2">
+    <span class="toc-title"><a href="#toc-21">My recommendations</a></span>
+    <span class="toc-dots"></span>
+    <span class="toc-page" data-toc-target="toc-21"></span>
+  </li>
+  </ol>
+</section>
+<section class="chapter"><h1 id="toc-0">Writing ROS 2 Nodes, From the Ground Up</h1>
+<p>A teaching companion to CS237A / AA274A Section 2, written on 2026-10-05 against the lab document “Section 2” (CS237A Fall 2026, last updated Oct 1, 2026). Section 2 is the first lab where you stop running other people’s software and start writing your own: by the end you will have authored a ROS node that commands a robot, registered it with a build system, and killed it remotely over the network. This document explains every concept and every command that lab touches, at the level of what the machine is actually doing, not just which keys to press. It assumes you have read the two earlier primers, <a href="ros2-primer-2026-09-27.md">ROS 2 From the Ground Up</a> for the middleware concepts and <a href="linux-git-github-primer-2026-09-30.md">Linux, Git and GitHub, From the Ground Up</a> for the shell and version control concepts, and it deliberately does not repeat what those already cover; where a topic belongs to one of them, it is referenced rather than restated.</p>
+<h2 id="toc-1">Contents</h2>
+<ul>
+<li><a href="#1-what-section-2-actually-asks-you-to-build">1. What Section 2 actually asks you to build</a></li>
+<li><a href="#2-the-three-nested-layers-workspace-repository-package">2. The three nested layers: workspace, repository, package</a></li>
+<li><a href="#3-build-types-ament_cmake-ament_python-and-why-your-lab-picks-cmake-for-python-code">3. Build types: ament_cmake, ament_python, and why your lab picks CMake for Python code</a></li>
+<li><a href="#4-packagexml-declaring-what-you-depend-on-and-when-you-need-it">4. package.xml: declaring what you depend on, and when you need it</a></li>
+<li><a href="#5-cmakeliststxt-and-the-install-step-where-most-students-lose-an-hour">5. CMakeLists.txt and the install step, where most students lose an hour</a></li>
+<li><a href="#6-how-a-text-file-becomes-a-program-the-shebang-the-execute-bit-and-exec">6. How a text file becomes a program: the shebang, the execute bit, and exec</a></li>
+<li><a href="#7-rclpy-the-context-the-node-and-the-object-graph-you-are-building">7. rclpy: the context, the node, and the object graph you are building</a></li>
+<li><a href="#8-the-publisher-and-what-publish-actually-does">8. The publisher, and what “publish” actually does</a></li>
+<li><a href="#9-timers-callbacks-and-the-executor-what-spin-is-really-doing">9. Timers, callbacks, and the executor: what spin() is really doing</a></li>
+<li><a href="#10-messages-as-contracts-twist-differential-drive-and-why-only-two-fields-matter">10. Messages as contracts: Twist, differential drive, and why only two fields matter</a></li>
+<li><a href="#11-the-subscription-and-building-an-emergency-stop-that-actually-stops">11. The subscription, and building an emergency stop that actually stops</a></li>
+<li><a href="#12-colcon-symlink-install-and-the-edit-build-run-loop">12. colcon, symlink-install, and the edit-build-run loop</a></li>
+<li><a href="#13-running-and-inspecting-run-launch-topic-list-echo-pub">13. Running and inspecting: run, launch, topic list, echo, pub</a></li>
+<li><a href="#14-the-git-and-github-workflow-this-lab-wraps-up-with">14. The git and GitHub workflow this lab wraps up with</a></li>
+<li><a href="#15-every-command-in-the-lab-and-what-it-fundamentally-does">15. Every command in the lab, and what it fundamentally does</a></li>
+<li><a href="#16-glossary">16. Glossary</a></li>
+<li><a href="#closing">Closing</a></li>
+</ul>
+<hr>
+<h2 id="toc-2">1. What Section 2 actually asks you to build</h2>
+<p><strong>What is the end state, stated as a system rather than as a task list?</strong></p>
+<p>By the final checkpoint you will have one Python process running on your machine that participates in a distributed system. It wakes up five times per second, constructs a velocity command, and broadcasts it onto a named channel called <code>/cmd_vel</code>. A completely separate process, the Gazebo simulator launched from <code>asl_tb3_sim</code>, is listening on that channel; it receives each command, feeds it into a physics model of a TurtleBot 3, and the robot moves. Meanwhile your process is also listening on a second channel called <code>/kill</code>, and when anything anywhere on the network publishes <code>true</code> there, your process stops commanding motion and issues a zero velocity.</p>
+<p>That is the whole lab, and it is worth seeing it as one picture before breaking it into eighteen tasks, because the tasks are almost all plumbing in service of that picture.</p>
+<pre><code>   YOUR PROCESS                              SOMEONE ELSE'S PROCESS
+   (constant_control.py)                     (gz sim, from asl_tb3_sim)
+
+   +---------------------------+             +--------------------------+
+   |  timer fires every 0.2s   |             |                          |
+   |            |              |             |   physics engine         |
+   |            v              |             |   + 3D window            |
+   |  control_callback()       |             |                          |
+   |            |              |             |                          |
+   |            v              |             |                          |
+   |  cmd_vel_pub.publish(msg) |--- /cmd_vel -----&gt;  subscribes,        |
+   |                           | geometry_msgs|      integrates motion  |
+   |                           |    /Twist    |                          |
+   |                           |             |                          |
+   |  kill_callback(msg)   &lt;------ /kill -----------  you, by hand,      |
+   |     cancel timer          |  std_msgs    |      via ros2 topic pub  |
+   |     publish zero Twist    |    /Bool     |                          |
+   +---------------------------+             +--------------------------+
+</code></pre>
+<p><strong>Why does the lab spend so much effort on build files for a 30-line Python script?</strong></p>
+<p>Because the thing that makes your script a <em>ROS node</em> is not the Python. Python with <code>rclpy</code> imported is just a program. What makes it a node that <code>ros2 run</code> can find, that other packages can depend on, and that a launch file can start, is being installed into a package in a place the ROS tooling knows to look. Tasks 2.3 and 2.4, the CMake and <code>package.xml</code> edits, are the entire difference between a script you run with <code>./constant_control.py</code> and a node that is part of a robot software stack. Understanding that distinction is most of what Section 2 is actually teaching, even though the lab document presents it as two copy-paste snippets.</p>
+<hr>
+<h2 id="toc-3">2. The three nested layers: workspace, repository, package</h2>
+<p><strong>What are the three layers, and why does the lab insist on this exact nesting?</strong></p>
+<p>Section 2 has you build a directory structure with three conceptually different things stacked inside one another, and conflating them is the root of several lab failures.</p>
+<p>The outermost layer is the <strong>workspace</strong>, <code>~/autonomy_ws</code>. A workspace is a build unit. It is the thing <code>colcon build</code> operates on, and it is defined by having a <code>src/</code> subdirectory containing source code. The workspace is not version controlled and is not shared; it is scratch space on your machine where a build happens. This is why Task 0.1 can tell you to delete <code>~/autonomy_ws</code> without ceremony: nothing durable lives there, provided your code has been pushed.</p>
+<p>The middle layer is the <strong>git repository</strong>, your group’s private repo, cloned by Task 1.2 into <code>~/autonomy_ws/src/</code>. A repository is a unit of collaboration and history. It is what GitHub hosts, what your group shares, and what your pull request is opened against. Crucially, ROS has no concept of a repository at all; <code>colcon</code> neither knows nor cares that this directory is under version control.</p>
+<p>The innermost layer is the <strong>package</strong>, <code>s2_basic</code>, created by Task 1.3 inside the repository. A package is ROS’s unit of software: the smallest thing that can declare dependencies, be built, be installed, and be referred to by name in <code>ros2 run</code> or a launch file. A package is defined by exactly one thing, the presence of a <code>package.xml</code> file.</p>
+<pre><code>~/autonomy_ws/                      &lt;-- WORKSPACE (build unit, local, disposable)
+   src/                             &lt;-- the only directory colcon scans
+      &lt;group_repo&gt;/                 &lt;-- REPOSITORY (collaboration unit, on GitHub)
+         README.md
+         s2_basic/                  &lt;-- PACKAGE (ROS unit, has package.xml)
+            package.xml             &lt;-- this file is what makes it a package
+            CMakeLists.txt
+            scripts/
+               constant_control.py  &lt;-- your actual code
+   build/                           &lt;-- created by colcon, intermediate, disposable
+   install/                         &lt;-- created by colcon, the usable output
+   log/                             &lt;-- created by colcon, build logs
+</code></pre>
+<p><strong>How does colcon find a package buried two levels deep inside a repository?</strong></p>
+<p>It walks the entire tree under <code>src/</code> recursively looking for <code>package.xml</code> files, and every directory containing one is a package to build. This recursive scan is why the nesting works at all, and it is also why Task 2.5 carries a warning in bold about your working directory. If you run <code>colcon build</code> from inside the repository rather than from <code>~/autonomy_ws</code>, colcon treats <em>that</em> directory as the workspace root, creates <code>build/</code>, <code>install/</code> and <code>log/</code> directories right there inside your git repository, and now those thousands of generated files are sitting in a place where <code>git add</code> will try to commit them. The command succeeds, which is what makes it dangerous; you discover the problem later when your pull request contains forty megabytes of build artifacts.</p>
+<p>The underlying principle generalizes well beyond this lab. Build tools that discover their inputs by scanning a directory tree are always sensitive to where you invoke them, because the invocation directory <em>is</em> a parameter even when it does not look like one.</p>
+<p><strong>Why does the lab have you create the package inside the repository rather than beside it?</strong></p>
+<p>Because the package is the thing being graded and shared. If you ran <code>ros2 pkg create</code> from <code>~/autonomy_ws/src/</code> instead of from inside the cloned repository, <code>s2_basic</code> would be a sibling of the repository rather than a child of it. ROS would be perfectly happy, <code>colcon build</code> would work, your node would run, and all three CA checkpoints would pass. Then at the Wrap Up step <code>git add s2_basic/</code> would fail with a path error, because from git’s point of view that directory does not exist inside the repository, and your pull request would be empty. This is a failure mode worth internalizing: ROS correctness and git correctness are independent, and a setup can satisfy one completely while failing the other.</p>
+<hr>
+<h2 id="toc-4">3. Build types: ament_cmake, ament_python, and why your lab picks CMake for Python code</h2>
+<p><strong>What does the <code>--build-type</code> flag in <code>ros2 pkg create --build-type ament_cmake s2_basic</code> actually select?</strong></p>
+<p>It selects which build system will be invoked for this package, and therefore which metadata files get generated and what conventions you must follow. ROS 2 supports two primary choices for a normal package. <code>ament_cmake</code> means the package is built by CMake, and <code>ros2 pkg create</code> will generate a <code>CMakeLists.txt</code>. <code>ament_python</code> means the package is built by Python’s setuptools, and <code>ros2 pkg create</code> would instead generate <code>setup.py</code>, <code>setup.cfg</code>, and a directory named after the package to hold your modules.</p>
+<p>The flag writes its choice into <code>package.xml</code> as a build tool dependency, and <code>colcon</code> reads that at build time to decide how to treat the package. Running <code>ros2 pkg create --build-type ament_cmake s2_basic</code> produces roughly this:</p>
+<pre><code>s2_basic/
+   CMakeLists.txt          # build instructions, read by CMake
+   package.xml             # package identity and dependencies, read by ROS tooling
+   include/s2_basic/       # where C++ headers would go (empty, unused by you)
+   src/                    # where C++ sources would go (empty, unused by you)
+</code></pre>
+<p>Note what is missing: there is no <code>scripts/</code> directory. Task 2.1 says “create a file (and directory if necessary)”, and the directory is necessary, precisely because <code>ament_cmake</code> scaffolds for C++ and you are writing Python.</p>
+<p><strong>Why would a course choose the CMake build type for a package whose only code is a Python script?</strong></p>
+<p>This looks backwards on first encounter, and the honest answer has two parts. The first is uniformity: over the quarter your group’s repository will hold packages containing C++ nodes, Python nodes, custom message definitions, and launch files. <code>ament_cmake</code> handles all four. <code>ament_python</code> handles only Python, so a workspace built on it eventually needs a second build type anyway, and mixed-build-type workspaces are harder to reason about than uniform ones. The second part is that message generation, which you will need later in the quarter if you define custom types, is a CMake-driven process; <code>rosidl_generate_interfaces</code> is a CMake macro with no setuptools equivalent. Choosing <code>ament_cmake</code> now means you never have to migrate.</p>
+<p>The cost of that choice is the thing Task 2.3 exists to pay. With <code>ament_python</code>, you would declare an executable by adding an entry to <code>console_scripts</code> in <code>setup.py</code>, and setuptools would generate a launcher for you. With <code>ament_cmake</code>, nothing knows your Python file exists unless you tell CMake to install it, which is exactly what the <code>install(PROGRAMS ...)</code> block does. The folder structure diagram in the lab’s cheat sheet hints at this convention without explaining it: <code>src/</code> for C++ code, <code>scripts/</code> for ROS Python executables, and a separately named directory for importable Python library modules.</p>
+<hr>
+<h2 id="toc-5">4. package.xml: declaring what you depend on, and when you need it</h2>
+<p><strong>What is package.xml for, given that CMakeLists.txt already describes the build?</strong></p>
+<p><code>package.xml</code> is the package <em>manifest</em>, and it answers a different question from <code>CMakeLists.txt</code>. CMake describes how to build. The manifest describes identity and dependency: what this package is called, who maintains it, what licence it carries, and what other packages it needs in order to build and in order to run. It is read by tools that must reason about packages without building them, which is a larger set of tools than you might expect. <code>colcon</code> reads every manifest in the workspace before building anything, in order to construct a dependency graph and compute a topological build order. <code>rosdep</code> reads manifests to map ROS dependency names onto operating system packages it can install with apt. <code>ros2 pkg list</code> and the package index read manifests to know what exists.</p>
+<p><strong>What is the difference between the three dependency tags, and why does the lab specify <code>exec_depend</code>?</strong></p>
+<p>This is a genuinely important distinction and the lab does not explain it. There are three tags you will meet.</p>
+<p><code>&lt;build_depend&gt;</code> means “I need this package present in order to compile.” For a C++ node that includes a header from another package, that header must exist at compile time, so it is a build dependency.</p>
+<p><code>&lt;exec_depend&gt;</code> means “I need this package present in order to run.” It is not needed during compilation at all.</p>
+<p><code>&lt;depend&gt;</code> is shorthand for both at once, and it is the right choice for the common C++ case where you compile against a package and also need it at runtime.</p>
+<p>Task 2.4 has you add exactly this:</p>
+<pre><code class="language-xml">&lt;exec_depend&gt;rclpy&lt;/exec_depend&gt;
+&lt;exec_depend&gt;std_msgs&lt;/exec_depend&gt;
+</code></pre>
+<p><code>exec_depend</code> is correct here, and the reason is specific to Python. Nothing about your <code>constant_control.py</code> is compiled. CMake does not parse your <code>import</code> statements; it copies the file and sets its execute bit. The dependency on <code>rclpy</code> materializes only at the moment the Python interpreter executes <code>import rclpy</code>, which happens at runtime. Declaring it as a build dependency would be a false statement about when it is needed, and on a system where build and run environments differ, false statements in a manifest become real failures.</p>
+<p><strong>Is the lab’s dependency list complete?</strong></p>
+<p>No, and noticing this is a good test of whether you have understood the section. Task 2.4 has you declare <code>rclpy</code> and <code>std_msgs</code>, which covers the Task 2.2 and Task 4.1 imports. But Task 3.1 has you import <code>Twist</code> from <code>geometry_msgs.msg</code>, and <code>geometry_msgs</code> is never added to the manifest. Your node will work anyway, because <code>geometry_msgs</code> is part of the standard ROS 2 Humble installation in the underlay at <code>/opt/ros/humble</code> and is therefore importable whether you declare it or not.</p>
+<p>That it works is exactly why the omission is worth understanding rather than ignoring. A manifest is a promise about what your package needs. When the promise is incomplete and the missing piece happens to be installed for unrelated reasons, the package is silently fragile: it will break for whoever first tries to install it onto a minimal system, and the error they see will be an <code>ImportError</code> deep inside your code rather than a clean dependency resolution failure at install time. Adding <code>&lt;exec_depend&gt;geometry_msgs&lt;/exec_depend&gt;</code> alongside the two the lab asks for costs one line and makes the manifest true. I would add it.</p>
+<p><strong>What does the rest of the generated manifest contain?</strong></p>
+<p>The scaffold <code>ros2 pkg create</code> writes includes <code>&lt;name&gt;</code>, <code>&lt;version&gt;</code>, <code>&lt;description&gt;</code>, <code>&lt;maintainer&gt;</code> and <code>&lt;license&gt;</code> with placeholder values, plus a <code>&lt;buildtool_depend&gt;ament_cmake&lt;/buildtool_depend&gt;</code> line, which is how <code>colcon</code> learns this package needs CMake rather than setuptools. The placeholders for description and licence are worth filling in as a habit; they are the kind of metadata that is trivially easy to supply on day one and surprisingly annoying to backfill across twenty packages later.</p>
+<hr>
+<h2 id="toc-6">5. CMakeLists.txt and the install step, where most students lose an hour</h2>
+<p><strong>What is CMake, in one paragraph, for someone who has never used it?</strong></p>
+<p>CMake is a build system generator. You write a declarative description of your project in <code>CMakeLists.txt</code>, and CMake reads it and generates the actual low-level build files, normally Makefiles or Ninja files, which then do the compiling. The language is a sequence of command calls of the form <code>command(ARGUMENTS)</code>, it is case-insensitive for command names, and it has variables referenced with <code>${NAME}</code>. It was designed for C and C++, which is why using it to place a Python file feels slightly like using a forklift to move a envelope; that is nonetheless what Task 2.3 asks.</p>
+<p><strong>What does the block in Task 2.3 mean, argument by argument?</strong></p>
+<pre><code class="language-cmake">install(PROGRAMS
+    scripts/constant_control.py
+    DESTINATION lib/${PROJECT_NAME}
+)
+</code></pre>
+<p><code>install</code> is a built-in CMake command that registers something to be copied out of the source tree into the install prefix when the install step runs. Nothing is copied when CMake parses this line; the line records an intention, and the copy happens during <code>colcon build</code>’s install phase.</p>
+<p><code>PROGRAMS</code> is the mode, and the choice of mode is load-bearing. CMake offers <code>install(FILES ...)</code> and <code>install(PROGRAMS ...)</code> which differ in exactly one respect: the permissions applied to the installed copy. <code>FILES</code> installs with default read permissions, roughly <code>644</code>. <code>PROGRAMS</code> installs with the execute bit set, roughly <code>755</code>. Since <code>ros2 run</code> works by executing the installed file, installing with <code>FILES</code> would produce a file that exists in the right place, is found correctly, and then fails with a permission error. This is the mode you want, and knowing <em>why</em> means you will diagnose that failure in seconds rather than minutes.</p>
+<p><code>scripts/constant_control.py</code> is the path to install, interpreted relative to the directory containing <code>CMakeLists.txt</code>, which is the package root. This is why your file must be at <code>s2_basic/scripts/constant_control.py</code> and not somewhere else: the path in the CMake file and the path on disk must agree.</p>
+<p><code>DESTINATION lib/${PROJECT_NAME}</code> is where the copy lands, interpreted relative to the install prefix. <code>${PROJECT_NAME}</code> is a variable CMake sets from the <code>project()</code> call near the top of the generated <code>CMakeLists.txt</code>, which <code>ros2 pkg create</code> wrote as <code>project(s2_basic)</code>. So this expands to <code>lib/s2_basic</code>, and the full path of the installed file ends up being <code>~/autonomy_ws/install/s2_basic/lib/s2_basic/constant_control.py</code>.</p>
+<p><strong>Why does the destination have to be <code>lib/&lt;package_name&gt;</code> specifically?</strong></p>
+<p>Because that is the exact directory <code>ros2 run</code> searches, and it is not configurable. When you type <code>ros2 run s2_basic constant_control.py</code>, the tool resolves the package name <code>s2_basic</code> to its install prefix by looking it up in the <code>AMENT_PREFIX_PATH</code> environment variable, then looks for an executable file named <code>constant_control.py</code> inside <code>&lt;prefix&gt;/lib/s2_basic/</code>. If it is not there, you get <code>No executable found</code>.</p>
+<p>This convention is inherited from the Unix idea of <em>libexec</em>, a directory for programs that are meant to be invoked by other programs rather than typed by a user. Your node is exactly that: a program launched by <code>ros2 run</code> or by a launch file, never something a user would put on their <code>PATH</code>. Writing <code>DESTINATION bin</code> or <code>DESTINATION lib</code> or <code>DESTINATION share/${PROJECT_NAME}</code> will all build successfully and all fail to run, which is why this single line is the most common wall in Section 2.</p>
+<pre><code>   SOURCE TREE                                  INSTALL TREE
+                                                (what ros2 run reads)
+
+   s2_basic/                        install(PROGRAMS)
+      CMakeLists.txt     ----------&gt;  install/s2_basic/
+      package.xml                        lib/s2_basic/
+      scripts/                              constant_control.py   &lt;-- 0755
+         constant_control.py  ------&gt;       ^
+                                            |
+                              ros2 run s2_basic constant_control.py
+                              looks up s2_basic in AMENT_PREFIX_PATH,
+                              then execs &lt;prefix&gt;/lib/s2_basic/&lt;name&gt;
+</code></pre>
+<p><strong>Where in the file should the block go, and why does that matter?</strong></p>
+<p>Above the <code>ament_package()</code> call, which is the last line of the generated <code>CMakeLists.txt</code>. <code>ament_package()</code> is a macro that finalizes the package: it writes out the environment hooks, the package index entry, and the CMake config files that let other packages find this one. It is documented as needing to be the final call, and commands placed after it are not processed in the way you intend.</p>
+<p>The failure this produces is nastier than a normal error because it is silent. Put the <code>install(PROGRAMS ...)</code> block after <code>ament_package()</code> and <code>colcon build</code> prints <code>Finished &lt;&lt;&lt; s2_basic</code> with no warning at all, while the file is never installed. You then get <code>No executable found</code> from <code>ros2 run</code> and nothing anywhere tells you the build file is at fault. Build systems that fail silently on ordering mistakes are a recurring hazard, and the general defence is to verify the artifact rather than trusting the exit code. In this case, that means one command:</p>
+<pre><code class="language-bash">ls ~/autonomy_ws/install/s2_basic/lib/s2_basic/
+</code></pre>
+<p>If <code>constant_control.py</code> is listed there with an <code>x</code> in its permissions, the build half of the lab is correct and any remaining problem is in your Python or your environment. If it is absent, the problem is in <code>CMakeLists.txt</code> and no amount of staring at Python will help. Learning to split a problem in half with one cheap observation is a more valuable skill than any individual fact in this document.</p>
+<hr>
+<h2 id="toc-7">6. How a text file becomes a program: the shebang, the execute bit, and exec</h2>
+<p><strong>What actually happens when something tries to execute your Python file?</strong></p>
+<p>This is worth knowing precisely, because two of the lab’s instructions, the <code>chmod +x</code> hint in Task 2.1 and the <code>#!/usr/bin/env python3</code> first line in the cheat sheet, are both about this mechanism, and students routinely treat them as magic incantations.</p>
+<p>When <code>ros2 run</code> has located <code>constant_control.py</code>, it asks the operating system to execute it, which on Linux means the <code>execve</code> system call. The kernel does two checks and then one piece of inspection.</p>
+<p>The first check is the permission bit. Every file carries nine permission bits, three each for owner, group and others, covering read, write and execute. <code>execve</code> on a file without the execute bit set for you returns the error <code>EACCES</code>, which surfaces as <code>Permission denied</code>. The execute bit does not make a file executable in any meaningful sense; it is purely a flag that says “the kernel is permitted to try.” <code>chmod +x constant_control.py</code> sets that flag. This is why the lab bothers to hint at it: a freshly created file from <code>touch</code> or from an editor has mode <code>644</code>, with no execute bit anywhere.</p>
+<p>The second step is that the kernel reads the first bytes of the file to work out what kind of executable it is. A compiled binary begins with the four bytes <code>0x7F E L F</code>, the ELF magic number, and the kernel loads it directly. Your file is text, so it does not match. But the kernel has a second case: if the first two bytes are <code>#!</code>, the file is a <em>script</em>, and the rest of that first line names an interpreter.</p>
+<p>This two-byte marker is the <strong>shebang</strong>, and the mechanism is genuinely elegant. The kernel reads <code>#!/usr/bin/env python3</code>, and instead of executing your file, it executes <code>/usr/bin/env</code> and passes it the arguments <code>python3</code> and the path to your file. <code>env</code> then looks up <code>python3</code> on the <code>PATH</code> and execs that, handing it your filename, so Python ends up running your script. From the caller’s point of view it simply ran your file; three <code>exec</code> calls happened underneath.</p>
+<pre><code>  ros2 run s2_basic constant_control.py
+            |
+            v
+  execve("/.../lib/s2_basic/constant_control.py")
+            |
+            +--&gt; kernel: is the execute bit set?   no  -&gt; EACCES, "Permission denied"
+            |                                      yes -&gt; continue
+            +--&gt; kernel: read first bytes
+                     0x7F ELF  -&gt; load as a binary
+                     "#!"      -&gt; read interpreter line
+                                    |
+                                    v
+                          execve("/usr/bin/env", ["python3", "/.../constant_control.py"])
+                                    |
+                                    v
+                          env resolves python3 on PATH, execs it
+                                    |
+                                    v
+                          Python interpreter runs your source
+</code></pre>
+<p><strong>Why <code>#!/usr/bin/env python3</code> rather than <code>#!/usr/bin/python3</code>?</strong></p>
+<p>Because the shebang requires an absolute path to the interpreter, and the absolute path of <code>python3</code> is not the same on every system, nor inside every virtual environment. Hardcoding <code>/usr/bin/python3</code> names one specific interpreter and will quietly use the system Python even when a different one is active. Using <code>/usr/bin/env</code> as the interpreter, and <code>python3</code> as its argument, defers the decision to <code>PATH</code> lookup at execution time, which picks up whichever Python the environment has selected. The cost is one extra process; the benefit is that the same file works across machines and environments. This idiom is near universal in ROS code for exactly that reason.</p>
+<p><strong>What is the significance of the <code>if __name__ == "__main__":</code> block at the bottom?</strong></p>
+<p>Python sets the module-level variable <code>__name__</code> to the string <code>"__main__"</code> when a file is run as the top-level program, and to the module’s own name when the file is imported by something else. Guarding your startup code with that condition means the file behaves as a program when executed and as an importable module when imported, with no side effects on import. For a ROS node this matters more than it might seem: a test suite, or another node, may well want to <code>import</code> your module to construct your node class directly without spinning it, and an unguarded <code>rclpy.init()</code> at module scope would make that impossible.</p>
+<hr>
+<h2 id="toc-8">7. rclpy: the context, the node, and the object graph you are building</h2>
+<p><strong>What is rclpy, and where does it sit in the stack?</strong></p>
+<p><code>rclpy</code> is the Python client library for ROS 2. It is a thin layer over <code>rcl</code>, a C library that holds the actual implementation of nodes, publishers, subscriptions, timers and the rest. Below <code>rcl</code> sits <code>rmw</code>, the ROS middleware abstraction, and below that a concrete DDS implementation, by default <code>rmw_fastrtps_cpp</code> on Humble, which is what finally puts bytes on the wire. The practical consequence of this layering is that <code>rclpy</code> is a set of Python bindings to C objects rather than a pure Python framework, which explains some of its sharper edges, including the strict type checking on message fields that section 10 covers.</p>
+<pre><code>   your constant_control.py
+            |
+         rclpy            Python client library
+            |
+          rcl             C client library: nodes, pubs, subs, timers, executors
+            |
+          rmw             middleware abstraction layer
+            |
+      rmw_fastrtps_cpp    the default DDS implementation on Humble
+            |
+        DDS / RTPS        discovery, shared memory, UDP multicast
+</code></pre>
+<p><strong>What does <code>rclpy.init()</code> do, and why must it come first?</strong></p>
+<p><code>rclpy.init()</code> creates and initializes the global <strong>context</strong>. A context is the container for everything ROS does in this process: it holds the middleware state, the parsed command line arguments relevant to ROS, and the set of nodes created against it. Until a context exists there is nothing for a node to be created <em>in</em>, which is why every <code>rclpy</code> call after this one depends on it and why calling <code>Node(...)</code> before <code>rclpy.init()</code> raises an error immediately.</p>
+<p>It also performs discovery setup. Part of what makes ROS 2 feel like magic is that two processes started independently find each other with no broker and no configuration, and the mechanism is DDS discovery: on initialization, the middleware begins announcing itself and listening for announcements over UDP multicast on the local network, scoped by the <code>ROS_DOMAIN_ID</code> environment variable. The primer’s section on discovery covers the two environment variables involved; what matters here is that <code>rclpy.init()</code> is the moment your process joins that conversation.</p>
+<p><strong>What does <code>super().__init__("constant_control")</code> do, and why must it be the first line of your <code>__init__</code>?</strong></p>
+<p>Your class inherits from <code>rclpy.node.Node</code>, and this call runs the parent class’s constructor, which is where the real node gets created: it registers the name <code>constant_control</code> with the ROS graph, sets up the node’s clock, creates its default callback group, and allocates the underlying <code>rcl</code> node handle.</p>
+<p>It must come before anything else in your <code>__init__</code> because every other method you call on <code>self</code>, including <code>create_publisher</code>, <code>create_timer</code> and <code>create_subscription</code>, operates on state that this constructor establishes. Call <code>self.create_publisher(...)</code> before <code>super().__init__(...)</code> and you get an <code>AttributeError</code> or worse, because the attributes those methods reach for do not exist yet. The lab’s cheat sheet flags this with the comment “must happen before everything else”, and the reason is simply ordinary Python object initialization rather than anything ROS-specific.</p>
+<p>The string you pass is the <strong>node name</strong>, and it is a real identifier in the distributed system, not a label. It is what <code>ros2 node list</code> prints, what <code>ros2 node info</code> takes as an argument, and what namespaces apply to. Two nodes with the same name running simultaneously is legal but produces confusing behaviour in introspection tools, so names should be unique in practice.</p>
+<p><strong>What is the object graph you have built by the end of <code>__init__</code>?</strong></p>
+<p>Three objects, all owned by the node, all created by factory methods on it rather than by direct construction:</p>
+<pre><code>   ConstantControl (a Node, named "constant_control")
+      |
+      +-- self.cmd_vel_pub      Publisher(Twist, "/cmd_vel", qos=10)
+      |                          outbound: you call .publish() on it
+      |
+      +-- self.control_timer    Timer(period=0.2s, callback=self.control_callback)
+      |                          internal: the executor calls your callback
+      |
+      +-- self.kill_sub         Subscription(Bool, "/kill", self.kill_callback, qos=10)
+                                 inbound: the executor calls your callback
+</code></pre>
+<p>Notice the asymmetry in who calls whom, because it is the key to understanding the next section. The publisher is something <em>you</em> call. The timer and the subscription are things that call <em>you</em>. Your <code>__init__</code> does not start anything running; it registers three objects with the node and returns. Nothing happens until something drives them, and that something is the executor.</p>
+<p>The reason these are created through <code>self.create_publisher(...)</code> rather than <code>Publisher(...)</code> is lifetime management. The node must keep a reference to every entity it owns so it can tear them down cleanly on destruction, and so the executor can find them when building its wait set. Constructing one directly would leave it unregistered and inert.</p>
+<hr>
+<h2 id="toc-9">8. The publisher, and what “publish” actually does</h2>
+<p><strong>What do the three arguments to <code>create_publisher</code> mean?</strong></p>
+<pre><code class="language-python">self.cmd_vel_pub = self.create_publisher(Twist, "/cmd_vel", 10)
+</code></pre>
+<p>The first argument is the <strong>message type</strong>, passed as the Python class itself rather than a string. This is how the middleware learns the shape of the data: from the class it can obtain the generated type support structure that tells DDS how to serialize and deserialize instances. Type is part of a topic’s identity, which means a publisher of <code>Twist</code> on <code>/cmd_vel</code> and a subscriber of <code>String</code> on <code>/cmd_vel</code> will not connect at all. They are two unrelated endpoints that happen to share a name string, and no error is reported, you simply see no data.</p>
+<p>The second argument is the <strong>topic name</strong>. The leading slash makes it absolute, meaning it is not affected by any namespace the node is launched into. Without the slash, <code>cmd_vel</code> is relative and would become <code>/&lt;namespace&gt;/cmd_vel</code> if the node were pushed into a namespace. For this lab either works, since you launch with no namespace, but absolute is the safer habit when you are targeting a topic another process already owns.</p>
+<p>The third argument is the <strong>quality of service</strong>, and <code>10</code> is shorthand. ROS 2 lets you pass either a full <code>QoSProfile</code> object or a bare integer, and an integer is interpreted as the history depth of an otherwise default profile: keep the last 10 messages, reliable delivery, volatile durability. “Keep last 10” means the outbound queue holds at most ten messages, and an eleventh pushes out the oldest.</p>
+<p><strong>Why does QoS exist at all, and when will it bite you?</strong></p>
+<p>QoS exists because the right delivery guarantee genuinely differs by data type. A command sent to a robot’s motors should arrive, so reliable delivery with retransmission is appropriate. A stream of lidar scans at 10 Hz should not block the publisher waiting on acknowledgements, and a dropped frame is cheaper than a stalled pipeline, so best-effort is appropriate there.</p>
+<p>The part that bites is that QoS is <em>negotiated</em>, and incompatible profiles silently fail to connect. A reliable subscriber cannot match a best-effort publisher, because the publisher cannot promise what the subscriber demands. When that happens you get a topic that lists correctly in <code>ros2 topic list</code>, shows a publisher and a subscriber in <code>ros2 topic info</code>, and delivers nothing. For <code>/cmd_vel</code> the default profile is conventional and correct on both sides, so this lab will not expose you to it, but the earlier primer covers it because sensor topics will.</p>
+<p><strong>What physically happens inside <code>publish()</code>?</strong></p>
+<pre><code class="language-python">self.cmd_vel_pub.publish(msg)
+</code></pre>
+<p>The call descends through <code>rclpy</code> into <code>rcl</code> and then <code>rmw</code>, which serializes your message object into the CDR wire format, the binary representation DDS uses, and hands the buffer to the DDS implementation. DDS has by this point already discovered every matched subscription, so it knows where the data goes. For subscribers in other processes on the same machine, delivery is typically via shared memory or loopback UDP; across machines it is UDP over the network. Within the same process, modern ROS 2 can sometimes pass the message by pointer and skip serialization entirely.</p>
+<p>Three properties of this call matter for how you write code around it. It is <strong>asynchronous</strong>: <code>publish</code> hands off the buffer and returns, it does not wait for anyone to receive anything, so a return from <code>publish</code> is not evidence of delivery. It is <strong>fire and forget with no addressing</strong>: you never name a recipient, you name a topic, and zero or many subscribers may be attached. And publishing to a topic with no subscribers at all is completely legal and completely silent, which is a frequent source of confusion during this lab; if you run your node without the simulator running, everything appears to work and nothing moves.</p>
+<p>This anonymity is the central design decision of publish-subscribe middleware, and it is what lets you write and test your control node without the simulator, swap the simulator for a real TurtleBot with no code change, and attach <code>ros2 topic echo</code> as an extra observer without telling your node.</p>
+<hr>
+<h2 id="toc-10">9. Timers, callbacks, and the executor: what spin() is really doing</h2>
+<p><strong>What does <code>create_timer</code> register?</strong></p>
+<pre><code class="language-python">self.control_timer = self.create_timer(0.2, self.control_callback)
+</code></pre>
+<p>The first argument is the period in seconds, as a float. The second is the callback, passed as a bound method object rather than called: note carefully that there are no parentheses after <code>self.control_callback</code>. Writing <code>self.control_callback()</code> would call the function immediately and register its return value, <code>None</code>, as the callback, producing a confusing failure. Passing functions as values rather than calling them is the single most common Python error in this lab.</p>
+<p>A timer is not a thread and does not sleep. It is an entry in a table of timers the node owns, each holding a period and a next-fire time computed against the node’s clock. Nothing about it runs on its own. It becomes “ready” when its next-fire time passes, and something else has to notice that and call your callback.</p>
+<p>A note on which clock: by default a node uses system time, but if the <code>use_sim_time</code> parameter is set true the node uses <code>/clock</code> published by the simulator instead, so timers follow simulated time and slow down or speed up with it. You will not set this in Section 2, but it is the reason a node can behave differently in simulation than on hardware, and it is worth knowing the parameter exists.</p>
+<p><strong>What does <code>rclpy.spin(node)</code> actually do?</strong></p>
+<p>This one line is where your program spends essentially all of its life, and treating it as an opaque “run the node” call leaves you unable to reason about most concurrency bugs you will meet this quarter.</p>
+<p><code>rclpy.spin(node)</code> constructs a <code>SingleThreadedExecutor</code>, adds your node to it, and then loops forever doing the following. It collects every entity on the node that can become ready, meaning all timers, subscriptions, service servers and clients, and assembles them into a <strong>wait set</strong>. It then blocks in a single system call, waiting until at least one of those entities is ready: a timer’s deadline has passed, or a message has arrived for a subscription. When the wait returns, the executor takes the ready entities and executes their callbacks, one at a time, in the current thread. Then it loops and waits again.</p>
+<pre><code>   rclpy.spin(node)
+      |
+      v
+   +-------------------------------------------------+
+   |  build wait set: [control_timer, kill_sub]      |
+   |            |                                    |
+   |            v                                    |
+   |  BLOCK until something is ready                 |
+   |            |                                    |
+   |     +------+-------------------+                |
+   |     |                          |                |
+   |  timer deadline passed     message on /kill     |
+   |     |                          |                |
+   |     v                          v                |
+   |  control_callback()        kill_callback(msg)   |
+   |     (runs to completion)      (runs to          |
+   |     |                          completion)      |
+   |     +------+-------------------+                |
+   |            |                                    |
+   |            v                                    |
+   |        loop back and wait again  ---------------+
+   +-------------------------------------------------+
+
+   ONE thread. Callbacks never overlap. A slow callback delays all others.
+</code></pre>
+<p><strong>What follows from “one thread, callbacks never overlap”?</strong></p>
+<p>Three things, and they are the practical payload of this section.</p>
+<p>First, you do not need locks. Your <code>kill_callback</code> writes to the same node state that <code>control_callback</code> reads, and in a multithreaded program that would demand synchronization. Under a single-threaded executor the two callbacks are strictly serialized, so there is no race to protect against. This is a real simplification and it is why the default executor is single-threaded.</p>
+<p>Second, a callback that blocks blocks everything. If <code>control_callback</code> took a full second to run, the executor could not service <code>/kill</code> during that second, and your emergency stop would respond up to a second late. This is why the standing rule in ROS is that callbacks must return quickly: no <code>time.sleep</code>, no synchronous network requests, no long computations. Work that takes time belongs in an action server or a separate thread, not in a callback. For a safety-critical path like a kill switch, this stops being a style preference and becomes a correctness requirement.</p>
+<p>Third, timer periods are a floor, not a guarantee. The timer becomes ready at 0.2 second intervals, but the callback runs when the executor gets to it, so if another callback is mid-execution the timer waits. Over time this means your 5 Hz publication rate is approximately 5 Hz, and <code>ros2 topic hz /cmd_vel</code> will show you the real number, which is a useful habit when debugging a control loop that feels sluggish.</p>
+<p><strong>What does <code>rclpy.shutdown()</code> do, and why is it after <code>spin</code>?</strong></p>
+<p><code>rclpy.spin</code> only returns when the context is shut down, which in practice means you pressed Ctrl-C and the default signal handler shut it down. <code>rclpy.shutdown()</code> then finalizes the context: it destroys the node, tears down the publishers and subscriptions, and tells DDS to announce its departure so other nodes stop considering it a match. Skipping it mostly works, since process exit reclaims everything, but it can leave stale discovery state briefly and makes a clean shutdown non-deterministic. Including it is correct and costs one line.</p>
+<hr>
+<h2 id="toc-11">10. Messages as contracts: Twist, differential drive, and why only two fields matter</h2>
+<p><strong>What is a ROS message, fundamentally?</strong></p>
+<p>A message type is a language-independent data structure definition, written in an interface definition language in a <code>.msg</code> file, and compiled at build time into concrete classes for every supported language. <code>geometry_msgs/msg/Twist</code> is defined as:</p>
+<pre><code>Vector3  linear
+Vector3  angular
+</code></pre>
+<p>and <code>Vector3</code> is in turn three <code>float64</code> fields named <code>x</code>, <code>y</code> and <code>z</code>. So a <code>Twist</code> is six double-precision numbers in a fixed order with fixed names, and that layout is the contract.</p>
+<p>The significance of compiling from a neutral definition is interoperability. Your Python node publishes a <code>Twist</code>; the Gazebo bridge consuming it is C++. Both sides were generated from the same <code>.msg</code> file, so both agree exactly on the wire layout, and neither had to know the other’s language. This is also why <code>asl_tb3_msgs</code> exists as its own package in your <code>tb_ws</code>, as the primer notes: message definitions must be compiled, and both publisher and subscriber need the generated code, so shared types live in a package others depend on.</p>
+<p><strong>What does <code>Twist</code> mean physically, and why does the lab say to set only two fields?</strong></p>
+<p>A <code>Twist</code> is the standard representation of a rigid body’s instantaneous velocity in three dimensions: <code>linear</code> is translational velocity in metres per second along the body’s x, y and z axes, and <code>angular</code> is rotational velocity in radians per second about those same axes. A free-flying body genuinely needs all six numbers.</p>
+<p>A TurtleBot 3 is a <strong>differential drive</strong> robot: two independently driven wheels on a common axle, plus a passive caster. Its two motor speeds give it exactly two degrees of freedom in its velocity: it can drive forward and backward, and it can rotate about its own vertical axis. It physically cannot translate sideways without first rotating, a property called <strong>nonholonomic</strong>, which is why parallel parking is hard and why a shopping trolley cannot slide left.</p>
+<p>The mapping from the two wheel speeds to the two controllable velocity components, with wheel radius <code>r</code>, wheel separation <code>L</code>, and left and right angular wheel speeds, is:</p>
+<pre><code>   v     = r * (w_right + w_left) / 2        forward speed   -&gt; Twist.linear.x
+   omega = r * (w_right - w_left) / L        yaw rate        -&gt; Twist.angular.z
+</code></pre>
+<p>Everything else in the <code>Twist</code> has no realizable value on this robot. <code>linear.y</code> would be sideways motion, <code>linear.z</code> would be flight, <code>angular.x</code> and <code>angular.y</code> would be roll and pitch. The driver simply ignores those fields, so setting them is harmless but meaningless. Hence the lab’s instruction:</p>
+<pre><code class="language-python">msg = Twist()        # all six fields zero-initialized
+msg.linear.x = ...   # the linear velocity, metres per second
+msg.angular.z = ...  # the angular velocity, radians per second
+</code></pre>
+<p>The zero-initialization is itself useful and is what makes the emergency stop in section 11 a one-liner: a freshly constructed <code>Twist()</code> is already the full-stop command, so you never have to set six fields to zero by hand.</p>
+<p><strong>What is <code>/cmd_vel</code>, and who decided on that name?</strong></p>
+<p>Nobody decided formally; it is a convention that became near universal across ROS, and its weight comes from that ubiquity rather than from a specification. A huge amount of ROS software, including teleoperation tools, navigation stacks and nearly every mobile base driver, publishes or subscribes velocity commands as <code>geometry_msgs/msg/Twist</code> on a topic called <code>/cmd_vel</code>. Because <code>asl_tb3_sim</code> follows it, your node drives the simulated robot without either side having been written with the other in mind, and the same node would drive a real TurtleBot with no change. Conventions like this are the actual mechanism by which a software ecosystem becomes composable, which is worth appreciating as a design lesson separate from the robotics.</p>
+<p><strong>What is the type error that will catch you, and why does it happen?</strong></p>
+<p>This one is almost guaranteed to cost you a few minutes, so it is worth knowing in advance. Writing</p>
+<pre><code class="language-python">msg.linear.x = 1
+</code></pre>
+<p>raises an <code>AssertionError</code> complaining that the field must be of type <code>float</code>. The reason traces back to the layering in section 7: these message classes are typed views over a C structure, and <code>linear.x</code> is a C <code>double</code>. The generated Python setter validates the type strictly rather than coercing, because a silent coercion would hide genuine mistakes in code that is about to drive a physical robot. Python’s own willingness to treat <code>1</code> and <code>1.0</code> as interchangeable does not extend here.</p>
+<p>The fix is to always write velocities as float literals, <code>1.0</code> rather than <code>1</code>, and if a value arrives from a computation that might yield an integer, wrap it in <code>float(...)</code>. Defining your constants at module scope as floats, as <code>V_CONST = 0.2</code>, sidesteps the problem entirely and also makes the node easier to tune.</p>
+<hr>
+<h2 id="toc-12">11. The subscription, and building an emergency stop that actually stops</h2>
+<p><strong>What do the four arguments to <code>create_subscription</code> mean?</strong></p>
+<pre><code class="language-python">self.kill_sub = self.create_subscription(Bool, "/kill", self.kill_callback, 10)
+</code></pre>
+<p>The message type, the topic name and the QoS depth carry exactly the same meanings as in <code>create_publisher</code>, and the same matching rules apply: type and topic must agree with the publisher’s, and QoS must be compatible, or the endpoints never connect.</p>
+<p>The new argument is the third, the callback. This is the function the executor will invoke, with the received message as its single argument, each time one arrives. As with the timer, pass the method without parentheses.</p>
+<p>The callback signature therefore must accept exactly one parameter besides <code>self</code>:</p>
+<pre><code class="language-python">def kill_callback(self, msg: Bool) -&gt; None:
+</code></pre>
+<p>The type annotation is documentation for you and is not enforced; the parameter will receive a <code>Bool</code> message object regardless. Note that this is a <em>message</em> of type <code>std_msgs/msg/Bool</code>, not a Python <code>bool</code>, which is why you have to reach inside it for <code>msg.data</code>. A <code>std_msgs/msg/Bool</code> is a message with a single field named <code>data</code> of type <code>bool</code>, and writing <code>if msg:</code> instead of <code>if msg.data:</code> would test whether the message object exists, which it always does, producing a kill switch that fires on every message including <code>false</code>. That is a genuinely dangerous bug and an easy one to write.</p>
+<p><strong>What should the callback do, and why does the order of the two actions matter?</strong></p>
+<p>Task 4.1 specifies two actions, stop the timer and publish a zero control, and lists them in that order.</p>
+<pre><code class="language-python">def kill_callback(self, msg: Bool) -&gt; None:
+    if msg.data:
+        self.control_timer.cancel()
+        self.cmd_vel_pub.publish(Twist())
+        self.get_logger().warn("kill received, control stopped")
+</code></pre>
+<p><code>self.control_timer.cancel()</code> marks the timer inactive. It stays in the node’s timer table and can be revived later with <code>self.control_timer.reset()</code>, but while cancelled it never becomes ready, so the executor never calls <code>control_callback</code> again, and the stream of nonzero commands stops at the source. This is why cancelling the timer is the real stop and publishing zero is the follow-up: if you only published a zero <code>Twist</code> without cancelling, the next timer tick 0.2 seconds later would publish a nonzero command again and the robot would carry on after a brief stutter.</p>
+<p><code>self.cmd_vel_pub.publish(Twist())</code> sends the all-zero velocity. This is necessary because the simulator, like a real robot driver, holds the last commanded velocity until told otherwise. Silence is not a stop command; a differential drive base that stops receiving messages keeps doing whatever it was last told to do, at least until a watchdog timeout if one exists. The explicit zero is what actually brings the robot to rest.</p>
+<p>Cancelling before publishing is the correct order, and the reasoning is worth following even though the single-threaded executor makes it moot in this specific program. Under the single-threaded executor your <code>kill_callback</code> runs to completion without interruption, so no timer callback can interleave between the two statements. But if you later move to a multithreaded executor with these callbacks in different callback groups, publishing zero first and cancelling second opens a window in which a timer tick fires between the two statements and the last message on the wire is a nonzero command. The robot then drives away after a successful kill. Writing the ordering correctly now costs nothing and means the code remains correct when the concurrency model changes underneath it. Safety logic should be ordered so that it is correct under the weakest assumptions you can manage, not merely under the ones currently in force.</p>
+<p><strong>Why use <code>self.get_logger()</code> rather than <code>print()</code>?</strong></p>
+<p><code>get_logger()</code> returns the node’s logger, and logging through it attaches the node name, a severity level and a timestamp, routes the output through the ROS logging system so it can be captured by launch files and written to log files under <code>~/.ros/log</code>, and lets severity be filtered at runtime. The available levels are <code>debug</code>, <code>info</code>, <code>warn</code>, <code>error</code> and <code>fatal</code>. A bare <code>print</code> writes to standard output with none of that structure, and in a system running fifteen nodes, unlabelled output is nearly useless.</p>
+<p>For Task 2.2, where the lab asks you to print “sending constant control…”, either satisfies the literal wording, and <code>self.get_logger().info(...)</code> is the better habit. For the kill message, <code>warn</code> is the appropriate level: it is not an error, since the system did exactly what it was told, but it is an abnormal condition the operator should see.</p>
+<hr>
+<h2 id="toc-13">12. colcon, symlink-install, and the edit-build-run loop</h2>
+<p><strong>What does <code>colcon build</code> do, in order?</strong></p>
+<p>The primer covers colcon’s role and the underlay and overlay model, so this section covers only what Section 2 adds, which is the install step and the symlink flag.</p>
+<p>Run from <code>~/autonomy_ws</code>, <code>colcon build</code> scans <code>src/</code> recursively for <code>package.xml</code> files, reads each manifest to build a dependency graph, computes a topological order, and then for each package in that order runs the build type’s workflow. For <code>ament_cmake</code> that means configuring with CMake, building with the generated Makefiles, and then running the install step, which is where your <code>install(PROGRAMS ...)</code> directive is finally acted on. It writes three directories at the workspace root: <code>build/</code> for intermediate state, <code>install/</code> for the finished product, and <code>log/</code> for build logs.</p>
+<p>For <code>s2_basic</code> there is nothing to compile, so the entire build is metadata plus one file copy, which is why the expected output in Task 1.4 shows it finishing in under a second.</p>
+<p><strong>What does <code>--symlink-install</code> change, and what is the trap in it?</strong></p>
+<pre><code class="language-bash">colcon build --symlink-install
+</code></pre>
+<p>Without the flag, the install step <em>copies</em> files from the source tree into <code>install/</code>. With it, colcon creates <strong>symbolic links</strong> pointing back at your source files instead. The installed path <code>install/s2_basic/lib/s2_basic/constant_control.py</code> becomes a link to <code>src/&lt;repo&gt;/s2_basic/scripts/constant_control.py</code>.</p>
+<p>The payoff is a much tighter development loop. Because <code>ros2 run</code> executes the installed path, and the installed path <em>is</em> your source file, editing the source changes what runs immediately. You edit, you re-run, with no rebuild in between. For an interpreted language this is a large saving repeated hundreds of times over a quarter.</p>
+<p>The trap is assuming it means you never rebuild again. The symlink makes the <em>contents</em> of an already-installed file live; it does nothing about the set of installed files or the build configuration. You must rebuild when you add a new file, when you edit <code>CMakeLists.txt</code>, when you edit <code>package.xml</code>, and when you create a new package. All of those change what should be installed rather than what is inside something already installed. The rule that covers every case: if you changed Python inside an installed file, just re-run; if you changed anything about the structure, rebuild.</p>
+<pre><code>   EDIT a line inside constant_control.py        -&gt; just re-run, no build
+   ADD a second script, new_node.py              -&gt; rebuild (new install target)
+   EDIT CMakeLists.txt or package.xml            -&gt; rebuild
+   CREATE a new package                          -&gt; rebuild, then re-source
+</code></pre>
+<p><strong>Why does the lab tell you to source after building, and when is sourcing genuinely required?</strong></p>
+<pre><code class="language-bash">source ~/autonomy_ws/install/setup.bash
+</code></pre>
+<p><code>source</code> is a shell builtin that reads a file and executes its lines in the <em>current</em> shell rather than in a child process, which is the whole point: the script’s job is to set environment variables, and a child process could not affect its parent. The variables it sets include <code>AMENT_PREFIX_PATH</code>, which is the list of install prefixes that <code>ros2 run</code> and <code>ros2 launch</code> search to resolve a package name, and <code>PYTHONPATH</code>, so Python can import modules from workspace packages.</p>
+<p>Sourcing is required in two situations and the distinction is worth holding. Every new terminal needs it, because environment variables are per-process and a fresh shell starts without them; this is what the lab means by “required whenever you open a new terminal”, and you will have three terminals open during Task 3.2. Separately, an existing terminal needs a re-source after the first build of a <em>new</em> package, because <code>AMENT_PREFIX_PATH</code> was computed before that package existed. The failure in that case is <code>Package 's2_basic' not found</code> in a shell where everything else works, and the fix is one <code>source</code> rather than any debugging.</p>
+<p>The flip side of the same mechanism produces the opposite confusion: after a rebuild, terminals you already had open still hold the environment from before, so if you changed something structural and re-ran in an old terminal you may see stale behaviour. The primer states the rule plainly, and it is worth repeating because it reliably costs people twenty minutes at least once: after a build, open a new terminal or re-source.</p>
+<p>One practical note specific to your setup. Your container’s <code>.bashrc</code> already sources <code>/opt/ros/humble/setup.bash</code> and your <code>tb_ws</code>, which is why <code>ros2</code> and <code>asl_tb3_sim</code> work in any fresh terminal without thinking. It does <strong>not</strong> source <code>autonomy_ws</code>, because that workspace did not exist when the Dockerfile was written. Adding that one line to <code>.bashrc</code> would remove a whole class of error from the rest of your quarter, at the cost of needing the workspace to exist for every shell. I think the trade is clearly worth it once you have finished Section 2, though during the lab itself typing it by hand is better teaching.</p>
+<hr>
+<h2 id="toc-14">13. Running and inspecting: run, launch, topic list, echo, pub</h2>
+<p><strong>How does <code>ros2 run</code> differ from <code>ros2 launch</code>?</strong></p>
+<pre><code class="language-bash">ros2 run s2_basic constant_control.py
+ros2 launch asl_tb3_sim signs.launch.py
+</code></pre>
+<p><code>ros2 run</code> starts exactly one executable from one package. It takes a package name and an executable name, resolves the package to its install prefix via <code>AMENT_PREFIX_PATH</code>, looks in <code>&lt;prefix&gt;/lib/&lt;package&gt;/</code> for a file with that name, and executes it. Note that for a Python script installed this way the executable name includes the <code>.py</code> extension, because the installed filename is what you are naming and the installed filename retains it.</p>
+<p><code>ros2 launch</code> runs a launch file, which is a Python program describing a set of processes to start together with their parameters, remappings and namespaces. <code>signs.launch.py</code> brings up the Gazebo server, spawns the TurtleBot model into the world, starts the bridge between Gazebo’s transport and ROS topics, and starts the supporting nodes, all in one command and in the right order. The primer’s section on launch files details what the ASL launch files start.</p>
+<p>The practical division: <code>ros2 run</code> is what you use while developing a single node, <code>ros2 launch</code> is what you use to bring up a system. Once your node is finished it would normally be added to a launch file rather than started by hand.</p>
+<p><strong>What is <code>ros2 topic list</code> doing, and what does it prove?</strong></p>
+<pre><code class="language-bash">ros2 topic list
+</code></pre>
+<p>It queries the ROS graph, which the middleware maintains through discovery, and prints every topic that currently has at least one publisher or subscriber. It is a view of a live distributed system rather than a static configuration, which is why it only shows <code>/cmd_vel</code> once something is actually connected to it.</p>
+<p>Its value in this lab is as a cheap confirmation that two independent processes have found each other. If you launch the simulator and <code>/cmd_vel</code> appears, the simulator is subscribing. If you then start your node and nothing moves, you have narrowed the problem considerably: discovery worked and the topic exists, so the fault is in what you are publishing, not in whether you are connected. Add <code>ros2 topic info /cmd_vel --verbose</code> and you see the publisher and subscriber counts and their QoS profiles, which distinguishes a type or QoS mismatch from a logic error.</p>
+<p>The lab document has a typo here, printing <code>ros2 topic lis</code>, which will give you an unknown command error. The command is <code>ros2 topic list</code>.</p>
+<p><strong>What does <code>ros2 topic echo</code> do, and why is it the right debugging tool?</strong></p>
+<pre><code class="language-bash">ros2 topic echo /cmd_vel
+</code></pre>
+<p>It creates a subscription to the named topic and prints every message it receives as YAML. It works because of the anonymity described in section 8: your node has no idea it has gained a second subscriber, and nothing about its behaviour changes. You can attach and detach observers to a running system freely.</p>
+<p>This makes it the first thing to reach for when something is not working, because it separates “am I sending the right thing” from “is the receiver doing the right thing with it”. If <code>echo</code> shows <code>linear.x: 0.2</code> five times a second and the robot is still stationary, your node is correct and the problem is on the simulator side. Adding <code>--once</code> prints a single message and exits, which is convenient when you want one sample rather than a scrolling wall, and <code>ros2 topic hz /cmd_vel</code> prints the measured publication rate, which is how you verify your 0.2 second timer is really giving you 5 Hz.</p>
+<p><strong>What does the kill command’s strange syntax mean, character by character?</strong></p>
+<pre><code class="language-bash">ros2 topic pub /kill std_msgs/msg/Bool data:\ true -1
+</code></pre>
+<p><code>ros2 topic pub</code> creates a temporary publisher from the command line, which is how you inject a message into a running system without writing a program. It takes the topic name, then the message type as a fully qualified string, then the message content.</p>
+<p>The content is given as <strong>YAML</strong>, because that is the serialization ROS 2 command line tools use for message literals, and <code>data: true</code> is a YAML mapping with one key. The field name <code>data</code> is not arbitrary: it is the single field of <code>std_msgs/msg/Bool</code>, the same field you read as <code>msg.data</code> in your callback.</p>
+<p>The backslash in <code>data:\ true</code> is pure shell mechanics and has nothing to do with ROS. YAML requires a space after the colon, but the shell splits arguments on spaces, so an unescaped <code>data: true</code> would arrive as two separate arguments and the command would fail to parse. The backslash escapes the space so the shell passes <code>data: true</code> as one argument. Quoting achieves the same thing and is easier to read, so <code>ros2 topic pub /kill std_msgs/msg/Bool "{data: true}"</code> is equivalent and is what I would type.</p>
+<p>The trailing <code>-1</code> is the short form of <code>--once</code>: publish one message, then exit. Without it, <code>ros2 topic pub</code> publishes repeatedly at 1 Hz until interrupted, which for a kill switch would work but would leave a publisher running and hold the topic open. Note also that because publishing is anonymous, this command demonstrates something real about your design: the kill signal can come from a shell, from another node, or from a hardware button, and your node neither knows nor cares which.</p>
+<hr>
+<h2 id="toc-15">14. The git and GitHub workflow this lab wraps up with</h2>
+<p><strong>What is different about git in this lab compared to Section 1?</strong></p>
+<p>The mechanics are covered in the <a href="linux-git-github-primer-2026-09-30.md">Linux, Git and GitHub primer</a>, so this section covers only what Section 2 changes, which is that the work is now collaborative and therefore branch discipline starts to matter for real reasons rather than as an exercise.</p>
+<p>In Section 1 you worked alone in your own repository, and a branch was a formality. In Section 2 the repository is shared by your group, several people are committing, and the branch <code>section2</code> exists so that your work is reviewable as a unit before it joins <code>main</code>. Task 1.2 has you clone and immediately branch:</p>
+<pre><code class="language-bash">git clone &lt;url&gt;
+git checkout -b section2
+</code></pre>
+<p><code>git checkout -b section2</code> creates a new branch pointing at your current commit and switches to it in one step, equivalent to <code>git branch section2</code> followed by <code>git checkout section2</code>. From that moment your commits accumulate on <code>section2</code> and <code>main</code> is untouched.</p>
+<p><strong>What does the <code>-u</code> in <code>git push -u origin section2</code> do?</strong></p>
+<pre><code class="language-bash">git push -u origin section2   # first push of a new branch
+git push                      # every push after that
+</code></pre>
+<p>A local branch you just created exists only on your machine; <code>origin</code> has never heard of it. The first push must therefore name both the remote and the branch. The <code>-u</code> flag, long form <code>--set-upstream</code>, additionally records in your local git configuration that <code>section2</code> tracks <code>origin/section2</code>. Once that association exists, git can infer the destination, so subsequent pushes need no arguments, and <code>git status</code> gains the ability to tell you how many commits you are ahead or behind.</p>
+<p>This is exactly the configuration you can see in your own Section 1 repository, where <code>git status -sb</code> reports <code>## section1...origin/section1</code>; the part after the dots is the recorded upstream.</p>
+<p><strong>What is a pull request, and why does the lab require one?</strong></p>
+<p>A pull request is a GitHub concept, not a git one, which is worth being precise about because the distinction clarifies a lot of confusion. In git, merging a branch is a local operation you could do yourself in a second. A pull request is a <em>request for review</em>: a durable page that shows the diff between your branch and the target, collects comments, runs checks, and records who approved before the merge happened.</p>
+<p>For your group, that is the mechanism by which three people’s work gets looked at before it lands. For your CAs, it is the artifact they sign off on, which is why the final checkpoint asks you to show the PR rather than the code. You can create it two ways:</p>
+<pre><code class="language-bash">gh pr create
+</code></pre>
+<p><code>gh</code> is GitHub’s official command line client, and <code>gh pr create</code> talks to the GitHub REST API to open the pull request, prompting for a title and body and inferring the base and head branches from your local state. The alternative is to open the repository in a browser, where GitHub will offer a banner to open a PR from a recently pushed branch. Both produce the identical object; the CLI version is faster and keeps you in the terminal.</p>
+<p><strong>What is the device flow that <code>gh auth login</code> walks you through, and why does the lab pick HTTPS?</strong></p>
+<p><code>gh auth login</code> performs an OAuth 2.0 <strong>device authorization grant</strong>, which is the flow designed for clients that cannot host a browser redirect. <code>gh</code> asks GitHub for a short user code, displays it, and opens the browser to a verification page. You enter the code and approve the scopes there, authenticated as yourself on GitHub. Meanwhile <code>gh</code> polls GitHub asking whether that code has been approved yet, and once it has, GitHub returns an access token, which <code>gh</code> stores. The token, not your password, is what every subsequent operation uses. This is why the lab’s step 4 has you note a code and press enter to open a browser, and step 5 has you return to the terminal.</p>
+<p>The lab’s step 2 has you select HTTPS as the git protocol, and this choice matters more for you specifically than for a student on a lab machine. Selecting HTTPS configures git to authenticate pushes using the token <code>gh</code> just obtained, via a credential helper. Selecting SSH would configure git to authenticate using an SSH key pair, which must exist and be registered with GitHub. On your setup, your ed25519 key lives in WSL at <code>~/.ssh</code> and is not forwarded into the dev container, so an SSH choice inside the container produces a permissions failure that reads like an account problem and sends people hunting in the wrong place. Choose HTTPS.</p>
+<p>One further detail worth knowing, because it is non-obvious and it affects what <code>gh auth logout</code> does to you. The container has its own <code>gh</code> configuration at <code>~/.config/gh/hosts.yml</code>, entirely separate from the <code>gh</code> installed on your Windows host. Logging out inside the container therefore has no effect on your Windows login, and vice versa. The two are independent credential stores that happen to share a command name.</p>
+<hr>
+<h2 id="toc-16">15. Every command in the lab, and what it fundamentally does</h2>
+<p><strong>The shell and filesystem commands</strong></p>
+<p><code>mkdir -p ~/autonomy_ws/src</code> creates a directory. The <code>-p</code> flag means “create parent directories as needed and do not error if it already exists”, which is what makes it safe to re-run and lets it create both levels of the path in one call.</p>
+<p><code>cd &lt;directory&gt;</code> changes the shell’s working directory, which is the implicit first argument to nearly every other command and the reason Task 2.5 cares so much about where you are.</p>
+<p><code>ls</code> lists directory contents. <code>ls -l</code> adds the long form with permissions, which is how you confirm the execute bit is set, and <code>ls -la</code> includes hidden dotfiles.</p>
+<p><code>touch &lt;file&gt;</code> creates an empty file if it does not exist, or updates its modification timestamp if it does. Its original purpose was the timestamp; creating empty files is a side effect that became its common use.</p>
+<p><code>chmod +x &lt;file&gt;</code> sets the execute permission bit, as section 6 describes. The mnemonic is “change mode”.</p>
+<p><code>source &lt;file&gt;</code> reads a file of shell commands and executes them in the current shell, used for setup scripts that must modify your environment rather than a child’s.</p>
+<p><code>code &lt;file&gt;</code> and <code>vim &lt;file&gt;</code> open an editor. <code>code</code> is the VS Code CLI, and in your dev container it opens the file in the VS Code window already attached to the container.</p>
+<p><strong>The ROS commands</strong></p>
+<p><code>ros2 pkg create --build-type ament_cmake &lt;name&gt;</code> scaffolds a new package: a directory containing <code>package.xml</code>, <code>CMakeLists.txt</code>, and empty <code>src/</code> and <code>include/</code> directories, with the build type recorded in the manifest.</p>
+<p><code>colcon build --symlink-install</code> builds every package under <code>src/</code>, run from the workspace root, linking rather than copying installed files.</p>
+<p><code>ros2 run &lt;package&gt; &lt;executable&gt;</code> resolves a package to its install prefix and executes a named program from <code>&lt;prefix&gt;/lib/&lt;package&gt;/</code>.</p>
+<p><code>ros2 launch &lt;package&gt; &lt;launch_file&gt;</code> executes a launch file from a package’s share directory, starting a set of processes together.</p>
+<p><code>ros2 topic list</code> prints every topic in the live graph with at least one endpoint.</p>
+<p><code>ros2 topic info &lt;topic&gt; --verbose</code> prints a topic’s type, its publisher and subscriber counts, and each endpoint’s QoS profile, which is how you diagnose a connection that should exist and does not.</p>
+<p><code>ros2 topic echo &lt;topic&gt;</code> subscribes and prints received messages as YAML; <code>--once</code> prints one and exits.</p>
+<p><code>ros2 topic hz &lt;topic&gt;</code> measures and prints the actual publication rate.</p>
+<p><code>ros2 topic pub &lt;topic&gt; &lt;type&gt; &lt;yaml&gt; -1</code> publishes one message from the command line, where <code>-1</code> is the short form of <code>--once</code>.</p>
+<p><code>ros2 node list</code> prints the node names currently in the graph, which confirms your node started and registered under the name you expected.</p>
+<p><strong>The git and GitHub commands</strong></p>
+<p><code>git clone &lt;url&gt;</code> copies a remote repository, including its full history, into a new local directory and records the source as the remote named <code>origin</code>.</p>
+<p><code>git checkout -b &lt;name&gt;</code> creates a branch at the current commit and switches to it.</p>
+<p><code>git checkout &lt;name&gt;</code> switches to an existing branch.</p>
+<p><code>git add &lt;path&gt;</code> stages changes, meaning it copies the current state of those paths into the index, the staging area that will form the next commit.</p>
+<p><code>git commit -m "&lt;message&gt;"</code> records the staged contents as a new commit on the current branch, with your configured name and email as author.</p>
+<p><code>git push -u origin &lt;branch&gt;</code> uploads the branch to <code>origin</code> and records the tracking relationship so later pushes need no arguments.</p>
+<p><code>git status -sb</code> shows the working tree state in short form with the branch and its tracking information, which is the single most useful orientation command in git.</p>
+<p><code>gh auth login</code> authenticates the GitHub CLI via the device flow and configures git’s credential helper.</p>
+<p><code>gh auth logout</code> removes the stored token for a host, affecting only the <code>gh</code> installation you run it from.</p>
+<p><code>gh pr create</code> opens a pull request from the current branch via the GitHub API.</p>
+<hr>
+<h2 id="toc-17">16. Glossary</h2>
+<p><strong>ament</strong> The ROS 2 build system conventions layer, wrapping CMake and setuptools. <code>ament_cmake</code> and <code>ament_python</code> are its two package build types.</p>
+<p><strong>AMENT_PREFIX_PATH</strong> The environment variable listing install prefixes that ROS tooling searches to resolve package names. Set by sourcing a setup script.</p>
+<p><strong>Callback</strong> A function you supply and something else calls. Timers and subscriptions both work by callback, invoked by the executor.</p>
+<p><strong>Callback group</strong> A node’s mechanism for controlling which callbacks may run concurrently. Section 2 uses only the default group, where nothing runs concurrently.</p>
+<p><strong>CDR</strong> Common Data Representation, the binary wire format DDS uses to serialize messages.</p>
+<p><strong>colcon</strong> The build tool that builds every package under a workspace’s <code>src/</code>.</p>
+<p><strong>Context</strong> The per-process container for ROS state, created by <code>rclpy.init()</code>.</p>
+<p><strong>DDS</strong> Data Distribution Service, the publish-subscribe middleware standard underneath ROS 2, responsible for discovery and transport.</p>
+<p><strong>Differential drive</strong> A two-wheel drive configuration with two controllable velocity components, forward speed and yaw rate, and no sideways motion.</p>
+<p><strong>Executor</strong> The object that waits for entities to become ready and invokes their callbacks. <code>rclpy.spin</code> uses a single-threaded one.</p>
+<p><strong>Manifest</strong> <code>package.xml</code>, the file declaring a package’s identity and dependencies.</p>
+<p><strong>Nonholonomic</strong> A system whose reachable velocities are fewer than its degrees of freedom in position. A differential drive robot can reach any pose but cannot translate sideways directly.</p>
+<p><strong>Overlay and underlay</strong> Layered ROS environments, where a later-sourced workspace shadows packages of the same name in earlier ones. Covered in the earlier primer.</p>
+<p><strong>Package</strong> The ROS unit of software, defined by containing a <code>package.xml</code>.</p>
+<p><strong>QoS</strong> Quality of Service, the per-endpoint delivery policy, negotiated between publisher and subscriber. Incompatible profiles silently fail to connect.</p>
+<p><strong>rclpy</strong> The Python client library for ROS 2, bound to the C library <code>rcl</code>.</p>
+<p><strong>Shebang</strong> The <code>#!</code> at the start of a script, naming the interpreter the kernel should run it with.</p>
+<p><strong>Twist</strong> <code>geometry_msgs/msg/Twist</code>, six doubles representing linear and angular velocity. The conventional message type for <code>/cmd_vel</code>.</p>
+<p><strong>Wait set</strong> The collection of timers, subscriptions and other entities an executor blocks on, waiting for any one to become ready.</p>
+<p><strong>Workspace</strong> A directory with a <code>src/</code> subdirectory, the unit <code>colcon build</code> operates on.</p>
+<hr>
+<h2 id="toc-18">Closing</h2>
+<h3 id="toc-19">What you now know</h3>
+<p>Section 2 builds one Python process that publishes <code>geometry_msgs/msg/Twist</code> velocity commands onto <code>/cmd_vel</code> five times a second and listens on <code>/kill</code> for an emergency stop, while an entirely separate Gazebo process launched from <code>asl_tb3_sim</code> subscribes to those commands and simulates a TurtleBot responding to them. The two processes find each other through DDS discovery with no configuration and no broker, which is the property that makes the architecture composable: the same node drives a real robot unchanged, and <code>ros2 topic echo</code> can attach as an extra observer without your node knowing.</p>
+<p>The lab’s directory structure is three distinct concepts nested inside one another, and keeping them separate prevents most of the available failures. <code>~/autonomy_ws</code> is a workspace, a disposable local build unit defined by having a <code>src/</code>. Inside <code>src/</code> sits your group’s git repository, a unit of collaboration that ROS knows nothing about. Inside that sits <code>s2_basic</code>, a ROS package, defined by containing a <code>package.xml</code>. <code>colcon</code> finds the package by scanning <code>src/</code> recursively, which is why it must be invoked from the workspace root and why invoking it elsewhere silently writes build artifacts into your git repository.</p>
+<p>Two metadata files turn a Python script into a node. <code>package.xml</code> declares dependencies, using <code>exec_depend</code> rather than <code>build_depend</code> because nothing in a Python node is compiled and the dependency only materializes at <code>import</code> time; the lab’s list is incomplete, since Task 3.1 imports <code>geometry_msgs</code> and never declares it, which works only because that package happens to be present in the underlay. <code>CMakeLists.txt</code> needs an <code>install(PROGRAMS ... DESTINATION lib/${PROJECT_NAME})</code> block, where <code>PROGRAMS</code> rather than <code>FILES</code> is what sets the execute bit, <code>lib/&lt;package&gt;</code> is the one directory <code>ros2 run</code> searches and is not configurable, and placement above <code>ament_package()</code> is mandatory because code after that macro is silently ignored. Verifying with <code>ls ~/autonomy_ws/install/s2_basic/lib/s2_basic/</code> splits any failure cleanly into a build problem or a code problem.</p>
+<p>Execution rests on mechanisms worth knowing precisely. The kernel will only <code>execve</code> a file with the execute bit set, which is what <code>chmod +x</code> provides, and on seeing the two bytes <code>#!</code> it runs the named interpreter instead, which is why <code>#!/usr/bin/env python3</code> works and why routing through <code>env</code> rather than hardcoding a path is the portable idiom. <code>rclpy.init()</code> creates the process context and joins DDS discovery. <code>super().__init__("constant_control")</code> must be your first line because every other node method depends on the state it establishes. Your <code>__init__</code> creates three objects and starts nothing: the publisher is something you call, while the timer and subscription are things that call you.</p>
+<p><code>rclpy.spin(node)</code> is where the program lives, and it is a single-threaded executor looping over build-wait-set, block, run ready callbacks. One thread means callbacks never overlap, which removes the need for locks, makes a slow callback delay everything including your kill switch, and makes timer periods a floor rather than a guarantee. A <code>Twist</code> carries six doubles but a differential drive robot can only realize two of them, <code>linear.x</code> as forward speed and <code>angular.z</code> as yaw rate, because it is nonholonomic; <code>Twist()</code> zero-initializes, which is what makes the stop command a one-liner. Message fields are typed views over C structures, so <code>msg.linear.x = 1</code> raises an <code>AssertionError</code> where <code>1.0</code> succeeds. In the kill callback, read <code>msg.data</code> rather than testing the message object, and cancel the timer before publishing zero, because the opposite order is correct only under the single-threaded executor you happen to be using today.</p>
+<p>Finally, <code>--symlink-install</code> makes installed files links to your sources, so editing Python inside an already-installed file needs no rebuild, while adding a file or touching either metadata file does. Sourcing is needed once per new terminal because environment variables are per-process, and again in existing terminals after a new package’s first build because <code>AMENT_PREFIX_PATH</code> predates it.</p>
+<h3 id="toc-20">Checklist, what is worth studying next</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Read the generated <code>CMakeLists.txt</code> in <code>s2_basic</code> top to bottom and identify <code>project()</code>, <code>find_package(ament_cmake REQUIRED)</code> and <code>ament_package()</code>, then confirm for yourself that your <code>install()</code> block sits above the last of those.</li>
+<li><input disabled="" type="checkbox"> Run <code>ros2 interface show geometry_msgs/msg/Twist</code> and <code>ros2 interface show std_msgs/msg/Bool</code> to see the definitions rather than taking section 10’s word for their shape.</li>
+<li><input disabled="" type="checkbox"> Run <code>ros2 topic info /cmd_vel --verbose</code> with the simulator and your node both running, and read the QoS block on both endpoints so the profile is concrete rather than abstract next time a topic silently fails to connect.</li>
+<li><input disabled="" type="checkbox"> Deliberately break the install destination: change <code>lib/${PROJECT_NAME}</code> to <code>bin</code>, rebuild, and observe that <code>colcon build</code> succeeds while <code>ros2 run</code> reports <code>No executable found</code>. Then move the block below <code>ament_package()</code> and observe that it fails the same way with no warning at all.</li>
+<li><input disabled="" type="checkbox"> Add <code>time.sleep(1.0)</code> inside <code>control_callback</code>, publish a kill, and measure how late the stop arrives. This is the fastest way to make the single-threaded executor’s consequences real.</li>
+<li><input disabled="" type="checkbox"> Read the <code>rclpy</code> documentation page on executors and callback groups, specifically <code>MultiThreadedExecutor</code> and <code>MutuallyExclusiveCallbackGroup</code>, which is the machinery the ordering argument in section 11 anticipates.</li>
+<li><input disabled="" type="checkbox"> Read <code>asl_tb3_sim</code>’s <code>signs.launch.py</code> in <code>~/anshuarora/tb_ws/src/asl-tb3-utils/asl_tb3_sim/</code> and list which processes it starts and which topics each contributes, since you will be writing against those for the rest of the quarter.</li>
+</ul>
+<h3 id="toc-21">My recommendations</h3>
+<p>Type the node three times rather than once. The lab builds it in three passes, Task 2.2 printing, Task 3.1 publishing, Task 4.1 subscribing, and each pass ends at a CA checkpoint. Resist the efficiency of writing the final version immediately, because the three passes correspond exactly to the three things a ROS node can do, and typing them separately is what turns “I read about publishers” into “I know what a publisher is.” Keep the reference file I wrote at <a href="../../Stanford_acads/Quarter_1/PORA1-AA274A/section2_constant_control_reference.py">section2_constant_control_reference.py</a> as something to compare against after each pass, not as something to paste.</p>
+<p>Verify the install tree before you debug any Python. The single most valuable habit in this lab is running <code>ls -l ~/autonomy_ws/install/s2_basic/lib/s2_basic/</code> the moment <code>ros2 run</code> complains. It costs two seconds and it partitions the entire space of failures into two halves, which is worth more than knowing any individual error message. The general form of this habit, checking the artifact rather than trusting the exit code, applies to every build system you will ever use.</p>
+<p>Add <code>geometry_msgs</code> to your <code>package.xml</code> even though the lab does not ask for it, and add <code>source ~/autonomy_ws/install/setup.bash</code> to your container’s <code>.bashrc</code> once Section 2 is signed off. The first makes your manifest honest for one line of effort. The second removes a recurring class of error for the rest of the quarter, and the only reason to delay it is that typing the source command by hand during this lab is better teaching than having it happen invisibly.</p>
+<p>On the group logistics, settle who owns the GitHub account before anyone runs <code>gh auth logout</code>, because the device flow needs that person present at a browser, and a half-finished logout in a shared container is an annoying place to be. Your container’s <code>gh</code> credentials are independent of your Windows ones, so there is no risk to your personal setup either way, but there is real risk of three people waiting on one absent teammate.</p>
+<p>Finally, treat the <code>/kill</code> pattern as the actual lesson of Section 4 rather than as a toy. An external topic that cancels the control loop and commands zero is the skeleton of every safety system you will build on this robot, and two details in it are load-bearing well beyond this lab: silence is not a stop command, because a base holds its last velocity, and safety ordering should be correct under the weakest concurrency assumptions you can manage rather than under the ones currently in force. Both of those will matter again when the robot is physical and a mistake costs more than a reset.</p>
+<hr>
+<p><em>Sources: the CS237A Fall 2026 “Section 2” lab document (last updated Oct 1, 2026), read in full; the ROS 2 Humble <code>rclpy</code>, <code>ament_cmake</code> and <code>geometry_msgs</code> documentation; and the verified state of this machine’s dev container, including <code>~/anshuarora/tb_ws/src/asl-tb3-utils/asl_tb3_sim</code>, the container <code>gh</code> configuration at <code>~/anshuarora/.config/gh/hosts.yml</code>, and the Section 1 repository at <code>~/anshuarora/autonomy_ws/src/pora_anshu</code>. Builds on two earlier internal primers, <a href="ros2-primer-2026-09-27.md">ROS 2 From the Ground Up</a> and <a href="linux-git-github-primer-2026-09-30.md">Linux, Git and GitHub, From the Ground Up</a>.</em></p>
+</section>
+</body>
+</html>
