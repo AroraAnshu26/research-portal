@@ -240,9 +240,9 @@ window.LIBRARY = [
   axis: "thesis",
   kind: "thesis",
   title: "The assurance seam",
-  dek: "Seven industrial openings were the same problem in seven costumes. Two kill arguments landed on 13 September and the surviving claim is narrower: non-regression at the moment of a model update. Through September the replay systems that would commoditise it all replayed digital boundaries. On 24 September one replayed recorded contact on a real arm, which is the condition the thesis said would kill it. The bound is that it replayed proprioceptive probes, not contact under a changed action. On 2 October that distinction stopped being the whole thesis: a deformable-physics testbed forked simulator state exactly, which is the counterfactual under a changed action the thesis says is unavailable, and found that 41.5% of one-step observations are identical anyway. A second obstacle sits behind non-replayability, and it is observability.",
+  dek: "Seven industrial openings were the same problem in seven costumes. Two kill arguments landed on 13 September and the surviving claim is narrower: non-regression at the moment of a model update. Through September the replay systems that would commoditise it all replayed digital boundaries. On 24 September one replayed recorded contact on a real arm, which is the condition the thesis said would kill it. The bound is that it replayed proprioceptive probes, not contact under a changed action. On 2 October that distinction stopped being the whole thesis: a deformable-physics testbed forked simulator state exactly, which is the counterfactual under a changed action the thesis says is unavailable, and found that 41.5% of one-step observations are identical anyway. A second obstacle sits behind non-replayability, and it is observability. On 12 October the two halves of the thesis separated: the buyer question is answered yes, Anthropic and Accenture committing at least a billion dollars each to embedded evaluation, with Anthropic paying the evaluator directly; and the validity question acquired a provable ceiling, a NeurIPS paper hiding capabilities in weights so that an auditor holding those weights cannot elicit them.",
   status: "contested",
-  date: "2026-10-07",
+  date: "2026-10-12",
   owner: "anshu",
   tags: ["EDGE", "7 beachheads", "kill test attached"],
   metrics: [
@@ -272,7 +272,10 @@ window.LIBRARY = [
     { v: "14", l: "Classification regulations from which FDA removed the federal-drug-testing exception to the 510(k) exemption on 2026-10-06, immediately in effect, for tests the federal government itself consumes" },
     { v: "30% to 77%", l: "Agreement with a reference judge on what an agent verifier can check, while the genuinely decidable share does not move, because the judge shares the blind spot (arXiv 2610.04699)" },
     { v: "6 of 14", l: "Behavioral competencies an open-source Level 4 ADS possessed under a third-party assessment framework published free by a university, at 3.01x10^-3 crashes per mile, ~1,000x the human rate (arXiv 2610.08458)" },
-    { v: "3", l: "Access tiers a frontier lab now vets its own customers into, top tier reviewed \"in depth in collaboration with the US government\", no public register (Anthropic CVP, 2026-10-06)" }
+    { v: "3", l: "Access tiers a frontier lab now vets its own customers into, top tier reviewed \"in depth in collaboration with the US government\", no public register (Anthropic CVP, 2026-10-06)" },
+    { v: "$1B + $1B", l: "Committed by Anthropic and Accenture each over five years to embedded independent evaluation, with Anthropic funding Accenture's work directly because pooled or government funding does not exist (2026-09-18, recorded here 2026-10-12)" },
+    { v: "4 of 4", l: "Elicitation methods a cryptographically hidden capability survived with full weight access, the authors' stated \"limit of elicitation-based capability audits\" (arXiv 2610.13928, NeurIPS 2026)" },
+    { v: "2.0-3.3%", l: "False-alarm rate an idealised runtime monitor can carry before unnecessary resets outweigh the savings from stopping failures early, 128,340 counterfactual branches (arXiv 2610.13516)" }
   ],
   body: [
     ["The claim", "Everyone wants to train the policy; almost nobody wants to do measurement theory. Unbundling, performance contracts and a dated EU obligation together create demand for a neutral party that can state, with validity, what a learned policy can actually do. The nearest historical shape is a metrology house or a rating agency, not a SaaS company."],
