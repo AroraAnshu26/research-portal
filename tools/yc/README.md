@@ -51,13 +51,60 @@ that the pipeline, the data and the published artefact agree.
 
 ## Known soft spots, carried from the original pass
 
-- web.archive.org is unreachable from this machine, so historical page states
-  came from secondary sources.
+- ~~web.archive.org is unreachable from this machine~~ **CORRECTED 2026-10-19.**
+  The CDX API (`web.archive.org/cdx/search/cdx?...&output=json`) and raw snapshot
+  fetches (`/web/<ts>id_/<url>`) both answer normally. The earlier "unreachable"
+  reading was almost certainly the gzip trap: raw snapshots come back
+  gzip-encoded, and a client that does not decompress gets binary that looks
+  like a failed fetch. Use `--compressed`, or check for the `` magic and
+  `gzip.decompress`. `prepivot.py` does this.
 - ycombinator.com/rfs only server-renders the currently selected edition; the tab
-  buttons are React state with no href and no reachable JSON. Earlier RFS
-  editions in `rfs.json` are reconstructed from named secondary sources, and the
-  Winter-2025-vs-Spring-2025 boundary is explicitly unreliable. Fall 2026 is
-  primary.
+  buttons are React state with no href and no reachable JSON. **Worked around
+  2026-10-19**: open the page in a real browser engine, click each edition tab,
+  read the rendered DOM. All three 2026 editions in `rfs_hardware_2026.json` are
+  primary by that route. `rfs.json`'s pre-Fall-2026 editions remain the older
+  secondary-source reconstruction and are superseded where the two overlap.
+
+## The RFS hardware slice (added 2026-10-19)
+
+A second pipeline sharing the same scrape, covering the eight space / defense /
+silicon / metal RFS requests. Unlike the batch census it has **no Winter-2022
+floor** — `scrape_all.py` pulls all 50 batches, Summer 2005 to Summer 2027
+(6,306 companies), because the 2022 cut would hide Astranis (W16), Scale AI
+(S16) and Solugen (W17).
+
+```bash
+python scrape_all.py     # -> yc_raw_all.json   (ALL batches, no 2022 floor)
+python rfs_match.py      # -> rfs_companies.json, rfs_slugs.json
+YC_FOUNDERS_SRC=yc_raw_all.json YC_FOUNDERS_ONLY=rfs_slugs.json   YC_FOUNDERS_OUT=rfs_founders.json python founders.py
+python prepivot.py       # -> rfs_prepivot.json  (Wayback; slow, cached, resumable)
+python build_rfs.py      # -> ../../reports/yc-rfs-hardware-map.html
+python card_rfs.py       # registers the Library card (idempotent)
+```
+
+`founders.py` now takes three env vars (`YC_FOUNDERS_SRC`, `YC_FOUNDERS_ONLY`,
+`YC_FOUNDERS_OUT`) so it can be pointed at a slug subset; with none set it
+behaves exactly as before.
+
+**Matching rule that matters.** The theme word must appear in a field the
+company chose to describe itself by — one-liner, YC tags, or industry — not
+merely somewhere in the long description. Without that rule a dating app and a
+payments company scored as chip companies. There is also a hand-read exclusion
+list in `rfs_match.py` for cases where the word is real but means something
+else: a fundraising tool called "Metal", a bank offering "bare-metal" access,
+mosquito-killing drones under defense. Do not regress those.
+
+**Thin counts are findings.** Modern Metal Mills matches 4 companies and Compute
+at Sea matches 1, out of 6,306. Those requests exist because the field is empty.
+Resist the urge to loosen the query until the number looks respectable — an
+earlier pass that did exactly that admitted the junk listed above.
+
+**prepivot.py is rate-limited and partial.** 12 workers, per-slug JSON cache
+under `.cache/yc-prepivot`, resumable. Of 134 matched companies with a former
+name, the archive returned a usable pitch for 29 and a materially different one
+for 20. The recovered pitch is the EARLIEST ARCHIVED one, which for some
+companies postdates their batch — it is not necessarily the application pitch,
+and the dashboard says so.
 - Classification is keyword-derived and not hand-verified per company. Expect
   false positives in the flags.
 - Every figure in `market.json` under `estimate` and `equity` is an

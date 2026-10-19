@@ -1,0 +1,86 @@
+{
+ "pulled": "2026-10-19",
+ "source": "https://www.ycombinator.com/rfs",
+ "method": "Primary. The edition tabs on ycombinator.com/rfs are React state with no href and no reachable JSON, so only the currently selected edition appears in the page HTML. Each tab was clicked in a real browser engine (the Claude built-in browser pane) and the rendered text read out of the DOM. This supersedes the secondary-source reconstruction recorded in rfs.json for every edition before Fall 2026.",
+ "editions_available": ["Fall 2026", "Summer 2026", "Spring 2026", "Fall 2025", "Summer 2025", "Spring 2025", "Winter 2025", "Summer 2024"],
+ "edition_framing": {
+  "Fall 2026": "AI is moving into the physical world. YC frames the batch around startups rebuilding the systems that power the real world - education, healthcare, defense, finance, infrastructure and work itself - and notes it includes, for the first time, a request from the sitting U.S. Secretary of the Army.",
+  "Summer 2026": "AI has stopped being a feature and started being the foundation. Startups rebuilding software, services, and silicon - and pushing AI into the physical world. Several requests come directly from YC founders describing what they see on the frontier.",
+  "Spring 2026": "The way startups are built has shifted quickly. AI-native companies can now be built faster, cheaper, and with more ambition than ever. Ideas spanning AI-native workflows, new financial primitives, and modernized industrial systems."
+ },
+ "targets": [
+  {
+   "anchor": "electronics-in-space",
+   "title": "Electronics in Space",
+   "author": "Philip Johnston",
+   "edition": "Summer 2026",
+   "theme": "space",
+   "text": "We are about to see an absolutely huge increase in the capacity that humanity has to put things in space because of reusable rockets from SpaceX and Stoke Space. This means that we're going to need enormous amounts of new compute capacity in space.\n\nThe particular electronics in space we'd like to see is inference chips. There's going to be an absolutely enormous market for inference chips in space. What we mean by chips in space is something that is slightly optimized for mass, slightly optimized for thermal, and slightly optimized for radiation.\n\nIf you are working at SpaceX or NVIDIA and you've been spending time doing chip design, then Y Combinator would love to hear from you."
+  },
+  {
+   "anchor": "hardware-supply-chain",
+   "title": "Hardware Supply Chain",
+   "author": "Nicolas Dessaigne",
+   "edition": "Summer 2026",
+   "theme": "supply-chain",
+   "text": "We are funding more and more hardware companies, from medical devices to home robots to space companies.\n\nBut building hardware in the US is still far too slow compared to China. In Shenzhen, a team can go from design to a new physical part in a day. In the US, that same loop often takes weeks. And that gap compounds.\n\nThe problem isn't just the supply chain. It's iteration speed.\n\nChina wins because hardware teams can move fast. They have dense supplier networks, rapid turnaround, and tight coordination between design and production. In the US, this system barely exists.\n\nA few startups are starting to build parts of it. For example, Hlabs (W26) is building actuators; Prototyping.io (P26) helps turn designs into mechanical parts in days. But the overall stack is still missing.\n\nWe believe the next generation of great hardware companies will be built on much faster iteration loops.\n\nWe're especially interested in startups that:\n- produce parts dramatically faster\n- enable rapid hardware iteration\n- tightly integrate design, manufacturing, and logistics\n\nIf you're helping hardware teams move at an order of magnitude faster, we want to hear from you."
+  },
+  {
+   "anchor": "industrial-capabilities-in-space",
+   "title": "Industrial Capabilities in Space",
+   "author": "Adi Oltean",
+   "edition": "Summer 2026",
+   "theme": "space",
+   "text": "The broad idea we would like to see is developing industrial capabilities on the moon and in space, particularly extracting raw materials such as silicon, aluminum, iron, and titanium through electrolysis and 3D printing of complex structures from molten regolith on the moon, which should be more efficient than on Earth due to lack of supports.\n\nIf you are working on something like that in the space, then Y Combinator would like to hear from you."
+  },
+  {
+   "anchor": "supply-chain-for-semiconductors",
+   "title": "Supply Chain 2.0 for Semiconductors",
+   "author": "Diana Hu",
+   "edition": "Summer 2026",
+   "theme": "semiconductors",
+   "text": "A single advanced AI chip goes through about 1,400 process steps, crosses a dozen countries, and takes five months to build. This supply chain is managed with spreadsheets, SAP, and phone calls.\n\nIn 2021 a $300 chip held up a $50,000 car, and $210 billion in vehicles didn't get built. Companies could see their direct suppliers but had zero visibility into the second and third tiers. It's gotten worse. TSMC's advanced packaging is the single biggest bottleneck in AI compute right now, and NVIDIA has locked up over 60 percent of it. HBM memory is booked through 2026. Export controls change quarterly.\n\nAt the same time the CHIPS Act is standing up new American fabs in Arizona, Texas, Ohio, and New York, each needing a supply chain built nearly from scratch.\n\nAlmost none of the tooling you'd expect exists: real-time allocation tracking, multi-tier risk monitoring, export compliance. You need to understand wafer allocation and packaging constraints at a deep level to build this, which is exactly why it's a startup opportunity and not a feature inside SAP.\n\nIf you're building supply chain 2.0 for chips, we'd love to talk."
+  },
+  {
+   "anchor": "modern-metal-mills",
+   "title": "Modern Metal Mills",
+   "author": "Zane Hengsperger",
+   "edition": "Spring 2026",
+   "theme": "industrial",
+   "text": "When people talk about reindustrializing America, they usually focus on labor costs or geopolitics. But a bigger problem is hiding in plain sight: American metal mills are slow by design.\n\nIf you buy rolled aluminum or steel tube in the U.S., lead times of 8 to 30 weeks are normal. Most buyers can't even purchase directly from mills. And despite high prices, mills still operate on thin margins. That's not because demand is weak or workers are unskilled - it's because the systems running these mills were designed decades ago.\n\nProduction planning, scheduling, quoting, and execution are fragmented. Mills optimize for tonnage and utilization, not speed, flexibility, or margin. Short runs and spec changes are treated as disruptions instead of opportunities.\n\nAutomation has lagged at the exact moment the workforce is shrinking. Material handling, changeovers, inspection, and quality control still rely on tribal knowledge held by a few experienced operators. Automation is mostly used to push more tons through a slow system, not to eliminate setup time or variability.\n\nEnergy is the other half of the problem. Aluminum and steel are extremely energy-intensive, yet most mills rely on legacy power contracts and inflexible grids. New energy models - on-site generation, smarter power management, even next-generation nuclear - could dramatically reduce costs, but they're rarely designed into mills from the start.\n\nWhat's changed is that software and energy technology are finally good enough to rethink the entire system. AI-driven planning, real-time MES, and modern automation can compress lead times and raise margins at the same time.\n\nWe think this creates an opportunity to build modern, software-defined American mills - especially in aluminum rolling and steel tube - where long lead times and energy costs are most entrenched.\n\nModernizing mills isn't just about going faster. It's about making domestic metal cheaper, more flexible, and more profitable - and rebuilding the industrial foundation of the U.S."
+  },
+  {
+   "anchor": "the-future-of-american-defense",
+   "title": "The Future of American Defense",
+   "author": "Daniel P. Driscoll, US Secretary of the Army",
+   "edition": "Fall 2026",
+   "theme": "defense",
+   "text": "Warfare is at an inflection point, and the old ways of Army acquisition simply don't keep pace with modern threats. Modern combat demands commercially developed, modular open-system solutions, and that's why we ripped up the old acquisition playbook.\n\nWe need hungry, innovative founders to build for the crucible of ground combat. The threats we face change daily, and the Army must dominate everywhere, from the Arctic to the archipelago and from space to subterranean environments. So here is our request for startups. We are actively funding low-cost interceptors or any component that helps us lower the cost per kill.\n\nWe need next-gen sensors, software, payloads, and other hardware that plugs directly into our open system architecture. We need cutting-edge drones, resilient logistics, and advanced manufacturing, and we need it all to survive the most extreme climates on Earth. Bring us your ideas, and we will give you the capital and the proving ground to scale.\n\nThere has never been a better time to build for the Army. The door is wide open, so let's get to work."
+  },
+  {
+   "anchor": "compute-at-sea",
+   "title": "Compute at Sea",
+   "author": "Francois Chaubard",
+   "edition": "Fall 2026",
+   "theme": "compute",
+   "text": "Artificial intelligence is running out of compute. And data centers are running out of electricity and land.\n\nThe demand for data centers is insatiable. But new data centers can take years for approval and enough megawatts, and still could get killed by local government intervention.\n\nWhile communities increasingly oppose the land, the water is open.\n\nIt sounds crazy, but we think part of the answer may be to move compute offshore.\n\nThe ocean is 70% of the Earth's surface area, has abundant sunlight, no permitting process, and is an enormous natural heat sink that is already getting hit by the sun all day anyway. Think of them as compute flotillas: many standardized, modular vessels operating together as one global cloud.\n\nWe want to fund founders who are bringing the world's compute to the oceans."
+  },
+  {
+   "anchor": "new-operating-systems-for-the-physical-world",
+   "title": "New Operating Systems for the Physical World",
+   "author": "Charlie Warren",
+   "edition": "Fall 2026",
+   "theme": "physical-ops",
+   "text": "80% of the global workforce doesn't sit at a desk.\n\nBut the software for the physical world hasn't really changed in over 20 years. In construction, maintenance, and fleet operations, the software basically does some combination of: dispatching people, tracking them, managing assets, and billing the customer.\n\nWe're excited about how AI changes that entire model of work.\n\nThere are now three kinds of workers:\n- AI agents that can quote complex work and schedule teams.\n- Robots actually deployed in the field.\n- And humans who increasingly use wearables to record everything they're doing.\n\nToday's operating systems weren't designed to manage all three types of workers. And this creates all sorts of cool new opportunities for a startup. How do you route a job between an agent, a robot, and a person? What does safety look like when humans and robots work literally side-by-side? And how do you measure reliability?\n\nThe opportunity here is heck of a lot bigger than the existing software. The incumbents charge for human coordination and visibility. The new operating systems will manage the robot and human labor together. And these industries spend 10 to 100x more on labor than software.\n\nThere's another reason you should build here. You'll record all the work as it actually happens. The frontier models, robotics startups, or software incumbents won't have that kind of end-to-end data.\n\nSo if you're building this new kind of operating system for the physical world, we'd love to hear from you."
+  }
+ ],
+ "adjacent": [
+  {"title": "Counter-Swarm Defense", "author": "Tyler Bosmeny", "edition": "Summer 2026", "theme": "defense"},
+  {"title": "Inference Chips for Agent Workflows", "author": "Diana Hu", "edition": "Summer 2026", "theme": "semiconductors"},
+  {"title": "AI for Low-Pesticide Agriculture", "author": "Garry Tan", "edition": "Summer 2026", "theme": "industrial"},
+  {"title": "AI Guidance for Physical Work", "author": "David Lieb", "edition": "Spring 2026", "theme": "physical-ops"},
+  {"title": "Large Spatial Models", "author": "Ryan McLinko", "edition": "Spring 2026", "theme": "physical-ops"},
+  {"title": "Data for the Real World", "author": "Austin Tindle and Diana Hu", "edition": "Fall 2026", "theme": "physical-ops"},
+  {"title": "AI for the Aging Population", "author": "Max Kolysh", "edition": "Fall 2026", "theme": "physical-ops"}
+ ]
+}

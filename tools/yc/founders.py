@@ -152,7 +152,13 @@ def worker(q, results, lock, counters):
 
 
 def main():
-    raw = json.load(io.open(os.path.join(HERE, "yc_raw.json"), encoding="utf-8"))
+    src = os.environ.get("YC_FOUNDERS_SRC", "yc_raw.json")
+    raw = json.load(io.open(os.path.join(HERE, src), encoding="utf-8"))
+    only = os.environ.get("YC_FOUNDERS_ONLY")
+    if only:
+        keep = set(json.load(io.open(os.path.join(HERE, only), encoding="utf-8")))
+        raw = [r for r in raw if r.get("slug") in keep]
+        print("restricted to %d slugs from %s" % (len(raw), only))
     slugs = [r["slug"] for r in raw if r.get("slug")]
     by_slug = {r["slug"]: r for r in raw if r.get("slug")}
     print("companies to resolve: %d  (workers=%d)" % (len(slugs), WORKERS))
@@ -188,7 +194,7 @@ def main():
             "long_description": c.get("long_description") or "",
             "founders": f, "error": rec.get("error"),
         })
-    path = os.path.join(HERE, "founders.json")
+    path = os.path.join(HERE, os.environ.get("YC_FOUNDERS_OUT", "founders.json"))
     with io.open(path, "w", encoding="utf-8") as fh:
         json.dump(out, fh, ensure_ascii=False)
 

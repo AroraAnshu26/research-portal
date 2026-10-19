@@ -1,0 +1,526 @@
+{
+ "truss": {
+  "slug": "truss",
+  "name": "Truss",
+  "batch": "Summer 2021",
+  "current_one_liner": "Truss is a banking and payments network for blue-collar trades.",
+  "original_one_liner": "Banking for construction",
+  "original_description": "Truss is an online payment processing platform that enables construction companies to send and receive payments instantly, for free.\r\n",
+  "original_name": "Truss",
+  "archived": "20230324220735",
+  "archive_url": "https://web.archive.org/web/20230324220735/https://www.ycombinator.com/companies/truss",
+  "from_former_slug": false,
+  "slug_used": "truss",
+  "former_names": [
+   "MazumaGo"
+  ],
+  "pitch_changed": true
+ },
+ "foreman": {
+  "slug": "foreman",
+  "name": "Foreman",
+  "batch": "Winter 2026",
+  "current_one_liner": "Keeping contractors on the job site, not behind a desk.",
+  "original_one_liner": "Keeping contractors on the job site, not behind a desk.",
+  "original_description": "Foreman is the all-in-one AI-powered project management platform built for residential contractors.\r\nToday, contractors run complex businesses on a patchwork of tools that were never designed for construction — estimates in spreadsheets, plans in email, proposals copy-pasted from old Word docs, photos scattered across phones. Nothing talks to anything else, and the admin work never stops.\r\nForeman replaces that patchwork with a single platform that manages the full lifecycle of a construction job, from first estimate to final invoice. Contractors upload plans, photos, or a project description, and Foreman's AI instantly generates structured takeoffs, scoped estimates, and professional proposals — in minutes, not hours. From there, every customer record, document, permit, photo, change order, and conversation lives in one place, organized around the job.\r\nThe result: contractors spend less time buried in admin and more time building. They bid faster, manage jobs with less chaos, and close projects cleanly — without duct-taping five tools together to do it.",
+  "original_name": "Foreman",
+  "archived": "20260422150421",
+  "archive_url": "https://web.archive.org/web/20260422150421/https://www.ycombinator.com/companies/foreman",
+  "from_former_slug": false,
+  "slug_used": "foreman",
+  "former_names": [
+   "Scout Out"
+  ],
+  "pitch_changed": false
+ },
+ "onsite-pro": {
+  "slug": "onsite-pro",
+  "name": "Onsite Pro",
+  "batch": "Summer 2021",
+  "current_one_liner": "Revolutionizing digital selling within HVAC",
+  "original_one_liner": "Revolutionizing digital selling within HVAC",
+  "original_description": "We make contractor proposal creation as simple as checking out of e-commerce. We equip HVAC distributors (who sell HVAC equipment to contractors) with digital catalogs preloaded with pricing, product details, and templates that allow contractors to create a professional proposal in under 10 minutes and sell in-person.",
+  "original_name": "Onsite Pro",
+  "archived": "20241224102544",
+  "archive_url": "https://web.archive.org/web/20241224102544/https://www.ycombinator.com/companies/onsite-pro",
+  "from_former_slug": false,
+  "slug_used": "onsite-pro",
+  "former_names": [
+   "Greenwork"
+  ],
+  "pitch_changed": false
+ },
+ "elyos-ai": {
+  "slug": "elyos-ai",
+  "name": "Elyos AI",
+  "batch": "Summer 2023",
+  "current_one_liner": "AI Customer Service Agents for trades and field services",
+  "original_one_liner": "The platform for energy flexibility and demand response",
+  "original_description": "Elyos Energy helps companies save cost and reduce carbon emissions by shifting electricity consumption outside of peak demand. We connect to smart thermostats, HVAC systems, batteries and EV chargers to automatically lower consumption during peak times. \r\n\r\n\r\nElectrification is at the core of the UK’s net zero strategy. However, with the increase of renewable energy as a mix of the electricity supply, comes an intermittent and more volatile balance between supply and demand.  With the mass adoption of EVs, the increasingly urgent demand for air conditioning and electrification of heat, overall electricity demand is outpacing the transformation of the grid. \r\n\r\n\r\nElyos Energy is helping to solve the problem of supply and demand with energy flexibility at scale, starting with the 1.6 million commercial buildings in the UK.\r\n\r\n\r\nOur SaaS platform enables large commercial buildings to leverage their distributed energy resources (smart thermostats, HVAC systems, solar, battery) to reduce strain on the grid at hours of peak demand and lower their energy costs.\r\n\r\nWe connect to a range of APIs from smart thermostats, HVAC systems, solar, battery etc. to automate measures of energy consumption reduction and opt-in to national grid demand response events where customers can earn money for energy reduction. By shifting 10% of peak time consumption, we save companies 15% on their electric",
+  "original_name": "Elyos Energy",
+  "archived": "20240209013010",
+  "archive_url": "https://web.archive.org/web/20240209013010/https://www.ycombinator.com/companies/elyos-energy",
+  "from_former_slug": true,
+  "slug_used": "elyos-energy",
+  "former_names": [
+   "Prasinus Energy",
+   "Open Energy",
+   "Elyos Energy",
+   "Elyos"
+  ],
+  "pitch_changed": true
+ },
+ "cocrafter": {
+  "slug": "cocrafter",
+  "name": "CoCrafter",
+  "batch": "Winter 2024",
+  "current_one_liner": "B2B construction marketplace to match contractors and subcontractors.",
+  "original_one_liner": "B2B construction marketplace",
+  "original_description": "CoCrafter is a construction marketplace to match contractors and subcontractors. Starting in the strong German SMB sector, CoCrafter helps contractors to find and manage local as well as foreign subcontractors.",
+  "original_name": "CoCrafter",
+  "archived": "20240313032123",
+  "archive_url": "https://web.archive.org/web/20240313032123/https://www.ycombinator.com/companies/cocrafter",
+  "from_former_slug": false,
+  "slug_used": "cocrafter",
+  "former_names": [
+   "Cocrafter"
+  ],
+  "pitch_changed": true
+ },
+ "oncactus": {
+  "slug": "oncactus",
+  "name": "Cactus",
+  "batch": "Spring 2025",
+  "current_one_liner": "All-In-One AI Growth Partner. Built for Trades.",
+  "original_one_liner": "AI copilot for solopreneurs",
+  "original_description": "We're building an AI copilot for solopreneurs to automate their admin work. Our AI answers the phone, qualifies customers, and books in revenue. Think Jarvis for Ironman. Cactus is the AI business assistant that empowers solopreneurs to succeed.",
+  "original_name": "Cactus",
+  "archived": "20250506232436",
+  "archive_url": "https://web.archive.org/web/20250506232436/https://www.ycombinator.com/companies/oncactus",
+  "from_former_slug": false,
+  "slug_used": "oncactus",
+  "former_names": [
+   "Cravd",
+   "Cactus",
+   "Cactus AI"
+  ],
+  "pitch_changed": true
+ },
+ "humance": {
+  "slug": "humance",
+  "name": "Humance",
+  "batch": "Winter 2021",
+  "current_one_liner": "AI that keeps complex construction projects on schedule.",
+  "original_one_liner": "#1 Science backed eating disorder recovery program.",
+  "original_description": "R.care is not just another diet program or calorie-counting app. It's a comprehensive, evidence-based solution designed to address the root causes of binge eating and provide lasting recovery. Say goodbye to waiting lists and hefty price tags, and take control of your relationship with food.",
+  "original_name": "R.care",
+  "archived": "20240803185556",
+  "archive_url": "https://web.archive.org/web/20240803185556/https://www.ycombinator.com/companies/r-care",
+  "from_former_slug": true,
+  "slug_used": "r-care",
+  "former_names": [
+   "Angkm",
+   "Blushh",
+   "blushh",
+   "Blushh",
+   "R.care"
+  ],
+  "pitch_changed": true
+ },
+ "rendalomaq": {
+  "slug": "rendalomaq",
+  "name": "RendaloMaq",
+  "batch": "Summer 2021",
+  "current_one_liner": "Tech-powered equipment rentals in Latam.",
+  "original_one_liner": "Simplest access to machinery in Latam.",
+  "original_description": "RendaloMaq makes it easy for contractors to rent, buy or sell construction equipment in Latin America with a single point of contact. We operate out of 100+ rental yards in Chile, Brazil and Mexico, managing online the largest inventory in the region. We find any equipment for you in minutes to help you build faster and become more productive.\r\n\r\nOur software gives equipment owners real-time data about the location and usage of their various machines they’re renting out, thanks to our GPS and telematics technology. We also offer flexible solutions for equipment financing. Backed by Y Combinator and other VC funds.",
+  "original_name": "RendaloMaq",
+  "archived": "20230416231934",
+  "archive_url": "https://web.archive.org/web/20230416231934/https://www.ycombinator.com/companies/rendalomaq",
+  "from_former_slug": false,
+  "slug_used": "rendalomaq",
+  "former_names": [
+   "Rendalo Maq"
+  ],
+  "pitch_changed": true
+ },
+ "brickwise": {
+  "slug": "brickwise",
+  "name": "Brickwise",
+  "batch": "Fall 2025",
+  "current_one_liner": "AI property manager for landlords and estate agents",
+  "original_one_liner": "AI property manager for landlords and estate agents",
+  "original_description": "We've built an AI property manager that automates maintenance for Landlord's and Property Managers. Brickwise handles tenant calls and messages 24/7, following up by chasing contractors and resolving payments.\r\n\r\nThis provides higher tenant satisfaction, while also simplifying the workloads of property managers. Our property manager operates across all communication channels, including SMS, WhatsApp, phone calls, and email, making it easy to integrate with existing workflows.",
+  "original_name": "Brickwise",
+  "archived": "20251125231811",
+  "archive_url": "https://web.archive.org/web/20251125231811/https://www.ycombinator.com/companies/brickwise",
+  "from_former_slug": false,
+  "slug_used": "brickwise",
+  "former_names": [
+   "Brickwise",
+   "Brickwise AI"
+  ],
+  "pitch_changed": false
+ },
+ "feldy": {
+  "slug": "feldy",
+  "name": "Feldy",
+  "batch": "Winter 2024",
+  "current_one_liner": "Field-First AI for home services",
+  "original_one_liner": "AI go-to-market revenue engine for home services installers. ",
+  "original_description": "Aether helps home services teams generate more revenue by instantly targeting high-intent properties, measuring property, managing deals and sending quotes-in one platform. \r\n",
+  "original_name": "Aether",
+  "archived": "20251130093236",
+  "archive_url": "https://web.archive.org/web/20251130093236/https://www.ycombinator.com/companies/aether",
+  "from_former_slug": true,
+  "slug_used": "aether",
+  "former_names": [
+   "Aether Energy",
+   "Aether"
+  ],
+  "pitch_changed": true
+ },
+ "averyiq": {
+  "slug": "averyiq",
+  "name": "AveryIQ",
+  "batch": "Winter 2024",
+  "current_one_liner": "AI Copilot for Property Managers and Landlords",
+  "original_one_liner": "AI Copilot for Property Managers and Landlords",
+  "original_description": "Avery helps property managers fill vacancies faster and resolve maintenance requests automatically. Our AI property manager and leasing agents can be assigned to complete many common tasks, from getting tours scheduled to following up with vendors.  \r\n\r\nThere are nearly 300,000 third party property management companies across the US, many of whom are overwhelmed by dozens of repetitive tenant requests streaming in through antiquated software every day. Avery modernizes the property manager’s toolkit with a two-way contact center to provide an excellent resident experience.\r\n\r\nLearn more at https://averyiq.com",
+  "original_name": "AveryIQ",
+  "archived": "20260421172554",
+  "archive_url": "https://web.archive.org/web/20260421172554/https://www.ycombinator.com/companies/averyiq",
+  "from_former_slug": false,
+  "slug_used": "averyiq",
+  "former_names": [
+   "Starlight Charging",
+   "Avery HQ",
+   "Avery"
+  ],
+  "pitch_changed": false
+ },
+ "subvysion": {
+  "slug": "subvysion",
+  "name": "SubVysion",
+  "batch": "Summer 2026",
+  "current_one_liner": "Autonomous rovers to make the ‘Google Maps’ of underground utilities",
+  "original_one_liner": "Autonomous rovers to make the ‘Google Maps’ of underground utilities",
+  "original_description": "We build centimeter-accurate 3D maps of underground utilities to help construction contractors dig safer and faster. With underground intelligence, contractors can avoid dangerous utility strikes and costly project delays.",
+  "original_name": "SubVysion",
+  "archived": "20260826155756",
+  "archive_url": "https://web.archive.org/web/20260826155756/https://www.ycombinator.com/companies/subvysion",
+  "from_former_slug": false,
+  "slug_used": "subvysion",
+  "former_names": [
+   "SubVysion, Inc."
+  ],
+  "pitch_changed": false
+ },
+ "applied-electrodynamics-inc": {
+  "slug": "applied-electrodynamics-inc",
+  "name": "Applied Electrodynamics, Inc.",
+  "batch": "Summer 2026",
+  "current_one_liner": "A new kind of camera that can see through walls.",
+  "original_one_liner": "A new kind of camera that can see through walls.",
+  "original_description": "Applied Electrodynamics builds imaging systems that see through solid matter. Our team previously co-invented the iPhone touchscreen and Nest learning thermostat. We’re starting in construction, helping teams map structural elements and utilities inside walls and ceilings. The same platform extends to security screening and cargo inspection. Our mission is to make the hidden physical world machine-readable across the entire electromagnetic spectrum.\r\n",
+  "original_name": "Applied Electrodynamics, Inc.",
+  "archived": "20260731182842",
+  "archive_url": "https://web.archive.org/web/20260731182842/https://www.ycombinator.com/companies/applied-electrodynamics-inc",
+  "from_former_slug": false,
+  "slug_used": "applied-electrodynamics-inc",
+  "former_names": [
+   "Applied Electrodynamics"
+  ],
+  "pitch_changed": false
+ },
+ "rownd": {
+  "slug": "rownd",
+  "name": "Rownd",
+  "batch": "Winter 2022",
+  "current_one_liner": "Fully autonomous defense solutions for the global edge.",
+  "original_one_liner": "Killing the login page via instantly authenticated accounts.",
+  "original_description": "Rownd helps companies register and retain more users through frictionless sign-in across all of their websites or apps, with a single simple code snippet.\r\n\r\nWe let our customers change how and where authentication happens, killing the static login page forever.\r\n\r\nIncrease your conversions by 50% within weeks!  \r\n",
+  "original_name": "Rownd",
+  "archived": "20230417031249",
+  "archive_url": "https://web.archive.org/web/20230417031249/https://www.ycombinator.com/companies/rownd",
+  "from_former_slug": false,
+  "slug_used": "rownd",
+  "former_names": [
+   "Rownd",
+   "LlamaFarm"
+  ],
+  "pitch_changed": true
+ },
+ "apolloshield": {
+  "slug": "apolloshield",
+  "name": "ApolloShield",
+  "batch": "Summer 2016",
+  "current_one_liner": "ApolloShield is a system that detects unwanted drones and drives them…",
+  "original_one_liner": "ApolloShield is a system that detects unwanted drones and drives them…",
+  "original_description": "Detect and safely block unwanted drone intrusions. Track down and arrest unauthorized operators.\r\n\r\nDeveloped by experts from Israel Defense Forces and currently serving more than 25 countries, ApolloShield is the world leader in detecting and blocking drone intrusions, as well as tracking down and arresting unauthorized drone operators.\r\n\r\n",
+  "original_name": "ApolloShield",
+  "archived": "20240519084052",
+  "archive_url": "https://web.archive.org/web/20240519084052/https://www.ycombinator.com/companies/apolloshield",
+  "from_former_slug": false,
+  "slug_used": "apolloshield",
+  "former_names": [
+   "AirFence"
+  ],
+  "pitch_changed": false
+ },
+ "rmfg": {
+  "slug": "rmfg",
+  "name": "RMFG",
+  "batch": "Summer 2021",
+  "current_one_liner": "Advanced Contract MFG for fast moving hardware companies",
+  "original_one_liner": "We're making off-the-shelf robot arms autonomous",
+  "original_description": "Reason Robotics uses AI to make off-the-shelf robot arms 10x more useful, we then rent them out to manufacturers. \r\n\r\nRobots are too hard to use and too single purpose. We add \"self-driving\" to robots. Users define tasks in our UI and our robot figures out how to accomplish it automatically. \r\n\r\nOur mission is to build autonomous robotic arms with human-level reasoning capabilities.",
+  "original_name": "Reason Robotics",
+  "archived": "20230427233320",
+  "archive_url": "https://web.archive.org/web/20230427233320/https://www.ycombinator.com/companies/reason-robotics",
+  "from_former_slug": true,
+  "slug_used": "reason-robotics",
+  "former_names": [
+   "slip",
+   "Slip",
+   "Diode",
+   "Reason Robotics"
+  ],
+  "pitch_changed": true
+ },
+ "mandel-ai": {
+  "slug": "mandel-ai",
+  "name": "Mandel AI",
+  "batch": "Summer 2023",
+  "current_one_liner": "AI Coordination Layer for Supply Chain",
+  "original_one_liner": "AI Procurement Agent for Manufacturing",
+  "original_description": "Mandel surfaces supply chain disruptions and supplier updates with email AI. We use AI agents that proactively extract data and email suppliers for order updates, building a real-time self updating supply chain source of truth.",
+  "original_name": "Mandel AI",
+  "archived": "20241014172301",
+  "archive_url": "https://web.archive.org/web/20241014172301/https://www.ycombinator.com/companies/mandel-ai",
+  "from_former_slug": false,
+  "slug_used": "mandel-ai",
+  "former_names": [
+   "Enbank",
+   "Fynt",
+   "Fynt AI",
+   "Fynt",
+   "Fynt AI"
+  ],
+  "pitch_changed": true
+ },
+ "stillwind": {
+  "slug": "stillwind",
+  "name": "Stillwind",
+  "batch": "Winter 2025",
+  "current_one_liner": "PCB component librarian",
+  "original_one_liner": "Autonomous Electrical Engineering",
+  "original_description": "Our first product, Stillwind Search, makes finding an electronic part as easy as writing a text message. \r\nThe search engine turns natural language queries into fine-grained specifications that are matched against our proprietary database of millions of parts. \r\n\r\nThis is the first step towards autonomous electrical engineering.",
+  "original_name": "Stillwind",
+  "archived": "20251118071012",
+  "archive_url": "https://web.archive.org/web/20251118071012/https://www.ycombinator.com/companies/stillwind",
+  "from_former_slug": false,
+  "slug_used": "stillwind",
+  "former_names": [
+   "P2P Industries",
+   "Augento"
+  ],
+  "pitch_changed": true
+ },
+ "nox-metals": {
+  "slug": "nox-metals",
+  "name": "Nox Metals",
+  "batch": "Summer 2025",
+  "current_one_liner": "Supplying America's Industrial Base",
+  "original_one_liner": "The modern factory for fast, low-cost metals. ",
+  "original_description": "Nox Metals is building the fastest processing metals factory in North America. Our software runs quoting, scheduling, and operations to streamline production and reduce cost. We supply CNC shops with custom-cut material at unmatched speed and efficiency.",
+  "original_name": "Nox Metals",
+  "archived": "20250705220819",
+  "archive_url": "https://web.archive.org/web/20250705220819/https://www.ycombinator.com/companies/nox-metals",
+  "from_former_slug": false,
+  "slug_used": "nox-metals",
+  "former_names": [
+   "NOX METALS",
+   "NOX METAL"
+  ],
+  "pitch_changed": true
+ },
+ "deepaware-ai-robotics-center-of-silicon-valley": {
+  "slug": "deepaware-ai-robotics-center-of-silicon-valley",
+  "name": "DeepAware AI (Robotics Center of Silicon Valley)",
+  "batch": "Summer 2025",
+  "current_one_liner": "Robots, parts & RL envs & evals - delivered in 48 hrs / pickup in SF.",
+  "original_one_liner": "Make AI data centers more efficient.",
+  "original_description": "DeepAware builds an AI-driven automation system for GPU-intensive data centers. Our reinforcement-learning scheduler, real-time market integration, and unified dashboard slice energy waste by up to 30%. Coming soon: autonomous “robot-hand” inspections and maintenance to enable 24/7 operations with minimal staff.",
+  "original_name": "DeepAware AI",
+  "archived": "20250720170440",
+  "archive_url": "https://web.archive.org/web/20250720170440/https://www.ycombinator.com/companies/deepaware-ai",
+  "from_former_slug": true,
+  "slug_used": "deepaware-ai",
+  "former_names": [
+   "DeepAware AI"
+  ],
+  "pitch_changed": true
+ },
+ "versable": {
+  "slug": "versable",
+  "name": "Versable",
+  "batch": "Winter 2022",
+  "current_one_liner": "AI powered product description enhancement for the auto parts industry",
+  "original_one_liner": "Enable role-based access across customer groups",
+  "original_description": "Vista is a managed platform for companies to easily grant/restrict user access on their application. We are best used for: 1) enabling role-based workflows, 2) creating custom roles per customer, 3) managing customer data within internal tools. We provide an end-to-end solution, from frontend React components to APIs and support tools for maximum engineering efficiency and cross-functional collaboration.",
+  "original_name": "Vista",
+  "archived": "20221209191256",
+  "archive_url": "https://web.archive.org/web/20221209191256/https://www.ycombinator.com/companies/vista",
+  "from_former_slug": true,
+  "slug_used": "vista",
+  "former_names": [
+   "Vista"
+  ],
+  "pitch_changed": true
+ },
+ "forerunner": {
+  "slug": "forerunner",
+  "name": "Forerunner",
+  "batch": "Fall 2024",
+  "current_one_liner": "Quick-turn bent tube shop for aerospace, energy, industrials",
+  "original_one_liner": "Copilot for aerospace engineers making rockets, munitions, satellites",
+  "original_description": "Forerunner is your aerospace, defense, and hardware engineering copilot, helping you beat tight deadlines by automating critical engineering workflows. Our secure AI agents access data from tools like Atlassian Suite and Microsoft Office, then collaborate with hardware engineers to accelerate design and analysis.",
+  "original_name": "Forerunner AI",
+  "archived": "20241230045038",
+  "archive_url": "https://web.archive.org/web/20241230045038/https://www.ycombinator.com/companies/forerunner-ai",
+  "from_former_slug": true,
+  "slug_used": "forerunner-ai",
+  "former_names": [
+   "Forerunner AI"
+  ],
+  "pitch_changed": true
+ },
+ "spaceryde": {
+  "slug": "spaceryde",
+  "name": "SpaceRyde",
+  "batch": "Winter 2019",
+  "current_one_liner": "The Rocket Network: Sustainable & On-Demand Delivery Anywhere in Space",
+  "original_one_liner": "The Rocket Network: Sustainable & On-Demand Delivery Anywhere in Space",
+  "original_description": "SpaceRyde is building the future of space cargo transportation to facilitate and encourage necessary in-space developments, innovations and economy. SpaceRyde is the only sustainable mode of space transportation. Its innovative system utilizes a stratospheric balloon to bypass the atmosphere without emissions nor depositing black particles into the ozone layer and is the world’s first and only multi-functional rocket. After completing its initial mission, the vehicle will remain powered in orbit and joins its rocket network until assigned its next in-space mission, including tasks such as; refuelling, deep space missions, space junk removal and de-orbiting. \r\n\r\nSpaceRyde’s story began in 2018 with husband-wife founders Saharnaz Safari and Sohrab Haghighat and the dream of eliminating the barriers to innovation in space. The company is now a rapidly growing team of over 30 employees with a 25,000-square-foot rocket factory and state-of-the-art engine groundworks facility.",
+  "original_name": "SpaceRyde",
+  "archived": "20230417014626",
+  "archive_url": "https://web.archive.org/web/20230417014626/https://www.ycombinator.com/companies/spaceryde",
+  "from_former_slug": false,
+  "slug_used": "spaceryde",
+  "former_names": [
+   "Loonify Space"
+  ],
+  "pitch_changed": false
+ },
+ "basalt": {
+  "slug": "basalt",
+  "name": "Basalt",
+  "batch": "Winter 2024",
+  "current_one_liner": "Constellations as a Service",
+  "original_one_liner": "Autonomy in space, for every mission",
+  "original_description": "Basalt Tech is a spacecraft OS company based in San Francisco. We're building Dispatch: An OS which allows different types of satellites to work together, and produces optimized instructions for fleets of spacecraft. The company is founded by Max Bhatti and Alex Choi, lead engineers at the MIT CubeSat program. Previously, the duo worked as systems engineers at SpaceX, and the UK Ministry of Defense. Basalt Tech recently received its seed investment as part of the Y Combinator W24 batch, and is currently in technical development.",
+  "original_name": "Basalt Tech",
+  "archived": "20240613201543",
+  "archive_url": "https://web.archive.org/web/20240613201543/https://www.ycombinator.com/companies/basalt-tech",
+  "from_former_slug": true,
+  "slug_used": "basalt-tech",
+  "former_names": [
+   "Basalt Tech"
+  ],
+  "pitch_changed": true
+ },
+ "constellation-space": {
+  "slug": "constellation-space",
+  "name": "Constellation Space",
+  "batch": "Winter 2026",
+  "current_one_liner": "AI operating system for mega-scale satellite networks. ",
+  "original_one_liner": "AI for space mission assurance. ",
+  "original_description": "Constellation builds ConstellationOS, an AI-driven platform that makes satellite networks autonomous and resilient. We ingest telemetry from satellites, ground stations, and weather systems (100K+ messages/sec), predict link failures with 90%+ accuracy up to 5 minutes in advance, and automatically reroute traffic—zero data loss, zero human intervention.\r\n\r\nhello@constellation-io.com",
+  "original_name": "Constellation Space",
+  "archived": "20260122175340",
+  "archive_url": "https://web.archive.org/web/20260122175340/https://www.ycombinator.com/companies/constellation-space",
+  "from_former_slug": false,
+  "slug_used": "constellation-space",
+  "former_names": [
+   "Constellation"
+  ],
+  "pitch_changed": true
+ },
+ "astroforge": {
+  "slug": "astroforge",
+  "name": "AstroForge",
+  "batch": "Winter 2022",
+  "current_one_liner": "We Mine Asteroids",
+  "original_one_liner": "We Mine Asteroids",
+  "original_description": "AstroForge is an asteroid mining company. Instead of bringing back the entire asteroid, we break it up, refine, and return only what’s valuable. ",
+  "original_name": "AstroForge",
+  "archived": "20221207042517",
+  "archive_url": "https://web.archive.org/web/20221207042517/https://www.ycombinator.com/companies/astroforge",
+  "from_former_slug": false,
+  "slug_used": "astroforge",
+  "former_names": [
+   "Ex Scientia"
+  ],
+  "pitch_changed": false
+ },
+ "instinct-space": {
+  "slug": "instinct-space",
+  "name": "Instinct Space",
+  "batch": "Winter 2025",
+  "current_one_liner": "Building lunar landers",
+  "original_one_liner": "GPS satellites for lunar navigation",
+  "original_description": "Instinct is making satellites to provide GPS navigation to companies landing on or orbiting the moon. By downsizing the current navigation architecture into a cubesat format we can drastically lower both manufacturing and launch costs, allowing for quicker deployments and more resiliency within the system.",
+  "original_name": "Instinct",
+  "archived": "20250313012547",
+  "archive_url": "https://web.archive.org/web/20250313012547/https://www.ycombinator.com/companies/instinct",
+  "from_former_slug": true,
+  "slug_used": "instinct",
+  "former_names": [
+   "Instinct"
+  ],
+  "pitch_changed": true
+ },
+ "baud": {
+  "slug": "baud",
+  "name": "Baud",
+  "batch": "Summer 2026",
+  "current_one_liner": "AI chips for ultra-fast training and inference",
+  "original_one_liner": "Build computer vision models without labelling images",
+  "original_description": "Cerelyze is a novel way to build super fast computer vision models in a completely autonomous way, without needing to label images",
+  "original_name": "Cerelyze",
+  "archived": "20240126011039",
+  "archive_url": "https://web.archive.org/web/20240126011039/https://www.ycombinator.com/companies/cerelyze",
+  "from_former_slug": true,
+  "slug_used": "cerelyze",
+  "former_names": [
+   "Neuralyze",
+   "Cerelyze",
+   "Zener",
+   "Front",
+   "Zener",
+   "SuperCraft",
+   "Ponder",
+   "SuperCraft",
+   "Baud Labs"
+  ],
+  "pitch_changed": true
+ },
+ "galactic-resource-utilization-space-inc-gru-space": {
+  "slug": "galactic-resource-utilization-space-inc-gru-space",
+  "name": "Galactic Resource Utilization Space, Inc. (GRU Space)",
+  "batch": "Winter 2026",
+  "current_one_liner": "Moon Hotel -> The Intergalactic Construction Company of Earth",
+  "original_one_liner": "Building the First Hotel on the Moon",
+  "original_description": "GRU builds off-planet habitats using in-situ resource utilization technology, turning local material into building material. Our first habitat will be a hotel on the Moon for space tourists, aiming to open 2032.\r\n\r\nIn 2029, our demo mission will turn lunar regolith into bricks and demonstrate our modular pressurized habitat system. A second mission will begin laying the hotel’s foundation in a lunar cave. A third mission will open the first lunar hotel.\r\n\r\nWe don’t stop at Moon hotels. GRU’s long-term plan:\r\n\r\n1. Build the first hotel on the Moon. GRU solves off‑world surface habitation.\r\n2. Build America’s first Moon base: roads, mass drivers, warehouses, and physical infrastructure.\r\n3. Repeat on Mars and build the first cities there.\r\n4. Own property on the Moon and Mars as these economies grow.\r\n5. Reinvest profits into resource utilization systems on the Moon, Mars, asteroids, and beyond—reaching our final form: Galactic Resource Utilization.\r\n\r\nGRU Space is backed by investors in SpaceX + Anduril, and is part of Nvidia’s Inception program.",
+  "original_name": "Galactic Resource Utilization Space, Inc. (GRU Space)",
+  "archived": "20260107004230",
+  "archive_url": "https://web.archive.org/web/20260107004230/https://www.ycombinator.com/companies/galactic-resource-utilization-space-inc-gru-space",
+  "from_former_slug": false,
+  "slug_used": "galactic-resource-utilization-space-inc-gru-space",
+  "former_names": [
+   "Galactic Resource Utilization Space, Inc."
+  ],
+  "pitch_changed": true
+ }
+}

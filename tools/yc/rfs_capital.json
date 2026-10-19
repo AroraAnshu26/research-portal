@@ -1,0 +1,228 @@
+{
+ "pulled": "2026-10-19",
+ "note": "Investors, analyst houses and newsletters covering the same hardware / space / defense / reindustrialization thesis as the eight YC RFS requests. Every 'verified' item was read at its own primary page in this session. Items marked confidence 'reported' come from secondary aggregators and are flagged as such -- fund sizes in particular disagree across directory sites and should be checked against SEC filings before being used in a decision.",
+
+ "investors": [
+  {
+   "name": "a16z American Dynamism",
+   "url": "https://a16z.com/american-dynamism/",
+   "people": "Katherine Boyle, David Ulevitch, Connor Love",
+   "thesis": "Invest in companies serving the national interest: aerospace, defense, public safety, supply chain, industrials, manufacturing, housing and education. The framing treats national capability as the investable category rather than a sector.",
+   "sharpest_claim": "The binding constraint on defense tech is no longer capital or contracts, it is production. a16z states it has not funded enough of the manufacturers and suppliers sitting beneath its own defense portfolio.",
+   "key_reading": [
+    {"t": "The Case for the American Manufacturing Asset Class", "u": "https://a16z.com/the-case-for-the-american-manufacturing-asset-class/", "d": "Connor Love & Collen Larson, 2 Oct 2026. Argues Tier 2/Tier 3 suppliers -- machine shops and component makers -- are a mispriced asset class. 16,876 US machine shops in the 2022 Economic Census; 83% of those operating all year have under 20 employees; 61% of tier-two-and-below defense manufacturers name tooling, automation or line limits as a top-three barrier to expansion. Anduril cannot start FQ-44 Fury production without the Air Force's $1.1B FY27 procurement request being funded."},
+    {"t": "The American Dynamism 50 (2025)", "u": "https://a16z.com/american-dynamism-50-2025/", "d": "51 companies across Aerospace (13), Defense (17), Computing (5), Energy & Materials (7), Homeland Security (3), Manufacturing (6). Not a ranking and no published scoring method."},
+    {"t": "The American Dynamism 50: AI Edition", "u": "https://a16z.com/american-dynamism-50-ai/", "d": "50 AI companies advancing the national interest, alphabetical and explicitly non-exhaustive. Page assets date to ~January 2024, so read it as the earlier edition despite the site-wide 2026 footer."}
+   ],
+   "relevant_rfs": ["the-future-of-american-defense", "hardware-supply-chain", "modern-metal-mills"],
+   "confidence": "verified",
+   "caveat": "a16z's own pages are primary but promotional. The ~$1.176B dedicated-capital figure and the Sept 2026 West Palm Beach HQ come from secondary coverage, not an a16z page read here."
+  },
+  {
+   "name": "Lux Capital",
+   "url": "https://www.luxcapital.com/",
+   "people": "Josh Wolfe, Peter Hebert",
+   "thesis": "Frontier technology generalist, explicitly contrarian -- backs physics-hard companies when consensus passes. Anduril and Physical Intelligence are the anchor names on the physical-AI side.",
+   "sharpest_claim": "Treats scientific and engineering risk as the moat, on the view that what is hard to build is hard to copy.",
+   "key_reading": [],
+   "relevant_rfs": ["the-future-of-american-defense", "electronics-in-space"],
+   "confidence": "reported",
+   "caveat": "Fund IX reported at $1.5B (Jan 2026) by secondary sources; not confirmed at a primary page in this session."
+  },
+  {
+   "name": "Eclipse Ventures",
+   "url": "https://eclipse.vc/",
+   "people": "Lior Susan",
+   "thesis": "The 'physical economy' -- digitizing manufacturing, supply chain and industrial operations. Positions operational help (supply-chain development, moving prototype to scaled production) as the value-add rather than capital alone.",
+   "sharpest_claim": "The bottleneck in industrial startups is the transition from prototype to repeatable production, not invention.",
+   "key_reading": [],
+   "relevant_rfs": ["hardware-supply-chain", "modern-metal-mills", "new-operating-systems-for-the-physical-world"],
+   "confidence": "reported",
+   "caveat": "Reported at $1.3B raised across two vehicles (Apr 2026); AUM figures conflict badly across directories ($4B+ vs ~$10B)."
+  },
+  {
+   "name": "Construct Capital",
+   "url": "https://www.construct.capital/",
+   "people": "Dayna Grayson, Rachel Holt",
+   "thesis": "Rebuilding the backbone of the economy -- manufacturing, logistics, transportation and the industrial sectors that software largely skipped.",
+   "sharpest_claim": "The least-digitized sectors are the largest remaining software opportunities, precisely because they resisted the first cloud wave.",
+   "key_reading": [],
+   "relevant_rfs": ["new-operating-systems-for-the-physical-world", "hardware-supply-chain"],
+   "confidence": "reported"
+  },
+  {
+   "name": "DCVC",
+   "url": "https://www.dcvc.com/",
+   "people": "Matt Ocko, Zachary Bogue",
+   "thesis": "Deep tech with scientific diligence -- pairs investment with technical advisors who assess feasibility before the term sheet.",
+   "sharpest_claim": "Technical feasibility is underwritten, not assumed.",
+   "key_reading": [],
+   "relevant_rfs": ["electronics-in-space", "supply-chain-for-semiconductors"],
+   "confidence": "reported",
+   "caveat": "DCVC V reported at $725M; AUM listed anywhere from ~$1B to $4B depending on the directory."
+  },
+  {
+   "name": "Playground Global",
+   "url": "https://playground.global/",
+   "people": "Founded by Andy Rubin; Peter Barrett, Bruce Leak",
+   "thesis": "Early-stage hardware, semiconductors and robotics. Lead investor in Agility Robotics.",
+   "sharpest_claim": "Silicon and robotics need patient early capital that tolerates a hardware development cycle.",
+   "key_reading": [],
+   "relevant_rfs": ["inference-chips", "new-operating-systems-for-the-physical-world"],
+   "confidence": "reported"
+  },
+  {
+   "name": "Founders Fund",
+   "url": "https://foundersfund.com/",
+   "people": "Peter Thiel, Trae Stephens",
+   "thesis": "Backed the two companies that proved the category was investable at all -- SpaceX and Anduril -- and treats contrarian hard-tech bets as the core strategy.",
+   "sharpest_claim": "Trae Stephens co-founded Anduril out of the fund, which is the template a16z's manufacturing piece is now reacting to.",
+   "key_reading": [],
+   "relevant_rfs": ["the-future-of-american-defense", "electronics-in-space"],
+   "confidence": "reported"
+  },
+  {
+   "name": "8VC",
+   "url": "https://8vc.com/",
+   "people": "Joe Lonsdale",
+   "thesis": "Defense, industrials and logistics; Palantir-lineage view that government is a buildable market.",
+   "sharpest_claim": "Government procurement is a solvable go-to-market problem, not a reason to avoid the customer.",
+   "key_reading": [],
+   "relevant_rfs": ["the-future-of-american-defense"],
+   "confidence": "reported"
+  }
+ ],
+
+ "analysts": [
+  {
+   "name": "McKinsey Global Institute",
+   "url": "https://www.mckinsey.com/mgi/our-research/made-in-america-again-rethinking-us-manufacturing-resilience",
+   "piece": "Made in America, again? Rethinking US manufacturing resilience (May 2026)",
+   "sharpest_claim": "Roughly 25% of about $3 trillion in annual US manufactured-goods imports are high-risk 'Achilles heel' goods. Domestic output for those would need to roughly double on average. The build-out is put at ~$2 trillion -- and that figure EXCLUDES energy and infrastructure, so the true cost is higher.",
+   "why_it_matters": "This is the quantified version of the premise under YC's Modern Metal Mills and Hardware Supply Chain requests, and under a16z's manufacturing asset-class argument. It gives the thesis a denominator.",
+   "relevant_rfs": ["modern-metal-mills", "hardware-supply-chain", "supply-chain-for-semiconductors"],
+   "confidence": "reported",
+   "caveat": "Figures reached via search summary and Manufacturing Dive / Fortune coverage, not read at the MGI PDF in this session."
+  },
+  {
+   "name": "McKinsey (Industrials)",
+   "url": "https://www.mckinsey.com/industries/industrials/our-insights/turning-humanoid-supply-chain-constraints-into-billion-dollar-wins",
+   "piece": "Scaling the humanoid robotics supply chain",
+   "sharpest_claim": "China controls ~69% of global rare-earth mining and ~90% of magnet processing and refining. Magnets are the choke point for actuators, which is the choke point for humanoids.",
+   "why_it_matters": "Directly explains why YC is funding actuator companies (Hlabs, Open Actuation) under Hardware Supply Chain. The constraint is upstream of the robot.",
+   "relevant_rfs": ["hardware-supply-chain"],
+   "confidence": "reported"
+  },
+  {
+   "name": "McKinsey (Aerospace & Defense)",
+   "url": "https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/revving-up-american-manufacturing-to-unleash-the-defense-industrial-base",
+   "piece": "Revving up American manufacturing to unleash the defense industrial base",
+   "sharpest_claim": "Fix operations before committing new capital. Demand instability and excessive rigidity in product and process requirements are the recurring productivity drags; the PAC-3 MSE agreement with Lockheed is offered as a model that ties industrial investment to delivery accountability.",
+   "why_it_matters": "The counterweight to the pure-capital reading of reindustrialization: the same conclusion a16z reaches about anchor demand, argued from the operations side.",
+   "relevant_rfs": ["the-future-of-american-defense", "modern-metal-mills"],
+   "confidence": "reported"
+  },
+  {
+   "name": "BCG",
+   "url": "https://www.bcg.com/publications/2026/how-physical-ai-is-reshaping-robotics-today",
+   "piece": "How Physical AI Is Reshaping Robotics Today -- and What Comes Next (2026)",
+   "sharpest_claim": "A five-level maturity framework separating proven robotics capability from emerging bets, intended to sequence investment rather than treat 'physical AI' as one thing.",
+   "why_it_matters": "Useful as a grading rubric when reading the 134 robotics companies in the census -- most marketing copy does not distinguish level 2 from level 4.",
+   "relevant_rfs": ["new-operating-systems-for-the-physical-world"],
+   "confidence": "reported"
+  },
+  {
+   "name": "BCG",
+   "url": "https://www.bcg.com/publications/2026/how-the-factory-of-the-future-reshapes-manufacturing",
+   "piece": "How the Factory of the Future Is Reshaping the Economics of Manufacturing Competitiveness (2026)",
+   "sharpest_claim": "AI is narrowing manufacturing cost gaps between countries, which turns 'upgrade operations or relocate production' into a live decision rather than a settled one.",
+   "why_it_matters": "If true, it is the economic mechanism that makes Modern Metal Mills viable -- domestic mills win on speed and flexibility rather than on labour cost.",
+   "relevant_rfs": ["modern-metal-mills", "hardware-supply-chain"],
+   "confidence": "reported"
+  },
+  {
+   "name": "Bain & Company",
+   "url": "https://www.bain.com/insights/industry-insights/industrial-goods-services-insights/",
+   "piece": "Advanced Manufacturing & Services insights (landing page)",
+   "sharpest_claim": "-- no 2026 reindustrialization or defense-industrial-base report located --",
+   "why_it_matters": "Recorded as a NEGATIVE result so the next pass does not re-search it: searching for a Bain equivalent of the McKinsey/BCG pieces returned only a general insights hub.",
+   "relevant_rfs": [],
+   "confidence": "negative-result"
+  }
+ ],
+
+ "newsletters": [
+  {
+   "name": "Construction Physics",
+   "author": "Brian Potter",
+   "url": "https://www.construction-physics.com/",
+   "traction": "Over 77,000 subscribers (stated on the publication's own page, read 2026-10-19)",
+   "covers": "Buildings, infrastructure and industrial technology. The single best running explanation of why American physical construction and manufacturing got slow.",
+   "relevant_rfs": ["modern-metal-mills", "hardware-supply-chain", "new-operating-systems-for-the-physical-world"],
+   "confidence": "verified"
+  },
+  {
+   "name": "Industrial Base Alpha",
+   "author": "not named on the page",
+   "url": "https://industrialbasealpha.com/substack",
+   "traction": "Subscriber count not published. Free Monday brief ('IBA Espresso'); premium $11/mo or $120/yr with a Thursday deep dive.",
+   "covers": "Defense and national-security investment, technology and deals: VC/M&A tracking, autonomy, directed energy, hypersonics, advanced manufacturing, DoD spending and procurement. Recent posts include 'Affordable Mass' (19 Oct 2026) on a proposed $50B contingent on Congressional funding.",
+   "relevant_rfs": ["the-future-of-american-defense", "counter-swarm-defense"],
+   "confidence": "verified"
+  },
+  {
+   "name": "SemiAnalysis",
+   "author": "Dylan Patel",
+   "url": "https://newsletter.semianalysis.com/",
+   "traction": "Widely cited; subscriber count not published on the page.",
+   "covers": "Semiconductor supply chain, fabs, advanced packaging, AI datacenter economics. The reference source for the constraints Diana Hu's semiconductor RFS describes.",
+   "relevant_rfs": ["supply-chain-for-semiconductors", "inference-chips", "compute-at-sea"],
+   "confidence": "reported"
+  },
+  {
+   "name": "Fabricated Knowledge",
+   "author": "Doug O'Laughlin",
+   "url": "https://www.fabricatedknowledge.com/",
+   "covers": "Semiconductors, silicon, processors, market structure and investment framing.",
+   "traction": "Subscriber count not published.",
+   "relevant_rfs": ["supply-chain-for-semiconductors", "inference-chips"],
+   "confidence": "reported"
+  },
+  {
+   "name": "The Chip Letter",
+   "author": "Babbage",
+   "url": "https://thechipletter.substack.com/",
+   "covers": "Semiconductor history and architecture, long-form.",
+   "traction": "Subscriber count not published.",
+   "relevant_rfs": ["supply-chain-for-semiconductors", "inference-chips"],
+   "confidence": "reported"
+  },
+  {
+   "name": "Breaking the Bottleneck",
+   "author": "not named in results",
+   "url": "https://breakingthebottleneck.substack.com/",
+   "covers": "Weekly manufacturing-technology newsletter.",
+   "traction": "Subscriber count not published.",
+   "relevant_rfs": ["hardware-supply-chain", "modern-metal-mills"],
+   "confidence": "reported"
+  },
+  {
+   "name": "Defense Tech and Acquisition",
+   "author": "not named in results",
+   "url": "https://www.defensetechacquisition.com/",
+   "covers": "Navigating DoD acquisition -- the bureaucracy layer that decides whether a defense startup can actually sell.",
+   "traction": "Subscriber count not published.",
+   "relevant_rfs": ["the-future-of-american-defense"],
+   "confidence": "reported"
+  },
+  {
+   "name": "Asianometry",
+   "author": "Jon Y",
+   "url": "https://www.asianometry.com/",
+   "covers": "Semiconductors, Asian industrial history and development.",
+   "traction": "Large YouTube following; Substack count not published.",
+   "relevant_rfs": ["supply-chain-for-semiconductors"],
+   "confidence": "reported"
+  }
+ ]
+}
