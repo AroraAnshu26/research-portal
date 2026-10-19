@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robotics marketplaces &mdash; who is already building the parts counter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --paper:#f6f4ee; --surface:#fcfbf7; --ink:#141310; --ink-2:#52514e; --ink-3:#898781;
+  --hairline:#e3e1d7; --baseline:#c9c7bb; --accent:#b3300e; --accent-ink:#8f2609; --wash:#efece2;
+  --chart:#2a78d6; --ok:#1baf7a;
+  --shadow: 0 1px 2px rgba(20,19,16,.05), 0 8px 24px -12px rgba(20,19,16,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --paper:#111110; --surface:#1a1a19; --ink:#f4f3ee; --ink-2:#c3c2b7; --ink-3:#898781;
+    --hairline:#2c2c2a; --baseline:#383835; --accent:#e05c33; --accent-ink:#ef7c58; --wash:#232320;
+    --chart:#3987e5; --ok:#199e70;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;
+  font-size:14px;line-height:1.55;padding:0 0 80px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:36px 26px 0}
+.kicker{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+h1{font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:33px;line-height:1.12;
+  letter-spacing:-.015em;margin-bottom:9px}
+h1 em{font-style:italic;color:var(--ink-2);font-weight:400}
+.dek{color:var(--ink-2);max-width:80ch;font-size:14.5px}
+.dek b{color:var(--ink);font-weight:600}
+.meta{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);margin-top:12px;
+  padding-top:11px;border-top:1px solid var(--hairline)}
+.band{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
+  background:var(--hairline);border:1px solid var(--hairline);border-radius:8px;overflow:hidden;margin:24px 0}
+.tile{background:var(--surface);padding:14px 16px}
+.tile .v{font-family:"Fraunces",Georgia,serif;font-size:25px;font-weight:500;line-height:1.05;letter-spacing:-.02em}
+.tile .l{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-3);margin-top:5px}
+.brief{border:1px solid var(--hairline);border-left:3px solid var(--accent);background:var(--surface);
+  border-radius:0 9px 9px 0;padding:16px 19px;margin:22px 0;max-width:86ch}
+.brief .lb{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:7px}
+.brief p{color:var(--ink-2);font-size:13.5px}
+.layer{margin:38px 0 0}
+.layer-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  padding-bottom:9px;border-bottom:1px solid var(--baseline);margin-bottom:6px;flex-wrap:wrap}
+.layer-h h2{font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:21px;letter-spacing:-.01em}
+.layer-h .n{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-3)}
+.layer-note{color:var(--ink-2);font-size:13px;max-width:84ch;margin:10px 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
+.p{border:1px solid var(--hairline);background:var(--surface);border-radius:9px;padding:15px 17px;
+  display:flex;flex-direction:column;gap:7px}
+.p.closest{border-color:var(--accent);box-shadow:var(--shadow)}
+.p .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.p .nm{font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:17px;letter-spacing:-.01em}
+.p .nm small{font-family:"IBM Plex Sans",sans-serif;font-size:11px;color:var(--ink-3);font-weight:400}
+.p .what{color:var(--ink-2);font-size:12.8px}
+.p .also{color:var(--ink-3);font-size:12.2px;padding-top:7px;border-top:1px dashed var(--hairline)}
+.p .ftr{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:auto;padding-top:8px}
+.pill{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;
+  padding:2px 8px;border:1px solid var(--hairline);border-radius:999px;color:var(--ink-3);background:var(--wash)}
+.pill.yc{color:var(--accent);border-color:var(--accent);background:transparent}
+.pill.ok{color:var(--ok);border-color:var(--ok);background:transparent}
+.lnk{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;font-size:12px;
+  font-family:"IBM Plex Mono",monospace}
+.lnk:hover{border-bottom-color:var(--accent)}
+.neg{border:1px solid var(--hairline);background:var(--wash);border-radius:9px;padding:17px 19px;margin-top:14px}
+.neg ul{margin:9px 0 0 17px}
+.neg li{color:var(--ink-2);font-size:13px;margin-bottom:9px}
+footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--hairline);
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--ink-3);line-height:1.8}
+</style></head><body>
+<div class="wrap">
+
+<div class="kicker">CTO Portal &middot; Landscape scan &middot; 2026-10-19</div>
+<h1>Robotics marketplaces: <em>who is already building the parts counter</em></h1>
+<p class="dek">A scan of everyone building some piece of <b>one place where a robotics team browses arms, actuators and simulation environments by requirement, with AI doing the searching</b>. Seven layers, 31 companies. The short version: <b>every layer has someone in it, and nobody spans more than about half of them.</b> This page reports what exists and deliberately does not grade the opportunity.</p>
+<div class="brief"><div class="lb">The brief this was scanned against</div><p>Anshu&#x27;s framing: a place where a robotics team comes in and browses arms by requirement, actuators by requirement, simulation environments to pick from, all surfaced by AI search, so iteration loops tighten. This file maps who is already doing each piece. Descriptive only -- no judgement on the idea was requested and none is recorded here.</p></div>
+<div class="band">
+<div class="tile"><div class="v">31</div><div class="l">Companies found</div></div>
+<div class="tile"><div class="v">7</div><div class="l">Layers of the stack</div></div>
+<div class="tile"><div class="v">18</div><div class="l">YC-backed</div></div>
+<div class="tile"><div class="v">17</div><div class="l">From 2025&ndash;26 batches</div></div>
+<div class="tile"><div class="v">17</div><div class="l">Read at source today</div></div>
+</div>
+<div class="layer"><div class="layer-h"><h2>Robot &amp; parts catalogs you can actually browse</h2><span class="n">4</span></div>
+<p class="layer-note">The layer closest to the brief as written: a storefront where you compare physical robot hardware side by side. Thin, and dominated by one YC company plus a set of conventional retailers.</p>
+<div class="grid">
+<div class="p closest">
+<div class="top"><div class="nm">Robotics Center of Silicon Valley <small>(DeepAware AI)</small></div></div>
+<div class="what">The closest existing thing to the brief. A catalog of 1,000+ products -- humanoids, robotic arms, quadrupeds, dexterous hands, sensors, teleoperation kits -- that you can buy outright or lease for research, with side-by-side product comparison. A partner programme lets third parties list products, which makes it a real marketplace rather than a reseller. Authorised distributor for Unitree, Wuji and UFACTORY, and says it operates every platform it sells. 72-hour US delivery or Bay Area pickup.</div>
+<div class="also">Runs a Data Marketplace licensing hardware-synced robot demonstrations in LeRobot, HDF5 and RLDS formats, plus data-collection services, an RL Environments offering, and Eval (RL-squared) for cross-embodiment policy evaluation on real arms.</div>
+<div class="ftr">
+<span class="pill yc">YC Summer 2025</span>
+<span class="pill">Y Combinator, NVIDIA Inception</span>
+<span class="pill ok">verified</span>
+<span class="pill yc">closest to the brief</span>
+</div>
+<div><a class="lnk" href="https://roboticscenter.ai/" target="_blank" rel="noopener">roboticscenter.ai</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">RobotShop</div></div>
+<div class="what">Long-running online retailer of robot kits, arms, actuators, sensors and parts. Broad catalog, conventional e-commerce filtering rather than AI-assisted requirement matching.</div>
+<div class="ftr">
+<span class="pill">reported</span>
+</div>
+<div><a class="lnk" href="https://www.robotshop.com/" target="_blank" rel="noopener">www.robotshop.com</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Generation Robots</div></div>
+<div class="what">European equivalent -- professional and research robot platforms, arms and components, sold as a catalog.</div>
+<div class="ftr">
+<span class="pill">reported</span>
+</div>
+<div><a class="lnk" href="https://www.generationrobots.com/" target="_blank" rel="noopener">www.generationrobots.com</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Trossen Robotics</div></div>
+<div class="what">Research-focused arms (ViperX, WidowX), grippers and components; also a manufacturer, so part catalog and part vendor.</div>
+<div class="ftr">
+<span class="pill">reported</span>
+</div>
+<div><a class="lnk" href="https://www.trossenrobotics.com/" target="_blank" rel="noopener">www.trossenrobotics.com</a></div>
+</div>
+</div></div>
+<div class="layer"><div class="layer-h"><h2>AI-native procurement marketplaces for hardware teams</h2><span class="n">4</span></div>
+<p class="layer-note">The &#x27;AI searcher&#x27; half of the brief, aimed at procurement rather than browsing. This is the most crowded layer and the newest -- three of the four YC entries are 2026 batches.</p>
+<div class="grid">
+<div class="p closest">
+<div class="top"><div class="nm">Reframe</div></div>
+<div class="what">Describes itself as the only AI-native marketplace for hardware teams to procure BOTH off-the-shelf and custom-manufactured components, using agents to automate the sourcing loop. Claims access to suppliers that have built parts for iPhones and Teslas. This is the single closest YC company to the procurement half of the brief.</div>
+<div class="ftr">
+<span class="pill yc">YC Winter 2026</span>
+<span class="pill ok">verified</span>
+<span class="pill yc">closest to the brief</span>
+</div>
+<div><a class="lnk" href="http://usereframe.ai" target="_blank" rel="noopener">usereframe.ai</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Waybill</div></div>
+<div class="what">Agentic procurement and inventory for deep-tech teams. Frames the problem exactly as the brief does -- an engineer needs a part, someone emails five distributors, chases quotes, gets approval, wires money, tracks shipment across three carriers, clears customs, and then nobody knows where the box is.</div>
+<div class="ftr">
+<span class="pill yc">YC Summer 2026</span>
+<span class="pill ok">verified</span>
+</div>
+<div><a class="lnk" href="https://www.waybill.to/" target="_blank" rel="noopener">www.waybill.to</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Cofactr</div></div>
+<div class="what">The incumbent of this group. Procurement plus a component-focused 3PL for electronics: BOM through production, automatic normalisation and correction of manufacturer part numbers, alternates and multi-source options surfaced during purchasing, with shipping and storage in the same workflow.</div>
+<div class="ftr">
+<span class="pill yc">YC Winter 2022</span>
+<span class="pill">reported</span>
+</div>
+<div><a class="lnk" href="https://www.cofactr.com/" target="_blank" rel="noopener">www.cofactr.com</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Stoa</div></div>
+<div class="what">Pricing and trading infrastructure for AI hardware -- a live RFQ marketplace where companies buy and sell GPUs through vetted dealers. Not robotics, but the clearest example of the marketplace-plus-price-discovery pattern applied to scarce hardware.</div>
+<div class="ftr">
+<span class="pill yc">YC Summer 2026</span>
+<span class="pill ok">verified</span>
+</div>
+<div><a class="lnk" href="https://www.stoaexchange.com" target="_blank" rel="noopener">www.stoaexchange.com</a></div>
+</div>
+</div></div>
+<div class="layer"><div class="layer-h"><h2>On-demand manufacturing marketplaces (custom parts, AI quoting)</h2><span class="n">7</span></div>
+<p class="layer-note">Where you go when the part does not exist off the shelf. Mature, with a public company in it, and the AI layer here is instant quoting and design-for-manufacturability feedback rather than discovery.</p>
+<div class="grid">
+<div class="p">
+<div class="top"><div class="nm">Xometry</div></div>
+<div class="what">The marketplace model at scale and the reference point for AI-priced quoting: one quote drawn from a network of 5,000+ suppliers, covering CNC, injection moulding, 3D printing and sheet metal on the same order. Publicly traded (NASDAQ: XMTR); reported gross margin of 35.7% in Q3 2025, which is the spread the marketplace earns.</div>
+<div class="ftr">
+<span class="pill">reported</span>
+</div>
+<div><a class="lnk" href="https://www.xometry.com/" target="_blank" rel="noopener">www.xometry.com</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Protolabs / Protolabs Network</div></div>
+<div class="what">Makes most parts in its own factories, with the acquired 3D Hubs (now Protolabs Network, 250+ partners) as a secondary capacity layer. Parts in as fast as one day; DFM analysis built into instant quoting. Narrower process range than Xometry.</div>
+<div class="ftr">
+<span class="pill">reported</span>
+</div>
+<div><a class="lnk" href="https://www.protolabs.com/" target="_blank" rel="noopener">www.protolabs.com</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Fictiv</div></div>
+<div class="what">Managed rather than open -- reviews requirements, qualifies partners and assigns projects, with four manufacturing centres (US, Mexico, India, China). Acquired by MISUMI Group in April 2025, which puts it inside the largest configurable-components catalog business.</div>
+<div class="ftr">
+<span class="pill">reported</span>
+</div>
+<div><a class="lnk" href="https://www.fictiv.com/" target="_blank" rel="noopener">www.fictiv.com</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Prototyping.io</div></div>
+<div class="what">Turns CAD into real mechanical parts through an AI-driven manufacturing system: analyses designs for manufacturability and automates production workflow. Named by YC itself in the Hardware Supply Chain request.</div>
+<div class="ftr">
+<span class="pill yc">YC Spring 2026</span>
+<span class="pill ok">verified</span>
+</div>
+<div><a class="lnk" href="https://www.prototyping.io" target="_blank" rel="noopener">www.prototyping.io</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">twentyfour26</div></div>
+<div class="what">Autonomous CNC machining cells for rapid prototyping, explicitly so hardware teams can iterate at software speed -- the same &#x27;tighter iteration loop&#x27; goal in the brief, solved by owning the machines rather than by matchmaking.</div>
+<div class="ftr">
+<span class="pill yc">YC Fall 2026</span>
+<span class="pill ok">verified</span>
+</div>
+<div><a class="lnk" href="https://twentyfour26.com/" target="_blank" rel="noopener">twentyfour26.com</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Antropi Robotics</div></div>
+<div class="what">Autonomous CNC factories for faster hardware.</div>
+<div class="ftr">
+<span class="pill yc">YC Fall 2026</span>
+<span class="pill ok">verified</span>
+</div>
+<div><a class="lnk" href="https://www.antropi.world/" target="_blank" rel="noopener">www.antropi.world</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Foundation Industries</div></div>
+<div class="what">Supplies hard-tech companies with critical components via low-volume, high-mix domestic production. Formerly Sava Robotics -- a robotics company that became a component supplier.</div>
+<div class="ftr">
+<span class="pill yc">YC Spring 2025</span>
+<span class="pill ok">verified</span>
+</div>
+<div><a class="lnk" href="https://www.foundation-industries.com/" target="_blank" rel="noopener">www.foundation-industries.com</a></div>
+</div>
+</div></div>
+<div class="layer"><div class="layer-h"><h2>Component search engines and spec aggregation</h2><span class="n">3</span></div>
+<p class="layer-note">The &#x27;AI searcher across suppliers&#x27; pattern, already solved for electronics and largely absent for mechatronics.</p>
+<div class="grid">
+<div class="p">
+<div class="top"><div class="nm">Octopart</div></div>
+<div class="what">The closest working analogue to the brief&#x27;s search layer, for electronics. Aggregates pricing, availability and specs across distributors; its BOM Tool matches an entire bill of materials against stock and price with AI-driven matching for exact parts and alternates, and flags lifecycle and compliance risk. Free to use. Owned by Altium since 2015. Source pages disagree on distributor count (117 / 200+ / 400+), so treat scale claims loosely.</div>
+<div class="ftr">
+<span class="pill">reported</span>
+</div>
+<div><a class="lnk" href="https://octopart.com/" target="_blank" rel="noopener">octopart.com</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">McMaster-Carr</div></div>
+<div class="what">The benchmark catalog experience for mechanical parts -- famous among engineers for search and spec quality, not AI-driven but the usability bar any new entrant is measured against.</div>
+<div class="ftr">
+<span class="pill">reported</span>
+</div>
+<div><a class="lnk" href="https://www.mcmaster.com/" target="_blank" rel="noopener">www.mcmaster.com</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">MISUMI (and meviy)</div></div>
+<div class="what">Configurable mechanical components at catalog scale; meviy provides instant quoting from uploaded CAD. Now also owns Fictiv, which pairs the catalog with on-demand custom manufacturing.</div>
+<div class="ftr">
+<span class="pill">reported</span>
+</div>
+<div><a class="lnk" href="https://www.misumi.co.jp/english/" target="_blank" rel="noopener">www.misumi.co.jp/english</a></div>
+</div>
+</div></div>
+<div class="layer"><div class="layer-h"><h2>Software and driver registries for robot hardware</h2><span class="n">2</span></div>
+<p class="layer-note">The same marketplace shape, applied to the software that makes a component usable rather than to the component. Worth noting because a hardware catalog without drivers still leaves the integration work on the buyer.</p>
+<div class="grid">
+<div class="p">
+<div class="top"><div class="nm">Viam Registry</div></div>
+<div class="what">An open-source marketplace of modules -- hardware drivers, services, ML models, reusable configurations -- explicitly compared by Viam to npm or PyPI but for robotics. A machine config names a hardware model and viam-server pulls the matching driver automatically; modules deploy to one machine or a fleet, with pinned versions. Publishers can keep modules private to an org or publish publicly, and companies can claim a namespace as official publisher.</div>
+<div class="also">Viam&#x27;s 2023 press release said developers would eventually be able to charge for modules with Viam handling distribution and billing; that paid-module capability is NOT confirmed live and should be checked before relying on it.</div>
+<div class="ftr">
+<span class="pill">reported</span>
+</div>
+<div><a class="lnk" href="https://www.viam.com/product/registry" target="_blank" rel="noopener">www.viam.com/product/registry</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">ROS Index / ROS-Industrial</div></div>
+<div class="what">The open-source default: package index for the ROS ecosystem. Discovery is by package name and distro, with no commercial layer and no requirement-based matching.</div>
+<div class="ftr">
+<span class="pill">reported</span>
+</div>
+<div><a class="lnk" href="https://index.ros.org/" target="_blank" rel="noopener">index.ros.org</a></div>
+</div>
+</div></div>
+<div class="layer"><div class="layer-h"><h2>Simulation and RL-environment supply</h2><span class="n">8</span></div>
+<p class="layer-note">The brief&#x27;s &#x27;different simulation environments they can choose from&#x27;. There is NO general marketplace here -- there is a hub mechanism, an asset standard, and a cluster of very new YC companies selling environments as a service. All six YC names below are 2025-2026 batches, which dates the category.</p>
+<div class="grid">
+<div class="p">
+<div class="top"><div class="nm">Hugging Face LeRobot (EnvHub)</div></div>
+<div class="what">The nearest thing to an actual environment marketplace mechanism: LeRobot can pull simulation environments straight from the Hugging Face Hub by repo ID, and its constructor accepts a Hub URL in place of a config object. Distribution infrastructure that already exists, free and open.</div>
+<div class="ftr">
+<span class="pill">reported</span>
+</div>
+<div><a class="lnk" href="https://huggingface.co/lerobot" target="_blank" rel="noopener">huggingface.co/lerobot</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">NVIDIA SimReady / Isaac Sim</div></div>
+<div class="what">Not a marketplace but a STANDARD, which may matter more: shared requirements and validation for OpenUSD assets covering physics, semantic labels and behavioural metadata, so an asset is loadable into Isaac Sim or Omniverse. NVIDIA&#x27;s free SimReady library is roughly 1,000 hand-validated assets (figure from a third-party vendor comparison). Isaac Lab sits on top for RL and imitation learning.</div>
+<div class="ftr">
+<span class="pill">reported</span>
+</div>
+<div><a class="lnk" href="https://developer.nvidia.com/omniverse/simready-assets" target="_blank" rel="noopener">developer.nvidia.com/omniverse/simready-assets</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Fern</div></div>
+<div class="what">RL environments for robotics companies powered by a foundational world model. Customers plug their robot policies in entirely in software, across varying starting scenes of their own production environment, and Fern trains RL heads on top of existing policies.</div>
+<div class="ftr">
+<span class="pill yc">YC Winter 2026</span>
+<span class="pill ok">verified</span>
+</div>
+<div><a class="lnk" href="https://fern.bot" target="_blank" rel="noopener">fern.bot</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Enact</div></div>
+<div class="what">Real-world (not simulated) RL environments -- builds the physical environments to benchmark and hill-climb robotics models on high-value tasks, finds where robots fail, and fixes them with an in-house training loop.</div>
+<div class="ftr">
+<span class="pill yc">YC Summer 2026</span>
+<span class="pill ok">verified</span>
+</div>
+<div><a class="lnk" href="https://enact.company" target="_blank" rel="noopener">enact.company</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">One Robot</div></div>
+<div class="what">World models for robot evals and training -- simulation environments realistic both to see and to interact with, so teams can train and evaluate policies without being bottlenecked by robot time.</div>
+<div class="ftr">
+<span class="pill yc">YC Winter 2026</span>
+<span class="pill ok">verified</span>
+</div>
+<div><a class="lnk" href="https://www.onerobot.io/" target="_blank" rel="noopener">www.onerobot.io</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Twolabs</div></div>
+<div class="what">Verifiable RL environments, evaluations and proprietary training datasets for underexplored domains -- PCB and chip design, embedded systems, robotics.</div>
+<div class="ftr">
+<span class="pill yc">YC Spring 2026</span>
+<span class="pill ok">verified</span>
+</div>
+<div><a class="lnk" href="https://twolabs.ai" target="_blank" rel="noopener">twolabs.ai</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Runtime.si</div></div>
+<div class="what">Evaluation infrastructure for physical intelligence -- pushes robot policies to their limits across thousands of simulated worlds before they meet the real one. Formerly Lambda Robotics, then Runtime.</div>
+<div class="ftr">
+<span class="pill yc">YC Fall 2026</span>
+<span class="pill ok">verified</span>
+</div>
+<div><a class="lnk" href="https://runtime.si/" target="_blank" rel="noopener">runtime.si</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Robocurve</div></div>
+<div class="what">Open-source tools and independent benchmarks scoring how well robots do real-world jobs, explicitly as an answer to unverified demo videos from frontier labs. The neutral-referee position rather than the supplier position.</div>
+<div class="ftr">
+<span class="pill yc">YC Summer 2026</span>
+<span class="pill ok">verified</span>
+</div>
+<div><a class="lnk" href="https://robocurve.org" target="_blank" rel="noopener">robocurve.org</a></div>
+</div>
+</div></div>
+<div class="layer"><div class="layer-h"><h2>Component makers (supply side, not marketplaces)</h2><span class="n">3</span></div>
+<p class="layer-note">Not competitors to the brief -- these are what would populate it. Listed because a marketplace with no differentiated supply is a directory.</p>
+<div class="grid">
+<div class="p">
+<div class="top"><div class="nm">Hlabs</div></div>
+<div class="what">US-made parts for robots -- building a domestic industrial supply chain for robot electronics and actuators with a focus on in-house manufacturing. Named by YC itself in the Hardware Supply Chain request.</div>
+<div class="ftr">
+<span class="pill yc">YC Winter 2026</span>
+<span class="pill ok">verified</span>
+</div>
+<div><a class="lnk" href="https://www.hlaboratories.com" target="_blank" rel="noopener">www.hlaboratories.com</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Open Actuation</div></div>
+<div class="what">Quick-turn, purpose-built motors and actuators, high-mix, made in LA. Argues explicitly against off-the-shelf: DJI, Apple and Ford do not settle for OTS components. Formerly Pendulum Robotics.</div>
+<div class="ftr">
+<span class="pill yc">YC Fall 2026</span>
+<span class="pill ok">verified</span>
+</div>
+<div><a class="lnk" href="https://openactuation.com" target="_blank" rel="noopener">openactuation.com</a></div>
+</div>
+<div class="p">
+<div class="top"><div class="nm">Silica</div></div>
+<div class="what">Affordable actuators that sense forces directly, so robots can feel their surroundings.</div>
+<div class="ftr">
+<span class="pill yc">YC Fall 2026</span>
+<span class="pill ok">verified</span>
+</div>
+<div><a class="lnk" href="https://silicamachines.com/" target="_blank" rel="noopener">silicamachines.com</a></div>
+</div>
+</div></div>
+<div class="layer"><div class="layer-h"><h2>The deliberate counterpoint</h2><span class="n">1</span></div>
+<div class="grid"><div class="p"><div class="top"><div class="nm">Mantle</div></div>
+<div class="what">Worth recording because it took the opposite position deliberately. Mantle is a full-stack field-service company deploying, fixing and maintaining machines for the companies that build them, and its own description says: &#x27;We&#x27;re not a marketplace or software tool, we own uptime directly.&#x27; Formerly Kyvore.</div>
+<div class="ftr"><span class="pill yc">YC Fall 2026</span><span class="pill ok">verified</span></div></div></div></div>
+<div class="layer"><div class="layer-h"><h2>What was looked for and not found</h2><span class="n">negative results</span></div>
+<p class="layer-note">Recorded so the next pass does not repeat the same searches. A negative result is only as good as the search behind it, so each says what was actually queried.</p>
+<div class="neg"><ul>
+<li>No funded, dedicated marketplace for ROBOT PARTS specifically (actuators, arms, grippers) surfaced in web search beyond Robotics Center. Searches returned component manufacturers and SEO market-report pages instead. Recorded so the next pass does not repeat the query.</li>
+<li>No general marketplace for simulation environments exists. The closest mechanisms are the LeRobot Hub loader and the SimReady asset standard; the YC RL-environment companies sell environments as a service, one customer at a time, rather than listing them for browsing.</li>
+<li>No player found that spans physical hardware + components + simulation environments under one AI-driven search. Robotics Center spans the most (hardware, parts, data, RL envs, evals); Viam spans the software-module equivalent. The two do not overlap.</li>
+</ul></div></div>
+<div class="layer"><div class="layer-h"><h2>Method</h2><span class="n">how this was assembled</span></div>
+<p class="layer-note">YC-side names come from the full 6,306-company directory pull in yc_raw_all.json, searched for marketplace/catalog/sourcing language intersected with robotics/parts/simulation language, then read individually. Non-YC names are web-retrieved on 2026-10-19 and each carries its source. Confidence: &#x27;verified&#x27; means the company&#x27;s own page was read in this session.</p>
+<p class="layer-note">The YC side is not a guess: it is a search over the full directory pull behind the <a class="lnk" href="yc-rfs-hardware-map.html">RFS hardware map</a> &mdash; all 6,306 companies YC publishes, Summer 2005 to Summer 2027 &mdash; filtered for marketplace, catalog and sourcing language intersected with robotics, parts and simulation language, then read one by one. Non-YC names are web-retrieved and each carries its source and a confidence flag. Where sources disagreed, the disagreement is recorded rather than averaged: Octopart's distributor count appears as 117, 200+ and 400+ across three pages, so no single figure is quoted as fact.</p>
+</div>
+<footer>Scanned 2026-10-19. Company descriptions are each company's own words unless marked otherwise. Items marked <b>verified</b> were read at the company's own page in this session; <b>reported</b> items come from secondary sources. Descriptive scan only &mdash; no assessment of the opportunity was requested and none is recorded here.</footer>
+</div></body></html>

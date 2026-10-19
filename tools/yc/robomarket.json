@@ -1,0 +1,309 @@
+{
+ "pulled": "2026-10-19",
+ "brief": "Anshu's framing: a place where a robotics team comes in and browses arms by requirement, actuators by requirement, simulation environments to pick from, all surfaced by AI search, so iteration loops tighten. This file maps who is already doing each piece. Descriptive only -- no judgement on the idea was requested and none is recorded here.",
+ "method": "YC-side names come from the full 6,306-company directory pull in yc_raw_all.json, searched for marketplace/catalog/sourcing language intersected with robotics/parts/simulation language, then read individually. Non-YC names are web-retrieved on 2026-10-19 and each carries its source. Confidence: 'verified' means the company's own page was read in this session.",
+
+ "layers": [
+  {
+   "id": "robot-catalog",
+   "label": "Robot & parts catalogs you can actually browse",
+   "note": "The layer closest to the brief as written: a storefront where you compare physical robot hardware side by side. Thin, and dominated by one YC company plus a set of conventional retailers.",
+   "players": [
+    {
+     "name": "Robotics Center of Silicon Valley",
+     "legal": "DeepAware AI",
+     "yc": "Summer 2025",
+     "url": "https://roboticscenter.ai/",
+     "what": "The closest existing thing to the brief. A catalog of 1,000+ products -- humanoids, robotic arms, quadrupeds, dexterous hands, sensors, teleoperation kits -- that you can buy outright or lease for research, with side-by-side product comparison. A partner programme lets third parties list products, which makes it a real marketplace rather than a reseller. Authorised distributor for Unitree, Wuji and UFACTORY, and says it operates every platform it sells. 72-hour US delivery or Bay Area pickup.",
+     "also": "Runs a Data Marketplace licensing hardware-synced robot demonstrations in LeRobot, HDF5 and RLDS formats, plus data-collection services, an RL Environments offering, and Eval (RL-squared) for cross-embodiment policy evaluation on real arms.",
+     "spans": ["hardware", "parts", "data", "sim", "evals"],
+     "backing": "Y Combinator, NVIDIA Inception",
+     "confidence": "verified"
+    },
+    {
+     "name": "RobotShop",
+     "url": "https://www.robotshop.com/",
+     "what": "Long-running online retailer of robot kits, arms, actuators, sensors and parts. Broad catalog, conventional e-commerce filtering rather than AI-assisted requirement matching.",
+     "spans": ["hardware", "parts"],
+     "confidence": "reported"
+    },
+    {
+     "name": "Generation Robots",
+     "url": "https://www.generationrobots.com/",
+     "what": "European equivalent -- professional and research robot platforms, arms and components, sold as a catalog.",
+     "spans": ["hardware", "parts"],
+     "confidence": "reported"
+    },
+    {
+     "name": "Trossen Robotics",
+     "url": "https://www.trossenrobotics.com/",
+     "what": "Research-focused arms (ViperX, WidowX), grippers and components; also a manufacturer, so part catalog and part vendor.",
+     "spans": ["hardware", "parts"],
+     "confidence": "reported"
+    }
+   ]
+  },
+  {
+   "id": "ai-procurement",
+   "label": "AI-native procurement marketplaces for hardware teams",
+   "note": "The 'AI searcher' half of the brief, aimed at procurement rather than browsing. This is the most crowded layer and the newest -- three of the four YC entries are 2026 batches.",
+   "players": [
+    {
+     "name": "Reframe",
+     "yc": "Winter 2026",
+     "url": "http://usereframe.ai",
+     "what": "Describes itself as the only AI-native marketplace for hardware teams to procure BOTH off-the-shelf and custom-manufactured components, using agents to automate the sourcing loop. Claims access to suppliers that have built parts for iPhones and Teslas. This is the single closest YC company to the procurement half of the brief.",
+     "spans": ["parts", "custom"],
+     "confidence": "verified"
+    },
+    {
+     "name": "Waybill",
+     "yc": "Summer 2026",
+     "url": "https://www.waybill.to/",
+     "what": "Agentic procurement and inventory for deep-tech teams. Frames the problem exactly as the brief does -- an engineer needs a part, someone emails five distributors, chases quotes, gets approval, wires money, tracks shipment across three carriers, clears customs, and then nobody knows where the box is.",
+     "spans": ["parts", "logistics"],
+     "confidence": "verified"
+    },
+    {
+     "name": "Cofactr",
+     "yc": "Winter 2022",
+     "url": "https://www.cofactr.com/",
+     "what": "The incumbent of this group. Procurement plus a component-focused 3PL for electronics: BOM through production, automatic normalisation and correction of manufacturer part numbers, alternates and multi-source options surfaced during purchasing, with shipping and storage in the same workflow.",
+     "spans": ["parts", "logistics"],
+     "confidence": "reported"
+    },
+    {
+     "name": "Stoa",
+     "yc": "Summer 2026",
+     "url": "https://www.stoaexchange.com",
+     "what": "Pricing and trading infrastructure for AI hardware -- a live RFQ marketplace where companies buy and sell GPUs through vetted dealers. Not robotics, but the clearest example of the marketplace-plus-price-discovery pattern applied to scarce hardware.",
+     "spans": ["compute"],
+     "confidence": "verified"
+    }
+   ]
+  },
+  {
+   "id": "on-demand-mfg",
+   "label": "On-demand manufacturing marketplaces (custom parts, AI quoting)",
+   "note": "Where you go when the part does not exist off the shelf. Mature, with a public company in it, and the AI layer here is instant quoting and design-for-manufacturability feedback rather than discovery.",
+   "players": [
+    {
+     "name": "Xometry",
+     "url": "https://www.xometry.com/",
+     "what": "The marketplace model at scale and the reference point for AI-priced quoting: one quote drawn from a network of 5,000+ suppliers, covering CNC, injection moulding, 3D printing and sheet metal on the same order. Publicly traded (NASDAQ: XMTR); reported gross margin of 35.7% in Q3 2025, which is the spread the marketplace earns.",
+     "spans": ["custom"],
+     "confidence": "reported"
+    },
+    {
+     "name": "Protolabs / Protolabs Network",
+     "url": "https://www.protolabs.com/",
+     "what": "Makes most parts in its own factories, with the acquired 3D Hubs (now Protolabs Network, 250+ partners) as a secondary capacity layer. Parts in as fast as one day; DFM analysis built into instant quoting. Narrower process range than Xometry.",
+     "spans": ["custom"],
+     "confidence": "reported"
+    },
+    {
+     "name": "Fictiv",
+     "url": "https://www.fictiv.com/",
+     "what": "Managed rather than open -- reviews requirements, qualifies partners and assigns projects, with four manufacturing centres (US, Mexico, India, China). Acquired by MISUMI Group in April 2025, which puts it inside the largest configurable-components catalog business.",
+     "spans": ["custom"],
+     "confidence": "reported"
+    },
+    {
+     "name": "Prototyping.io",
+     "yc": "Spring 2026",
+     "url": "https://www.prototyping.io",
+     "what": "Turns CAD into real mechanical parts through an AI-driven manufacturing system: analyses designs for manufacturability and automates production workflow. Named by YC itself in the Hardware Supply Chain request.",
+     "spans": ["custom"],
+     "confidence": "verified"
+    },
+    {
+     "name": "twentyfour26",
+     "yc": "Fall 2026",
+     "url": "https://twentyfour26.com/",
+     "what": "Autonomous CNC machining cells for rapid prototyping, explicitly so hardware teams can iterate at software speed -- the same 'tighter iteration loop' goal in the brief, solved by owning the machines rather than by matchmaking.",
+     "spans": ["custom"],
+     "confidence": "verified"
+    },
+    {
+     "name": "Antropi Robotics",
+     "yc": "Fall 2026",
+     "url": "https://www.antropi.world/",
+     "what": "Autonomous CNC factories for faster hardware.",
+     "spans": ["custom"],
+     "confidence": "verified"
+    },
+    {
+     "name": "Foundation Industries",
+     "yc": "Spring 2025",
+     "url": "https://www.foundation-industries.com/",
+     "what": "Supplies hard-tech companies with critical components via low-volume, high-mix domestic production. Formerly Sava Robotics -- a robotics company that became a component supplier.",
+     "spans": ["parts", "custom"],
+     "confidence": "verified"
+    }
+   ]
+  },
+  {
+   "id": "component-search",
+   "label": "Component search engines and spec aggregation",
+   "note": "The 'AI searcher across suppliers' pattern, already solved for electronics and largely absent for mechatronics.",
+   "players": [
+    {
+     "name": "Octopart",
+     "url": "https://octopart.com/",
+     "what": "The closest working analogue to the brief's search layer, for electronics. Aggregates pricing, availability and specs across distributors; its BOM Tool matches an entire bill of materials against stock and price with AI-driven matching for exact parts and alternates, and flags lifecycle and compliance risk. Free to use. Owned by Altium since 2015. Source pages disagree on distributor count (117 / 200+ / 400+), so treat scale claims loosely.",
+     "spans": ["parts", "search"],
+     "confidence": "reported"
+    },
+    {
+     "name": "McMaster-Carr",
+     "url": "https://www.mcmaster.com/",
+     "what": "The benchmark catalog experience for mechanical parts -- famous among engineers for search and spec quality, not AI-driven but the usability bar any new entrant is measured against.",
+     "spans": ["parts", "search"],
+     "confidence": "reported"
+    },
+    {
+     "name": "MISUMI (and meviy)",
+     "url": "https://www.misumi.co.jp/english/",
+     "what": "Configurable mechanical components at catalog scale; meviy provides instant quoting from uploaded CAD. Now also owns Fictiv, which pairs the catalog with on-demand custom manufacturing.",
+     "spans": ["parts", "custom"],
+     "confidence": "reported"
+    }
+   ]
+  },
+  {
+   "id": "module-registry",
+   "label": "Software and driver registries for robot hardware",
+   "note": "The same marketplace shape, applied to the software that makes a component usable rather than to the component. Worth noting because a hardware catalog without drivers still leaves the integration work on the buyer.",
+   "players": [
+    {
+     "name": "Viam Registry",
+     "url": "https://www.viam.com/product/registry",
+     "what": "An open-source marketplace of modules -- hardware drivers, services, ML models, reusable configurations -- explicitly compared by Viam to npm or PyPI but for robotics. A machine config names a hardware model and viam-server pulls the matching driver automatically; modules deploy to one machine or a fleet, with pinned versions. Publishers can keep modules private to an org or publish publicly, and companies can claim a namespace as official publisher.",
+     "also": "Viam's 2023 press release said developers would eventually be able to charge for modules with Viam handling distribution and billing; that paid-module capability is NOT confirmed live and should be checked before relying on it.",
+     "spans": ["software", "drivers"],
+     "confidence": "reported"
+    },
+    {
+     "name": "ROS Index / ROS-Industrial",
+     "url": "https://index.ros.org/",
+     "what": "The open-source default: package index for the ROS ecosystem. Discovery is by package name and distro, with no commercial layer and no requirement-based matching.",
+     "spans": ["software", "drivers"],
+     "confidence": "reported"
+    }
+   ]
+  },
+  {
+   "id": "sim-envs",
+   "label": "Simulation and RL-environment supply",
+   "note": "The brief's 'different simulation environments they can choose from'. There is NO general marketplace here -- there is a hub mechanism, an asset standard, and a cluster of very new YC companies selling environments as a service. All six YC names below are 2025-2026 batches, which dates the category.",
+   "players": [
+    {
+     "name": "Hugging Face LeRobot (EnvHub)",
+     "url": "https://huggingface.co/lerobot",
+     "what": "The nearest thing to an actual environment marketplace mechanism: LeRobot can pull simulation environments straight from the Hugging Face Hub by repo ID, and its constructor accepts a Hub URL in place of a config object. Distribution infrastructure that already exists, free and open.",
+     "spans": ["sim", "data", "models"],
+     "confidence": "reported"
+    },
+    {
+     "name": "NVIDIA SimReady / Isaac Sim",
+     "url": "https://developer.nvidia.com/omniverse/simready-assets",
+     "what": "Not a marketplace but a STANDARD, which may matter more: shared requirements and validation for OpenUSD assets covering physics, semantic labels and behavioural metadata, so an asset is loadable into Isaac Sim or Omniverse. NVIDIA's free SimReady library is roughly 1,000 hand-validated assets (figure from a third-party vendor comparison). Isaac Lab sits on top for RL and imitation learning.",
+     "spans": ["sim", "assets"],
+     "confidence": "reported"
+    },
+    {
+     "name": "Fern",
+     "yc": "Winter 2026",
+     "url": "https://fern.bot",
+     "what": "RL environments for robotics companies powered by a foundational world model. Customers plug their robot policies in entirely in software, across varying starting scenes of their own production environment, and Fern trains RL heads on top of existing policies.",
+     "spans": ["sim"],
+     "confidence": "verified"
+    },
+    {
+     "name": "Enact",
+     "yc": "Summer 2026",
+     "url": "https://enact.company",
+     "what": "Real-world (not simulated) RL environments -- builds the physical environments to benchmark and hill-climb robotics models on high-value tasks, finds where robots fail, and fixes them with an in-house training loop.",
+     "spans": ["sim", "real"],
+     "confidence": "verified"
+    },
+    {
+     "name": "One Robot",
+     "yc": "Winter 2026",
+     "url": "https://www.onerobot.io/",
+     "what": "World models for robot evals and training -- simulation environments realistic both to see and to interact with, so teams can train and evaluate policies without being bottlenecked by robot time.",
+     "spans": ["sim"],
+     "confidence": "verified"
+    },
+    {
+     "name": "Twolabs",
+     "yc": "Spring 2026",
+     "url": "https://twolabs.ai",
+     "what": "Verifiable RL environments, evaluations and proprietary training datasets for underexplored domains -- PCB and chip design, embedded systems, robotics.",
+     "spans": ["sim", "data"],
+     "confidence": "verified"
+    },
+    {
+     "name": "Runtime.si",
+     "yc": "Fall 2026",
+     "url": "https://runtime.si/",
+     "what": "Evaluation infrastructure for physical intelligence -- pushes robot policies to their limits across thousands of simulated worlds before they meet the real one. Formerly Lambda Robotics, then Runtime.",
+     "spans": ["sim", "evals"],
+     "confidence": "verified"
+    },
+    {
+     "name": "Robocurve",
+     "yc": "Summer 2026",
+     "url": "https://robocurve.org",
+     "what": "Open-source tools and independent benchmarks scoring how well robots do real-world jobs, explicitly as an answer to unverified demo videos from frontier labs. The neutral-referee position rather than the supplier position.",
+     "spans": ["evals"],
+     "confidence": "verified"
+    }
+   ]
+  },
+  {
+   "id": "suppliers",
+   "label": "Component makers (supply side, not marketplaces)",
+   "note": "Not competitors to the brief -- these are what would populate it. Listed because a marketplace with no differentiated supply is a directory.",
+   "players": [
+    {
+     "name": "Hlabs",
+     "yc": "Winter 2026",
+     "url": "https://www.hlaboratories.com",
+     "what": "US-made parts for robots -- building a domestic industrial supply chain for robot electronics and actuators with a focus on in-house manufacturing. Named by YC itself in the Hardware Supply Chain request.",
+     "spans": ["actuators", "electronics"],
+     "confidence": "verified"
+    },
+    {
+     "name": "Open Actuation",
+     "yc": "Fall 2026",
+     "url": "https://openactuation.com",
+     "what": "Quick-turn, purpose-built motors and actuators, high-mix, made in LA. Argues explicitly against off-the-shelf: DJI, Apple and Ford do not settle for OTS components. Formerly Pendulum Robotics.",
+     "spans": ["actuators"],
+     "confidence": "verified"
+    },
+    {
+     "name": "Silica",
+     "yc": "Fall 2026",
+     "url": "https://silicamachines.com/",
+     "what": "Affordable actuators that sense forces directly, so robots can feel their surroundings.",
+     "spans": ["actuators"],
+     "confidence": "verified"
+    }
+   ]
+  }
+ ],
+
+ "counterpoint": {
+  "name": "Mantle",
+  "yc": "Fall 2026",
+  "what": "Worth recording because it took the opposite position deliberately. Mantle is a full-stack field-service company deploying, fixing and maintaining machines for the companies that build them, and its own description says: 'We're not a marketplace or software tool, we own uptime directly.' Formerly Kyvore.",
+  "confidence": "verified"
+ },
+
+ "negative_results": [
+  "No funded, dedicated marketplace for ROBOT PARTS specifically (actuators, arms, grippers) surfaced in web search beyond Robotics Center. Searches returned component manufacturers and SEO market-report pages instead. Recorded so the next pass does not repeat the query.",
+  "No general marketplace for simulation environments exists. The closest mechanisms are the LeRobot Hub loader and the SimReady asset standard; the YC RL-environment companies sell environments as a service, one customer at a time, rather than listing them for browsing.",
+  "No player found that spans physical hardware + components + simulation environments under one AI-driven search. Robotics Center spans the most (hardware, parts, data, RL envs, evals); Viam spans the software-module equivalent. The two do not overlap."
+ ]
+}
