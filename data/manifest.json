@@ -1,11 +1,25 @@
 {
  "static": true,
- "builtAt": "2026-10-21T13:02:51.088Z",
+ "builtAt": "2026-10-21T18:51:11.782Z",
  "authors": [
   "anshu",
   "veer"
  ],
  "reports": [
+  {
+   "p": "reports/mom-test-robotics-marketplace.pdf",
+   "name": "mom-test-robotics-marketplace.pdf",
+   "ext": ".pdf",
+   "bytes": 700819,
+   "mtime": 1792608528595.8066
+  },
+  {
+   "p": "reports/mom-test-robotics-marketplace.html",
+   "name": "mom-test-robotics-marketplace.html",
+   "ext": ".html",
+   "bytes": 39610,
+   "mtime": 1792608491538.9087
+  },
   {
    "p": "reports/knowledge-state.md",
    "name": "knowledge-state.md",

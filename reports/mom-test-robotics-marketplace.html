@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mom Test field kit — robotics parts marketplace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --paper:#f6f4ee; --surface:#fcfbf7; --ink:#141310; --ink-2:#52514e; --ink-3:#898781;
+  --hairline:#e3e1d7; --baseline:#c9c7bb; --accent:#b3300e; --accent-ink:#8f2609; --wash:#efece2;
+  --good:#1baf7a; --bad:#c2410c; --chart:#2a78d6;
+  --shadow: 0 1px 2px rgba(20,19,16,.05), 0 8px 24px -12px rgba(20,19,16,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --paper:#111110; --surface:#1a1a19; --ink:#f4f3ee; --ink-2:#c3c2b7; --ink-3:#898781;
+    --hairline:#2c2c2a; --baseline:#383835; --accent:#e05c33; --accent-ink:#ef7c58; --wash:#232320;
+    --good:#199e70; --bad:#e2703a; --chart:#3987e5;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;
+  font-size:14px;line-height:1.55;padding:0 0 80px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:34px 24px 0}
+.kicker{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+h1{font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:32px;line-height:1.12;
+  letter-spacing:-.015em;margin-bottom:9px}
+h1 em{font-style:italic;color:var(--ink-2);font-weight:400}
+.dek{color:var(--ink-2);max-width:82ch;font-size:14.5px}
+.dek b{color:var(--ink);font-weight:600}
+.meta{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);margin-top:12px;
+  padding-top:11px;border-top:1px solid var(--hairline)}
+nav.tabs{display:flex;gap:5px;margin:24px 0 20px;flex-wrap:wrap;position:sticky;top:0;
+  background:var(--paper);padding:10px 0;z-index:20;border-bottom:1px solid var(--hairline)}
+.tab{font-size:12.5px;font-weight:500;padding:8px 14px;border:1px solid var(--hairline);
+  background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer;transition:.13s}
+.tab:hover{border-color:var(--baseline);color:var(--ink)}
+.tab.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.page{display:none}.page.on{display:block}
+h2.sub{font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:22px;margin:30px 0 8px;letter-spacing:-.01em}
+h3.sub3{font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:17px;margin:22px 0 6px}
+p.note{color:var(--ink-2);max-width:84ch;margin-bottom:12px}
+.callout{border:1px solid var(--hairline);border-left:3px solid var(--accent);background:var(--surface);
+  border-radius:0 9px 9px 0;padding:15px 18px;margin:16px 0;max-width:86ch}
+.callout .lb{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.callout p{color:var(--ink-2);font-size:13.4px}
+.decis{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:18px 0}
+.d{border:1px solid var(--hairline);background:var(--surface);border-radius:9px;padding:15px 17px}
+.d .tag{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.d .q{font-family:"Fraunces",Georgia,serif;font-size:16.5px;font-weight:500;margin-bottom:7px;line-height:1.25}
+.d .b{color:var(--ink-2);font-size:12.8px}
+ol.spine{counter-reset:s;list-style:none;margin:16px 0;max-width:88ch}
+ol.spine>li{counter-increment:s;position:relative;padding:0 0 0 46px;margin-bottom:18px}
+ol.spine>li:before{content:counter(s);position:absolute;left:0;top:1px;width:30px;height:30px;
+  border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;
+  font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500}
+ol.spine>li .h{font-family:"Fraunces",Georgia,serif;font-size:17px;font-weight:500;margin-bottom:4px}
+ol.spine>li .w{color:var(--ink-2);font-size:13px;margin-bottom:7px}
+.qs{list-style:none;margin:0}
+.qs li{position:relative;padding:5px 0 5px 17px;color:var(--ink);font-size:13.4px}
+.qs li:before{content:"";position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;
+  background:var(--accent)}
+.qs li i{color:var(--ink-3);font-style:italic;font-size:12.4px;display:block;margin-top:2px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0}
+th{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-3);text-align:left;padding:8px 10px;border-bottom:1px solid var(--baseline)}
+td{padding:9px 10px;border-bottom:1px solid var(--hairline);vertical-align:top}
+tr:hover td{background:var(--wash)}
+td.bad{color:var(--bad)}
+td.good{color:var(--good)}
+.swap{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--hairline);
+  border-radius:9px;overflow:hidden;margin-bottom:11px}
+@media(max-width:700px){.swap{grid-template-columns:1fr}}
+.swap>div{padding:13px 15px}
+.swap .x{background:var(--wash);border-right:1px solid var(--hairline)}
+.swap .lb{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.13em;
+  text-transform:uppercase;margin-bottom:5px}
+.swap .x .lb{color:var(--bad)}
+.swap .o .lb{color:var(--good)}
+.swap .t{font-size:13.4px}
+.swap .why{font-size:12px;color:var(--ink-3);margin-top:6px;font-style:italic}
+.seg{border:1px solid var(--hairline);background:var(--surface);border-radius:10px;padding:19px 21px;margin-bottom:16px}
+.seg .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:5px}
+.seg h3{font-family:"Fraunces",Georgia,serif;font-size:20px;font-weight:500}
+.pill{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;
+  padding:3px 9px;border:1px solid var(--hairline);border-radius:999px;color:var(--ink-3);background:var(--wash)}
+.pill.cust{color:var(--good);border-color:var(--good);background:transparent}
+.pill.not{color:var(--bad);border-color:var(--bad);background:transparent}
+.seg .role{color:var(--ink-2);font-size:13px;margin-bottom:12px}
+.seg .block{margin-top:14px}
+.seg .block .bh{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid var(--hairline)}
+.score{border:1px solid var(--hairline);background:var(--surface);border-radius:10px;padding:18px 20px;margin:16px 0}
+.score td:first-child{font-weight:600;width:30%}
+.day{display:grid;grid-template-columns:92px 1fr;gap:14px;padding:13px 0;border-bottom:1px solid var(--hairline)}
+.day .n{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;padding-top:2px}
+.day .c .h{font-weight:600;margin-bottom:3px}
+.day .c .b{color:var(--ink-2);font-size:13px}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--hairline);
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--ink-3);line-height:1.8}
+@media print{nav.tabs{display:none}.page{display:block!important}}
+</style></head><body>
+<div class="wrap">
+<div class="kicker">CTO Portal &middot; Field kit &middot; 2026-10-21</div>
+<h1>The Mom Test, pointed at <em>a startup-to-startup robotics parts exchange</em></h1>
+<p class="dek">A question set and interview framework built for one specific job: in the days before the YC deadline, turn an unlimited contact list into <b>evidence</b>. Not encouragement. The design constraint is that you are testing three things at once &mdash; whether the pain is real, <b>which side of the market is the hard side</b>, and <b>whether people pay for speed or for selection</b> &mdash; so these questions are built to discriminate between answers, not merely to confirm that sourcing is annoying.</p>
+<div class="meta">Source: Rob Fitzpatrick, <i>The Mom Test</i> (2013) &mdash; three rules, three kinds of bad data, commitment currencies. Applied to the landscape in the robotics-marketplace scan on this portal.</div>
+
+<nav class="tabs">
+<button class="tab on" data-p="core">The three decisions</button>
+<button class="tab" data-p="spine">The spine (every meeting)</button>
+<button class="tab" data-p="swaps">Question swaps</button>
+<button class="tab" data-p="segs">Per-segment sets</button>
+<button class="tab" data-p="score">Scorecard &amp; triage</button>
+<button class="tab" data-p="plan">The run plan</button>
+</nav>
+
+<!-- ============================ CORE ============================ -->
+<div class="page on" id="p-core">
+<h2 class="sub">What these two weeks have to settle</h2>
+<p class="note">You said the hard side and the fulfilment model are both <b>open questions you want tested</b>. That is the single most important input to this design. A generic "is this a problem?" interview will not separate them, because almost everyone will agree sourcing is painful &mdash; and agreement is the cheapest thing you can collect. Every question set below is built to force a choice.</p>
+
+<div class="decis">
+<div class="d"><div class="tag">Decision 1 &middot; Problem</div>
+<div class="q">Is the pain real, recent and expensive?</div>
+<div class="b">Not "is it annoying". Does it have a <b>date, a duration and a number</b> attached? A problem nobody has spent money or built a workaround for is a preference, not a problem.</div></div>
+
+<div class="d"><div class="tag">Decision 2 &middot; Hard side</div>
+<div class="q">Buyers or sellers &mdash; who is actually desperate?</div>
+<div class="b">You build the side that is <b>not</b> desperate and recruit the side that is. Ask both populations the same urgency probe and compare. Most founders assume supply is hard and discover demand is harder, or the reverse &mdash; but they assume rather than measure.</div></div>
+
+<div class="d"><div class="tag">Decision 3 &middot; Model</div>
+<div class="q">Do they pay for speed, or for selection?</div>
+<div class="b">This decides whether you hold inventory or stay asset-light, and it is settled by <b>one question about the last purchase</b> (see the spine, move 5). Speed buyers took a worse part because it was in stock. Selection buyers waited weeks because nothing matched spec. They are different businesses.</div></div>
+</div>
+
+<div class="callout"><div class="lb">The trap specific to your situation</div>
+<p>You have unlimited contacts and very little time. That combination pushes hard toward <b>volume of friendly conversations</b>, which is exactly the failure mode the book is about. Twenty warm chats that all go well produce less than six conversations that each end in a commitment or a clear refusal. Pick the harder meetings.</p></div>
+
+<h2 class="sub">The three rules, in your context</h2>
+<table>
+<thead><tr><th>Rule</th><th>What it means when you are talking to a robotics founder</th></tr></thead>
+<tbody>
+<tr><td><b>Talk about their life, not your idea</b></td><td>You are not describing an exchange. You are asking how their last build got unblocked. If they never learn what you are building, the interview is cleaner, not worse.</td></tr>
+<tr><td><b>Specifics in the past, not generics about the future</b></td><td>"Would you use a marketplace for actuators?" is worthless. "Which actuator did you buy last, and how long did it take to arrive?" is evidence.</td></tr>
+<tr><td><b>Talk less, listen more</b></td><td>You have a strong thesis and twelve days. The temptation to pitch will be severe. Target: you speak less than a quarter of the time.</td></tr>
+</tbody></table>
+
+<h2 class="sub">The three kinds of bad data, and the recovery line</h2>
+<table>
+<thead><tr><th>Bad data</th><th>What it sounds like</th><th>Say this instead</th></tr></thead>
+<tbody>
+<tr><td class="bad"><b>Compliments</b></td><td>"That's a great idea." "I love this." "You should definitely build it."</td><td>"Thanks &mdash; but I'd rather hear where it breaks. When did you last have this problem?"</td></tr>
+<tr><td class="bad"><b>Fluff</b><br><span style="font-size:11.5px;color:var(--ink-3)">generics, hypotheticals, futures</span></td><td>"I usually order from DigiKey." "I would definitely pay for that." "We're planning to buy more arms next year."</td><td>"Usually? Tell me about the most recent one specifically." / "Have you ever paid for something like that before?"</td></tr>
+<tr><td class="bad"><b>Ideas &amp; feature requests</b></td><td>"You should add CAD previews." "It needs lead-time filters."</td><td>"Why do you want that? What would it let you do that you can't today?" &mdash; dig for the motivation, never just write the feature down.</td></tr>
+</tbody></table>
+
+<h2 class="sub">Commitment currencies &mdash; the only real signal</h2>
+<p class="note">A meeting succeeded only if it advanced on one of three currencies. Enthusiasm is not a currency. Ask for one of these in <b>every</b> conversation, including the ones that go badly &mdash; especially those.</p>
+<table>
+<thead><tr><th>Currency</th><th>Weak ask</th><th>Strong ask (use these)</th></tr></thead>
+<tbody>
+<tr><td><b>Time</b></td><td>"Can we chat again sometime?"</td><td class="good">"Can you sit with me for 40 minutes next week and walk through your actual BOM and where each line came from?"</td></tr>
+<tr><td><b>Reputation</b></td><td>"Do you know anyone else?"</td><td class="good">"Will you introduce me to your two best suppliers, by name, on email?" / "Would you let me name you as a design partner in an application?"</td></tr>
+<tr><td><b>Money</b></td><td>"Would you pay for this?"</td><td class="good">"If I source this exact part at this spec by Friday, will you commit to buying it at X?" / "Will you put down a deposit / sign an LOI for your next order?"</td></tr>
+</tbody></table>
+<div class="callout"><div class="lb">For the YC form specifically</div>
+<p>Four named people who gave you time, two who gave intros and one who committed money beats "we spoke to 40 founders and they were excited" by an enormous margin. You said you want application material &mdash; <b>this table is the application material.</b> Track the currency, not the headcount.</p></div>
+</div>
+
+<!-- ============================ SPINE ============================ -->
+<div class="page" id="p-spine">
+<h2 class="sub">The spine: seven moves, same every meeting</h2>
+<p class="note">Run this with every segment. The segment-specific pages only change the vocabulary and moves 5 and 6. Budget 30&ndash;40 minutes. Do not deviate into pitching even if invited.</p>
+
+<ol class="spine">
+<li><div class="h">Open on their world, not your idea</div>
+<div class="w">No preamble about what you are building. One line of framing and then straight into their work.</div>
+<ul class="qs">
+<li>"I'm trying to understand how hardware teams actually get parts. Can you tell me what you're building right now and where it is?"</li>
+<li>"What's blocking you this week?" <i>Unprompted mention of sourcing here is the strongest possible signal. Note whether it came up on its own.</i></li>
+</ul></li>
+
+<li><div class="h">Anchor to the last concrete event</div>
+<div class="w">This is the hinge of the entire interview. Everything downstream hangs off a specific, dated episode.</div>
+<ul class="qs">
+<li>"Walk me through the last time you needed a part you didn't already have."</li>
+<li>"When was that? What was the part?"</li>
+<li>"What did you do first?" <i>Then just follow it. Do not interrupt to sympathise.</i></li>
+</ul></li>
+
+<li><div class="h">Timeline it &mdash; get the duration</div>
+<div class="w">You are converting a feeling into a number. Push gently for dates until the story has edges.</div>
+<ul class="qs">
+<li>"How long between realising you needed it and having it in your hand?"</li>
+<li>"How much of that was finding it versus waiting for it?" <i>This split matters enormously &mdash; it is discovery pain versus logistics pain, and they imply different companies.</i></li>
+<li>"What else stopped while you waited? Was anyone sitting idle?"</li>
+</ul></li>
+
+<li><div class="h">Money &mdash; who paid, and what did the delay cost</div>
+<div class="w">Ask plainly. Hardware people are usually comfortable with these numbers.</div>
+<ul class="qs">
+<li>"What did the part cost? And what did the week cost you?"</li>
+<li>"Whose budget did it come out of? Do you need approval, and from whom?" <i>Identifies the real buyer, who is often not your contact.</i></li>
+<li>"Did you pay anything to make it faster &mdash; expedite, air freight, a premium distributor?" <i>A yes here is hard evidence for the speed model.</i></li>
+</ul></li>
+
+<li><div class="h">The discriminator &mdash; speed or selection</div>
+<div class="w">Two questions, asked exactly like this. They settle Decision 3 better than any amount of discussion.</div>
+<ul class="qs">
+<li><b>"Did you end up with the part you wanted, or the part you could get fastest?"</b> <i>"The one I could get" &rarr; speed buyer &rarr; argues for holding inventory.</i></li>
+<li><b>"Have you ever waited weeks because nothing else matched the spec?"</b> <i>Yes &rarr; selection buyer &rarr; argues for asset-light breadth of catalogue.</i></li>
+<li>"When you compromised, what did it cost you later?" <i>Rework, a redesign, a failed test &mdash; this is where the real number usually hides.</i></li>
+</ul></li>
+
+<li><div class="h">Workarounds &mdash; what have they already built or bought</div>
+<div class="w">Existing spend and existing hacks are the highest-quality evidence available. Someone who built a spreadsheet has told you the problem is real without being asked.</div>
+<ul class="qs">
+<li>"How do you keep track of what you've ordered and from whom today?"</li>
+<li>"Has anyone on the team built something internal for this &mdash; a sheet, a script, a vendor list?"</li>
+<li>"Have you paid for any tool or service to help here? What happened to it?"</li>
+<li>"Who else have you tried? What made you stop using them?" <i>Direct competitive intelligence, volunteered.</i></li>
+</ul></li>
+
+<li><div class="h">Close on a commitment, or learn that there isn't one</div>
+<div class="w">Never end on "this was great, I'll keep you posted." Make a specific ask and record what they actually said. A refusal is a result.</div>
+<ul class="qs">
+<li>"What's the next part you'll need to source? When?"</li>
+<li>"If I found that at spec, in stock, delivered by [date] &mdash; would you buy it from me?" <i>Then stop talking.</i></li>
+<li>"Who are your two best suppliers? Would you introduce me?"</li>
+<li>"Who else should I be speaking to who has this problem worse than you?"</li>
+</ul></li>
+</ol>
+
+<div class="callout"><div class="lb">If they ask what you're building</div>
+<p>Deflect once: <i>"I'll tell you at the end &mdash; I don't want to bias what you tell me."</i> They will respect it. When you do explain at the end, frame it to invite attack: <i>"The thing I'm least sure about is whether anyone would trust an unknown vendor for a part their robot depends on. Tell me why that fails."</i> That phrasing gets you criticism, which is data. "Sounds great" is not.</p></div>
+</div>
+
+<!-- ============================ SWAPS ============================ -->
+<div class="page" id="p-swaps">
+<h2 class="sub">The questions you will be tempted to ask, and what to ask instead</h2>
+<p class="note">These are the specific traps for <b>this</b> idea. The left column is what a founder with a marketplace thesis and a deadline naturally says. The right column is the version that produces evidence.</p>
+
+<div class="swap"><div class="x"><div class="lb">Don't ask</div><div class="t">"Would you use a marketplace where startups buy parts from other startups?"</div>
+<div class="why">Hypothetical + your idea + a yes costs them nothing.</div></div>
+<div class="o"><div class="lb">Ask</div><div class="t">"Where did the last five parts on your BOM actually come from? Walk me down the list."</div>
+<div class="why">Reveals the real supplier mix, including how much is already small-vendor.</div></div></div>
+
+<div class="swap"><div class="x"><div class="lb">Don't ask</div><div class="t">"Do you have trouble sourcing actuators?"</div>
+<div class="why">Leading. Everyone says yes. Tells you nothing about magnitude.</div></div>
+<div class="o"><div class="lb">Ask</div><div class="t">"What was the longest you've been blocked waiting on a component this year? What was it?"</div>
+<div class="why">Forces a specific worst case with a duration you can compare across interviews.</div></div></div>
+
+<div class="swap"><div class="x"><div class="lb">Don't ask</div><div class="t">"Would you pay a 10% fee for faster sourcing?"</div>
+<div class="why">Pricing hypotheticals are the purest form of fluff.</div></div>
+<div class="o"><div class="lb">Ask</div><div class="t">"Have you ever paid a premium to get a part faster? What was the part, and how much over list?"</div>
+<div class="why">Past behaviour. If they have expedited before, they will again.</div></div></div>
+
+<div class="swap"><div class="x"><div class="lb">Don't ask</div><div class="t">"Would you buy from a vendor you'd never heard of?"</div>
+<div class="why">Invites the socially correct answer, which is no.</div></div>
+<div class="o"><div class="lb">Ask</div><div class="t">"Tell me about the last time you bought from a supplier you didn't know. How did you decide it was safe?"</div>
+<div class="why">Gives you the actual trust mechanism — which is the thing you'd have to build.</div></div></div>
+
+<div class="swap"><div class="x"><div class="lb">Don't ask</div><div class="t">"Would you list your parts on a platform like this?" <span style="color:var(--ink-3)">(to a vendor)</span></div>
+<div class="why">Sellers say yes to any free distribution and then never upload a SKU.</div></div>
+<div class="o"><div class="lb">Ask</div><div class="t">"How did your last five customers find you? What did you spend to get them?"</div>
+<div class="why">If their CAC is near zero they do not need you; if it's painful, you have a wedge.</div></div></div>
+
+<div class="swap"><div class="x"><div class="lb">Don't ask</div><div class="t">"How much would you pay for access to simulation environments?"</div>
+<div class="why">Asks them to price something that does not exist, in a category they may not buy in at all.</div></div>
+<div class="o"><div class="lb">Ask</div><div class="t">"What did you use to test the last policy before it touched a real robot? Did that cost anything?"</div>
+<div class="why">Finds out whether sim is a purchased line item or something they build themselves — which decides whether the expansion is real.</div></div></div>
+
+<div class="swap"><div class="x"><div class="lb">Don't ask</div><div class="t">"Is China sourcing a problem for you?"</div>
+<div class="why">Invites geopolitics commentary rather than their operational reality.</div></div>
+<div class="o"><div class="lb">Ask</div><div class="t">"What's on your BOM that you can only get from one place? What happens if that lead time doubles?"</div>
+<div class="why">Surfaces genuine single-source exposure, which is where urgency and budget actually live.</div></div></div>
+
+<div class="swap"><div class="x"><div class="lb">Don't ask</div><div class="t">"Do you think other startups would find this useful?"</div>
+<div class="why">Asks them to speculate about other people, the least reliable data of all.</div></div>
+<div class="o"><div class="lb">Ask</div><div class="t">"Who do you know who has this worse than you? Can you introduce me?"</div>
+<div class="why">Converts the same instinct into a reputation commitment and a lead.</div></div></div>
+</div>
+
+<!-- ============================ SEGMENTS ============================ -->
+<div class="page" id="p-segs">
+<h2 class="sub">Five populations, and they are not all customers</h2>
+<div class="callout"><div class="lb">Read this before the rest of the page</div>
+<p>You listed GSB supply-chain people and PhD students alongside robot founders. <b>Treat them completely differently.</b> A GSB student who knows Chinese supply chains is an <i>expert witness</i>, not a customer &mdash; asking them validation questions produces confident, fluent, worthless answers. PhD students <i>are</i> buyers, but with near-zero budget authority and tiny volumes: excellent for proving the problem exists and frequent, misleading for proving anyone will pay. Mixing these three kinds of evidence into one pile is the most likely way this fortnight goes wrong.</p></div>
+
+<div class="seg">
+<div class="top"><h3>A &middot; Robotics founders building and deploying hardware</h3><span class="pill cust">Core customer</span></div>
+<div class="role">Your primary buyer, and the only segment that can give you all three decisions at once. Over-weight these: aim for half your meetings here.</div>
+<div class="block"><div class="bh">After the spine, add</div>
+<ul class="qs">
+<li>"How many distinct suppliers are on your current BOM? Who owns that relationship &mdash; you, or someone else?"</li>
+<li>"What's the difference between how you sourced at prototype stage and how you source now?" <i>Finds the stage at which your product would be adopted — and whether they grow out of you.</i></li>
+<li>"When you need a part fast, who do you call or message first?" <i>Often a person, not a site. That person is your real competitor.</i></li>
+<li>"Have you ever designed around a part because you couldn't get the one you wanted?"</li>
+<li>"What fraction of your parts come from companies smaller than yours?" <i>Directly tests your startup-to-startup premise.</i></li>
+</ul></div>
+<div class="block"><div class="bh">Commitment ask</div>
+<ul class="qs"><li>"What's the next part you need? Let me try to source it this week &mdash; if I hit your spec and date, will you buy?"</li></ul></div>
+</div>
+
+<div class="seg">
+<div class="top"><h3>B &middot; Component vendors and small hardware suppliers</h3><span class="pill cust">The other side &mdash; interview these</span></div>
+<div class="role">You did not list these, and that is the biggest gap in your plan. You cannot test "which side is the hard side" by only talking to one side. Find at least five sellers &mdash; small actuator, gripper, sensor and machining shops, including the YC ones on the marketplace scan.</div>
+<div class="block"><div class="bh">Questions</div>
+<ul class="qs">
+<li>"How did your last five customers find you?"</li>
+<li>"What did you spend to get them &mdash; time, ads, conferences, intros?"</li>
+<li>"How much inbound do you get that you can't serve, and why can't you serve it?" <i>Wasted inbound is the clearest reason a seller joins a marketplace.</i></li>
+<li>"What's your lead time right now, honestly, versus what your site says?"</li>
+<li>"Have you ever let a third party quote or sell on your behalf? What happened?"</li>
+<li>"Would you give someone else your stock levels? What would stop you?" <i>This is the operational blocker for any real-time catalogue, and it is usually the answer that kills naive marketplace plans.</i></li>
+</ul></div>
+<div class="block"><div class="bh">Commitment ask</div>
+<ul class="qs"><li>"Can you send me your current price and lead-time list for your top ten SKUs this week?" <i>If they will not send a price list, they will not join a marketplace.</i></li></ul></div>
+</div>
+
+<div class="seg">
+<div class="top"><h3>C &middot; Simulation and robot-software founders</h3><span class="pill">Adjacent &mdash; tests the expansion, not the launch</span></div>
+<div class="role">You said physical parts only at launch, so these conversations are not about your first product. Their job is to tell you whether the sim half is a real second act or a slide. Hold them to that and do not let them redesign your roadmap.</div>
+<div class="block"><div class="bh">Questions</div>
+<ul class="qs">
+<li>"Who pays you today, and what exactly are they buying &mdash; a licence, a service, a dataset?"</li>
+<li>"How do customers find you now?"</li>
+<li>"When a robotics team comes to you, what have they usually already tried?"</li>
+<li>"Do your customers ever ask you to recommend hardware? What do you tell them?" <i>If sim vendors are already informally routing hardware decisions, that is a real distribution insight.</i></li>
+<li>"Is your environment tied to specific hardware? How much work is a new arm?" <i>Tests whether a combined hardware-plus-sim listing is even coherent.</i></li>
+</ul></div>
+<div class="block"><div class="bh">Commitment ask</div>
+<ul class="qs"><li>"Would you co-list with a hardware vendor on a trial basis &mdash; your environment, their arm, one bundle?"</li></ul></div>
+</div>
+
+<div class="seg">
+<div class="top"><h3>D &middot; PhD students and lab buyers</h3><span class="pill cust">Real pain</span> <span class="pill not">Weak willingness to pay</span></div>
+<div class="role">Use them for <b>frequency and friction</b> data, which they have in abundance, and discount everything they say about price. University procurement is a distinct beast &mdash; purchase orders, approved-vendor lists, grant codes &mdash; and if you ever sell here, that machinery is the product, not the catalogue.</div>
+<div class="block"><div class="bh">Questions</div>
+<ul class="qs">
+<li>"How often do you order parts &mdash; weekly, monthly?"</li>
+<li>"Walk me through what happens between you deciding you need something and it arriving. Who else touches it?" <i>Expect a purchasing office. Count the steps.</i></li>
+<li>"How long does the paperwork add on top of shipping?"</li>
+<li>"Have you ever bought something with your own money to avoid the process?" <i>A yes is a strong pain signal — and tells you the official channel is failing.</i></li>
+<li>"Is your lab locked to approved vendors? Who gets a new supplier onto that list, and how long does it take?" <i>This single answer tells you whether academia is reachable at all.</i></li>
+</ul></div>
+<div class="block"><div class="bh">Commitment ask</div>
+<ul class="qs"><li>"Can you forward me your last three purchase orders with the prices redacted?"</li></ul></div>
+</div>
+
+<div class="seg">
+<div class="top"><h3>E &middot; GSB and supply-chain experts (incl. China)</h3><span class="pill not">Not customers &mdash; expert witnesses</span></div>
+<div class="role">Do not ask these people whether your idea is good. They will give you a fluent, structured, plausible answer, and it will be worth nothing because they are not the ones with the problem. Ask them only for <b>mechanism</b>: how the trade actually works, where the margin sits, what will break at volume.</div>
+<div class="block"><div class="bh">Questions &mdash; mechanism only</div>
+<ul class="qs">
+<li>"If I wanted to buy 50 of one actuator from a Shenzhen supplier next month, what does that process actually look like end to end?"</li>
+<li>"Where does the margin sit in that chain today, and who captures it?"</li>
+<li>"What do incumbent distributors do that isn't obvious from outside?" <i>The unglamorous answer — financing, credit terms, returns, customs — is usually the real moat and the real cost.</i></li>
+<li>"What are the failure modes when a small intermediary tries this? Where do they typically die?"</li>
+<li>"What's the minimum order reality? Would a supplier take a 5-unit order from an unknown startup at all?" <i>This one question may invalidate or confirm the whole startup-to-startup premise.</i></li>
+<li>"Who holds the working capital in that chain?" <i>If the answer is 'the distributor', your asset-light model has a financing problem you have not costed.</i></li>
+</ul></div>
+<div class="block"><div class="bh">Commitment ask</div>
+<ul class="qs"><li>"Can you introduce me to one supplier and one buyer you'd trust?" <i>Their network is the asset here, not their opinion.</i></li></ul></div>
+</div>
+</div>
+
+<!-- ============================ SCORE ============================ -->
+<div class="page" id="p-score">
+<h2 class="sub">Score every conversation the same way</h2>
+<p class="note">Fill this in within ten minutes of each meeting, before the next one. Twenty interviews only become a decision if they are comparable. Keep it to one row per person in a single sheet.</p>
+
+<div class="score">
+<table>
+<thead><tr><th>Field</th><th>What you record</th></tr></thead>
+<tbody>
+<tr><td>Name / segment</td><td>A&ndash;E from the previous tab</td></tr>
+<tr><td>Raised it unprompted?</td><td>Y/N &mdash; did sourcing come up before you steered there? <b>The highest-value single bit.</b></td></tr>
+<tr><td>Last incident date</td><td>A real date, or "none" &mdash; "none" is a finding</td></tr>
+<tr><td>Days blocked</td><td>Number</td></tr>
+<tr><td>Cost of the delay</td><td>Their number, in their words</td></tr>
+<tr><td>Paid to go faster?</td><td>Y/N + amount &rarr; <b>evidence for the inventory model</b></td></tr>
+<tr><td>Waited on spec?</td><td>Y/N &rarr; <b>evidence for the asset-light model</b></td></tr>
+<tr><td>Existing workaround</td><td>Spreadsheet / script / person / paid tool / none</td></tr>
+<tr><td>Already spends money?</td><td>Y/N + on what</td></tr>
+<tr><td>Commitment obtained</td><td>none / time / reputation / money &mdash; <b>be strict</b></td></tr>
+<tr><td>Verbatim quote</td><td>One sentence, their words, unedited. These go in the YC form.</td></tr>
+<tr><td>Disconfirming note</td><td>One thing they said that argues <i>against</i> you. If this is blank, you pitched.</td></tr>
+</tbody></table>
+</div>
+
+<h2 class="sub">How to read the pile</h2>
+<table>
+<thead><tr><th>Pattern across interviews</th><th>What it means</th><th>What you do</th></tr></thead>
+<tbody>
+<tr><td>Most "paid to go faster" = yes</td><td>Speed is the purchase driver</td><td class="good">Hold inventory on a narrow SKU set. Sell the date, not the catalogue.</td></tr>
+<tr><td>Most "waited on spec" = yes</td><td>Selection is the purchase driver</td><td class="good">Asset-light breadth and genuine search. Sell the match, not the warehouse.</td></tr>
+<tr><td>Both high</td><td>Two segments, not one</td><td>Pick the one with the larger spend and ignore the other for now.</td></tr>
+<tr><td>Both low</td><td>Sourcing is annoying but not costly</td><td class="bad">The wedge is wrong. Look at where the money actually went instead.</td></tr>
+<tr><td>Buyers urgent, sellers indifferent</td><td>Supply is the hard side</td><td>Build supply manually. Be the vendor before you are the market.</td></tr>
+<tr><td>Sellers urgent, buyers indifferent</td><td>Demand is the hard side</td><td>Sell distribution to vendors; demand generation is the product.</td></tr>
+<tr><td>Few unprompted mentions</td><td>Not a top-three problem for them</td><td class="bad">Treat as a serious warning regardless of how warm the meetings felt.</td></tr>
+</tbody></table>
+
+<div class="callout"><div class="lb">The honesty check</div>
+<p>If after fifteen interviews you have no disconfirming notes and every meeting felt good, the data is bad &mdash; not the idea validated. Fitzpatrick's whole point is that the pleasant conversation is the failure mode. Go back and re-read your notes for compliments you recorded as evidence.</p></div>
+</div>
+
+<!-- ============================ PLAN ============================ -->
+<div class="page" id="p-plan">
+<h2 class="sub">Twelve days, worked backwards from the deadline</h2>
+<p class="note">Dated from today, 21 October, against a deadline on or about 2 November &mdash; <b>confirm the exact date before you use this schedule.</b> The shape matters more than the dates: interview the two sides in parallel, force the discriminator early, and leave the last stretch for a real commitment rather than more conversations.</p>
+
+<div class="day"><div class="n">Day 1</div><div class="c"><div class="h">Line up both sides before you talk to anyone</div><div class="b">Book 8 buyers (segment A) and 5 sellers (segment B) in the same breath. The seller side is the one you will be tempted to skip and the one that answers Decision 2. Write down your three biggest unknowns and keep them visible in every call.</div></div></div>
+
+<div class="day"><div class="n">Days 2&ndash;4</div><div class="c"><div class="h">First ten interviews, spine only</div><div class="b">No pitching at all in this block, even at the end. Score each within ten minutes. By interview ten you should see whether "paid to go faster" or "waited on spec" is dominating.</div></div></div>
+
+<div class="day"><div class="n">Day 5</div><div class="c"><div class="h">Read the pile and cut</div><div class="b">Call Decision 3 provisionally. Drop the weakest segment entirely &mdash; probably D or E &mdash; and reallocate those slots to whichever side looked harder. This is the day the plan is supposed to change.</div></div></div>
+
+<div class="day"><div class="n">Days 6&ndash;9</div><div class="c"><div class="h">Second ten, now with commitment asks</div><div class="b">Same spine, but every meeting ends in a specific ask for time, reputation or money. Start running one real transaction by hand: take one buyer's actual next part and try to source it yourself. Doing it manually will teach you more than the next five interviews.</div></div></div>
+
+<div class="day"><div class="n">Days 10&ndash;11</div><div class="c"><div class="h">Convert, don't collect</div><div class="b">Go back to the three warmest and ask for the hard commitment &mdash; a deposit, an LOI, a named design partnership. Chase the manual transaction to completion if it is still open. One completed trade is worth more in the application than twenty interviews.</div></div></div>
+
+<div class="day"><div class="n">Day 12</div><div class="c"><div class="h">Write it up</div><div class="b">Three numbers (median days blocked, median cost of delay, how many already pay for a workaround), three verbatim quotes, the named commitments by currency, and the one thing you learned that you did not expect. That last item is what signals you actually ran the process.</div></div></div>
+
+<h2 class="sub">Two things to settle before Day 1</h2>
+<ul class="qs">
+<li><b>Confirm the deadline.</b> This schedule assumes ~2 November. If it is earlier, cut the second interview block, not the commitment days.</li>
+<li><b>Find five sellers.</b> Segment B is missing from your list and it is half your question. The robotics-marketplace scan on this portal has candidates: Hlabs, Open Actuation and Silica on actuators, Foundation Industries, Prototyping.io, twentyfour26 and Antropi on machined parts.</li>
+</ul>
+</div>
+
+<footer>Built 2026-10-21 for Anshu. Framework from Rob Fitzpatrick, <i>The Mom Test</i> (2013) &mdash; three rules, three kinds of bad data, commitment currencies &mdash; applied to a startup-to-startup robotics parts exchange. Segment set reflects the populations Anshu named, plus the seller side, which was missing. Company names referenced come from the robotics-marketplace scan on this portal.</footer>
+</div>
+<script>
+const $$=s=>[...document.querySelectorAll(s)];
+$$('.tab').forEach(t=>t.onclick=()=>{
+  $$('.tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');
+  $$('.page').forEach(p=>p.classList.remove('on'));
+  document.getElementById('p-'+t.dataset.p).classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+</script>
+</body></html>
