@@ -212,6 +212,24 @@
      "confidence": "reported"
     },
     {
+     "name": "Moving Atoms",
+     "yc": "Summer 2026",
+     "url": "https://movingatoms.ai/",
+     "what": "Scan-to-model as a service. A customer uploads a LiDAR or SLAM scan and gets back separated, measured, editable 3D objects within 48 hours -- as a BIM model for Revit or IFC, and as a USD 'SimReady' world for robot simulation. Pricing is quote-based. Sells to architects, GCs, owners and facilities teams, industrial operators, and robotics teams. Backed by Y Combinator and NVIDIA Inception.",
+     "also": "Lists 'training data' and 'SimReady environments' as products, but nothing is offered as a browsable asset for purchase -- there is a gallery of reconstructed sample sites in a 3D viewer, not a catalogue. It is a SUPPLIER of the thing a sim marketplace would list, not a marketplace.",
+     "spans": ["sim", "assets", "data"],
+     "backing": "Y Combinator, NVIDIA Inception",
+     "confidence": "verified"
+    },
+    {
+     "name": "OceanVeo",
+     "url": "https://oceanveo.ai",
+     "what": "Training and evaluation environments for robot 'brains'. Turns real-world environments and human demonstrations into interactive worlds where robot policies can be trained, adapted and evaluated at scale, running capture -> reconstruction -> simulation -> training/evaluation -> deployment. Works with frontier labs and enterprises, and invites robotics and embodied-AI researchers to partner.",
+     "also": "No hardware, no catalogue, no marketplace element on the site. Founders sign off as Andrew, Sherelle and Alex; the team is described as researchers from Tesla Optimus and Autopilot, Meta, Stanford, Berkeley and Caltech. No investor is named on the page.",
+     "spans": ["sim", "data", "evals"],
+     "confidence": "verified"
+    },
+    {
      "name": "Fern",
      "yc": "Winter 2026",
      "url": "https://fern.bot",
@@ -303,7 +321,7 @@
 
  "negative_results": [
   "No funded, dedicated marketplace for ROBOT PARTS specifically (actuators, arms, grippers) surfaced in web search beyond Robotics Center. Searches returned component manufacturers and SEO market-report pages instead. Recorded so the next pass does not repeat the query.",
-  "No general marketplace for simulation environments exists. The closest mechanisms are the LeRobot Hub loader and the SimReady asset standard; the YC RL-environment companies sell environments as a service, one customer at a time, rather than listing them for browsing.",
+  "No general marketplace for simulation environments exists, and the two companies Anshu named as his reference points -- Moving Atoms and OceanVeo -- REINFORCE that rather than contradicting it: both are suppliers of environments, both sell bespoke and quote-based rather than from a catalogue, and neither has any marketplace element. The closest mechanisms remain the LeRobot Hub loader and the SimReady asset standard. This is the strongest available evidence that sim environments are currently a services business, not a listable SKU -- which is a question to put to sellers directly rather than assume either way.",
   "No player found that spans physical hardware + components + simulation environments under one AI-driven search. Robotics Center spans the most (hardware, parts, data, RL envs, evals); Viam spans the software-module equivalent. The two do not overlap."
  ]
 }

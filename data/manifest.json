@@ -1,6 +1,6 @@
 {
  "static": true,
- "builtAt": "2026-10-21T18:51:11.782Z",
+ "builtAt": "2026-10-21T19:18:36.479Z",
  "authors": [
   "anshu",
   "veer"
@@ -10,15 +10,22 @@
    "p": "reports/mom-test-robotics-marketplace.pdf",
    "name": "mom-test-robotics-marketplace.pdf",
    "ext": ".pdf",
-   "bytes": 700819,
-   "mtime": 1792608528595.8066
+   "bytes": 713630,
+   "mtime": 1792610290137.514
   },
   {
    "p": "reports/mom-test-robotics-marketplace.html",
    "name": "mom-test-robotics-marketplace.html",
    "ext": ".html",
-   "bytes": 39610,
-   "mtime": 1792608491538.9087
+   "bytes": 40622,
+   "mtime": 1792610279244.3489
+  },
+  {
+   "p": "reports/robotics-marketplace-map.html",
+   "name": "robotics-marketplace-map.html",
+   "ext": ".html",
+   "bytes": 33435,
+   "mtime": 1792610253276.1963
   },
   {
    "p": "reports/knowledge-state.md",
@@ -40,13 +47,6 @@
    "ext": ".md",
    "bytes": 14908,
    "mtime": 1792519205366.3127
-  },
-  {
-   "p": "reports/robotics-marketplace-map.html",
-   "name": "robotics-marketplace-map.html",
-   "ext": ".html",
-   "bytes": 30999,
-   "mtime": 1792424567442.9302
   },
   {
    "p": "reports/yc-rfs-hardware-map.html",
