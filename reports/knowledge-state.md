@@ -4,20 +4,97 @@ The file every agent reads to answer "what does he already know". Maintained by
 M2 Ledger Keeper after each editor run. This is a state file, not a document:
 no prose, no commentary, no history beyond what is needed to compute a diff.
 
-Last updated 2026-10-23 by the M1/M2 run. TWENTY briefs published, counted
+Last updated 2026-10-26 by the M1/M2 run. TWENTY-ONE briefs published, counted
 from `ls reports/newsletter/*.md`. Count the directory, do not carry the
-previous header's number forward. Window 21 to 23 October, 48 hours, computed
-from the newest file in reports/newsletter/ rather than the calendar as the
-standing instruction requires. Zero duplicates were found against the 21, 20
-and 19 October briefs.
+previous header's number forward. Window 24 to 26 October, 72 hours, computed
+from the newest file in reports/newsletter/ as the standing instruction
+requires. The task FIRED ON SCHEDULE, which it did not on 22 October. Zero
+duplicates were found against the 23, 21 and 20 October briefs.
 
-THE TASK DID NOT FIRE ON 22 OCTOBER and nothing in the system noticed, which
-breaks the three-run on-schedule streak recorded on 2026-10-21 and is the
-second gap after 8 to 10 October. The 2026-10-23 run handled it by widening
-the window to 48 hours from the newest newsletter file rather than taking the
-charter's Tuesday-to-Friday 24, and said so in the dateline and in provenance.
-A LATER RUN MUST DO THE SAME: compute the window from the newest file, never
-from the calendar, and state the width in the dateline when it is not 24.
+ANTHROPIC FILED AN S-1 ON 2026-10-26 AND IT IS THE FIRST TIME THIS BOARD HAS
+READ THE EVALUATOR PROGRAMME IN A DOCUMENT CARRYING SECURITIES LIABILITY.
+CIK 2130357, accession 0001628280-26-067168, Nasdaq "ANT", Goldman Sachs and
+Morgan Stanley named. Two things changed against what the board stored from the
+company posts. First the number shrank: the S-1 says only "we currently
+anticipate investing at least $1 billion over the next five years to build
+external reviewer capacity with Accenture. The terms of this arrangement have
+not been finalized and are subject to change." No Accenture figure appears
+anywhere in the filing, so the USD 2,000,000,000 total the board carried from
+2026-10-12 is not supported by it. Second, a fact no post disclosed: "certain
+of these agreements require us to defend and indemnify the evaluator, without a
+cap on our liability, against certain third-party claims." THE EVALUATOR IS
+FUNDED AND INDEMNIFIED BY THE PARTY IT EVALUATES. That is a second and
+independent failure of Anthropic's own published independence test, which the
+2026-10-16 question already put to the funding leg. A LATER RUN SHOULD TREAT
+THE S-1 AS THE AUTHORITY AND THE BLOG POSTS AS MARKETING where the two differ.
+The S-1 is 14,169,252 bytes at
+Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm and strips
+to 1,583,968 characters of plain text; it is cheap to grep and should be
+grepped on every future Anthropic claim rather than re-reading news posts.
+Also in it and not previously recorded: Anthropic provides "pre-deployment
+model access to external evaluators, including government AI evaluation bodies
+such as the U.S. Center for Advancing Innovation and Standards for Super
+Intelligence (the "CAISSI") and the U.K. AI Security Institute", which
+corroborates the CAISSI row recorded out of window on 2026-10-20.
+
+TREASURY WROTE DOWN THAT THE MEASUREMENT PROBLEM IS UNSOLVED AND ANSWERED BY
+DELETING THE MEASUREMENT, which is the sharpest single piece of evidence this
+board has against the assurance-seam thesis. Proposed rule for 31 CFR part 851,
+91 FR 67396, comments close 2026-12-07. Verbatim: "Therefore, no single
+measure, benchmark, or threshold is currently sufficient to distinguish
+advanced models." Part 850 had graded AI systems by training compute; the
+proposed text abandons that and makes prohibited technology include "(h)
+Development of any SI system", explicitly so as not to rely on "a U.S. person
+ascertaining the technical capabilities or thresholds of SI systems being
+developed by a covered foreign person". The regulator that could not measure
+did not buy a measurement and did not create a verifier seat. It prohibited the
+category. RECORD THIS AS A FINDING, not as a single document, and stop treating
+"nobody has priced the seam" as the only live objection: this is the case where
+the seam was available and was skipped.
+
+EO 14434 IS NOW OPERATIVE IN BINDING PROPOSED TEXT, closing the row opened
+2026-10-02 as terminology only. 31 CFR 851.232 is headed "Super intelligence
+(SI) system" and the rule's footnote 1 cites the EO by number and FR page.
+Second instance the same day: USCG Docket USCG-2026-0374, 91 FR 67324, a CRADA
+notice headed "Super Intelligence (SI) Situational Awareness Tools", naming
+LOOKOUT as the counterparty and stating a goal "to characterize SI system
+confidence and operational performance, to build a measurable evaluation tool
+that could reduce the CG's barrier to integrate SI tools". That item was cut
+from MOVES on the word cap and is recorded here only.
+
+A NEW CLASS OF F1 CONSTRAINT, logged once. EDGAR's daily index for the CURRENT
+day returns HTTP 403 and 214 bytes because the day is not closed, which is
+already recorded; what is new is that on a MONDAY this collapses F1's whole
+window to a single business day. form.20261024 and form.20261025 do not exist
+because of the weekend and form.20261026 is not closed, so the Monday run reads
+Friday's index alone. This is structural, not a failure, and a Monday brief
+should say so in provenance rather than reporting a thin F1 as a quiet market.
+
+THE REGEX TRAP BIT AGAIN IN A NEW PLACE, logged once.
+`tools/eurlex.mjs grep <CELEX> "a|b|c"` with an alternation returned three
+single-character matches rather than the phrases, so the alternation is mangled
+somewhere in the tool's pattern handling. The route that works is
+`tools/eurlex.mjs get <CELEX> | grep -niE "<pattern>" -A 4`. Do not trust
+`eurlex.mjs grep` with an alternation.
+
+TWO QUOTE DEFECTS WERE CAUGHT BY THE MATCHER BEFORE PUBLICATION. First, the OJ
+sets a NARROW NO-BREAK SPACE, U+202F, between a number and a percent sign:
+"99,99" is followed by U+202F then "%". A verbatim span copied with an ordinary
+space fails byte comparison and would have shipped as a false quote. When
+quoting OJ text containing a percent sign, either reproduce U+202F or cut the
+span before it. Second, the draft wrote "at least $1 billion each" as a
+quotation of this board's own prior entry, but the stored primary text is
+"each expect to invest at least $1 billion" and the quotation marks sat in the
+wrong place. Self-quotes must be matched against reports/knowledge-state.md and
+reports/newsletter/ exactly like source quotes.
+
+THE EDITOR RAN 843 WORDS ON FIRST DRAFT AGAINST A 700 CAP and needed six
+trimming passes. The cause is reliable: a day with two first-rate items plus
+three good ones does not fit, and the charter's remedy is to cut MOVES, not
+DIFFS and not provenance. This run cut the NHTSA ADS marker lamp item from
+MOVES to a DIFF line. A LATER RUN SHOULD DRAFT AT FOUR MOVES ON A HEAVY DAY
+rather than writing five or six and trimming prose, which costs more and
+degrades every item instead of dropping one cleanly.
 
 CORRIGENDUM RETRIEVAL IS SOLVED, do not re-derive it. CELLAR does not resolve a
 corrigendum by its bracketed CELEX: both `tools/eurlex.mjs get "32022R2065R(11)"`
@@ -27,123 +104,77 @@ English expression exists. The route that works: SPARQL the work URI by
 `cdm:resource_legal_id_celex`, read each expression's language from
 `cdm:expression_uses_language`, then fetch `resource/cellar/<uuid>.000N` with
 `Accept: application/xhtml+xml`, where N is the expression's numeric suffix from
-the SPARQL result. That returned all seven language versions of the DSA
-corrigendum in one pass. Then grep the English base CELEX to establish what each
-language should have said.
+the SPARQL result. Cheaper alternative, confirmed 2026-10-16: request
+`publications.europa.eu/resource/celex/<URL-encoded CELEX>` with
+`Accept: application/xhtml+xml` and an explicit `Accept-Language`, trying the
+24 language codes in parallel; the single-language corrigendum answers on
+exactly one. A request without `Accept-Language` returns HTTP 400 "Invalid
+content type CONTENT_STREAM for WORK without language", which is the signature
+to add it. Only `application/xhtml+xml` is served for these.
 
-THE arXiv API OVER PLAIN HTTP IS A SILENT FAILURE, logged once. `http://export.arxiv.org/api/query`
-returns an EMPTY BODY with curl exit 0 and node fetch status 200-shaped handling,
-so every date regex returns nothing and the collector reports an empty window.
-`https://export.arxiv.org/api/query` returns 200 and the feed. This is the third
-instance of the same shape after the DeepMind gzip trap and the darioamodei.com
-301, and the rule is now general: a collector that reports zero items must show
-the byte count it read.
+ZERO CORRIGENDA WERE PUBLISHED IN THE OJ FROM 24 TO 26 OCTOBER, the first
+window with none since 2026-09-29. The corrigendum row has carried at least one
+item on every run since. Do not read this as the pattern breaking on one
+weekend window; read it again next run before concluding anything.
 
-ANOTHER TEMPLATE-LITERAL TRAP, recorded because it cost a full collector pass:
-writing a regex inside a JS template literal as `[\s\S]` silently becomes `[sS]`,
-because `\s` in a template literal evaluates to `s`. Every field parsed empty and
-the exit code stayed 0. Use `[^]` or build the pattern with string concatenation.
+THE arXiv API OVER PLAIN HTTP IS A SILENT FAILURE, logged once.
+`http://export.arxiv.org/api/query` returns an EMPTY BODY with curl exit 0, so
+every date regex returns nothing while the collector reports an empty window.
+`https://export.arxiv.org/api/query` returns 200 and the feed. The rule is
+general: a collector that reports zero items must show the byte count it read.
+Related and still live: the API returned HTTP 429 "Rate exceeded" on four
+consecutive calls on 2026-10-19 and every `id_list` call failed while
+`search_query` calls kept working. Prefer one wide `search_query`.
 
-THE "FROM THE STOCK SIDE" SECTION WAS OMITTED FOR THE FIRST TIME, which is the
-exhaustion marker of 2026-10-20 being honoured rather than re-litigated. Do not
-re-open terrain-map.md and do not invent a replacement domain. The narrowing
-trigger stays live and S1 stays unstarted until Anshu picks a domain.
+THE MONDAY arXiv SEAM RECURRED AGAIN AND THE PREDICTION HOLDS. All 42 cs.RO
+submissions in the 24 to 26 October window carry a `published` date of 23
+October and NONE carries 24, 25 or 26, confirmed by a per-day count over the
+range query. arXiv's indexing lag means a Monday run reads Friday's batch.
+Stop re-deriving this.
 
-TWO F1 ITEMS LANDED ON THEIR FORM D WHILE THEIR COMPANY MATERIAL WAS DAYS OLD,
-and the handling is now settled rather than re-derived each time. Teradyne /
-FormFactor had an 8-K of 13 October for a 6 October agreement and a 12 October
-press release; Modal Labs had a company post of 14 October. Neither was caught
-by the 13, 14, 16, 19 or 20 October runs. Both Form Ds were accepted on 20
-October, which is in window, so both were reported on the FILING as trigger
-with the company material as second source, and the brief said in provenance
-that the older material is a miss by those runs rather than news. This is the
-Liqid precedent of 2026-10-20 generalised: when a Form D in window evidences a
-round whose announcement the board missed, the filing is the dateline and the
-miss is disclosed.
+THE "FROM THE STOCK SIDE" SECTION WAS OMITTED FOR A THIRD CONSECUTIVE RUN.
+reports/terrain-map.md is exhausted. Do not re-open it and do not invent a
+replacement domain. The narrowing trigger stays live and S1 stays unstarted
+until Anshu picks a domain.
 
 THE CHEAPEST MISS THIS BOARD KEEPS MAKING IS A SECOND PROCEEDING UNDER A FILE
-NUMBER IT ALREADY HAS. The SEC accredited-investor credential line was stored
-on 2026-10-05 from File No. 4-931, the FINRA exam at about $100. File No. 4-933,
-published the SAME DAY, proposes designating the CFA charter and was not
-recorded. It surfaced only because an ADDRESSES correction, FR Doc C1-2026-20311,
-published on 21 October. RULE, so this is not rediscovered: when an agency
-assigns a file number to a proceeding, check the adjacent numbers in the same
-series before recording the line as singular.
+NUMBER IT ALREADY HAS. When an agency assigns a file number to a proceeding,
+check the adjacent numbers in the same series before recording the line as
+singular.
 
-THE MONDAY arXiv SEAM RECURRED AS PREDICTED AND THE PREDICTION WAS RIGHT, so
-stop re-deriving it. All 68 cs.RO submissions in this window carry a `published`
-date of 19 October and NONE carries 20 October, confirmed by a per-day count
-over the range query. arXiv's indexing lag means a Tuesday run reads Monday's
-batch. The 2026-10-19 header said this seam recurs every Monday; it recurs every
-day, one day behind, and the Monday case is only the visible one.
-
-A NEW CLASS OF QUOTE ERROR WAS CAUGHT AND IT IS WORTH ONE LINE HERE, because the
-matcher now has to check it: a quoted span ended with the full stop INSIDE the
-quotation marks where the source sentence continues with a colon. The span was
-verbatim up to that character and the whitespace-normalising matcher caught it
-only because the stop is part of the captured string. Capture the closing
-punctuation when checking, not just the words.
+A NEW CLASS OF QUOTE ERROR, carried: a quoted span ended with the full stop
+INSIDE the quotation marks where the source sentence continues with a colon.
+Capture the closing punctuation when checking, not just the words.
 
 THREE HAYSTACK FALSE NEGATIVES, logged once so the next run does not treat them
 as text errors. A quote that lives inside an HTML `meta` attribute, which is
-where a company's own one-line product description usually sits, is destroyed by
-tag-stripping and must be checked against the raw bytes. A quote of this board's
-own prior brief is not in any retrieved page and must be checked against
-reports/newsletter/. Neither is a source problem.
+where a company's own one-line product description usually sits, is destroyed
+by tag-stripping and must be checked against the raw bytes; this is how the
+Xona and Send Cut Send one-liners were verified on 2026-10-26. A quote of this
+board's own prior brief is not in any retrieved page and must be checked
+against reports/newsletter/. Neither is a source problem.
 
 RETRIEVAL NOTE CARRIED, still true: the Single Market Compliance Space register
 serves a COOKIE NOTICE before the application renders. Clicking "Accept only
 essential cookies" is required before the "Search results (n)" heading exists
-in the DOM. Everything else in the 2026-10-11 URL-filter method and the
-2026-10-14 host correction holds. ADDED 2026-10-19, and three runs have read
-this count without storing it: the legislationId for Directive 2006/42/EC is
-131881. It was read off the filter checkbox's own `value` attribute with
-`javascript_tool`, because the Legislation dropdown control sits outside the
-viewport and cannot be clicked, the same limitation recorded for "Items per
-page: 100" on 30 September. Known ids now: 162400 Reg (EU) 2023/1230, 131881
-Dir 2006/42/EC, 168380 Reg (EU) 2024/1689, 167953 Reg (EU) 2024/2847.
+in the DOM. Known legislationIds: 162400 Reg (EU) 2023/1230, 131881 Dir
+2006/42/EC, 168380 Reg (EU) 2024/1689, 167953 Reg (EU) 2024/2847. The working
+host is
+`webgate.ec.europa.eu/single-market-compliance-space/notified-bodies/notified-body-list?filter=notificationStatusId:1,legislationId:N`;
+`single-market-economy.ec.europa.eu/...` returns "Page not found".
 
-CORRIGENDUM RETRIEVAL IS NOW SOLVED AND IS CHEAPER THAN THE 2026-10-16 ROUTE.
-`tools/eurlex.mjs get` 404s on every `R(nn)` CELEX. Do NOT fall back to SPARQL.
-Request `publications.europa.eu/resource/celex/<URL-encoded CELEX>` with
-`Accept: application/xhtml+xml` and an explicit `Accept-Language`, trying the
-24 language codes in parallel; the single-language corrigendum answers on
-exactly one. A 404 body names the cellar identifier, which can then be
-requested directly at `/resource/cellar/<id>` with the same two headers. A
-request without `Accept-Language` returns HTTP 400 "Invalid content type
-CONTENT_STREAM for WORK without language", which is the signature to add it.
-Only `application/xhtml+xml` is served for these; PDF and plain text 404.
+TWO WATCHLIST ROWS WERE NOT RE-READ ON 2026-10-26 AND THIS IS A GAP, NOT A
+FINDING: ISO 25785-1 (HTTP 403 and 5,576 bytes to an HTTP client, needs a
+browser pane, last read 2026-10-19 at stage 30.60, five consecutive unchanged
+readings) and the notified-body register (last read 2026-10-19 at 43 under Reg
+(EU) 2023/1230, 154 under Dir 2006/42/EC). NEW UNREACHABLE SOURCE:
+english.mofcom.gov.cn returned 0 bytes and no status code, a connection failure
+rather than a block, and it has not previously been logged as unreachable.
 
-BOTH STRUCTURALLY EMPTY SOURCES RECOVERED THIS RUN, and the recovery is the
-part worth carrying. arXiv's four-day stall ended: the newest indexed cs.RO
-submission is 2610.18874 of 13 October 17:59, against 2610.13945 of 9 October
-on the three previous runs, so 10 to 13 October all propagated at once. The
-standing note that called it a lag rather than a failure was right and the
-stronger reading floated on 13 October should NOT be adopted. EDGAR likewise:
-form.20261013.idx returns 200 and 93,706 bytes, form.20261012.idx returns 403
-consistent with the Columbus Day holiday, form.20261014.idx returns 403 because
-the day is not closed. F1 ran on priority 1 for the first time in three runs.
-
-NEW RETRIEVAL FAILURE, logged once so it is not rediscovered: the arXiv API
-returned HTTP 429 "Rate exceeded" on four consecutive calls after three
-succeeded, and every `id_list` call failed that way while `search_query` calls
-kept working after a pause. The fallback that worked was fetching
-`arxiv.org/abs/<id>` and reading `citation_title`, `citation_author` and the
-abstract blockquote out of the HTML. Space the API calls and prefer one wide
-`search_query` over several `id_list` lookups.
-
-HOST CORRECTION ON THE NOTIFIED-BODY REGISTER, and the stored note was wrong.
-`single-market-economy.ec.europa.eu/single-market/single-market-compliance-space/...`
-returns "Page not found". The working host is
-`webgate.ec.europa.eu/single-market-compliance-space/notified-bodies/notified-body-list?filter=notificationStatusId:1,legislationId:N`.
-Everything else in the 2026-10-11 method note holds: the filter round-trips
-through the URL, the "Search results (n)" heading reads out of the DOM with
-`javascript_tool`, and the paginator's "2" control takes a JS click.
-
-THE RUN SCHEDULE REMAINS A KNOWN FAILURE POINT, carried from 2026-10-11: the
-task did not fire on 8, 9 or 10 October and nothing in the system noticed. A
-later run should not assume the previous brief is yesterday's. It fired
-correctly on 12, 13 and 14 October.
+THE RUN SCHEDULE REMAINS A KNOWN FAILURE POINT. The task did not fire on 8, 9,
+10 or 22 October and nothing in the system noticed. A later run must compute
+its window from the newest file in reports/newsletter/, never from the
+calendar, and state the width in the dateline when it is not 24.
 
 ---
 
@@ -153,11 +184,11 @@ The F6 list. Keep between 8 and 12 names. Read at the person's own venue only.
 
 | person | venue | newest seen | date |
 |---|---|---|---|
-| Dario Amodei | darioamodei.com, short posts | We Must Pace the Frontier, still newest on 2026-10-21, re-read over HTTP a fourteenth consecutive time. RETRIEVAL, logged once: darioamodei.com returns HTTP 301 and 166 bytes without `curl -L`, which reads as an empty venue; with `-L` it returns 200 and 28,947 bytes. Always follow the redirect. RESOLVED 2026-10-01, close this line of enquiry: an href scrape returns exactly four `/post/` URLs and two `/essay/` URLs, so the "six titles" counted on 09-30 was posts and essays added together. Four short posts, unchanged since 09-12 and confirmed again 2026-10-16: on-deepseek-and-export-controls, policy-on-the-ai-exponential, the-urgency-of-interpretability, we-must-pace-the-frontier | 2026-09-12 |
+| Dario Amodei | darioamodei.com, short posts | We Must Pace the Frontier, still newest on 2026-10-26, re-read over HTTP a fifteenth consecutive time. RETRIEVAL, logged once: darioamodei.com returns HTTP 301 and 166 bytes without `curl -L`, which reads as an empty venue; with `-L` it returns 200 and 28,947 bytes. Always follow the redirect. RESOLVED 2026-10-01, close this line of enquiry: an href scrape returns exactly four `/post/` URLs and two `/essay/` URLs, so the "six titles" counted on 09-30 was posts and essays added together. Four short posts, unchanged since 09-12 and confirmed again 2026-10-16: on-deepseek-and-export-controls, policy-on-the-ai-exponential, the-urgency-of-interpretability, we-must-pace-the-frontier | 2026-09-12 |
 | Dario Amodei | darioamodei.com/essay/ | Two essays, unchanged: Machines of Loving Grace and The Adolescence of Technology, the latter dated "January 2026" on the page. /archive still returns HTTP 404 while appearing in the site navigation | 2026-01 |
-| Paul Graham | paulgraham.com/articles.html | Making Startups Powerful, unchanged on 2026-10-21, returning 200 and 119,430 bytes with `-L`. **NEW RETRIEVAL NOTE 2026-10-20: `http://www.paulgraham.com/articles.html` returns HTTP 301 with a zero-length body and needs `-L`, the same trap already recorded for darioamodei.com. Three runs read this venue without recording it, which means three runs got lucky with their client.** The stored-title diff WORKS and is now the method: the five titles below it read identically on 10-01, 10-02, 10-05, 10-06, 10-07, 10-11, 10-12, 10-13, 10-14, 10-16, 10-19, 10-20 and 10-21, so the page does not need reading in depth. Order: How Universities Should Prepare Founders, How to Earn a Billion Dollars, How to Convert Between Wealth and Income Tax, The Brand Age, The Shape of the Essay Field | 2026-09 |
-| Andrej Karpathy | karpathy.bearblog.dev/blog | newest is Sequoia Ascent 2026 summary (30 Apr 2026), unchanged, re-read 2026-10-21, an eighth consecutive HTTP 200. RETRIEVAL, settled 2026-09-22 and now settled in both directions: the venue flaps between HTTP 200 and 404 for HTTP clients (200 on 09-17, **2026-10-07**, **2026-10-11**, **2026-10-12**, **2026-10-14**, **2026-10-16** and **2026-10-19**, 404 on 09-15, 09-22, 09-30, 10-01, 10-02, 10-05 and 10-06) and renders reliably in a browser pane. On 10-07, 10-11, 10-12, 10-14 and 10-16 a plain HTTP client with a desktop User-Agent returned 200 and the full post list, so the browser pane was not needed. EIGHT consecutive 200s now, against nine prior 404s: the standing note is softening but not reversed, so keep trying HTTP first and keep the pane as the fallback. Do not record the 404 as a venue outage or as a DIFF, and do not record a 200 as a publication either: try HTTP first, fall back to the pane | 2026-04-30 |
-| Andrej Karpathy | karpathy.github.io | newest is microgpt, 12 Feb 2026, unchanged, re-read 2026-10-21 | 2026-02-12 |
+| Paul Graham | paulgraham.com/articles.html | Making Startups Powerful, unchanged on 2026-10-26, returning 200 and 119,430 bytes with `-L`. **NEW RETRIEVAL NOTE 2026-10-20: `http://www.paulgraham.com/articles.html` returns HTTP 301 with a zero-length body and needs `-L`, the same trap already recorded for darioamodei.com. Three runs read this venue without recording it, which means three runs got lucky with their client.** The stored-title diff WORKS and is now the method: the five titles below it read identically on 10-01, 10-02, 10-05, 10-06, 10-07, 10-11, 10-12, 10-13, 10-14, 10-16, 10-19, 10-20 and 10-21, so the page does not need reading in depth. Order: How Universities Should Prepare Founders, How to Earn a Billion Dollars, How to Convert Between Wealth and Income Tax, The Brand Age, The Shape of the Essay Field | 2026-09 |
+| Andrej Karpathy | karpathy.bearblog.dev/blog | newest is Sequoia Ascent 2026 summary (30 Apr 2026), unchanged, re-read 2026-10-26 at 11,787 bytes, a ninth consecutive HTTP 200. RETRIEVAL, settled 2026-09-22 and now settled in both directions: the venue flaps between HTTP 200 and 404 for HTTP clients (200 on 09-17, **2026-10-07**, **2026-10-11**, **2026-10-12**, **2026-10-14**, **2026-10-16** and **2026-10-19**, 404 on 09-15, 09-22, 09-30, 10-01, 10-02, 10-05 and 10-06) and renders reliably in a browser pane. On 10-07, 10-11, 10-12, 10-14 and 10-16 a plain HTTP client with a desktop User-Agent returned 200 and the full post list, so the browser pane was not needed. EIGHT consecutive 200s now, against nine prior 404s: the standing note is softening but not reversed, so keep trying HTTP first and keep the pane as the fallback. Do not record the 404 as a venue outage or as a DIFF, and do not record a 200 as a publication either: try HTTP first, fall back to the pane | 2026-04-30 |
+| Andrej Karpathy | karpathy.github.io | newest is microgpt, 12 Feb 2026, unchanged, re-read 2026-10-26 at 14,764 bytes | 2026-02-12 |
 
 Slots open: 8. Candidates not yet added, decide before adding: Chelsea Finn,
 Dorsa Sadigh, Ben Thompson, Dylan Patel, Jack Clark, Cedric Chin.
@@ -198,7 +229,7 @@ The F3 watchlist. Carry every row forward every run.
 | Dir (EU) 2024/2853, Product Liability Directive | NEW to the watchlist 2026-10-01, added because it is the liability counterpart to certification and a corrigendum in window surfaced it. Corrigendum `32024L2853R(02)`, OJ ref 2026/90830, published 2026-09-29, **Dutch only**: "In de gehele richtlijn worden de woorden 'gratis en opensourcesoftware' vervangen door de woorden 'vrije en opensourcesoftware'." That replaces a free-of-charge reading with a libre one throughout the Dutch version, 680 days after publication on 2024-11-18. Not promoted to MOVES: changes no tracked number. Carried so a later run diffs the FOSS carve-out, which bears on the commons argument against assurance-seam | not read in full; transposition deadline not yet checked |
 | NIST / NIBIB medical metrology and standards RFI | NEW, published 2026-09-18. Asks for "Suggested changes to the medical metrology and standards process to allow improved and cost-effective healthcare in a time of rapidly changing technology and incorporation of AI". Creates no obligation. Symposium 2026-09-24 | comment period per FR notice |
 | AI Act Art. 57, AI regulatory sandboxes | NEW to the watchlist 2026-10-02. Member States must have at least one national AI regulatory sandbox operational by 2027-08-02, deferred one year from the originally published 2026-08-02 by Reg (EU) 2026/1744 Art. 1 point 22(a). These are supervised pre-market testing environments under AI Act Chapter VI, not conformity assessment bodies, so this is not a notified-body count. 194 days after the Machinery Regulation applies, on this system's arithmetic. The Commission must also adopt implementing acts specifying "the detailed arrangements for the establishment, development, implementation, operation, governance, and supervision of the AI regulatory sandboxes", with a new point (d) added by the Omnibus on data protection authority involvement. No such implementing act has been looked for yet and that is the next thing to check on this row | 2027-08-02 |
-| EO 14434, Inaugurating the Era of Super Intelligence | NEW 2026-10-02. Signed 2026-09-29, published 2026-10-02, FR Doc 2026-20321, Pages 63129-63130. Policy that "to the maximum extent permitted by law, the executive branch shall use the terms ``Super Intelligence'' and ``SI'' in place of ``Artificial Intelligence'' and ``AI'' and will not acknowledge the usage of ``Artificial Intelligence'' and ``AI'' in any applicable setting". Sec. 2(b): "Nothing in this section requires the alteration of previously issued regulations, Presidential actions, contracts, grants, or other historical documents." Sec. 3(a) pins the meaning to the existing statute: the terms "mean the technologies and systems encompassed by the term ``artificial intelligence'' as defined in section 9401(3) of title 15, United States Code. This definition shall govern the implementation of this order unless and until superseded by subsequent Presidential action consistent with applicable law or by an Act of Congress." Sec. 3(b) creates the only date: within 60 days, so by 2026-11-28, the Assistant to the President for Science and Technology shall submit proposed legislative language including "an assessment of whether, and to what extent, the definition of ``Super Intelligence'' and ``SI'' should modify, expand upon, or otherwise supersede the existing statutory definition of ``artificial intelligence''". Buried: none, no testing, certification or attestation obligation. WHY IT IS ON THE BOARD RATHER THAN NOISE: every federal instrument keyed to 15 U.S.C. 9401(3) moves if that definition is superseded, and the order commissions the assessment of whether to supersede it. Sixth instance of the pattern already on the board, a US federal action addressing AI without creating a third-party regime | 2026-11-28 |
+| EO 14434, Inaugurating the Era of Super Intelligence | **MOVED 2026-10-26, AND THE ROW IS NO LONGER TERMINOLOGY ONLY.** It is now operative in binding proposed regulatory text: 31 CFR 851.232 is headed "Super intelligence (SI) system" and the Treasury rule cites the EO in footnote 1, "On September 29, 2026, Executive Order 14434 (91 FR 63129), ``Inaugurating the Era of Super Intelligence,`` was issued." Second same-day instance: USCG 91 FR 67324. Original entry: NEW 2026-10-02. Signed 2026-09-29, published 2026-10-02, FR Doc 2026-20321, Pages 63129-63130. Policy that "to the maximum extent permitted by law, the executive branch shall use the terms ``Super Intelligence'' and ``SI'' in place of ``Artificial Intelligence'' and ``AI'' and will not acknowledge the usage of ``Artificial Intelligence'' and ``AI'' in any applicable setting". Sec. 2(b): "Nothing in this section requires the alteration of previously issued regulations, Presidential actions, contracts, grants, or other historical documents." Sec. 3(a) pins the meaning to the existing statute: the terms "mean the technologies and systems encompassed by the term ``artificial intelligence'' as defined in section 9401(3) of title 15, United States Code. This definition shall govern the implementation of this order unless and until superseded by subsequent Presidential action consistent with applicable law or by an Act of Congress." Sec. 3(b) creates the only date: within 60 days, so by 2026-11-28, the Assistant to the President for Science and Technology shall submit proposed legislative language including "an assessment of whether, and to what extent, the definition of ``Super Intelligence'' and ``SI'' should modify, expand upon, or otherwise supersede the existing statutory definition of ``artificial intelligence''". Buried: none, no testing, certification or attestation obligation. WHY IT IS ON THE BOARD RATHER THAN NOISE: every federal instrument keyed to 15 U.S.C. 9401(3) moves if that definition is superseded, and the order commissions the assessment of whether to supersede it. Sixth instance of the pattern already on the board, a US federal action addressing AI without creating a third-party regime | 2026-11-28 |
 | AI Act Art. 50(2), machine-readable marking of synthetic content | **NEW to the watchlist 2026-10-05.** Applied since 2026-08-02 under Art. 113, which sets the general application date and does not except Chapter IV. Operative sentence, read at source: "Providers of AI systems, including general-purpose AI systems, generating synthetic audio, image, video or text content, shall ensure that the outputs of the AI system are marked in a machine-readable format and detectable as artificially generated or manipulated. Providers shall ensure their technical solutions are effective, interoperable, robust and reliable as far as this is technically feasible, taking into account the specificities and limitations of various types of content, the costs of implementation and the generally acknowledged state of the art, as may be reflected in relevant technical standards." THE FINDING IS WHAT THE TEXT DOES NOT SAY: it requires the output to be detectable and does not say by whom, and names no verifier, no register and no third party. First compliance act logged 2026-10-05, 64 days after the obligation applied, and it tests the clause in both directions at once. OpenAI shipped textGrain text watermarking: opt-in for API customers globally and "off by default in the API", an invisible watermark to eligible ChatGPT and Codex output "in the European Union" only and explicitly not a global default, and detector access "initially limited to approved researchers and expert organizations" on a case-by-case basis "In accordance with the Code of Practice", with "we are not making it publicly available at launch". It also published figures against the Regulation's own robustness standard: at a 1% target false positive rate the detector found watermarks in about 80% of 200-token passages against about 95% of 400-token passages for content such as psychology and "substantially lower" for mathematics, and on 400-token passages replacing 10% of words with synonyms cut detection from about 92% to 66% while replacing 25% cut it to 17%. Its own stated limits: "A watermark does not measure human contribution", "A watermark does not establish ownership or responsibility", "The absence of a detected watermark does not prove human authorship". No quality cost reported across eight benchmarks. OpenAI says it plans to make textGrain open source, which is the commons argument appearing on the marking side. NEXT ON THIS ROW: whether the Code of Practice, or any harmonised standard cited under Art. 50, says who must be able to run the detector. Nothing has been looked for yet | detector access case-by-case, no date |
 | SEC Rule 501(a)(10), professional credentials as a regulatory qualification | **NEW to the watchlist 2026-10-05**, added because it is the only instrument on this board that writes down what makes a credential count. Five notices published 2026-10-05, including Release No. 33-11445, File No. 4-931, comments close 2026-12-04: the Commission is considering designating the US CPA licence, the CFA charter, the CFP certification, the Series 79 and Series 86/87 licences, and passage of an accredited investor exam "to be developed by the Financial Industry Regulatory Authority, Inc.", as qualifying natural persons for accredited investor status. THE OPERATIVE PART IS THE FOUR-ATTRIBUTE TEST, verbatim: the credential "arises out of an examination or series of examinations administered by a self-regulatory organization or other industry body or is issued by an accredited educational institution"; the examination "is designed to reliably and validly demonstrate an individual's comprehension and sophistication in the areas of securities and investing"; holders "can reasonably be expected to have sufficient knowledge and experience in financial and business matters to evaluate the merits and risks of a prospective investment"; and "An indication that an individual holds the certification or designation is either made publicly available by the relevant self-regulatory organization or other industry body or is otherwise independently verifiable". That fourth attribute, 501(a)(10)(iv), is independent verifiability as a condition of the credential having legal effect, which is the assurance seam's structural claim stated by a regulator in a rule in force since 2020. Exam design as described: modelled on the SIE Exam, about 75 multiple-choice questions in a 65 to 85 range, two hours, English, passing score set by "standard setting" with "a committee of subject matter experts", anticipated fee "similar to the SIE Exam fee, which is currently $100", valid ten years with no anticipated waivers, open to anyone 18 or older, retake after 30 days and after 180 days following three failures in two years, FINRA creates and administers "with delivery by a third-party vendor", and a verification process so "issuers or others would be able to independently verify the status of Exam Holders". Prior state: 3 licences designated at adoption on 2020-08-26, Series 7, Series 82 and Series 65, with nothing added in over five years. Scale of the exemption a credential unlocks: "Approximately $400 billion was raised in Regulation D offerings (excluding pooled funds) between July 1, 2024 and June 30, 2025" | comments close 2026-12-04 |
 | Dir 2011/92/EU, Environmental Impact Assessment, Annex II screening list | **NEW to the watchlist 2026-10-05**, added on the datacenter and power axis because Annex II is the list of projects a Member State must screen. Corrigendum `32011L0092R(07)`, OJ ref 2026/90841, published 2026-10-05, **Danish only**, 5,364 days after the OJ of 28 January 2012. It replaces Annex II point 10(b) "Anlaegsarbejder i byzoner, herunder opforelse af butikscentre og parkeringsanlaeg" with "Byudviklingsprojekter, herunder opforelse af butikscentre og parkeringsanlaeg", which is construction works in urban areas becoming urban development projects, and point 10(f) "Anlaeg af vandveje" with "Anlaeg af indre vandveje" while "regulering af vandlob" becomes "anlaeg til beskyttelse mod oversvommelse". Buried: none, it creates no new obligation and widens the category that triggers one. Not read in full and the transposition consequence in Denmark has not been checked | not checked |
@@ -237,6 +268,13 @@ The F3 watchlist. Carry every row forward every run.
 | OpenAI Usage Policies, approval of model routers, AI gateways and resellers | **NEW to the watchlist 2026-10-23, and it is the second vendor-contract instrument on this board after the Anthropic Usage Policy of 2026-10-08.** Post "Broad access through consistent standards", openai.com, dated 2026-10-21, read in a browser pane because openai.com/index returns HTTP 403 to HTTP clients. Operative, read at source: the Usage Policies are "effective November 20, 2026" and "build on that work by requiring services that provide direct access to our models such as model routers or AI gateways to get our review and approval before offering that access". Also: "These policies require partners that provide access to OpenAI models to maintain safeguards consistent with our own, investigate potential violations, and take appropriate action when concerns are identified", "including coordinating on enforcement". Named mechanisms with no detail published: Private Safety Processing, SafetyIDs "which customers can provide to help us distinguish between individual end users in an investigation without OpenAI learning those users' identities", and "Trusted access programs" that "set eligibility requirements and conditions for access to our most powerful capabilities". THE COMPARISON THAT MAKES IT A ROW: Anthropic's policy, effective 2026-11-12, conditions what its CUSTOMERS' HARDWARE may do; OpenAI's, effective 2026-11-20, 8 days later, conditions who may DISTRIBUTE the model. Both make the vendor the sole approver with no public register and no third party. NO NUMBER IS PUBLISHED: not how many routers or gateways exist, not how many have been reviewed, not how many were refused | effective 2026-11-20 |
 | OpenAI agreements with state AI safety institutions | **NEW 2026-10-23, carried not promoted**, added because it is the OpenAI counterpart to the Anthropic Singapore MOU row of 2026-10-14 and makes that a two-vendor pattern rather than one vendor's habit. Post of 2026-10-23: OpenAI and Poland's NASK National Research Institute "have signed an agreement to explore collaboration on AI safety, security and technical research", under which "NASK's AI Safety Research Center - serving as the Polish Artificial Intelligence Safety Institute (AISI)" and OpenAI will "collaborate on AI safety research, exploring ways to evaluate increasingly capable AI systems". Prior work named: CERT Polska, inside NASK, "gained access to OpenAI's cyber capable models through Daybreak" in July and "used OpenAI models to help discover six vulnerabilities in MikroTik RouterOS". SECOND SIGHTING OF CAISSI AND THE FIRST FROM A DIFFERENT VENDOR, which matters because that row was created on a single Anthropic post: OpenAI names "the US Center for Advancing Standards and Innovation for Super Intelligence (CAISSI), UK AI Security Institute (AISI) and other public research institutions". THE EXPANSION DISAGREES WITH THE STORED ONE, word order differs, and NEITHER has been read at the agency's own site; a later run should settle it there rather than from a vendor post. AN AGREEMENT TO EXPLORE BINDS NOBODY: no figure, no obligation, no reporting standard, same as the Singapore MOU | no date |
 | corrigendum pattern, cross-instrument | **PATTERN, stated once on 2026-10-05 so later runs stop rediscovering it. BROKEN 2026-10-12, do not carry the single-language claim forward unqualified.** The fifth corrigendum in the series was issued in ALL language versions at once: `32025R2643R(01)`, OJ ref 2026/90862, published 2026-10-12, correcting the EDIP Regulation (EU) 2025/2643 at 287 days after the OJ of 2025-12-29. On page 50, Article 35(7), second sentence: for "The Council may amend the project proposals referred to in paragraph 4 acting by qualified majority.", read "The Council may amend the proposals referred to in paragraph 3 acting by qualified majority." That is an internal cross-reference and a dropped word, not a substantive term, and the EDIP Regulation is not otherwise on this board. So the pattern is four single-language operative-word changes plus one all-language cross-reference fix, and the open question below about whether a single-language change creates a divergent obligation is unaffected by it. Original pattern text follows. Four single-language corrigenda across three runs, each changing an operative word in exactly one language version, at 67, 73, 680 and 5,364 days after publication: German on Reg (EU) 2026/1744 Art. 6(1b), the override clause (09-29); Italian on Reg (EU) 2026/1738 Annex VIII (10-05); Dutch on Dir (EU) 2024/2853, the FOSS carve-out (09-29); Danish on Dir 2011/92/EU Annex II, the screening list (10-05). THE QUESTION THE PATTERN POINTS AT, and nothing on this board tests it: whether a manufacturer who relied on the uncorrected national text for 67, 680 or 5,364 days had a defence. RETRIEVAL, settled: `tools/eurlex.mjs get` and the CELEX REST route both 404 on every `R(nn)` CELEX. The route that works on all of them is SPARQL for the expression URI on `cdm:resource_legal_id_celex`, then a CELLAR fetch of `<uuid>.0001` with `Accept: application/xhtml+xml`. Make that the default for corrigenda rather than retrying `get` | ongoing. **DEVELOPED 2026-10-06, and this is the first movement on the pattern rather than a fifth instance.** Implementing Regulation (EU) 2026/2214 corrects three language versions of a certification Regulation using an amending act with a stated entry into force 20 days out, not a corrigendum, and each recital gives the reason: the error "affects the substance". So the Commission's own practice distinguishes the two cases. A corrigendum is used where the correction is treated as always having been the text; a Regulation is used where it is not. That is the instrument-side answer to the reliance question, and it is not the same as a court having decided it. **DEVELOPED AGAIN 2026-10-07, and the development is volume.** Six corrigenda appeared in one OJ issue, six of the eleven sector-3 documents published that day, which is the highest single-issue count this board has logged. Five have no English expression at all: `32024R1739R(01)` Dutch on Council Reg (EU) 2024/1739 amending the Ukraine restrictive-measures Regulation 269/2014, rewording the Art. 9(1) anti-circumvention prohibition 835 days on; `32017R0392R(03)` Dutch, Slovenian, Latvian and Greek on Commission Del Reg (EU) 2017/392, the CSDR technical standards, replacing in Art. 70(6) "beveiligingssystemen" with "effectensystemen", so for 3,498 days the Dutch text obliged a central securities depository to report the performance of its *security* systems to "de bevoegde autoriteit" where the instrument means its *securities* systems; `32008L0115R(05)` Hungarian on the Return Directive; `32014L0059R(20)` Swedish on the BRRD, a twentieth corrigendum to one Directive; and `32026D1347R(01)`. The sixth, `32024L1799R(03)` on Dir (EU) 2024/1799 on the repair of goods, is the only one with English text and corrects a footnote number from 29 to 30 in Article 18, 819 days on, so it is trivial. THE PATTERN NOW HAS A SECOND AXIS: not only how long an operative word can read wrong in one language, but that the single-language corrigendum is routine traffic rather than a rarity, which weakens any reading of the four earlier instances as a cluster. Nothing on this board still tests the reliance question itself. **DEVELOPED AGAIN 2026-10-14, and this is the first rule the pattern supports rather than another instance.** Dir (EU) 2024/2841 on the European Disability Card was corrected in ALL 24 language versions at once on 2026-10-13, OJ ref 2026/90860, 698 days after the OJ of 2024-11-14, and what it corrects is Annex II point 2 second indent, where the colour named "yellow" read "CMYK 94, 63, 7, 1" against "RGB 255, 237, 0" and now reads "CMYK 0, 7, 100, 0". The CMYK value as published was a blue. Read with the all-language EDIP cross-reference fix of 2026-10-12, the rule is: ALL-LANGUAGE corrigenda correct language-INDEPENDENT content, numbers and cross-references, while SINGLE-LANGUAGE corrigenda correct translations. The Machinery Reg 2023/1230 Swedish corrigendum of the same window fits the second half, and the Dir 2023/2413 German MWh/MWth fix fits it too. A later run should test the rule rather than count instances. Fourth corrigendum to Reg (EU) 2023/1230 logged 2026-10-14, OJ ref 2026/90875, Swedish only, 1,203 days after the OJ of 2023-06-29: Annex V Section A point 6 read "Foremalet for forsakran i punkt 6", pointing at itself, and now reads "punkt 5". English point 6 reads "The object of the declaration referred to in point 5 is in conformity with the following Union harmonisation legislation." Annex V Section A is the EU declaration of conformity template, the document the manufacturer signs, and the Swedish version of it was self-referential for 1,203 days ending 98 days before the Regulation applies |
+| Outbound Investment Security Program, 31 CFR part 851, COINS Act Title VIII of the DPA | **NEW to the watchlist 2026-10-26, and it is the lead of that brief. IT IS THE FIRST INSTRUMENT ON THIS BOARD WHERE A REGULATOR STATES THAT THE PROPERTY CANNOT BE MEASURED AND RESPONDS BY REMOVING THE MEASUREMENT RATHER THAN BY NAMING A MEASURER.** Proposed rule, FR Doc 2026-21786, 91 FR 67396-67433, published 2026-10-26, Docket TREAS-DO-2026-0595, RIN 1505-AC94, comments close 2026-12-07. Implements Subtitle C of the Comprehensive Outbound Investment National Security (COINS) Act, enacted 2025-12-18 in the FY26 NDAA. Operative, read at source: prohibited technology means the "(h) Development of any SI system". The reasoning, verbatim: "The Part 850 Regulations distinguished among ``AI systems`` for purposes of the prohibition, the notification requirement, or absence from OISP coverage based on the quantity of computing power for training, designed end uses, and intended end uses. Over the past two years, SI models have achieved notable performance gains through additional means other than the quantity of training compute. Therefore, no single measure, benchmark, or threshold is currently sufficient to distinguish advanced models." And the design consequence, verbatim: Treasury proposes "regulatory text that does not rely on a U.S. person ascertaining the technical capabilities or thresholds of SI systems being developed by a covered foreign person (which was the case in the Part 850 Regulations)". BURIED AND IT IS THE ROBOT POLICY LAYER ITEM: Sec. 851.232(b) defines an SI system to include "an SI agent harness and an embodied SI or physical SI system (e.g., SI-enabled: industrial robots, bipedal or humanoid robots, quadruped robots, other mobile robots, autonomous vehicles, and unmanned systems)". NEW NUMBER on the export-control side, prohibited technology clause (g): "Development or production of high-bandwidth memory with a memory bandwidth density greater than 2 gigabytes per second per square millimeter". This is a DIFFERENT metric from the BIS row's DRAM bandwidth of 6,500 GB/s and both should be carried. Also relevant: the knowledge standard at Sec. 851.104 turns on whether the U.S. person "conducted a reasonable and diligent inquiry", with no third party, no register and no attestation named anywhere in the rule | comments close 2026-12-07 |
+| 10 CFR 50.43(f) and 53.440(a), NRC leveraging of DOE and DoW reactor authorizations | **NEW to the watchlist 2026-10-26, and it is the second instrument after FDA ASCA where a regulator writes down that it will not re-examine someone else's evidence.** Final rule, FR Doc 2026-21801, 91 FR 67195-67200, published 2026-10-26, effective 2026-11-25, Docket NRC-2025-1503, RIN 3150-AL60. Operative new text, read at source: "(f) An application under paragraph (e) of this section may include consideration of relevant information gathered from a utilization facility that has been previously authorized by the Department of Energy or the Department of Defense and that has been tested and has demonstrated the ability to function safely. Any reference to such a design must identify how attributes of the authorization satisfy NRC regulations, including paragraph (e) of this section." The agency's own statement of effect: "the NRC expects that the NRC will not need to repeat technical reviews previously performed by DOE or DOW, to the extent that those reviews cover the same scope as the related content in the NRC license application." ON THE DATACENTER AND POWER AXIS, which is the thinnest row on the board. THE SAME BOUND APPLIES AS TO ASCA AND TERADYNE: what the prior authorization attests is a physical reactor that "has been tested and has demonstrated the ability to function safely", a property with a physical trace. TEXTUAL ODDITY WORTH ONE LINE: the rule is titled "NRC Reviews of Reactor Designs Previously Authorized by U.S. Department of Energy or Department of War" and the binding regulatory text says "Department of Defense". Each phrase occurs exactly once in the document | effective 2026-11-25 |
+| FMVSS No. 108 and SAE J3134, cyan ADS marker lamps | **NEW to the watchlist 2026-10-26**, added because it is the physical-world counterpart to AI Act Art. 50(2) machine-readable marking of synthetic content, which this board has tracked since 2026-10-05. NPRM, FR Doc 2026-21794, 91 FR 67243-67261, published 2026-10-26, Docket NHTSA-2026-1519, RIN 2127-AM70, comments close 2026-11-25. Operative, read at source: the NPRM would "allow cyan-colored ADS marker lamps as optional motor vehicle lighting equipment in ADS-equipped vehicles", for a lamp with "the purpose of communicating to other road users that a vehicle is operating without the expectation that an occupant is monitoring the roadway (i.e., the vehicle ADS is engaged in full, active control of the driving task)". NHTSA says "The proposal is due to the development of a consensus industry standard for ADS marker lamps", being SAE J3134, "the increased use of this type of lamp on vehicles internationally, and the agency's need to ensure that the new lighting performs in a manner that does not detract from existing levels of motor vehicle safety." THE MARK IS OPTIONAL, NOT MANDATED, AND NO VERIFIER IS NAMED, which is the same shape as every voluntary marking instrument on this board. Mercedes-Benz is recorded in the NPRM as having "conducted a two-year on-road validation of ADS marker lamps in California from 2023 to 2025" | comments close 2026-11-25 |
+| USCG CRADA, Super Intelligence situational awareness for search and rescue | **NEW 2026-10-26, carried not promoted**, added as the second instance the same day of EO 14434 vocabulary in an operative federal document. FR Doc 2026-21723, 91 FR 67324-67325, Docket USCG-2026-0374, comments close 2026-11-25. The Coast Guard intends to enter a CRADA with LOOKOUT "to assess Super Intelligence for automated target detection and establish a reliable coverage-factor value supporting data-driven Lateral Range Curve (LRC) results". Relevant to the seam because the agency proposes to build the evaluation itself rather than buy one: "An additional possible goal is to characterize SI system confidence and operational performance, to build a measurable evaluation tool that could reduce the CG's barrier to integrate SI tools" | comments close 2026-11-25 |
+| NRC Regulatory Guide 1.220, ASME OM-2 component testing | **NEW 2026-10-26, carried not promoted.** FR Doc 2026-21781, 91 FR 67337-67338, Docket NRC-2025-0677, direct final guide confirming an effective date of 2026-08-18. The RG "endorses, with a regulatory position, the American Society of Mechanical Engineers (ASME) Operation and Maintenance OM-2 Code, Component Testing Requirements at Nuclear Facilities, 2024 Edition". Another instance of a regulator adopting a private consensus standard as the acceptable method, on the datacenter and power axis | effective 2026-08-18 |
+| Anthropic external evaluator agreements, indemnification | **NEW to the watchlist 2026-10-26 and it is the lead of that brief. IT IS THE SECOND INDEPENDENCE FAILURE ON THE SAME EVALUATOR RELATIONSHIP, AFTER FUNDING.** Form S-1, Anthropic PBC, CIK 2130357, accession 0001628280-26-067168, filed 2026-10-26, proposed Nasdaq listing as "ANT", Goldman Sachs and Morgan Stanley named. Operative, read at source: "to facilitate independent testing and evaluation of our frontier models, we have agreed to indemnify certain external evaluators and testing vendors for specified losses arising from testing activities, including security incidents, data loss, data breaches, and other harms associated with such activities. Although our agreements with external evaluators and testing vendors generally limit the amount of our indemnification obligations, certain of these agreements require us to defend and indemnify the evaluator, without a cap on our liability, against certain third-party claims." The claims named include allegations "that our models or their outputs, as used in the evaluator's authorized testing, infringe third-party intellectual property or other proprietary rights". Anthropic's published independence test of 2026-10-16 asks that an evaluator not be "financially or operationally dependent" on the company it evaluates; an uncapped indemnity from the evaluated party is a financial dependency the test does not contemplate | none stated |
+
 
 Notified bodies read active under Reg (EU) 2023/1230 on 2026-09-30. COMPLETE:
 all 41 names, captured across two pages (30 + 11) with no overlap, against the
@@ -315,7 +353,7 @@ capacity is concentrated in a handful of institutions rather than spread across
 | credentialed capability access, first vendor-run tier regime tracked | **CORRECTED 2026-10-13: the first is the Life Sciences Verification Program of 2026-09-17, not the CVP of 2026-10-06, which is twenty days later. Neither publishes a price, so this line still has no number.** Anthropic Cyber Verification Program, three tiers, no price published and no public register of who holds which tier. Payment is in kind: "Data retention is required for organizations enrolled in the program." Third credential-gating instrument on this board in five days, after Claude Frontier Academy at USD 10,000 a head (2026-10-02) and the SEC's proposed FINRA accredited-investor exam at USD 100 (2026-10-05). Unlike either of those, the examiner here also sells the thing being gated | 2026-10-07 | company post |
 | compute round, recorded not reported | Athanor Compute, Inc., 123 Townsend Street, San Francisco, incorporated 2026. Form D accepted 2026-10-09: totalOfferingAmount 150,000,000, totalAmountSold 124,999,998, date of first sale 2026-09-02, industry self-reported "Other Technology", revenue range "Decline to Disclose". Named on the filing: Tomas Puig (executive officer and director), Alok Pandey (executive officer and director), Curtis Mo (executive officer), Matthew Roberts (director). A Form D names no lead and no valuation. DROPPED FROM MOVES, and on the sources test rather than the floor: no company release, no company site and no secondary-database record were located, so the charter's `sells` field cannot be filled and the name is the only evidence of sector. Four candidate domains were tried and none resolved to the company. This is the Metaview precedent of 2026-10-06. It moves no tracked line: the largest AI-infrastructure round tracked remains Crusoe at $3.9B | 2026-10-11 | SEC Form D |
 | datacenter vehicle, recorded not reported | Good Bull Data Centers, LP, Delaware, general partner Good Bull Data Centers GP LLC of The Woodlands, Texas, formed 2026. Form D of 2026-10-08: totalOfferingAmount 40,000,000, totalAmountSold 820,783, totalRemaining 39,179,217, 9 investors, minimum investment accepted 1, first sale 2026-08-31, industry self-reported "Commercial". An intention rather than a round, and recorded only because the datacenter and power row has had nothing on it for four consecutive runs | 2026-10-11 | SEC Form D |
-| independent AI evaluation, first committed spend tracked | Anthropic and Accenture, "at least $1 billion" each over five years, so at least USD 2,000,000,000 committed in total on the companies' own statement. Work led by Faculty, Accenture's specialist AI business. Paid directly by the audited party: "Anthropic will fund Accenture's work directly", pending pooled or government funding that the post says does not exist. No per-engagement price, no headcount and no report standard published. THIS IS THE FIRST NAMED, PRICED BUYER OF THIRD-PARTY EVALUATION ON THIS BOARD and it answers the assurance-seam kill test in the affirmative on the buyer question while leaving the independence question open. Recorded 2026-10-12 from a post of 2026-09-18, 24 days late | 2026-10-12 | company release, Anthropic |
+| independent AI evaluation, first committed spend tracked | **MOVED 2026-10-26 AND IT MOVED DOWN. THE SEC FILING DOES NOT SUPPORT THE TOTAL THIS BOARD WAS CARRYING.** Anthropic's Form S-1 of 2026-10-26 says only: "we currently anticipate investing at least $1 billion over the next five years to build external reviewer capacity with Accenture. The terms of this arrangement have not been finalized and are subject to change." No Accenture figure appears anywhere in the filing, and "anticipate" with terms "not been finalized" is weaker than the company posts' "each expect to invest". CARRY USD 1,000,000,000 ANTICIPATED, NOT USD 2,000,000,000 COMMITTED, and treat the S-1 as the authority where it differs from a post. Prior entry, recorded 2026-10-12 from the post of 2026-09-18: Anthropic and Accenture, "at least $1 billion" each over five years, so at least USD 2,000,000,000 committed in total on the companies' own statement. Work led by Faculty, Accenture's specialist AI business. Paid directly by the audited party: "Anthropic will fund Accenture's work directly", pending pooled or government funding that the post says does not exist. No per-engagement price, no headcount and no report standard published. THIS IS THE FIRST NAMED, PRICED BUYER OF THIRD-PARTY EVALUATION ON THIS BOARD and it answers the assurance-seam kill test in the affirmative on the buyer question while leaving the independence question open. Recorded 2026-10-12 from a post of 2026-09-18, 24 days late | 2026-10-12 | company release, Anthropic |
 | universal/reconfigurable processor for physical AI, first round tracked | Ubitium GmbH, Dusseldorf. Release dated "13 OCTOBER 2026": "$14 million in new seed funding", led by Ibex Investors with OpenOcean, KBC Focus Fund, Runa Capital, Inflection, and Quantum Systems co-founder and co-CEO Florian Seibel "investing personally". "It brings Ubitium’s total seed funding to $18 million since the company was founded in 2024." No valuation stated. Built: "the UB108 with 256 processing elements, manufactured on Samsung’s 8nm process". Next: "the UB410 with 4,096 processing elements, and deliver evaluation units in 2027". Does NOT move the non-NVIDIA inference silicon largest-round line, which stays at EUCLYD | 2026-10-13 | company release |
 | humanoid round, recorded not promoted | Astribot / Stardust Intelligence, Shenzhen. Announced 2026-10-13: "a new 1 billion yuan (approximately $149.4 million) funding round", "lifting its valuation to 15 billion yuan (approximately $2.2 billion)", led by "Toukong Donghai (Shenzhen Investment Holdings)" with Hongtai Fund, Ninghai Xingtaihe Fund managed by Guanghua Yangguang, Shanheng Capital, and existing shareholder Xianmu adding. "Since March 2026, the company has completed Series A+, Series A++, Series B, and the current round." "Combined production capacity for the S and T series has now reached the 10,000-unit level." SECONDARY-PRESS ONLY: astribot.com/en/news renders client-side and returned no text; no company release located; sources disagree on the cumulative total, so none is recorded. The conversions are the source’s, not computed here. Does NOT move the largest robotics round, which stays at D-Robotics US$400M | 2026-10-13 | secondary-press |
 | named embedded evaluators at one frontier lab | **MOVED 2026-10-16, 1 -> 3 named plus 1 in discussion.** Was Accenture alone, recorded 2026-10-12 from the post of 2026-09-18. Now METR (six employees onboarded with employee-like access, tier 3), SecureBio (reviewing the CBRN chapter of the August 2026 Risk Report, tier 1 or 2, terms clarified in the 15 October update) and Accenture with Faculty, plus Hugging Face in "early discussions". NO PRICE IS PUBLISHED FOR ANY OF THEM except Accenture. So the committed-spend line below is still the only figure on this row, and it is attached to the one arrangement the vendor's own published independence criterion does not obviously cover | 2026-10-16 | company post, Anthropic |
@@ -326,11 +364,16 @@ capacity is concentrated in a handful of institutions rather than spread across
 | accredited testing laboratories under a US federal scheme, first sized | **NEW 2026-10-23 and it is the lead of that brief.** FDA ASCA, per the PRA renewal FR Doc 2026-21712: 8 accreditation bodies and 150 testing laboratories on the record-maintenance lines, 880 test reports a year, 176 accreditation-request reviews at 40 hours each. THESE ARE FDA BURDEN ESTIMATES, NOT A REGISTER COUNT, and a later run must not quote them as a headcount of designated bodies the way the EU register numbers are quoted. NO FEE AND NO DAY RATE IS STATED, so the terrain-map SS1 gap on fee schedules and assessor utilisation is NOT closed by this. The movement to watch is downward: anticipated new ASCA Accreditation applications cut "from 150 to 50 respondents" | 2026-10-23 | Federal Register |
 | approved certifiers of a US federal credential, smallest population tracked | **NEW 2026-10-23.** TWO. HHS approves exactly two entities to certify Medical Review Officers for federal workplace drug testing: AAMRO and MROCC, effective 2026-10-23, re-approval every 2 years. Against 43 notified bodies under Reg (EU) 2023/1230, 150 ASCA testing laboratories, 26,284 FMCSA registered training providers and 9 ESTEP submissions a year. No fee stated | 2026-10-23 | Federal Register |
 | robotics-sector round, largest tracked | D-Robotics, US$400M Series C. Primary release names no investor, only "a leading global internet company, alongside with top-tier investment institutions"; no valuation. Cumulative Sunrise chip shipments "exceeded 8 million units" | 2026-09-17 | company release |
-| frontier-lab equity committed to a public-benefit vehicle, first tracked | Anthropic Public Benefit Fund, announced 2026-10-18: "5% of Anthropic's shares will be committed today", subject to stockholder approval, with "an additional 2% added at the board's discretion for every 50% increase in the company's value above a set baseline", held in a "wholly-owned LLC" rather than a 501(c)(3). With the founders' 80%-of-equity pledge and an employee match, "roughly 20% of Anthropic shares will be dedicated to the public good". No dollar figure is stated and none is inferred here, because no valuation appears in the post | 2026-10-19 | company post |
+| frontier-lab equity committed to a public-benefit vehicle, first tracked | **THE BASELINE WAS NAMED 2026-10-26.** The S-1 states the mechanism: further issuances to the Anthropic Public Benefit Fund, LLC, "our wholly owned subsidiary dedicated to the Company Purpose", occur "each time our share price appreciates 50 % above the prior share price milestone , beginning with our initial public offering price". The S-1 also records that "our co-founders have each pledged to dedicate 80% of their personal equity in Anthropic to philanthropic causes." Prior entry: Anthropic Public Benefit Fund, announced 2026-10-18: "5% of Anthropic's shares will be committed today", subject to stockholder approval, with "an additional 2% added at the board's discretion for every 50% increase in the company's value above a set baseline", held in a "wholly-owned LLC" rather than a 501(c)(3). With the founders' 80%-of-equity pledge and an employee match, "roughly 20% of Anthropic shares will be dedicated to the public good". No dollar figure is stated and none is inferred here, because no valuation appears in the post | 2026-10-19 | company post |
 | memory and GPU pooling infrastructure, first round tracked | Liqid Inc., Westminster, Colorado, Delaware-incorporated, CIK 1620971. Form D accepted 2026-10-19, isAmendment false: totalOfferingAmount 28,450,000, totalAmountSold 26,950,000, totalRemaining 1,500,000, 16 investors, date of first sale 2026-05-12, revenue range "Decline to Disclose", federal exemption 06b. Related persons include Richard Hegberg, Sumit Puri, Ashish Puri, Ryan Pollock, Andrew Dye, David Larson, John Byrne and Kevin Connors. No round name, no lead and no valuation are stated and none was inferred. Company's own site, retrieved 2026-10-20, titles itself "Memory & GPU Pooling Infrastructure" and claims of its own product "5x more tokens per dollar and 2x more tokens per watt". No company release was located in window. **This is the first F1 qualifying item after FOUR consecutive runs with none.** | 2026-10-19 |
 | compute-named venture fund, first tracked | Lux Compute Leaders, L.P., New York. Form D accepted 2026-10-19, isAmendment false, industryGroupType "Pooled Investment Fund": totalOfferingAmount 300,000,000, totalAmountSold 0, totalRemaining 300,000,000, 0 investors, date of first sale yetToOccur true. Recorded not reported, on the Pillbot SPV precedent: a fund naming compute in its own name at $300M with nothing yet raised evidences intent, not a commitment, and the ledger must not read it as capital deployed. | 2026-10-19 |
 | Form D above floor, dropped on the sector test, largest parsed | Ramp Business Corp, 28 West 23rd Street New York. Form D accepted 2026-10-16, isAmendment false: totalOfferingAmount 1,850,000,000 and totalAmountSold 1,585,000,000, self-reported industry "Other Technology", revenue range "Decline to Disclose", related persons including Eric Glyman, Karim Atiyeh and Keith Rabois. Largest Form D this system has parsed. Sells corporate spend management, which matches no tracked sector and no live thesis, so DROPPED ON SECTOR not floor, the Metaview, Athanor, Sapphire and Curadel precedent. No company release located in window | 2026-10-19 | primary-filing |
 | Form D above floor, dropped on the sector test, recorded not reported | Memazing, Inc., 344 Nassau Street Princeton, incorporated 2025. Form D accepted 2026-10-16: totalOfferingAmount 26,244,981, totalAmountSold 15,404,990, date of first sale 2026-09-30, self-reported "Other Technology", executive officer and director Hyunjune Seung. What it sells was not established at source and is not guessed here. Also above floor and dropped: Estuary Biotherapeutics, Inc., totalOfferingAmount 103,654,385 and totalAmountSold 40,654,685, self-reported "Biotechnology" | 2026-10-19 | primary-filing |
+
+| frontier-lab revenue, first tracked | **NEW 2026-10-26, from the Anthropic S-1.** Verbatim: "Revenue increased sequentially in each of the quarters presented, from $376 million for the three months ended March 31, 2025 to $11.6 billion for the three months ended June 30, 2026." Also in the filing: "our revenue grew 1,368% year over year for the three months ended June 30, 2026, compared to our compute and infrastructure expenses that grew 300% during the same period." This is the first audited-track revenue figure this board holds for any frontier lab, and it is the denominator against which the $1bn evaluator anticipation should be read: one billion over five years against $11.6bn in one quarter | 2026-10-26 | SEC Form S-1, accession 0001628280-26-067168 |
+| satellite positioning for autonomous systems, first round tracked | **NEW 2026-10-26.** Xona Space Systems Inc., 828 Airport Blvd, Burlingame, California, CIK 1920779. Form D in the EDGAR daily index of 2026-10-23, isAmendment false, signature date 2026-10-23: totalOfferingAmount 253,459,641, totalAmountSold 238,959,659, totalRemaining 14,499,982, 28 investors, date of first sale 2026-10-08, minimum investment accepted 0, federal exemption 06b, self-reported industry "Other", revenue range "Decline to Disclose". Directors named on the filing include Brian Manning (also Executive Officer), Adrien Perkins, Ryan Johnson, Sky Dayton and Jay Zaveri. No lead and no valuation are disclosed. Company one-liner, read from the raw bytes of the site's `meta description` because tag-stripping destroys it: "Xona is the navigation infrastructure company bringing real-time, centimeter-level certainty to any device, anywhere on Earth." COUNTED ON THE ROBOT POLICY LAYER, not on datacenter and power | 2026-10-26 | SEC Form D |
+| Form D above floor, dropped on the sector test, recorded not reported | **NEW 2026-10-26.** Send Cut Send, Inc., 4855 Longley Lane, Reno, Nevada, CIK 2131876. Form D accepted in the index of 2026-10-23, isAmendment false, signature date 2026-10-22: totalOfferingAmount 140,499,720, totalAmountSold 140,499,720, totalRemaining 0, 10 investors, date of first sale 2026-10-08, exemption 06b, self-reported industry "Manufacturing", revenue range "Decline to Disclose", "overFiveYears" true. Officers and directors named: James Belosic, Erin Belosic, Jacob Graham; directors Mark Sugarman, Andrew Reed, Will Reed. Its own site: "Online sheet metal fabrication service. Get custom parts delivered in just a few days. Upload STEP or DXF files for instant pricing!" DROPPED ON THE SECTOR TEST on the Ramp and Memazing precedents of 2026-10-16: general-purpose sheet metal fabrication sold to anyone is not a tracked sector, even though it sits upstream of robot hardware. A LATER RUN MAY REVISIT THIS IF ANSHU NAMES THE PARTS SUPPLY CHAIN AS A DOMAIN, because the number is large and the company is adjacent to his robotics parts exchange | 2026-10-26 | SEC Form D |
+| export-control thresholds, second metric tracked | **NEW 2026-10-26.** Proposed 31 CFR part 851 makes prohibited technology include "(g) Development or production of high-bandwidth memory with a memory bandwidth density greater than 2 gigabytes per second per square millimeter". This is BANDWIDTH DENSITY per unit area, a different metric from the BIS row already on the board (TPP below 21,000 and DRAM bandwidth below 6,500 GB/s). Carry both; do not collapse them | 2026-10-26 | FR Doc 2026-21786 |
 
 ---
 
@@ -342,6 +385,73 @@ capacity is concentrated in a handful of institutions rather than spread across
 | assurance-seam, surviving form | Production telemetry cannot establish whether an OTA update is a regression, because the previous policy cannot be run counterfactually without surrendering throughput | **contested, and the kill test may have fired** | Show one buyer paying for paired non-regression testing | 2026-10-14. WEAKENED, and the mechanism claim is the part that moved rather than the kill test. RoboFQE (arXiv 2610.18699, 13 October) estimates a target policy's discounted expected return from offline robot trajectories with no rollouts, no simulator and no behaviour-policy density, and reports that it "preserves policy rankings even on long-horizon manipulation tasks where video world-model evaluators are degraded by autoregressive prediction errors". The thesis says the previous policy cannot be run counterfactually without surrendering throughput; off-policy evaluation does not run it at all. The bound, unchanged from every prior instance and the reason this is weakened and not fired: the method is free on arXiv, the kill test names a buyer paying for paired non-regression testing, and nobody is paying. The abstract carries no headline number, so this is a qualitative claim, self-reported and unreplicated. Prior state 2026-10-05 |
 | twin-certification | Nobody certifies the twin; SRCC-style validity claims are the sellable product | **live, and weakened again 2026-10-16: VeriVLA (arXiv 2610.21985, 15 October) puts the verifier INSIDE the policy, a JEPA-based latent world model ranking the policy's own candidate action chunks, raising "the average completion score from 50.8% to 65.5%" at "326 ms for sampling and verification per triggered decision on a single RTX 4090". That is the same shape as Argon on 2026-10-13, the builder supplying the test, now at runtime rather than at twin-construction time. Self-reported, not replicated, no pushback in window. Prior state: weakened 2026-10-13, the twin’s builder now also supplies the validity test.** Google DeepMind’s Gemini 4 Argon reconstructs "physically calibrated simulation twins" from a camera feed, a human video or a hand-drawn sketch, then holds them to "two verification objectives", visual match across three cameras and "physical match: the simulated contact force/torque on each Sharpa fingertip, in the sensor frame, matches the logged tactile_force in timing, magnitude and direction". The anti-gaming rules are PROMPT TEXT, not audit: "No sim cheating", no external forces or welds after t=0, no "reporting contact forces that don’t come from the MuJoCo solver". Measured transfer, vendor’s own and unreproduced: 4,500+ generated episodes took real-world Success Rate "56% to 75%" and completion "35s to 24s". THE BOUND, and it is why this is weakens and not fires: the kill test names NVIDIA or Lightwheel self-certifying or a notified body accepting vendor sim evidence unaudited, and NEITHER happened. Nobody certified anything and no regulator was involved, so what moved is who holds the method, not who holds the seat | Show NVIDIA or Lightwheel successfully self-certifying, or a notified body accepting vendor sim evidence unaudited | 2026-10-14. WEAKENED AGAIN AND FROM THE OTHER SIDE, which is why it is recorded rather than folded into yesterday. On 13 October Argon put the twin and its validity test inside one model, moving who holds the method. On the same day an unrelated group asked the question a third party would have to answer and could not: YUBI-Real2Sim (arXiv 2610.17521) reconstructs scenes with 3D Gaussian Splatting under dual fisheye wrist views and tests whether real-to-sim evaluation preserves policy ordering, reproducing it in 8 of 9 scene-task comparisons across two bimanual platforms, three scenes and three tasks, but concludes on the acceptance question: "These results do not yet establish a generally reliable scene-acceptance rule", and reports "limitations of quality-based reliability prediction". So novel-view quality scores do not tell you whether a twin is good enough to rank policies. That cuts both ways and both are recorded: it supports the claim that an SRCC-style validity statement is a separate sellable thing, because the obvious cheap substitute does not work; and it weakens any claim that such a statement can be produced today, because the group trying to produce one says it cannot yet. Prior state 2026-10-13 |
 | sc-node-map | 38 nodes, 7 of them the same assurance problem in different costumes | current | per-node kill tests in the ledger | 2026-09-08 |
+
+F5 THESIS SENTRY, 2026-10-26, three items against a ceiling of three, and TWO
+OF THE THREE WEAKEN, a second consecutive run where the weakening side
+outnumbers the supporting one.
+
+WEAKENING assurance-seam, and it is the strongest counter-evidence this board
+has recorded. The US Treasury, in a proposed rule, states that the measurement
+the thesis depends on does not exist: "Therefore, no single measure, benchmark,
+or threshold is currently sufficient to distinguish advanced models." Having
+written that, it did not commission a measurer, name a verifier, create a
+register or price a seat. It deleted the threshold and prohibited the whole
+category, and it says so in terms, proposing "regulatory text that does not
+rely on a U.S. person ascertaining the technical capabilities or thresholds of
+SI systems being developed by a covered foreign person". THE THESIS SAYS A
+NEUTRAL PARTY BECOMES STRUCTURALLY NECESSARY WHEN VALIDITY CANNOT BE
+ESTABLISHED. Here validity could not be established and the regulator's answer
+was a ban. That is not an absence of a buyer, which the board has recorded many
+times; it is a buyer who considered the seat and chose a prohibition instead,
+which is a different and worse fact for the thesis. The rule also supplies the
+mechanism, and it is worth keeping: "investors may lack insight into the
+capabilities of such models if model developers have not evaluated or
+advertised these capabilities." The information asymmetry is real, it is
+acknowledged, and it still did not produce a seat.
+
+WEAKENING assurance-seam on independence, from Anthropic's Form S-1 of
+2026-10-26. The company discloses that "certain of these agreements require us
+to defend and indemnify the evaluator, without a cap on our liability, against
+certain third-party claims." Anthropic's own published independence test, read
+at source 2026-10-16, is that an evaluator not be "financially or operationally
+dependent" on the company it evaluates. The board already held that the named
+evaluator is funded directly by the evaluated party. It now also holds that at
+least some evaluators are indemnified without a cap by the evaluated party.
+SECOND POINT ON THE SAME ITEM, and it is a number change rather than a
+structural one: the $1bn figure appears in the S-1 as "we currently anticipate
+investing", with "The terms of this arrangement have not been finalized and are
+subject to change", and no Accenture figure appears at all. A commitment
+reported in a blog post became an anticipation in a filing. THE RULE THAT
+FOLLOWS: when a frontier lab's claim exists in both a post and a filing, the
+filing is the record and the post is marketing.
+
+SUPPORTING assurance-seam, and it is a method rather than a buyer. arXiv
+2610.32742 (AWARE, 23 October) builds anomaly detection "using only external
+camera monitoring via system dynamics estimation and state prediction",
+motivated by exactly the third-party access problem the thesis describes:
+"legacy hardware often lacks these sensors, or strict security protocols may
+prohibit access altogether". Results: "a 26% improvement in anomaly
+classification over our strongest baseline under noisy, camera-only state
+estimation" across 240 real-world robotic crane trajectories, and the inferred
+dynamics parameter localises "the degrading motor with 88% accuracy". This is
+the first paper this board has read that is built FOR the party denied access,
+which is the party the thesis says becomes necessary. AGAINST IT, SAME DAY AND
+WHY THIS COUNTS AS ONE ITEM: arXiv 2610.32208 shows that sparse autoencoder
+representations of OpenVLA's own activations "contain outcome-predictive
+information and can be used to predict task failure before the robot reaches an
+unrecoverable state". That is the SECOND verifier-inside-the-policy result
+after VeriVLA of 2026-10-16, and it weakens twin-certification on the same
+ground: if the policy's own internals predict its failures, the external
+verifier is competing with a cheaper incumbent that already has full access.
+
+CARRIED FORWARD UNRESOLVED, and the board has now written it five times: every
+priced, staffed, operating assurance seam this board has located attests a
+property that leaves a physical trace, and the thesis's subject, a learned
+policy, is the one case where no such trace exists. The NRC rule of 2026-10-26
+is the fifth instance, and the Treasury rule is the first case where a
+regulator says the no-trace problem out loud. THE BOARD HAS STILL NOT SEPARATED
+whether that is the thesis's reason to exist or the reason it has no buyer, and
+the 2026-10-26 ONE QUESTION puts exactly that to Anshu.
 
 F5 THESIS SENTRY, 2026-10-23, three items against a ceiling of three, and TWO
 OF THE THREE WEAKEN, which is the first run since 2026-10-14 where the weakening
@@ -1236,7 +1346,14 @@ Serialise it in order, at most 400 words per weekday, and record the last
 section delivered in the `serialised` line below. When the file is exhausted,
 omit the section rather than inventing a new domain.
 
-serialised: **MARKER RE-CONFIRMED 2026-10-23 AND ACTED ON FOR A SECOND CONSECUTIVE RUN: THE SECTION WAS OMITTED AGAIN.** reports/terrain-map.md is exhausted. The 2026-10-23 run did not re-open it, did not re-serialise anything and did not invent a replacement domain, exactly as the 2026-10-21 run did. A later run must do the same: omit the section, say nothing about it in the body, and record the omission in provenance only. The narrowing trigger stays LIVE and S1 stays UNSTARTED, because that decision is Anshu's and no agent may take it. NOTE FOR THE SS1 GAP: the FDA ASCA item of 2026-10-23 does NOT close terrain-map SS1's outstanding gap on fee schedules, day rates and assessor utilisation, because the notice publishes burden hours and respondent counts and no money at all.
+serialised: **MARKER RE-CONFIRMED 2026-10-26 AND ACTED ON FOR A THIRD
+CONSECUTIVE RUN: THE SECTION WAS OMITTED AGAIN.** reports/terrain-map.md is
+exhausted. The 2026-10-26 run did not re-open it, did not re-serialise anything
+and did not invent a replacement domain, exactly as the 2026-10-23 and
+2026-10-21 runs did. A later run must do the same: omit the section, say
+nothing about it in the body, and record the omission in provenance only. The
+narrowing trigger stays LIVE and S1 stays UNSTARTED, because that decision is
+Anshu's and the agents do not make it.
 
 Narrowing trigger, so this does not drift forever: after the terrain map is
 fully delivered, compare the attention tally below against depth. The domain
@@ -1252,11 +1369,39 @@ ranking data than anything the agents can infer. M2 increments these.
 
 | domain | brief items | questions answered | questions skipped |
 |---|---|---|---|
-| certification and standards | 57 | 0 | 0 |
-| robot policy layer | 28 | 0 | 0 |
-| datacenter and power | 10 | 0 | 0 |
-| capital flows, general | 17 | 0 | 0 |
-| dual-use and export control | 3 | 0 | 0 |
+| certification and standards | 58 | 0 | 0 |
+| robot policy layer | 31 | 0 | 0 |
+| datacenter and power | 12 | 0 | 0 |
+| capital flows, general | 18 | 0 | 0 |
+| dual-use and export control | 5 | 0 | 0 |
+
+2026-10-26: dual-use +2 AND THE ROW IS NO LONGER THE DEAD ONE, after two
+consecutive runs at zero. The Treasury outbound rule counts twice on that row,
+once for the prohibition on "Development of any SI system" and once for the
+new high-bandwidth-memory density threshold, which is an export-control number
+and not a certification one. robot policy layer +3 (Sec. 851.232(b) putting
+industrial, bipedal, humanoid, quadruped and mobile robots and unmanned systems
+inside a capital prohibition, counted here as well as on dual-use on the
+2026-10-12 double-count precedent; the NHTSA cyan ADS marker lamp NPRM, carried
+as a DIFF after the word cap forced the cut; and Xona, counted on the robot
+policy layer rather than on capital because what it sells is positioning for
+autonomous systems). datacenter and power +2, which is the FIRST MOVEMENT ON
+THAT ROW SINCE 2026-10-16 and ends three consecutive runs at zero: the NRC
+reactor-authorization rule and NRC RG 1.220 endorsing ASME OM-2. certification
++1 (the Anthropic indemnification disclosure, counted on certification because
+what it describes is the commercial terms of a third-party assurance
+relationship). capital +1 (Xona, counted once here and once on the robot policy
+layer; Send Cut Send was dropped on the sector test and is recorded not
+counted). Running total 124 items across 21 briefs.
+
+TWENTY-THREE consecutive ONE QUESTIONs are now unanswered, which is the longest
+the primary input to the narrowing rule has been empty, and it has been the
+longest on each of the last four runs. Certification still leads, 58 to 31 to
+18 to 12 to 5, but ITS LEAD NARROWED FOR THE FIRST TIME: certification took
++1 while robot policy layer took +3. THE NARROWING TRIGGER REMAINS LIVE and the
+candidate is unchanged from 2026-10-20, 2026-10-21 and 2026-10-23, the ROBOT
+POLICY LAYER on brief items against depth, and this run strengthens it rather
+than disturbing it. ANSHU DECIDES and the agents do not start S1.
 
 2026-10-23: certification +4 (FDA ASCA as the lead; the two HHS-approved MRO
 certifying entities; the DSA eleventh corrigendum, counted here because the
@@ -1556,6 +1701,7 @@ addresses them.
 | 2026-10-20 | An order published today makes civilian agencies remove third-party products "developed using DeepSeek implementations" and states no method for establishing that a product was, while naming no verifier: is model lineage the assurance seam's third buyer, or the first case where the property to be verified leaves no trace in the artefact | no |
 | 2026-10-21 | Teradyne paid $300.0 million for a position inside semiconductor test, where what is tested leaves a physical trace, on the day a manipulation benchmark declared capability claims unverifiable and gave its scoring rubric away under an open licence: is the assurance seam short of a buyer because nobody has priced it, or because money only appears where an instrument can settle the question | no |
 | 2026-10-23 | FDA says it generally will not read the test reports an ASCA-accredited laboratory produces, and in the same notice cuts anticipated new accreditation applications from 150 to 50: is a regulator declining to re-examine the evidence what makes an assurance seat worth money, or the signal that the seats are already taken | no |
+| 2026-10-26 | Treasury wrote that "no single measure, benchmark, or threshold is currently sufficient to distinguish advanced models" and answered by prohibiting the development of any SI system rather than by naming anyone to measure it, while on the same day Anthropic disclosed in an SEC filing that it indemnifies its own external evaluators without a cap on its liability: is an unmeasurable property one that creates a verifier seat, or one that deletes it, yes or no | no |
 
 ---
 
