@@ -4,12 +4,123 @@ The file every agent reads to answer "what does he already know". Maintained by
 M2 Ledger Keeper after each editor run. This is a state file, not a document:
 no prose, no commentary, no history beyond what is needed to compute a diff.
 
-Last updated 2026-10-26 by the M1/M2 run. TWENTY-ONE briefs published, counted
+Last updated 2026-10-27 by the M1/M2 run. TWENTY-TWO briefs published, counted
 from `ls reports/newsletter/*.md`. Count the directory, do not carry the
-previous header's number forward. Window 24 to 26 October, 72 hours, computed
+previous header's number forward. Window 26 to 27 October, 24 hours, computed
 from the newest file in reports/newsletter/ as the standing instruction
-requires. The task FIRED ON SCHEDULE, which it did not on 22 October. Zero
-duplicates were found against the 23, 21 and 20 October briefs.
+requires. The task FIRED ON SCHEDULE on 23, 26 and 27 October, three
+consecutive. Zero duplicates were found against the 26, 23 and 21 October
+briefs.
+
+A FEDERAL AGENCY BUILT A REGISTER ON 2026-10-27 AND DISCLAIMED, IN THE SAME
+NOTICE, THAT THE REGISTER CERTIFIES ANYTHING. This is the day's lead and it
+belongs with the Treasury rule of 2026-10-26 as the same finding seen twice.
+Commerce / International Trade Administration, FR Doc 2026-21896, the U.S.
+Resources Management Industry Listing. Entry is by SEVEN CERTIFICATIONS THE
+APPLICANT MAKES ABOUT ITSELF, reviewed by "an ITA industry specialist", with
+ANNUAL SELF-RECERTIFICATION: "ITA will ask all listed companies, via their
+designated point of contact, annually to certify that their information is up
+to date". The disclaimer is verbatim: "Appearing in the RMIL does not imply
+endorsement or certification by the U.S. Government", and "ITA strongly
+recommends RMIL users to perform their own due diligence investigation and
+background research on any company in the RMIL". Applications by 2026-12-11,
+launch anticipated February 2027. THE PATTERN TO CARRY: the board has now
+recorded, in two days, a regulator that deleted a measurement rather than buy
+one (Treasury) and an agency that built a list rather than verify one. Both are
+cases where the seat was available and was not created. Stop writing "nobody
+has priced the seam" as though absence of a buyer were the only objection.
+
+THE CONTRAST THAT MAKES THE RMIL LEGIBLE WAS PUBLISHED THE DAY BEFORE AND
+SHOULD BE CARRIED AS A PAIR. Commission Implementing Decision (EU) 2026/2347,
+OJ 2026-10-26, adds Singapore to the Article 111b(1) equivalence list under
+Directive 2001/83/EC. Duration from request to listing: 622 DAYS, own
+arithmetic on "requested, by letter dated 11 February 2025" against the OJ date
+of 26 October 2026. The evidence base is startlingly small and is the number
+worth keeping: the Commission assessed an entire national regulatory system by
+"a review of the relevant documentation and an on-site review of Singapore’s
+regulatory system from 18 to 25 March 2026", which "included two observed
+inspections". TWO OBSERVED INSPECTIONS. The list now holds TEN countries:
+Australia, Brazil, Canada, Israel, Japan, Singapore, South Korea, Switzerland,
+Taiwan, United States. Against 43 notified bodies, 150 ASCA laboratories and 2
+HHS-approved MRO certifiers, ten is the second-smallest register population
+this board tracks.
+
+EO 14434 TERMINOLOGY IS NOW IN A THIRD FEDERAL INSTRUMENT, and this one is a
+supply-chain designation rather than a prohibition or a research notice. DOE
+added helium to the Critical Material List, FR Doc 2026-21884, published
+2026-10-27, signed 21 October by Audrey Robertson, Assistant Secretary, Office
+of Critical Minerals and Energy Innovation. Verbatim: "Demand for helium is
+also growing as it enables advanced semiconductor manufacturing, which is
+essential for SI and data center supply chains", and "Meeting the policy goal
+of building U.S. SI infrastructure will require expansion of semiconductor
+production". Count the instances deliberately: 31 CFR 851.232 and USCG Docket
+USCG-2026-0374 on 2026-10-26, DOE on 2026-10-27. A later run should keep
+counting rather than re-deriving.
+
+THE MONDAY EDGAR SEAM PAID OUT EXACTLY AS PREDICTED, and the prediction should
+now be treated as settled. The 2026-10-26 header recorded that a Monday run
+reads Friday's index alone because form.20261026 is not closed. Today
+form.20261026 opened at 690,290 bytes with 108 Form D rows, and it carried the
+largest capital item of the week: Warp Sciences Inc. A LATER MONDAY RUN SHOULD
+SAY IN PROVENANCE THAT TUESDAY WILL CARRY MONDAY'S FILINGS, and a later Tuesday
+run should expect them. The same seam exists on arXiv: the 24 and 25 October
+cs.RO batches, 31 and 37 papers, appeared only after the 2026-10-26 run had
+read that window.
+
+THE QUOTE MATCHER EARNED ITS KEEP AGAIN AND CAUGHT THE SAME DEFECT CLASS TWICE
+IN ONE DRAFT. Both were a closing full stop placed INSIDE the quotation marks
+where the source sentence continues: the OJ text runs on from "two observed
+inspections" to "and took due account of the responses", and the RMIL text runs
+on from "data centers" to a semicolon and "recycling equipment". This is the
+third consecutive run on which this exact error was caught before publication,
+which means it is not a slip but a habit of the drafting step. THE CHEAP FIX,
+adopt it: extract every double-quoted span from the draft programmatically and
+test each against the union of the retrieved source bytes, rather than
+eyeballing. The run script is scratchpad/match2.mjs and it found 2 real defects
+out of 15 spans. Also confirmed again: the OJ sets U+2019, not an ASCII
+apostrophe, inside "Singapore’s".
+
+MOFCOM IS NOT UNREACHABLE AND THE PREVIOUS ENTRY WAS A CLIENT PROBLEM, NOT AN
+OUTAGE. The 2026-10-26 header recorded english.mofcom.gov.cn at 0 bytes with no
+status code and logged it as a new unreachable source. Today the same host
+returns HTTP 200 at 16,975 bytes with `-L` and a desktop User-Agent, and
+www.mofcom.gov.cn returns 200 at 42,059 bytes. This is the THIRD host on which
+a missing `-L` or a missing User-Agent has been misread as an empty or dead
+venue, after darioamodei.com and paulgraham.com. THE RULE IS NOW GENERAL AND
+SHOULD BE APPLIED BEFORE LOGGING ANY SOURCE UNREACHABLE: retry with `-L` and a
+desktop User-Agent and report the byte count before calling a venue down. No
+MOFCOM movement in window regardless; the newest English item is 14 October.
+
+CORRIGENDUM RETRIEVAL HAS A SIMPLER EXPLANATION THAN THE ONE ON FILE, and it
+should be added to the method already recorded below. `tools/eurlex.mjs get
+"32026R2138R(01)"` returns "not found", but the act resolves immediately at
+`publications.europa.eu/resource/celex/32026R2138R%2801%29` with
+`Accept: application/xhtml+xml`, `Accept-Language: en` AND `curl -L`: the
+English request answers HTTP 303 and the redirect must be followed, while fr,
+de, it, es and nl all return 404. The reason the bracketed CELEX fails is
+visible in the retrieved document: THE OJ PUBLISHES THE CORRIGENDUM UNDER ITS
+OWN NUMBER, 2026/90923, in a separate 90000 series, not under 2026/2138. Look
+for the 90000-series number, do not expect the parent act's.
+
+TWO WATCHLIST GAPS RECORDED ON 2026-10-26 ARE NOW CLOSED, one of them with a
+movement. The notified-body register was re-read in the browser pane: 43 under
+Reg (EU) 2023/1230, unchanged, and 153 under Dir 2006/42/EC, DOWN FROM 154. The
+AI Act and Cyber Resilience Act filters both still return 0. The remaining gap
+is ISO 25785-1, HTTP 403 at 5,661 bytes for a second consecutive run, last read
+2026-10-19 at stage 30.60. RETRIEVAL NOTE, newly confirmed: the SMCS register
+did NOT serve a cookie notice to the browser pane today, so the "Accept only
+essential cookies" step recorded below was not needed; the "Search results (n)"
+heading was present on first read. Keep the cookie note as a fallback, not as a
+required step.
+
+THE EDITOR RAN 857 WORDS ON FIRST DRAFT AGAINST A 700 CAP, a second consecutive
+overrun, and the 2026-10-26 instruction to draft at four MOVES was followed and
+was still not enough. WHAT ACTUALLY WORKED, and a later run should do this
+first rather than last: the overrun was not in MOVES, it was in DIFFS, which had
+drifted into prose paragraphs of 30 words each against a charter that says "one
+line each, no prose". Tightening DIFFS to real one-liners recovered 45 words and
+demoting ONE MOVE cleanly to a DIFF recovered 93. DRAFT DIFFS AS ONE LINE EACH
+FROM THE START and the MOVES budget stops being the thing under pressure.
 
 ANTHROPIC FILED AN S-1 ON 2026-10-26 AND IT IS THE FIRST TIME THIS BOARD HAS
 READ THE EVALUATOR PROGRAMME IN A DOCUMENT CARRYING SECURITIES LIABILITY.
@@ -184,11 +295,11 @@ The F6 list. Keep between 8 and 12 names. Read at the person's own venue only.
 
 | person | venue | newest seen | date |
 |---|---|---|---|
-| Dario Amodei | darioamodei.com, short posts | We Must Pace the Frontier, still newest on 2026-10-26, re-read over HTTP a fifteenth consecutive time. RETRIEVAL, logged once: darioamodei.com returns HTTP 301 and 166 bytes without `curl -L`, which reads as an empty venue; with `-L` it returns 200 and 28,947 bytes. Always follow the redirect. RESOLVED 2026-10-01, close this line of enquiry: an href scrape returns exactly four `/post/` URLs and two `/essay/` URLs, so the "six titles" counted on 09-30 was posts and essays added together. Four short posts, unchanged since 09-12 and confirmed again 2026-10-16: on-deepseek-and-export-controls, policy-on-the-ai-exponential, the-urgency-of-interpretability, we-must-pace-the-frontier | 2026-09-12 |
+| Dario Amodei | darioamodei.com, short posts | We Must Pace the Frontier, still newest on 2026-10-27, re-read over HTTP a sixteenth consecutive time at 28,947 bytes. RETRIEVAL, logged once: darioamodei.com returns HTTP 301 and 166 bytes without `curl -L`, which reads as an empty venue; with `-L` it returns 200 and 28,947 bytes. Always follow the redirect. RESOLVED 2026-10-01, close this line of enquiry: an href scrape returns exactly four `/post/` URLs and two `/essay/` URLs, so the "six titles" counted on 09-30 was posts and essays added together. Four short posts, unchanged since 09-12 and confirmed again 2026-10-16: on-deepseek-and-export-controls, policy-on-the-ai-exponential, the-urgency-of-interpretability, we-must-pace-the-frontier | 2026-09-12 |
 | Dario Amodei | darioamodei.com/essay/ | Two essays, unchanged: Machines of Loving Grace and The Adolescence of Technology, the latter dated "January 2026" on the page. /archive still returns HTTP 404 while appearing in the site navigation | 2026-01 |
-| Paul Graham | paulgraham.com/articles.html | Making Startups Powerful, unchanged on 2026-10-26, returning 200 and 119,430 bytes with `-L`. **NEW RETRIEVAL NOTE 2026-10-20: `http://www.paulgraham.com/articles.html` returns HTTP 301 with a zero-length body and needs `-L`, the same trap already recorded for darioamodei.com. Three runs read this venue without recording it, which means three runs got lucky with their client.** The stored-title diff WORKS and is now the method: the five titles below it read identically on 10-01, 10-02, 10-05, 10-06, 10-07, 10-11, 10-12, 10-13, 10-14, 10-16, 10-19, 10-20 and 10-21, so the page does not need reading in depth. Order: How Universities Should Prepare Founders, How to Earn a Billion Dollars, How to Convert Between Wealth and Income Tax, The Brand Age, The Shape of the Essay Field | 2026-09 |
-| Andrej Karpathy | karpathy.bearblog.dev/blog | newest is Sequoia Ascent 2026 summary (30 Apr 2026), unchanged, re-read 2026-10-26 at 11,787 bytes, a ninth consecutive HTTP 200. RETRIEVAL, settled 2026-09-22 and now settled in both directions: the venue flaps between HTTP 200 and 404 for HTTP clients (200 on 09-17, **2026-10-07**, **2026-10-11**, **2026-10-12**, **2026-10-14**, **2026-10-16** and **2026-10-19**, 404 on 09-15, 09-22, 09-30, 10-01, 10-02, 10-05 and 10-06) and renders reliably in a browser pane. On 10-07, 10-11, 10-12, 10-14 and 10-16 a plain HTTP client with a desktop User-Agent returned 200 and the full post list, so the browser pane was not needed. EIGHT consecutive 200s now, against nine prior 404s: the standing note is softening but not reversed, so keep trying HTTP first and keep the pane as the fallback. Do not record the 404 as a venue outage or as a DIFF, and do not record a 200 as a publication either: try HTTP first, fall back to the pane | 2026-04-30 |
-| Andrej Karpathy | karpathy.github.io | newest is microgpt, 12 Feb 2026, unchanged, re-read 2026-10-26 at 14,764 bytes | 2026-02-12 |
+| Paul Graham | paulgraham.com/articles.html | Making Startups Powerful, unchanged on 2026-10-27, returning 200 and 119,430 bytes with `-L`. **NEW RETRIEVAL NOTE 2026-10-20: `http://www.paulgraham.com/articles.html` returns HTTP 301 with a zero-length body and needs `-L`, the same trap already recorded for darioamodei.com. Three runs read this venue without recording it, which means three runs got lucky with their client.** The stored-title diff WORKS and is now the method: the five titles below it read identically on 10-01, 10-02, 10-05, 10-06, 10-07, 10-11, 10-12, 10-13, 10-14, 10-16, 10-19, 10-20 and 10-21, so the page does not need reading in depth. Order: How Universities Should Prepare Founders, How to Earn a Billion Dollars, How to Convert Between Wealth and Income Tax, The Brand Age, The Shape of the Essay Field | 2026-09 |
+| Andrej Karpathy | karpathy.bearblog.dev/blog | newest is Sequoia Ascent 2026 summary (30 Apr 2026), unchanged, re-read 2026-10-27 at 11,787 bytes, a TENTH consecutive HTTP 200. RETRIEVAL, settled 2026-09-22 and now settled in both directions: the venue flaps between HTTP 200 and 404 for HTTP clients (200 on 09-17, **2026-10-07**, **2026-10-11**, **2026-10-12**, **2026-10-14**, **2026-10-16** and **2026-10-19**, 404 on 09-15, 09-22, 09-30, 10-01, 10-02, 10-05 and 10-06) and renders reliably in a browser pane. On 10-07, 10-11, 10-12, 10-14 and 10-16 a plain HTTP client with a desktop User-Agent returned 200 and the full post list, so the browser pane was not needed. EIGHT consecutive 200s now, against nine prior 404s: the standing note is softening but not reversed, so keep trying HTTP first and keep the pane as the fallback. Do not record the 404 as a venue outage or as a DIFF, and do not record a 200 as a publication either: try HTTP first, fall back to the pane | 2026-04-30 |
+| Andrej Karpathy | karpathy.github.io | newest is microgpt, 12 Feb 2026, unchanged, re-read 2026-10-27 at 14,764 bytes | 2026-02-12 |
 
 Slots open: 8. Candidates not yet added, decide before adding: Chelsea Finn,
 Dorsa Sadigh, Ben Thompson, Dylan Patel, Jack Clark, Cedric Chin.
@@ -274,6 +385,10 @@ The F3 watchlist. Carry every row forward every run.
 | USCG CRADA, Super Intelligence situational awareness for search and rescue | **NEW 2026-10-26, carried not promoted**, added as the second instance the same day of EO 14434 vocabulary in an operative federal document. FR Doc 2026-21723, 91 FR 67324-67325, Docket USCG-2026-0374, comments close 2026-11-25. The Coast Guard intends to enter a CRADA with LOOKOUT "to assess Super Intelligence for automated target detection and establish a reliable coverage-factor value supporting data-driven Lateral Range Curve (LRC) results". Relevant to the seam because the agency proposes to build the evaluation itself rather than buy one: "An additional possible goal is to characterize SI system confidence and operational performance, to build a measurable evaluation tool that could reduce the CG's barrier to integrate SI tools" | comments close 2026-11-25 |
 | NRC Regulatory Guide 1.220, ASME OM-2 component testing | **NEW 2026-10-26, carried not promoted.** FR Doc 2026-21781, 91 FR 67337-67338, Docket NRC-2025-0677, direct final guide confirming an effective date of 2026-08-18. The RG "endorses, with a regulatory position, the American Society of Mechanical Engineers (ASME) Operation and Maintenance OM-2 Code, Component Testing Requirements at Nuclear Facilities, 2024 Edition". Another instance of a regulator adopting a private consensus standard as the acceptable method, on the datacenter and power axis | effective 2026-08-18 |
 | Anthropic external evaluator agreements, indemnification | **NEW to the watchlist 2026-10-26 and it is the lead of that brief. IT IS THE SECOND INDEPENDENCE FAILURE ON THE SAME EVALUATOR RELATIONSHIP, AFTER FUNDING.** Form S-1, Anthropic PBC, CIK 2130357, accession 0001628280-26-067168, filed 2026-10-26, proposed Nasdaq listing as "ANT", Goldman Sachs and Morgan Stanley named. Operative, read at source: "to facilitate independent testing and evaluation of our frontier models, we have agreed to indemnify certain external evaluators and testing vendors for specified losses arising from testing activities, including security incidents, data loss, data breaches, and other harms associated with such activities. Although our agreements with external evaluators and testing vendors generally limit the amount of our indemnification obligations, certain of these agreements require us to defend and indemnify the evaluator, without a cap on our liability, against certain third-party claims." The claims named include allegations "that our models or their outputs, as used in the evaluator's authorized testing, infringe third-party intellectual property or other proprietary rights". Anthropic's published independence test of 2026-10-16 asks that an evaluator not be "financially or operationally dependent" on the company it evaluates; an uncapped indemnity from the evaluated party is a financial dependency the test does not contemplate | none stated |
+| U.S. Resources Management Industry Listing (RMIL), ITA | **NEW to the watchlist 2026-10-27 and it is the lead of that brief. A FEDERAL REGISTER THAT DISCLAIMS, IN ITS OWN NOTICE, THAT IT CERTIFIES ANYTHING.** FR Doc 2026-21896, Commerce / International Trade Administration, Office of Energy and Environmental Industries, published 2026-10-27, signed 21 October by Edward O'Malley. Entry is by SEVEN self-certifications listed in the notice: not majority foreign-government owned or controlled; offers relevant US goods or services; goods "are of U.S. origin or have at least 51% U.S. content by value"; export would comply with BIS and OFAC rules; not on the SDN or any other US sanctions list; no civil or criminal export-control or sanctions violation charged or convicted "within the last 5 years"; and not "currently identified as a party in pending litigation (including any administrative proceedings) involving the U.S. Department of Commerce". Review is by "an ITA industry specialist" and "can take several weeks". Maintenance is self-certified annually. THE DISCLAIMER IS THE FINDING, verbatim: "Appearing in the RMIL does not imply endorsement or certification by the U.S. Government", "The RMIL is not intended for U.S. Government procurement purposes", and "ITA strongly recommends RMIL users to perform their own due diligence investigation and background research on any company in the RMIL". Sectors are water and wastewater treatment, waste management and recycling including critical minerals recycling, air quality measurement, monitoring and instrumentation, weather and forecasting. The datacenter hook is explicit: "water efficiency and water reuse technologies for data centers". Sector size as ITA states it: "approximately $37 billion in U.S. goods and services exports annually" and "approximately 1.9 million American jobs". buried: NONE, and that absence is the item. A register, an application, a government review and an annual renewal, with no third-party attestation anywhere in the instrument | applications 2026-12-11; launch anticipated February 2027 |
+| Dir 2001/83/EC Art. 111b(1), third-country equivalence list for active substances | **NEW to the watchlist 2026-10-27.** Commission Implementing Decision (EU) 2026/2347 of 23 October 2026, OJ 2026-10-26, in force 2026-11-15, adds the Republic of Singapore. The instrument is a COUNTRY-LEVEL equivalence determination that removes the need for the Union to re-examine: a third country may ask the Commission to assess whether its "regulatory framework applicable to active substances exported to the Union, and the respective control and enforcement activities, ensure a level of protection of public health equivalent to that of the Union". Evidence base, and it is the number worth carrying: "a review of the relevant documentation and an on-site review of Singapore’s regulatory system from 18 to 25 March 2026", which "included two observed inspections". Request to listing 622 days, own arithmetic on "requested, by letter dated 11 February 2025". The Annex is REPLACED wholesale by Article 1, so the list must be read from the Annex and not diffed from the recital. Population now TEN: Australia, Brazil, Canada, Israel, Japan, Singapore, South Korea, Switzerland, Taiwan, United States. buried: none; the Decision creates no new testing obligation, it removes one | in force 2026-11-15 |
+| DOE Critical Material List, 30 U.S.C. 1606(a)(2) | **NEW to the watchlist 2026-10-27 and it is the THIRD federal instrument carrying EO 14434 terminology.** FR Doc 2026-21884, notice, published 2026-10-27, no comment period and no effective date stated. Helium added. Verbatim: "Demand for helium is also growing as it enables advanced semiconductor manufacturing, which is essential for SI and data center supply chains", and "Meeting the policy goal of building U.S. SI infrastructure will require expansion of semiconductor production and thereby supports the determination that helium is a DOE critical material". The notice also cites "Winning the AI Race: America's AI Action Plan". Prior list content recorded so a later run diffs rather than re-reads: aluminum, cobalt, copper*, dysprosium, electrical steel*, fluorine, gallium, iridium, lithium, magnesium, natural graphite, neodymium, nickel, platinum, praseodymium, terbium, silicon*, silicon carbide*, plus metallurgical grade coal added 2025-05-22. buried: none | none stated |
+| EO 14434, Inaugurating the Era of Super Intelligence, INSTANCE COUNT | **MOVED 2026-10-27, 2 -> 3.** Instances of the EO's "SI" terminology in federal instruments: 31 CFR 851.232 (Treasury proposed rule, 2026-10-26), USCG Docket USCG-2026-0374 (2026-10-26), DOE Critical Material List notice (2026-10-27). Count deliberately on each run rather than re-deriving; this row exists so the count is a diff and not a rediscovery | none stated |
 
 
 Notified bodies read active under Reg (EU) 2023/1230 on 2026-09-30. COMPLETE:
@@ -374,6 +489,10 @@ capacity is concentrated in a handful of institutions rather than spread across
 | satellite positioning for autonomous systems, first round tracked | **NEW 2026-10-26.** Xona Space Systems Inc., 828 Airport Blvd, Burlingame, California, CIK 1920779. Form D in the EDGAR daily index of 2026-10-23, isAmendment false, signature date 2026-10-23: totalOfferingAmount 253,459,641, totalAmountSold 238,959,659, totalRemaining 14,499,982, 28 investors, date of first sale 2026-10-08, minimum investment accepted 0, federal exemption 06b, self-reported industry "Other", revenue range "Decline to Disclose". Directors named on the filing include Brian Manning (also Executive Officer), Adrien Perkins, Ryan Johnson, Sky Dayton and Jay Zaveri. No lead and no valuation are disclosed. Company one-liner, read from the raw bytes of the site's `meta description` because tag-stripping destroys it: "Xona is the navigation infrastructure company bringing real-time, centimeter-level certainty to any device, anywhere on Earth." COUNTED ON THE ROBOT POLICY LAYER, not on datacenter and power | 2026-10-26 | SEC Form D |
 | Form D above floor, dropped on the sector test, recorded not reported | **NEW 2026-10-26.** Send Cut Send, Inc., 4855 Longley Lane, Reno, Nevada, CIK 2131876. Form D accepted in the index of 2026-10-23, isAmendment false, signature date 2026-10-22: totalOfferingAmount 140,499,720, totalAmountSold 140,499,720, totalRemaining 0, 10 investors, date of first sale 2026-10-08, exemption 06b, self-reported industry "Manufacturing", revenue range "Decline to Disclose", "overFiveYears" true. Officers and directors named: James Belosic, Erin Belosic, Jacob Graham; directors Mark Sugarman, Andrew Reed, Will Reed. Its own site: "Online sheet metal fabrication service. Get custom parts delivered in just a few days. Upload STEP or DXF files for instant pricing!" DROPPED ON THE SECTOR TEST on the Ramp and Memazing precedents of 2026-10-16: general-purpose sheet metal fabrication sold to anyone is not a tracked sector, even though it sits upstream of robot hardware. A LATER RUN MAY REVISIT THIS IF ANSHU NAMES THE PARTS SUPPLY CHAIN AS A DOMAIN, because the number is large and the company is adjacent to his robotics parts exchange | 2026-10-26 | SEC Form D |
 | export-control thresholds, second metric tracked | **NEW 2026-10-26.** Proposed 31 CFR part 851 makes prohibited technology include "(g) Development or production of high-bandwidth memory with a memory bandwidth density greater than 2 gigabytes per second per square millimeter". This is BANDWIDTH DENSITY per unit area, a different metric from the BIS row already on the board (TPP below 21,000 and DRAM bandwidth below 6,500 GB/s). Carry both; do not collapse them | 2026-10-26 | FR Doc 2026-21786 |
+| contract chemistry lab for drug discovery, first round tracked | **NEW 2026-10-27.** Warp Sciences Inc., 4370 Alpine Road Suite 104, Portola Valley, California, Delaware-incorporated 2026, CIK 2160711, previous name WPR Labs Inc. Form D in the EDGAR daily index of 2026-10-26, isAmendment false, signature date 2026-10-23: totalOfferingAmount 218,459,997, totalAmountSold 194,609,879, totalRemaining 23,850,118, 50 investors, minimum investment accepted 0, federal exemption 06b, self-reported industry "Other Technology", revenue range "Decline to Disclose", dateOfFirstSale blank. Related persons on the filing: Kevin Weil (Executive Officer, Director, Promoter), Balmanohar Paluri (Promoter), Dhanurjay Patil (Executive Officer, Promoter), Solomon Reisberg (Executive Officer, Promoter), Guru Chahal (Director). THE ANNOUNCED ROUND AND THE FILING DISAGREE and both are carried: TechCrunch of 2026-10-22 reports "$215 million" "led by Lightspeed", against 194,609,879 sold on the filing. NOT CARRIED, and the reason matters: the $865m valuation is attributed by TechCrunch to Weil "who announced the startup and funding on X", and the house rule bars a social post as the sole source for a funding number, so this row holds NO valuation. What it sells, from the retrieved TechCrunch page: it "trains robots to make and test promising compounds identified by researchers". warpsciences.com is a parked lander and there is no company release | 2026-10-27 | SEC Form D plus secondary-press |
+| third-party certification seat, durations tracked from application to grant | **MOVED 2026-10-27, 2 durations -> 3, and the new one is the shortest.** 622 DAYS: Singapore requested Art. 111b(1) listing "by letter dated 11 February 2025" and was listed in the OJ of 2026-10-26. Against 819 days (OSHA NRTL, Nemko North America, one added test site) and 2,240 days (RSB EU RED voluntary scheme). ALL THREE ARE DURATIONS, NOT PRICES, and the §1 gap on fee schedules and assessor day rates is still open after six weeks of looking | 2026-10-27 | OJ plus own arithmetic |
+| population of a government equivalence register, smallest tracked after the HHS pair | **NEW 2026-10-27.** TEN countries on the Dir 2001/83/EC Art. 111b(1) list: Australia, Brazil, Canada, Israel, Japan, Singapore, South Korea, Switzerland, Taiwan, United States. Against 2 HHS-approved MRO certifiers, 43 notified bodies under Reg (EU) 2023/1230, 150 ASCA testing laboratories and 26,284 FMCSA registered training providers. No fee stated | 2026-10-27 | OJ |
+| Form D above floor, dropped on the sector test, recorded not reported | **NEW 2026-10-27, three of them from the EDGAR index of 20261026.** BigHat Biosciences, Inc., CIK 1797256, totalOfferingAmount 79,999,947 and totalAmountSold 75,141,086, self-reported "Biotechnology". Different Labs, Inc., CIK 2160330, Campbell California, previous names CBX1, Inc. and DIFFERENT LABS, INC, totalOfferingAmount 50,509,994 and totalAmountSold 48,154,942, 27 investors, signature date 2026-10-23, related persons Ajeet Singh and Hemant Taneja, self-reported "Other Technology"; what it sells was not established at source and is not guessed here. Overwatch Data, Inc., CIK 2054765, Brooklyn, totalOfferingAmount 15,199,984 and totalAmountSold 14,959,986, 8 investors, signature date 2026-10-26, related persons Arjun Bisen, Zara Perumal, Ziv Conen, Chris Gottschalk. Also parsed and below floor, recorded on the Pillbot SPV precedent: ADVANCED ROBOTICS INVESTMENTS LLC, Mountain View, industryGroupType "Pooled Investment Fund", totalOfferingAmount "Indefinite", totalAmountSold 6,000,140, 4 investors, Zanbato Capital LLC and Zanbato Advisors LLC named. It evidences demand for a robotics name without naming the company or the round | 2026-10-27 | SEC Form D |
 
 ---
 
@@ -385,6 +504,69 @@ capacity is concentrated in a handful of institutions rather than spread across
 | assurance-seam, surviving form | Production telemetry cannot establish whether an OTA update is a regression, because the previous policy cannot be run counterfactually without surrendering throughput | **contested, and the kill test may have fired** | Show one buyer paying for paired non-regression testing | 2026-10-14. WEAKENED, and the mechanism claim is the part that moved rather than the kill test. RoboFQE (arXiv 2610.18699, 13 October) estimates a target policy's discounted expected return from offline robot trajectories with no rollouts, no simulator and no behaviour-policy density, and reports that it "preserves policy rankings even on long-horizon manipulation tasks where video world-model evaluators are degraded by autoregressive prediction errors". The thesis says the previous policy cannot be run counterfactually without surrendering throughput; off-policy evaluation does not run it at all. The bound, unchanged from every prior instance and the reason this is weakened and not fired: the method is free on arXiv, the kill test names a buyer paying for paired non-regression testing, and nobody is paying. The abstract carries no headline number, so this is a qualitative claim, self-reported and unreplicated. Prior state 2026-10-05 |
 | twin-certification | Nobody certifies the twin; SRCC-style validity claims are the sellable product | **live, and weakened again 2026-10-16: VeriVLA (arXiv 2610.21985, 15 October) puts the verifier INSIDE the policy, a JEPA-based latent world model ranking the policy's own candidate action chunks, raising "the average completion score from 50.8% to 65.5%" at "326 ms for sampling and verification per triggered decision on a single RTX 4090". That is the same shape as Argon on 2026-10-13, the builder supplying the test, now at runtime rather than at twin-construction time. Self-reported, not replicated, no pushback in window. Prior state: weakened 2026-10-13, the twin’s builder now also supplies the validity test.** Google DeepMind’s Gemini 4 Argon reconstructs "physically calibrated simulation twins" from a camera feed, a human video or a hand-drawn sketch, then holds them to "two verification objectives", visual match across three cameras and "physical match: the simulated contact force/torque on each Sharpa fingertip, in the sensor frame, matches the logged tactile_force in timing, magnitude and direction". The anti-gaming rules are PROMPT TEXT, not audit: "No sim cheating", no external forces or welds after t=0, no "reporting contact forces that don’t come from the MuJoCo solver". Measured transfer, vendor’s own and unreproduced: 4,500+ generated episodes took real-world Success Rate "56% to 75%" and completion "35s to 24s". THE BOUND, and it is why this is weakens and not fires: the kill test names NVIDIA or Lightwheel self-certifying or a notified body accepting vendor sim evidence unaudited, and NEITHER happened. Nobody certified anything and no regulator was involved, so what moved is who holds the method, not who holds the seat | Show NVIDIA or Lightwheel successfully self-certifying, or a notified body accepting vendor sim evidence unaudited | 2026-10-14. WEAKENED AGAIN AND FROM THE OTHER SIDE, which is why it is recorded rather than folded into yesterday. On 13 October Argon put the twin and its validity test inside one model, moving who holds the method. On the same day an unrelated group asked the question a third party would have to answer and could not: YUBI-Real2Sim (arXiv 2610.17521) reconstructs scenes with 3D Gaussian Splatting under dual fisheye wrist views and tests whether real-to-sim evaluation preserves policy ordering, reproducing it in 8 of 9 scene-task comparisons across two bimanual platforms, three scenes and three tasks, but concludes on the acceptance question: "These results do not yet establish a generally reliable scene-acceptance rule", and reports "limitations of quality-based reliability prediction". So novel-view quality scores do not tell you whether a twin is good enough to rank policies. That cuts both ways and both are recorded: it supports the claim that an SRCC-style validity statement is a separate sellable thing, because the obvious cheap substitute does not work; and it weakens any claim that such a statement can be produced today, because the group trying to produce one says it cannot yet. Prior state 2026-10-13 |
 | sc-node-map | 38 nodes, 7 of them the same assurance problem in different costumes | current | per-node kill tests in the ledger | 2026-09-08 |
+
+F5 THESIS SENTRY, 2026-10-27, three items against a ceiling of three, and TWO
+OF THE THREE WEAKEN, a THIRD consecutive run where the weakening side
+outnumbers the supporting one. That streak is now itself a finding and a later
+run should say so rather than reporting each weakening item as a surprise.
+
+WEAKENING assurance-seam, and it is the cleanest instance yet of the pattern
+Treasury supplied on 2026-10-26. The International Trade Administration built a
+federal register, wrote an application process, assigned "an ITA industry
+specialist" to review each entry, and required annual renewal, and then stated
+in the same notice that "Appearing in the RMIL does not imply endorsement or
+certification by the U.S. Government" and that users should "perform their own
+due diligence investigation and background research on any company in the
+RMIL". THE THESIS SAYS A NEUTRAL PARTY BECOMES STRUCTURALLY NECESSARY. Here an
+agency assembled every component of a verification regime except the
+verification, and said out loud that the register carries no assurance. The
+mechanism is worth keeping separate from Treasury's: Treasury could not measure
+and so prohibited; ITA did not try to measure and so disclaimed. Two different
+routes to the same absent seat in two days. CONFIDENCE: this reading holds only
+if a promotional export listing is a fair comparator for a safety or capability
+attestation, and it may not be; the counter is that ITA chose seven
+certifications and a staff review, which is most of the cost of an attestation,
+and still declined the attestation itself.
+
+WEAKENING assurance-seam on the method-versus-seat axis, for the sixth time.
+SPECOLA (arXiv 2610.35730, 26 October) is a specification-driven evaluation
+tool built on Signal Temporal Logic monitors, with "adapters for nine
+simulation environments and benchmarks, including LIBERO, RoboCasa, Isaac Lab,
+and RoboDojo", published with open code at github.com/specola-eval/specola. Its
+motivating observation is the board's own: success rate "reports only whether a
+rollout completed the task, hiding by what margin it succeeded, how sensitive
+the success is to goal parameter changes, requirements it may have violated,
+and whether success persisted". The problem the thesis names keeps being
+confirmed and the method for addressing it keeps being given away free. The
+2026-09-15 question put exactly this and remains unanswered.
+
+SUPPORTING assurance-seam, and it is the strongest statistical support this
+board has recorded. arXiv 2610.35092 (26 October) asks whether an ML object
+detector's uncertainty threshold, tuned to meet an ISO 21448 performance
+target under one condition, remains evidence under a different triggering
+condition. Finding: "For PointPillars ensembles on KITTI and nuScenes, counted
+in recorded sequences, as the dependence between frames requires, neither
+dataset held enough independent units for any target limit". Counted in frames
+rather than sequences, transfers into far distance, into rain and between two
+separately trained detectors returned not-applicable, "thresholds that met the
+target limit after a transfer rejected most correct detections", and "in rain
+the area under the receiver operating characteristic curve did not decrease".
+MECHANISM: if a safety target established in one condition is not evidence in
+another, and the public datasets lack the independent units to establish it
+anywhere, then the party that can assemble condition-specific evidence at scale
+holds something the manufacturer cannot self-produce, which is what the thesis
+claims. CONFIDENCE: holds only if regulators treat per-condition validity as
+required rather than as best practice; ISO 21448 says SOTIF analysis covers
+every triggering condition, which is the paper's own premise and not an
+independent confirmation.
+
+CARRIED FORWARD UNRESOLVED, and the board has now written it six times: every
+priced, staffed, operating assurance seam this board has located attests a
+property that leaves a physical trace, and the thesis's subject, a learned
+policy, is the one case where no such trace exists. THE BOARD HAS STILL NOT
+SEPARATED whether that is the thesis's reason to exist or the reason it has no
+buyer. The 2026-10-26 and 2026-10-27 questions both put that to Anshu and both
+are unanswered.
 
 F5 THESIS SENTRY, 2026-10-26, three items against a ceiling of three, and TWO
 OF THE THREE WEAKEN, a second consecutive run where the weakening side
@@ -1346,14 +1528,16 @@ Serialise it in order, at most 400 words per weekday, and record the last
 section delivered in the `serialised` line below. When the file is exhausted,
 omit the section rather than inventing a new domain.
 
-serialised: **MARKER RE-CONFIRMED 2026-10-26 AND ACTED ON FOR A THIRD
+serialised: **MARKER RE-CONFIRMED 2026-10-27 AND ACTED ON FOR A FOURTH
 CONSECUTIVE RUN: THE SECTION WAS OMITTED AGAIN.** reports/terrain-map.md is
-exhausted. The 2026-10-26 run did not re-open it, did not re-serialise anything
-and did not invent a replacement domain, exactly as the 2026-10-23 and
-2026-10-21 runs did. A later run must do the same: omit the section, say
+exhausted. The 2026-10-27 run did not re-open it, did not re-serialise anything
+and did not invent a replacement domain, exactly as the 2026-10-26, 2026-10-23
+and 2026-10-21 runs did. A later run must do the same: omit the section, say
 nothing about it in the body, and record the omission in provenance only. The
 narrowing trigger stays LIVE and S1 stays UNSTARTED, because that decision is
-Anshu's and the agents do not make it.
+Anshu's and the agents do not make it. FOUR CONSECUTIVE OMISSIONS IS ITSELF
+NOW THE SIGNAL: the stock side of this system has produced nothing for a week
+of briefs and will produce nothing until a domain is chosen.
 
 Narrowing trigger, so this does not drift forever: after the terrain map is
 fully delivered, compare the attention tally below against depth. The domain
@@ -1369,11 +1553,35 @@ ranking data than anything the agents can infer. M2 increments these.
 
 | domain | brief items | questions answered | questions skipped |
 |---|---|---|---|
-| certification and standards | 58 | 0 | 0 |
-| robot policy layer | 31 | 0 | 0 |
-| datacenter and power | 12 | 0 | 0 |
-| capital flows, general | 18 | 0 | 0 |
-| dual-use and export control | 5 | 0 | 0 |
+| certification and standards | 61 | 0 | 0 |
+| robot policy layer | 33 | 0 | 0 |
+| datacenter and power | 13 | 0 | 0 |
+| capital flows, general | 19 | 0 | 0 |
+| dual-use and export control | 6 | 0 | 0 |
+
+2026-10-27: certification +3 (the RMIL, counted here because what it describes
+is entry to a government register; the Singapore Art. 111b(1) equivalence
+listing; and arXiv 2610.35092, counted on certification because the subject is
+whether an ISO 21448 performance target transfers, and counted again on the
+robot policy layer on the 2026-10-12 double-count precedent). robot policy
+layer +2 (the same paper, and SPECOLA, carried as a DIFF after the word cap).
+datacenter and power +2 would be wrong: +1 only, the DOE helium designation,
+counted here because the notice names "data center supply chains" explicitly.
+dual-use +1, the same notice counted once more because a critical-material
+designation is a supply-chain control instrument and not a certification one,
+which is the same split used for the Treasury rule on 2026-10-26. capital +1
+(Warp Sciences; counted on capital alone and NOT on the robot policy layer,
+unlike Xona, because what it sells is chemistry services and the robots are the
+means rather than the product; BigHat, Different Labs, Overwatch Data and the
+Advanced Robotics SPV were dropped on the sector test and are recorded, not
+counted). Running total 132 increments across 22 briefs.
+
+THE ROW ORDER DID NOT CHANGE BUT THE GAP KEPT NARROWING, a second consecutive
+run. Certification 61, robot policy layer 33, capital 19, datacenter 13,
+dual-use 6. Certification took 3 of 8 increments today against 1 of 9 on
+2026-10-26, so its share recovered; the four-week trend of the lead narrowing
+has not been confirmed and a later run should not report it as one until it
+holds for a third run.
 
 2026-10-26: dual-use +2 AND THE ROW IS NO LONGER THE DEAD ONE, after two
 consecutive runs at zero. The Treasury outbound rule counts twice on that row,
@@ -1394,7 +1602,7 @@ relationship). capital +1 (Xona, counted once here and once on the robot policy
 layer; Send Cut Send was dropped on the sector test and is recorded not
 counted). Running total 124 items across 21 briefs.
 
-TWENTY-THREE consecutive ONE QUESTIONs are now unanswered, which is the longest
+TWENTY-FOUR consecutive ONE QUESTIONs are now unanswered, which is the longest
 the primary input to the narrowing rule has been empty, and it has been the
 longest on each of the last four runs. Certification still leads, 58 to 31 to
 18 to 12 to 5, but ITS LEAD NARROWED FOR THE FIRST TIME: certification took
@@ -1702,6 +1910,7 @@ addresses them.
 | 2026-10-21 | Teradyne paid $300.0 million for a position inside semiconductor test, where what is tested leaves a physical trace, on the day a manipulation benchmark declared capability claims unverifiable and gave its scoring rubric away under an open licence: is the assurance seam short of a buyer because nobody has priced it, or because money only appears where an instrument can settle the question | no |
 | 2026-10-23 | FDA says it generally will not read the test reports an ASCA-accredited laboratory produces, and in the same notice cuts anticipated new accreditation applications from 150 to 50: is a regulator declining to re-examine the evidence what makes an assurance seat worth money, or the signal that the seats are already taken | no |
 | 2026-10-26 | Treasury wrote that "no single measure, benchmark, or threshold is currently sufficient to distinguish advanced models" and answered by prohibiting the development of any SI system rather than by naming anyone to measure it, while on the same day Anthropic disclosed in an SEC filing that it indemnifies its own external evaluators without a cap on its liability: is an unmeasurable property one that creates a verifier seat, or one that deletes it, yes or no | no |
+| 2026-10-27 | The International Trade Administration will list a company on seven certifications the company makes about itself and states in the same notice that "Appearing in the RMIL does not imply endorsement or certification by the U.S. Government", while the Commission spent 622 days and "two observed inspections" to add one country to an equivalence list that does carry a determination: is what an assurance seat sells the evidence underneath it, or the liability somebody accepts for being wrong | no |
 
 ---
 
@@ -1713,6 +1922,14 @@ can diff rather than re-derive.
 | figure | value | source | date |
 |---|---|---|---|
 | ASCA scheme size, FDA estimates not a register count | 8 accreditation bodies, 150 testing laboratories, 880 test reports a year, 176 accreditation-request reviews at 40 hours each; 795 reporting / 733 recordkeeping / 7,995 third-party disclosure hours | FR Doc 2026-21712 | 2026-10-23 |
+| on-site evidence behind an EU country-level equivalence determination | an on-site review "from 18 to 25 March 2026" that "included two observed inspections", for a whole national regulatory system | Commission Implementing Decision (EU) 2026/2347 | 2026-10-27 |
+| days from request to listing on the Dir 2001/83/EC Art. 111b(1) equivalence list | 622, Singapore, request "by letter dated 11 February 2025" to OJ of 2026-10-26 | own arithmetic on the OJ text | 2026-10-27 |
+| countries on the Dir 2001/83/EC Art. 111b(1) equivalence list | 10 | same Decision, Annex | 2026-10-27 |
+| self-certifications required for entry on a new US federal industry register | 7, with annual self-recertification and no third-party attestation anywhere in the instrument | FR Doc 2026-21896 | 2026-10-27 |
+| days the AI Act notified-body chapter has run with nobody designated | 451, from 2025-08-02; the register filter returns 0 | SMCS register plus own arithmetic | 2026-10-27 |
+| days the Cyber Resilience Act notified-body regime has run with nobody designated | 138, from 2026-06-11; the register filter returns 0 | SMCS register plus own arithmetic | 2026-10-27 |
+| independent units available to validate an ISO 21448 performance target on public AV datasets | none sufficient: "neither dataset held enough independent units for any target limit" for PointPillars ensembles on KITTI and nuScenes counted in recorded sequences | arXiv 2610.35092 | 2026-10-27 |
+| collisions of an end-to-end driving planner attributable to planning rather than perception | "95.9% of DiffusionDrive's collisions are planning failures despite reliable detection" on NeuroNCAP; fine-tuning on generated scenes moved SparseDrive 28.0% to 12.2% and DiffusionDrive 37.5% to 19.2% | arXiv 2610.35448 | 2026-10-27 |
 | anticipated new applications for a seat in a mature working assurance scheme | cut from 150 to 50 respondents, part of a net 829-hour fall FDA calls "an adjustment, not a program change" | FR Doc 2026-21712 | 2026-10-23 |
 | entities HHS approves to certify Medical Review Officers | 2, AAMRO and MROCC, re-approval every 2 years | FR Doc 2026-21671 | 2026-10-23 |
 | days five language versions of the DSA ran a statutory six-month lookback in the wrong direction | 1,457, Art. 32(1) second subparagraph in German, Finnish, Croatian, Lithuanian and Slovene, from the OJ of 2022-10-27 to the corrigendum of 2026-10-23 | own arithmetic on two OJ references | 2026-10-23 |
@@ -1730,12 +1947,12 @@ can diff rather than re-derive.
 | projected US electricity load growth rate, increase attributed largely to AI datacenter demand | nearly 2.6-fold | EPA final rule, FR 2026-19071, footnote 109 | 2026-09-17 |
 | RoboVAD hardest cross-domain setup, best frame-level AUC | all methods below 70% micro-averaged | arXiv 2609.17843 | 2026-09-15 |
 | global physical economy, as the vendor sizes it | $30 trillion | Noetive release, vendor claim about its own market | 2026-09-16 |
-| notified bodies active under Reg (EU) 2023/1230 | 41, unchanged on 2026-10-07, a fifth consecutive reading at 41 after 10-06, 10-05, 09-30 and 09-22; was 40 on 2026-09-18 | Commission Single Market Compliance Space register | 2026-10-07 |
-| notified bodies active under Directive 2006/42/EC | 153, unchanged on 2026-10-07, was 152 on 2026-09-22 and 153 on 09-18, 09-30, 10-05 and 10-06 | same register, same reading | 2026-10-07 |
+| notified bodies active under Reg (EU) 2023/1230 | **43, unchanged on 2026-10-27, re-read in the browser pane after two runs in which this row was not read at all.** Was 43 on 2026-10-16 and 2026-10-19, 41 across six readings from 2026-09-22 to 2026-10-07, 40 on 2026-09-18 | Commission Single Market Compliance Space register | 2026-10-27 |
+| notified bodies active under Directive 2006/42/EC | **MOVED 2026-10-27, 154 -> 153.** Was 154 on 2026-10-16 and 2026-10-19, 153 on 09-18, 09-30, 10-05, 10-06, 10-07 and 10-14, 152 on 09-22. This line has now moved five times and is the volatile one; the Regulation line is the stable one | same register, same reading | 2026-10-27 |
 | robotic value models, errors surviving a strong outcome score | "errors in fine-grained instruction grounding, history-dependent progress tracking, and recovery assessment, even in models with strong outcome and forward-progress scores" | arXiv 2610.26663 | 2026-10-19 |
 | cross-embodiment dexterous manipulation, best trained multi-task policy | 29.1% Core-50 success; GPT-6 without benchmark finetuning 5.2% Core-50 and 1.9% Transfer-16 over 660 trials | arXiv 2610.26765 | 2026-10-19 |
 | infeasible-instruction execution under a scene-language compatibility gate | from 53.36% to 14.18%; same-scene paired instruction success from 23.67% to 57.00% | arXiv 2610.26390 | 2026-10-19 |
-| new machinery regime as a share of the outgoing one | 26.8%, unchanged on 2026-10-07, was 27.0% on 2026-09-22 and 26.1% on 2026-09-18; 105 days to application | own arithmetic on the two counts | 2026-10-07 |
+| new machinery regime as a share of the outgoing one | **MOVED 2026-10-27, 27.9% -> 28.1%, 43 against 153, with 85 DAYS to application.** The ratio rose because the Directive line fell, not because the Regulation line rose, which is the third consecutive time this has been true. Was 27.9% on 2026-10-16, 28.1% on 2026-10-14, 26.8% on 2026-10-11 and 10-07, 27.0% on 2026-09-22, 26.1% on 2026-09-18 | own arithmetic on the two counts | 2026-10-27 |
 | DGUV Test units among the 41 notified bodies under Reg (EU) 2023/1230 | 7 of 41, one German institution | own count on the complete register list | 2026-09-30 |
 | German share of notified bodies under Reg (EU) 2023/1230 | 18 of 41 | same count | 2026-09-30 |
 | belief support loss on a probe-then-commit insertion pipeline | truth leaves the belief's support on 16.9% of episodes, failure score optimistic by 0.31 | arXiv 2609.30608 | 2026-09-24 |
