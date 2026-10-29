@@ -4,428 +4,83 @@ The file every agent reads to answer "what does he already know". Maintained by
 M2 Ledger Keeper after each editor run. This is a state file, not a document:
 no prose, no commentary, no history beyond what is needed to compute a diff.
 
-Last updated 2026-10-28 by the M1/M2 run. TWENTY-THREE briefs published,
+Last updated 2026-10-29 by the M1/M2 run. TWENTY-FOUR briefs published,
 counted from `ls reports/newsletter/*.md`. Count the directory, do not carry the
-previous header's number forward. Window 27 to 28 October, 24 hours, computed
+previous header's number forward. Window 28 to 29 October, 24 hours, computed
 from the newest file in reports/newsletter/ as the standing instruction
-requires. The task FIRED ON SCHEDULE on 23, 26, 27 and 28 October, four
-consecutive. Zero duplicates were found against the 27, 26 and 23 October
+requires. The task FIRED ON SCHEDULE on 23, 26, 27, 28 and 29 October, five
+consecutive. Zero duplicates were found against the 28, 27 and 26 October
 briefs.
 
-A FEDERAL AGENCY DELETED THE ONLY MANDATORY AI TRANSPARENCY TEST IN US HEALTH
-IT ON 2026-10-28 AND TOLD USERS TO ASK THE VENDOR. This is the day's lead and it
-is the THIRD CONSECUTIVE DAY of the same shape: Treasury deleted a measurement
-(10-26), ITA built a register that certifies nothing (10-27), ONC deleted a
-disclosure obligation (10-28). A later run must treat this as one finding seen
-three times and stop reporting each instance as a discovery. HHS / ONC, FR Doc
-2026-21943, 45 CFR Parts 170 and 172, final rule, 91 FR 67916-67998, effective
-2026-12-28 except amendatory instructions 7, 10 and 12 which take effect
-2027-01-01. What was removed, verbatim from the rule: "remove the source
-attribute support, source attribute access and modification, and intervention
-risk management requirements in Sec. 170.315(b)(11)(iv), (v), and (vi)". The
-rule's own description of what those were: the source attribute requirements
-support "model cards" for PDSIs, "which essentially function as nutrition labels
-and provide important information for providers using a PDSI, such as how a
-PDSI's algorithm was trained, its intended use and limitations, and how it
-performs across different patient groups". The comment record went the other
-way: "A large majority of commenters were not supportive of our proposal,
-primarily due to concerns about removing DSI transparency and risk-management
-requirements". ONC's reason is an EVIDENCE-OF-USE TEST, not a merits test, and
-that is the part worth carrying: "we have identified no evidence through peer
-reviewed publication or trade press indicating that users of certified health
-IT have relied on the transparency requirements in Sec. 170.315(b)(11) to
-access, record, or modify source attributes". Its substitute is voluntary: "We
-encourage users of certified health IT to ask their developers for such
-information." PRICE ON A CERTIFICATION REGIME, and the board had none before
-today: "a present value of cost savings of $1.55 billion and annualized net cost
-savings of $108.1 million in 2024 dollars and discounted at a rate of 7%,
-beginning in 2027 and in perpetuity", against $1,293,508 in review costs for 616
-reviewers. The ONC-ACB and ONC-ATL layer SURVIVES: the rule makes only
-"conforming revisions to the principles of proper conduct for ONC-ATLs" that "do
-not create net new cost savings". So the accredited bodies stay and the thing
-they were accrediting against shrank, which is the distinction a later run should
-keep rather than reporting this as the removal of a certification programme.
+A FRONTIER LAB SHIPPED ITS STRONGEST CYBER MODEL ON 2026-10-28 UNDER THE
+PREVIOUS MODEL'S SAFETY REPORT. This is the day's lead. Gemini 4 Carbon,
+datePublished 2026-10-28T17:00:00+00:00, claims "state-of-the-art performance
+across the cybersecurity defense lifecycle", 88.2% on SEC-bench Pro, 54.8% on
+ExploitGym, 71.0% on CWE-bench and "more than 2x uplift in success rate for
+generating secure code over Argon". Its safety section says Carbon "builds on
+the same multi-layered safety and security stack of Argon" and cites "our Safety
+and Security report". THE LINKED REPORT IS THE ARGON REPORT. Read at source:
+storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf, titled
+"Gemini 4 Argon Safety & Security Report", October 2026, 429,930 characters
+extracted, "Carbon" appears ZERO times and "Argon" 432 times. The linked safety
+blog post, blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/,
+has datePublished 2026-10-13 and its seven "Carbon" strings are all in a
+Related-stories card. Every Carbon safety figure in the launch post is internal:
+"On internal benchmarks", "In our internal testing", "with our internal teams".
+The one external number is Gray Swan's Indirect Prompt Injection Benchmark,
+0.0% attack success rate against Argon's 0.7%, and Gray Swan is one of the
+red-teaming organisations Google pays. Carbon is going to "the initial cohort of
+cyber defenders", a THIRD instance of a frontier lab rationing the artefact, after
+Genie 4 "trusted testers" (2026-10-27) and the OpenAI Art. 50(2) detector.
+CONFIDENCE AND THE RE-CHECK A LATER RUN OWES: this reading holds only while the
+Argon report is the only safety document linked from the Carbon launch. A
+Carbon-specific report published later RETIRES this item. Re-read the Carbon
+post's safety section and the PDF's Carbon count before carrying it forward, and
+do not restate it as a discovery.
 
-THE EVIDENCE-OF-USE TEST IS THE GENERALISABLE PART AND IT IS A NEW KILL
-MECHANISM FOR assurance-seam. Until today the recorded failure modes were: no
-buyer, no attainable validity, and no independent evaluator. ONC adds a fourth:
-a regulator may delete a disclosure obligation on the ground that nobody can
-show in print that anyone read the disclosure. That attacks the seat from the
-demand side without disputing that the measurement is correct. A later run
-should look for this reasoning in other deregulatory rules before treating it as
-unique to ONC.
-
-A COPYRIGHT REGULATOR IS NOW A ROBOT-POLICY INSTRUMENT, which this board had not
-recorded. US Copyright Office, FR Doc 2026-21939, NPRM, the TENTH triennial DMCA
-section 1201 rulemaking. Proposed Class 8(a): the Repair Association, iFixit and
-Bull Moose Project jointly petition to "permit access and modification to
-software operating industrial equipment", their petition listing "programmable
-logic controllers and process-control systems, production line control systems,
-industrial robots and motion controllers, additive-manufacturing equipment,
-semiconductor-fabrication equipment". The prior round's finding, quoted in the
-notice: the record was "inconclusive as to whether users [of programmable logic
-controllers] are being adversely affected", and "the rulemaking record does not
-support a broad proposed class that would cover all commercial and industrial
-equipment and devices". DATES, all three rounds: initial comments 2026-12-07,
-response comments 2027-02-22, reply comments 2027-03-22. There is also a Class
-8(b) medical device repair proceeding in the same notice, whose renewal "faced
-meaningful opposition" and therefore must be re-argued as a new exemption; that
-is a second proceeding under one file number and the 2026-10-23 note about
-missing those applies.
-
-arXiv 2610.37196 IS THE HARDEST SINGLE PIECE OF EVIDENCE AGAINST THE SURVIVING
-FORM OF assurance-seam THAT THIS BOARD HAS READ. The surviving claim is that
-production telemetry cannot establish whether an update is a regression because
-the previous policy cannot be run counterfactually without surrendering
-throughput. This paper runs the counterfactual, in simulation, over 100,000
-branched rollouts, with "bitwise-reproducible branching, repeated continuations,
-held-out oracles, and common random numbers", and publishes it free with
-pre-registered tests. It does NOT fire the kill test, which asks for a BUYER
-paying for paired non-regression testing, and the distinction still holds
-because this is simulation and not a fielded fleet. But the methodological
-objection is now weaker than it was, and a later run should not restate the
-"cannot be run" claim without this qualification. The paper's own numbers:
-selectable share between 24% and 66% for three of four WAMs from 17 continuations
-per candidate, structured action perturbations creating "up to 16 points of
-selectable headroom", and a fail-gated selector raising closed-loop success from
-76.9% to 81.6% on training tasks and 62.6% to 69.8% on unseen tasks.
-
-THE WEAKENING SIDE HAS NOW OUTNUMBERED THE SUPPORTING SIDE FOR FOUR CONSECUTIVE
-RUNS (10-23, 10-26, 10-27, 10-28). The 2026-10-27 entry said the streak was
-itself a finding; it is now four and the right inference is about the thesis,
-not about the sampling. The one supporting item today, arXiv 2610.36852, is the
-cleanest statement of the seat yet seen in a paper: "When the policy is frozen
-or inaccessible, can an external monitor diagnose and repair corrupted inputs
-without access to its internals?" Answer, on one simulated quadruped: offline
-diagnosis 259/640 to 429/640 episodes, online repair 382/640, no triggers in 64
-fault-free episodes, with the authors' own limit that evidence is "limited to
-one policy and a partly screened simulated fault suite".
-
-THE EDITOR RAN 953 WORDS ON FIRST DRAFT AGAINST A 700 CAP, a THIRD consecutive
-run over cap (857 on 10-27, 843 on 10-26). THE PATTERN IS NOW DIAGNOSED AND A
-LATER RUN SHOULD ACT ON IT RATHER THAN RE-DISCOVERING IT: the overrun is not in
-MOVES, it is in DIFFS. DIFFS is specified as "one line each, no prose" and on
-every over-cap run it was written as multi-sentence paragraphs. Writing DIFFS as
-literal one-liners from the start, and holding MOVES to four items of 75 words
-rather than five of 85, lands the draft near 700 without a trim pass. Today's cut
-order, which worked: demote the weakest MOVES item to a DIFF line, then compress
-each DIFF to one sentence, then trim the lead. Five trim passes were still needed
-to get from 953 to 699.
-
-THE COMMURE ITEM WAS DEMOTED, NOT DROPPED, and the reason is recorded so a later
-run does not re-promote it. Commure, Inc. closed $70,089,315 on the same EDGAR
-index as the ONC rule's publication day, which is a coincidence of timing and not
-evidence of anything. Against the m1 ranking order it changes no tracked number,
-creates no date and names no new actor in the seam, so it lost to the Anthropic
-GSA item, which prices a whole government's access. Carried as a DIFF in the
-brief and as a capex line below.
-
-MOFCOM REGRESSED AND THE 2026-10-27 FIX DID NOT HOLD. english.mofcom.gov.cn
-returned NO status code and 0 bytes on 2026-10-28 with the exact invocation
-(`-L` plus a desktop User-Agent) that returned HTTP 200 at 16,975 bytes on
-2026-10-27. Do not record this as "unreachable, client problem" and do not
-re-apply the `-L` fix as though it were new: the fix is already applied and the
-venue flapped anyway. Treat this row as intermittent, like
-karpathy.bearblog.dev, and stop spending a run on it.
-
-bis.gov/press-release RETURNS HTTP 404, logged once. The path in use by this
-board is wrong, not the site. A later run should find the correct BIS press path
-before recording BIS as unreachable again.
-
-THE SMCS CYBER RESILIENCE ACT FILTER NEEDS A FULL PAGE RELOAD, logged once and
-it cost four tool calls today. Selecting a second legislation in the dropdown
-does not replace the applied chip: the results update but the chip keeps naming
-the previous legislation, so a 0 cannot be attributed to the filter you think is
-set. The method that works: navigate to the bare notified-body-list URL, wait
-for the 1565 baseline, set exactly one legislation, click Refine results, then
-read the chip text and the count together in one script. Also: the option
-elements come back in two ref ranges and only the lower range is inside the
-viewport; clicking the higher one fails with "entirely outside the viewport".
-
-THE ARXIV ATOM REGEX TRAP, logged once, a new instance of the regex class
-already on file. A character class written as backslash-s backslash-S inside a
-JavaScript string built through a bash heredoc loses a backslash level and
-becomes a literal [sS], which silently matches nothing and returns every field
-empty rather than erroring. Use ([^]*?) instead, which needs no escaping. Second
-trap in the same collector: http://export.arxiv.org returns an empty body to
-Node's fetch, https://export.arxiv.org returns HTTP 200.
-
-A FEDERAL AGENCY BUILT A REGISTER ON 2026-10-27 AND DISCLAIMED, IN THE SAME
-NOTICE, THAT THE REGISTER CERTIFIES ANYTHING. This is the day's lead and it
-belongs with the Treasury rule of 2026-10-26 as the same finding seen twice.
-Commerce / International Trade Administration, FR Doc 2026-21896, the U.S.
-Resources Management Industry Listing. Entry is by SEVEN CERTIFICATIONS THE
-APPLICANT MAKES ABOUT ITSELF, reviewed by "an ITA industry specialist", with
-ANNUAL SELF-RECERTIFICATION: "ITA will ask all listed companies, via their
-designated point of contact, annually to certify that their information is up
-to date". The disclaimer is verbatim: "Appearing in the RMIL does not imply
-endorsement or certification by the U.S. Government", and "ITA strongly
-recommends RMIL users to perform their own due diligence investigation and
-background research on any company in the RMIL". Applications by 2026-12-11,
-launch anticipated February 2027. THE PATTERN TO CARRY: the board has now
-recorded, in two days, a regulator that deleted a measurement rather than buy
-one (Treasury) and an agency that built a list rather than verify one. Both are
-cases where the seat was available and was not created. Stop writing "nobody
-has priced the seam" as though absence of a buyer were the only objection.
-
-THE CONTRAST THAT MAKES THE RMIL LEGIBLE WAS PUBLISHED THE DAY BEFORE AND
-SHOULD BE CARRIED AS A PAIR. Commission Implementing Decision (EU) 2026/2347,
-OJ 2026-10-26, adds Singapore to the Article 111b(1) equivalence list under
-Directive 2001/83/EC. Duration from request to listing: 622 DAYS, own
-arithmetic on "requested, by letter dated 11 February 2025" against the OJ date
-of 26 October 2026. The evidence base is startlingly small and is the number
-worth keeping: the Commission assessed an entire national regulatory system by
-"a review of the relevant documentation and an on-site review of Singapore’s
-regulatory system from 18 to 25 March 2026", which "included two observed
-inspections". TWO OBSERVED INSPECTIONS. The list now holds TEN countries:
-Australia, Brazil, Canada, Israel, Japan, Singapore, South Korea, Switzerland,
-Taiwan, United States. Against 43 notified bodies, 150 ASCA laboratories and 2
-HHS-approved MRO certifiers, ten is the second-smallest register population
-this board tracks.
-
-EO 14434 TERMINOLOGY IS NOW IN A THIRD FEDERAL INSTRUMENT, and this one is a
-supply-chain designation rather than a prohibition or a research notice. DOE
-added helium to the Critical Material List, FR Doc 2026-21884, published
-2026-10-27, signed 21 October by Audrey Robertson, Assistant Secretary, Office
-of Critical Minerals and Energy Innovation. Verbatim: "Demand for helium is
-also growing as it enables advanced semiconductor manufacturing, which is
-essential for SI and data center supply chains", and "Meeting the policy goal
-of building U.S. SI infrastructure will require expansion of semiconductor
-production". Count the instances deliberately: 31 CFR 851.232 and USCG Docket
-USCG-2026-0374 on 2026-10-26, DOE on 2026-10-27. A later run should keep
-counting rather than re-deriving.
-
-THE MONDAY EDGAR SEAM PAID OUT EXACTLY AS PREDICTED, and the prediction should
-now be treated as settled. The 2026-10-26 header recorded that a Monday run
-reads Friday's index alone because form.20261026 is not closed. Today
-form.20261026 opened at 690,290 bytes with 108 Form D rows, and it carried the
-largest capital item of the week: Warp Sciences Inc. A LATER MONDAY RUN SHOULD
-SAY IN PROVENANCE THAT TUESDAY WILL CARRY MONDAY'S FILINGS, and a later Tuesday
-run should expect them. The same seam exists on arXiv: the 24 and 25 October
-cs.RO batches, 31 and 37 papers, appeared only after the 2026-10-26 run had
-read that window.
-
-THE QUOTE MATCHER EARNED ITS KEEP AGAIN AND CAUGHT THE SAME DEFECT CLASS TWICE
-IN ONE DRAFT. Both were a closing full stop placed INSIDE the quotation marks
-where the source sentence continues: the OJ text runs on from "two observed
-inspections" to "and took due account of the responses", and the RMIL text runs
-on from "data centers" to a semicolon and "recycling equipment". This is the
-third consecutive run on which this exact error was caught before publication,
-which means it is not a slip but a habit of the drafting step. THE CHEAP FIX,
-adopt it: extract every double-quoted span from the draft programmatically and
-test each against the union of the retrieved source bytes, rather than
-eyeballing. The run script is scratchpad/match2.mjs and it found 2 real defects
-out of 15 spans. Also confirmed again: the OJ sets U+2019, not an ASCII
-apostrophe, inside "Singapore’s".
-
-MOFCOM IS NOT UNREACHABLE AND THE PREVIOUS ENTRY WAS A CLIENT PROBLEM, NOT AN
-OUTAGE. The 2026-10-26 header recorded english.mofcom.gov.cn at 0 bytes with no
-status code and logged it as a new unreachable source. Today the same host
-returns HTTP 200 at 16,975 bytes with `-L` and a desktop User-Agent, and
-www.mofcom.gov.cn returns 200 at 42,059 bytes. This is the THIRD host on which
-a missing `-L` or a missing User-Agent has been misread as an empty or dead
-venue, after darioamodei.com and paulgraham.com. THE RULE IS NOW GENERAL AND
-SHOULD BE APPLIED BEFORE LOGGING ANY SOURCE UNREACHABLE: retry with `-L` and a
-desktop User-Agent and report the byte count before calling a venue down. No
-MOFCOM movement in window regardless; the newest English item is 14 October.
-
-CORRIGENDUM RETRIEVAL HAS A SIMPLER EXPLANATION THAN THE ONE ON FILE, and it
-should be added to the method already recorded below. `tools/eurlex.mjs get
-"32026R2138R(01)"` returns "not found", but the act resolves immediately at
-`publications.europa.eu/resource/celex/32026R2138R%2801%29` with
-`Accept: application/xhtml+xml`, `Accept-Language: en` AND `curl -L`: the
-English request answers HTTP 303 and the redirect must be followed, while fr,
-de, it, es and nl all return 404. The reason the bracketed CELEX fails is
-visible in the retrieved document: THE OJ PUBLISHES THE CORRIGENDUM UNDER ITS
-OWN NUMBER, 2026/90923, in a separate 90000 series, not under 2026/2138. Look
-for the 90000-series number, do not expect the parent act's.
-
-TWO WATCHLIST GAPS RECORDED ON 2026-10-26 ARE NOW CLOSED, one of them with a
-movement. The notified-body register was re-read in the browser pane: 43 under
-Reg (EU) 2023/1230, unchanged, and 153 under Dir 2006/42/EC, DOWN FROM 154. The
-AI Act and Cyber Resilience Act filters both still return 0. The remaining gap
-is ISO 25785-1, HTTP 403 at 5,661 bytes for a second consecutive run, last read
-2026-10-19 at stage 30.60. RETRIEVAL NOTE, newly confirmed: the SMCS register
-did NOT serve a cookie notice to the browser pane today, so the "Accept only
-essential cookies" step recorded below was not needed; the "Search results (n)"
-heading was present on first read. Keep the cookie note as a fallback, not as a
-required step.
-
-THE EDITOR RAN 857 WORDS ON FIRST DRAFT AGAINST A 700 CAP, a second consecutive
-overrun, and the 2026-10-26 instruction to draft at four MOVES was followed and
-was still not enough. WHAT ACTUALLY WORKED, and a later run should do this
-first rather than last: the overrun was not in MOVES, it was in DIFFS, which had
-drifted into prose paragraphs of 30 words each against a charter that says "one
-line each, no prose". Tightening DIFFS to real one-liners recovered 45 words and
-demoting ONE MOVE cleanly to a DIFF recovered 93. DRAFT DIFFS AS ONE LINE EACH
-FROM THE START and the MOVES budget stops being the thing under pressure.
-
-ANTHROPIC FILED AN S-1 ON 2026-10-26 AND IT IS THE FIRST TIME THIS BOARD HAS
-READ THE EVALUATOR PROGRAMME IN A DOCUMENT CARRYING SECURITIES LIABILITY.
-CIK 2130357, accession 0001628280-26-067168, Nasdaq "ANT", Goldman Sachs and
-Morgan Stanley named. Two things changed against what the board stored from the
-company posts. First the number shrank: the S-1 says only "we currently
-anticipate investing at least $1 billion over the next five years to build
-external reviewer capacity with Accenture. The terms of this arrangement have
-not been finalized and are subject to change." No Accenture figure appears
-anywhere in the filing, so the USD 2,000,000,000 total the board carried from
-2026-10-12 is not supported by it. Second, a fact no post disclosed: "certain
-of these agreements require us to defend and indemnify the evaluator, without a
-cap on our liability, against certain third-party claims." THE EVALUATOR IS
-FUNDED AND INDEMNIFIED BY THE PARTY IT EVALUATES. That is a second and
-independent failure of Anthropic's own published independence test, which the
-2026-10-16 question already put to the funding leg. A LATER RUN SHOULD TREAT
-THE S-1 AS THE AUTHORITY AND THE BLOG POSTS AS MARKETING where the two differ.
-The S-1 is 14,169,252 bytes at
-Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm and strips
-to 1,583,968 characters of plain text; it is cheap to grep and should be
-grepped on every future Anthropic claim rather than re-reading news posts.
-Also in it and not previously recorded: Anthropic provides "pre-deployment
-model access to external evaluators, including government AI evaluation bodies
-such as the U.S. Center for Advancing Innovation and Standards for Super
-Intelligence (the "CAISSI") and the U.K. AI Security Institute", which
-corroborates the CAISSI row recorded out of window on 2026-10-20.
-
-TREASURY WROTE DOWN THAT THE MEASUREMENT PROBLEM IS UNSOLVED AND ANSWERED BY
-DELETING THE MEASUREMENT, which is the sharpest single piece of evidence this
-board has against the assurance-seam thesis. Proposed rule for 31 CFR part 851,
-91 FR 67396, comments close 2026-12-07. Verbatim: "Therefore, no single
-measure, benchmark, or threshold is currently sufficient to distinguish
-advanced models." Part 850 had graded AI systems by training compute; the
-proposed text abandons that and makes prohibited technology include "(h)
-Development of any SI system", explicitly so as not to rely on "a U.S. person
-ascertaining the technical capabilities or thresholds of SI systems being
-developed by a covered foreign person". The regulator that could not measure
-did not buy a measurement and did not create a verifier seat. It prohibited the
-category. RECORD THIS AS A FINDING, not as a single document, and stop treating
-"nobody has priced the seam" as the only live objection: this is the case where
-the seam was available and was skipped.
-
-EO 14434 IS NOW OPERATIVE IN BINDING PROPOSED TEXT, closing the row opened
-2026-10-02 as terminology only. 31 CFR 851.232 is headed "Super intelligence
-(SI) system" and the rule's footnote 1 cites the EO by number and FR page.
-Second instance the same day: USCG Docket USCG-2026-0374, 91 FR 67324, a CRADA
-notice headed "Super Intelligence (SI) Situational Awareness Tools", naming
-LOOKOUT as the counterparty and stating a goal "to characterize SI system
-confidence and operational performance, to build a measurable evaluation tool
-that could reduce the CG's barrier to integrate SI tools". That item was cut
-from MOVES on the word cap and is recorded here only.
-
-A NEW CLASS OF F1 CONSTRAINT, logged once. EDGAR's daily index for the CURRENT
-day returns HTTP 403 and 214 bytes because the day is not closed, which is
-already recorded; what is new is that on a MONDAY this collapses F1's whole
-window to a single business day. form.20261024 and form.20261025 do not exist
-because of the weekend and form.20261026 is not closed, so the Monday run reads
-Friday's index alone. This is structural, not a failure, and a Monday brief
-should say so in provenance rather than reporting a thin F1 as a quiet market.
-
-THE REGEX TRAP BIT AGAIN IN A NEW PLACE, logged once.
-`tools/eurlex.mjs grep <CELEX> "a|b|c"` with an alternation returned three
-single-character matches rather than the phrases, so the alternation is mangled
-somewhere in the tool's pattern handling. The route that works is
-`tools/eurlex.mjs get <CELEX> | grep -niE "<pattern>" -A 4`. Do not trust
-`eurlex.mjs grep` with an alternation.
-
-TWO QUOTE DEFECTS WERE CAUGHT BY THE MATCHER BEFORE PUBLICATION. First, the OJ
-sets a NARROW NO-BREAK SPACE, U+202F, between a number and a percent sign:
-"99,99" is followed by U+202F then "%". A verbatim span copied with an ordinary
-space fails byte comparison and would have shipped as a false quote. When
-quoting OJ text containing a percent sign, either reproduce U+202F or cut the
-span before it. Second, the draft wrote "at least $1 billion each" as a
-quotation of this board's own prior entry, but the stored primary text is
-"each expect to invest at least $1 billion" and the quotation marks sat in the
-wrong place. Self-quotes must be matched against reports/knowledge-state.md and
-reports/newsletter/ exactly like source quotes.
-
-THE EDITOR RAN 843 WORDS ON FIRST DRAFT AGAINST A 700 CAP and needed six
-trimming passes. The cause is reliable: a day with two first-rate items plus
-three good ones does not fit, and the charter's remedy is to cut MOVES, not
-DIFFS and not provenance. This run cut the NHTSA ADS marker lamp item from
-MOVES to a DIFF line. A LATER RUN SHOULD DRAFT AT FOUR MOVES ON A HEAVY DAY
-rather than writing five or six and trimming prose, which costs more and
-degrades every item instead of dropping one cleanly.
-
-CORRIGENDUM RETRIEVAL IS SOLVED, do not re-derive it. CELLAR does not resolve a
-corrigendum by its bracketed CELEX: both `tools/eurlex.mjs get "32022R2065R(11)"`
-and a direct CELLAR fetch return "not found" in every language, and the tool's
-`since` listing shows such rows with a BLANK TITLE, which is the tell that no
-English expression exists. The route that works: SPARQL the work URI by
-`cdm:resource_legal_id_celex`, read each expression's language from
-`cdm:expression_uses_language`, then fetch `resource/cellar/<uuid>.000N` with
-`Accept: application/xhtml+xml`, where N is the expression's numeric suffix from
-the SPARQL result. Cheaper alternative, confirmed 2026-10-16: request
-`publications.europa.eu/resource/celex/<URL-encoded CELEX>` with
-`Accept: application/xhtml+xml` and an explicit `Accept-Language`, trying the
-24 language codes in parallel; the single-language corrigendum answers on
-exactly one. A request without `Accept-Language` returns HTTP 400 "Invalid
-content type CONTENT_STREAM for WORK without language", which is the signature
-to add it. Only `application/xhtml+xml` is served for these.
-
-ZERO CORRIGENDA WERE PUBLISHED IN THE OJ FROM 24 TO 26 OCTOBER, the first
-window with none since 2026-09-29. The corrigendum row has carried at least one
-item on every run since. Do not read this as the pattern breaking on one
-weekend window; read it again next run before concluding anything.
-
-THE arXiv API OVER PLAIN HTTP IS A SILENT FAILURE, logged once.
-`http://export.arxiv.org/api/query` returns an EMPTY BODY with curl exit 0, so
-every date regex returns nothing while the collector reports an empty window.
-`https://export.arxiv.org/api/query` returns 200 and the feed. The rule is
-general: a collector that reports zero items must show the byte count it read.
-Related and still live: the API returned HTTP 429 "Rate exceeded" on four
-consecutive calls on 2026-10-19 and every `id_list` call failed while
-`search_query` calls kept working. Prefer one wide `search_query`.
-
-THE MONDAY arXiv SEAM RECURRED AGAIN AND THE PREDICTION HOLDS. All 42 cs.RO
-submissions in the 24 to 26 October window carry a `published` date of 23
-October and NONE carries 24, 25 or 26, confirmed by a per-day count over the
-range query. arXiv's indexing lag means a Monday run reads Friday's batch.
-Stop re-deriving this.
-
-THE "FROM THE STOCK SIDE" SECTION WAS OMITTED FOR A THIRD CONSECUTIVE RUN.
-reports/terrain-map.md is exhausted. Do not re-open it and do not invent a
-replacement domain. The narrowing trigger stays live and S1 stays unstarted
-until Anshu picks a domain.
-
-THE CHEAPEST MISS THIS BOARD KEEPS MAKING IS A SECOND PROCEEDING UNDER A FILE
-NUMBER IT ALREADY HAS. When an agency assigns a file number to a proceeding,
-check the adjacent numbers in the same series before recording the line as
-singular.
-
-A NEW CLASS OF QUOTE ERROR, carried: a quoted span ended with the full stop
-INSIDE the quotation marks where the source sentence continues with a colon.
-Capture the closing punctuation when checking, not just the words.
-
-THREE HAYSTACK FALSE NEGATIVES, logged once so the next run does not treat them
-as text errors. A quote that lives inside an HTML `meta` attribute, which is
-where a company's own one-line product description usually sits, is destroyed
-by tag-stripping and must be checked against the raw bytes; this is how the
-Xona and Send Cut Send one-liners were verified on 2026-10-26. A quote of this
-board's own prior brief is not in any retrieved page and must be checked
-against reports/newsletter/. Neither is a source problem.
-
-RETRIEVAL NOTE CARRIED, still true: the Single Market Compliance Space register
-serves a COOKIE NOTICE before the application renders. Clicking "Accept only
-essential cookies" is required before the "Search results (n)" heading exists
-in the DOM. Known legislationIds: 162400 Reg (EU) 2023/1230, 131881 Dir
-2006/42/EC, 168380 Reg (EU) 2024/1689, 167953 Reg (EU) 2024/2847. The working
-host is
-`webgate.ec.europa.eu/single-market-compliance-space/notified-bodies/notified-body-list?filter=notificationStatusId:1,legislationId:N`;
-`single-market-economy.ec.europa.eu/...` returns "Page not found".
-
-TWO WATCHLIST ROWS WERE NOT RE-READ ON 2026-10-26 AND THIS IS A GAP, NOT A
-FINDING: ISO 25785-1 (HTTP 403 and 5,576 bytes to an HTTP client, needs a
-browser pane, last read 2026-10-19 at stage 30.60, five consecutive unchanged
-readings) and the notified-body register (last read 2026-10-19 at 43 under Reg
-(EU) 2023/1230, 154 under Dir 2006/42/EC). NEW UNREACHABLE SOURCE:
-english.mofcom.gov.cn returned 0 bytes and no status code, a connection failure
-rather than a block, and it has not previously been logged as unreachable.
-
-THE RUN SCHEDULE REMAINS A KNOWN FAILURE POINT. The task did not fire on 8, 9,
-10 or 22 October and nothing in the system noticed. A later run must compute
-its window from the newest file in reports/newsletter/, never from the
-calendar, and state the width in the dateline when it is not 24.
-
----
+THE ARGON REPORT ITSELF IS OUT OF WINDOW AND WAS ABSENT FROM THIS BOARD UNTIL
+NOW, a miss of about 16 days, and it is the single richest source on the
+assurance seam this board has read. It is NOT the Carbon item and must be kept
+separate from it. What it says, verbatim and read at source:
+  - section 3.1.3: "This testing is independent of Google, using methodologies
+    and approaches defined by these groups."
+  - section 3.1.3, AND THIS IS THE LOAD-BEARING SENTENCE: "The independent
+    external evaluators explore frontier safety risk domains, however they do
+    not directly comment on risk thresholds as contemplated under our FSF. They
+    have their own taxonomies of harm and provide commentary on risk according
+    to these taxonomies." Google's own experts then "review, translate, and
+    integrate the results". So the external evaluator supplies an INPUT and is
+    excluded by design from the verdict.
+  - section 3.2.2.5: Faculty is the named independent cyber evaluator, given "a
+    version of Gemini 4 Argon without the full set of our safety mitigations".
+    Faculty "determined the evaluation had demonstrated the model reached an
+    intermediate capability level and did not carry out tests at a higher
+    capability level, such as an experienced operator level."
+  - section 3.2.2.5, the outcome: "These results were reviewed by internal SMEs
+    and did not change our Cyber CCL determination, because they were consistent
+    with our understanding of model capabilities."
+  - section 3.2.2.6: "we have determined that we cannot rule out CCL for Gemini 4
+    Argon in the cyber domain", and "an attacker could complete a severe
+    historical cyberattack at 16.7x lower cost on average".
+  - section 3.2.2.4, on elicitation headroom: "Gemini 4 Argon already solves all
+    12 of our end-to-end challenges, so better scaffolding has little room left
+    to raise measured capability."
+  - section 3.2.2.4, on evaluation awareness: "We found that Gemini 4 exhibited
+    pervasive evaluation awareness: many transcripts showed clear evidence of
+    the model recognizing it was in a synthetic evaluation environment."
+  - section 3.1.4: named third parties are the UK AI Security Institute (AISI),
+    NIST's Center for Advancing Innovation and Standards for Super Intelligence
+    (NIST CAISSI), Gray Swan and Trajectory Labs. AISI was "given both a version
+    of the model without our full set of safety mitigations and a version which
+    had mitigations applied". NIST CAISSI worked "on measurement of cyber and
+    biological capabilities and safeguards, as well as unintended model
+    behaviors".
+THIS MOVES THE CAISSI ROW from a name recorded on 2026-10-20 with zero evidence
+of activity to a named body that has measured a frontier model's cyber and
+biological capability. It also makes embedded or contracted external evaluation
+a TWO-LAB pattern on named evaluators, after Anthropic's METR / SecureBio /
+Accenture / Hugging Face set of 2026-10-16, and Google's set is the first where
+the lab states in print that the evaluators do not speak to the thresholds.
 
 ## voices
 
@@ -532,6 +187,13 @@ The F3 watchlist. Carry every row forward every run.
 | 40 CFR part 770, TSCA Title VI formaldehyde third-party certification | **NEW to the watchlist 2026-10-28, carried not promoted**, added because it is a WORKING US third-party certifier regime with a named accreditation body layer, the second after the FMCSA Training Provider Registry and the OSHA NRTL scheme. FR Doc 2026-21963, final rule, effective 2026-11-27. Updates 6 IBR standard editions (ANSI A190.1-2022, ASTM D5582-22, ASTM D6007-22, ASTM E1333-22, ISO 12460-3:2023(E), PS 1-22), adds ISO 12460-2:2024(en) as an allowable quality control method at 40 CFR 770.20(b)(1), removes BS EN ISO 12460-3:2020 as a duplicate. The TPC and TSCA Title VI Laboratory accreditation body structure at 40 CFR 770.7 is untouched. EPA states it "will initiate additional notice-and-comment rulemaking when necessary to reflect any future changes". | 2026-11-27 |
 | Anthropic GSA agreement, government pricing | **NEW to the watchlist 2026-10-28**, added as the fourth vendor-contract instrument after the Usage Policy, the verification programmes and the OpenAI reseller-approval terms. Post of 2026-10-27: a 40% discount on Claude Enterprise, Claude for Government and the Claude API, applied "across every product surface" and extended to "state, local, tribal and territorial governments", with no minimum spend commitment. Company figures: approximately 500 US federal, state and local government organizations use Claude; weekly Claude for Government active users "up about eightfold since February"; federal civilian agency usage "about 20-fold in a year"; discounts "estimated to save the government $1 billion". Vendor claim about its own market. | none stated |
 | Google DeepMind Genie 4, world-simulation access | **NEW 2026-10-28, carried not promoted**, added on the twin-certification axis because it is the third instance of a frontier lab rationing the artefact that would be used to evaluate a policy. Published 2026-10-27, "started rolling Genie 4 out as a research preview for trusted testers", with "enterprise partners across industries ... evaluating Genie 4 as a tool for rapid 'zero-to-one' scenario generation, and identifying gaps". Stated purpose includes "developing training environments for robots and agents". Same shape as the OpenAI detector rationing recorded 2026-10-05 and the Argon calibration objectives recorded 2026-10-13. | none stated |
+| Google Gemini 4 Argon / Carbon, Frontier Safety Framework external evaluation | **NEW to the watchlist 2026-10-29 and it is the lead of that brief, in two separate parts that must not be merged.** PART ONE, IN WINDOW: Gemini 4 Carbon, datePublished 2026-10-28T17:00:00+00:00, ships with "state-of-the-art performance across the cybersecurity defense lifecycle" and 88.2% SEC-bench Pro, and its only linked safety document is the Gemini 4 Argon Safety & Security Report, which names Carbon zero times in 429,930 extracted characters. PART TWO, OUT OF WINDOW, report dated October 2026 and blog of 2026-10-13, absent from this board for about 16 days: the Argon report is the most detailed statement of the external-evaluator relationship this board holds. Load-bearing sentence, section 3.1.3: "The independent external evaluators explore frontier safety risk domains, however they do not directly comment on risk thresholds as contemplated under our FSF." Faculty, the named independent cyber evaluator, was given an unmitigated model and its result "did not change our Cyber CCL determination". Google "cannot rule out CCL for Gemini 4 Argon in the cyber domain" and puts an attacker's cost reduction at "16.7x lower cost on average". NEXT: whether a Carbon-specific safety report appears, which RETIRES part one | none stated |
+| NIST CAISSI, Center for Advancing Innovation and Standards for Super Intelligence | **MOVED 2026-10-29, from a name to an actor.** Recorded 2026-10-20 from an Anthropic post with zero evidence of activity. The Gemini 4 Argon safety report, section 3.1.4, states Google "collaborated with NIST's Center for Advancing Innovation and Standards for Super Intelligence (NIST CAISSI) on measurement of cyber and biological capabilities and safeguards, as well as unintended model behaviors". This is the first evidence on this board that CAISSI measures anything. Note the EO 14434 vocabulary sits inside the body's own name | none stated |
+| NCES / Dept of Education, Super Intelligence as the replacement term for AI | **NEW to the watchlist 2026-10-29, and it is the FIFTH federal instrument carrying EO 14434 terminology and the FIRST to state the substitution rather than use it.** FR Doc 2026-22047, Request for Information, National Center for Education Statistics, Institute of Education Sciences, published 2026-10-29, comments close 2026-12-03, creates no obligation. Verbatim question 4: "How might data collection and dissemination be optimized for future Super Intelligence or SI (formerly referred to as Artificial Intelligence or AI) applications and uses?" THE RETRIEVAL CONSEQUENCE, which matters more than the instance count: every instrument on this watchlist is written in the former term, so a watchlist and a full-text search keyed on "artificial intelligence" will start missing US federal documents. A later run must run BOTH term searches, "super intelligence" and "artificial intelligence", against the Federal Register. On 2026-10-29 the "super intelligence" search returned 1 and the "14434" search returned 0 | 2026-12-03 |
+| 29 CFR 1910.7 OSHA NRTL regime, Intertek Singapore expansion | **MOVED 2026-10-29, and the duration row moved with it.** FR Doc 2026-22017, Docket OSHA-2007-0039, 91 FR 68171-68173, final decision, effective 2026-10-29. Application "dated February 14, 2024" for ONE added test site in Singapore; on-site review 2025-02-20/21 "found some nonconformances with the requirements of 29 CFR 1910.7"; preliminary notice 2026-02-27 (91 FR 9887); final grant 2026-10-29. 988 days end to end, against 819 for Nemko. BURIED, and it is the item: a commenter asked OSHA to "[p]ublish the full nonconformance report and corrective action documentation from the February 2025 Intertek Singapore site review before finalizing its recognition determination", and OSHA refused: "It is longstanding OSHA practice not to publish nonconformance reports or corrective action documentation in connection with the processing of NRTL applications." Its stated reason is candour: "NRTLs could be more cautious about openly discussing and acknowledging even minor nonconformances because of potential negative impacts on their reputations and businesses." OSHA also disclaimed authority over the commenter's national-security and supply-chain objection to a Singapore test site: "OSHA does not have the authority to regulate national security, supply chain, or trade issues." Scope figures: ITSNA holds 34 recognized sites and 608 test standards, and already operates "seven other sites in China". Post-recognition monitoring runs "at least once every two years" | none stated |
+| 42 CFR Ch. I, HHS Mandatory Guidelines for Federal Workplace Drug Testing, UrMG and OFMG | **MOVED 2026-10-29.** Two proposed rules published the same day, FR Doc 2026-22122 (urine, RIN 0930-AA40, 91 FR 68398) and FR Doc 2026-22121 (oral fluid), SAMHSA, docket SAMHSA-2026-0002, comments close 2026-12-28. Revises the UrMG and OFMG of 2023-10-12. TWO things for this board. First, the certification seat is SUBDIVIDED: the Department "may certify laboratories that test split (B) specimens only and/or conduct additional drug or specimen validity tests for primary and split specimens", where previously certification implied the full scope. Second, a disclosure is DELETED: it "removed the drug testing panel from the UrMG and deleted the requirement to publish the Authorized Drug Testing Panels annually", replaced with publication only "when drug and/or biomarker testing panels are changed". Scheme throughput, stated: "the Department estimates that 275,000 urine specimens are tested annually by federal agencies". THE MRO ROW DID NOT MOVE: Section 13.2 is carried forward with the two-year resubmission and the Federal Register listing intact, so the approved-certifier population stays at TWO. Also deleted: the term and definition of "Gender Identity" | 2026-12-28 |
+| Reg (EU) 2024/1183, European Digital Identity Framework, Slovak assurance vocabulary | **NEW to the watchlist 2026-10-29, and the Slovak eIDAS vocabulary corrections are now a SERIES rather than three instances.** Seventh corrigendum, OJ ref 2026/90929, published 2026-10-29, **Slovak only**, 912 days after the OJ of 2024-04-30. Five corrections: recitals 19 and 29, and operatively Article 5a(5)(d), Article 5a(11) and Article 12a(5), each replacing "úroveň zabezpečenia" with "úroveň záruky" for level of assurance. Article 12a(5) is the provision under which a certificate or declaration of conformity substitutes for peer review of an electronic identification scheme. Third in 16 days, after Implementing Reg (EU) 2026/798 (2026-10-13) and the 13th corrigendum to Reg 910/2014 (2026-10-15). RETRIEVAL, logged so a later run does not repeat it: corrigenda return "not found" from tools/eurlex.mjs by CELEX. They ARE retrievable: query the CELLAR SPARQL endpoint for cdm:resource_legal_id_celex with a STR() equality filter to get the language versions, then GET http://publications.europa.eu/resource/celex/<CELEX URL-encoded> with Accept: application/xhtml+xml | none stated |
+| Reg (EU) 2023/2533 and Del Reg (EU) 2023/2534, harmonised standards, household tumble dryers | **NEW 2026-10-29, carried as a DIFF not a MOVES item.** Commission Implementing Decision (EU) 2026/2370 of 28 October, published and in force 2026-10-29. Publishes EN 61121:2013 and EN 61121:2013/A12:2025, and WITHDRAWS the reference of EN 60704-2-6:2012 while repealing Communication 2014/C 149/01. The withdrawal reasoning is the transferable part: "Normative references from a standard to another standard can be made to either harmonised standards or to non-harmonised standards, thus making unnecessary the publication of EN 60704-2-6:2012 as reference of a harmonised standard." 1,063 days from the standardisation request of 2023-12-01 to citation. Off-axis on product, on-axis on throughput and on how long a cited standard takes | none stated |
 
 
 Notified bodies read active under Reg (EU) 2023/1230 on 2026-09-30. COMPLETE:
@@ -640,6 +302,13 @@ capacity is concentrated in a handful of institutions rather than spread across
 | frontier-lab government pricing, first discount tracked | **NEW 2026-10-28.** Anthropic / GSA: 40% off Claude Enterprise, Claude for Government and the Claude API, "across every product surface", extended to state, local, tribal and territorial governments, no minimum spend. "The discounts offered through the agreement are estimated to save the government $1 billion." Approximately 500 US federal, state and local government organizations use Claude. Vendor claim about its own market, not an SEC filing. | 2026-10-28 | primary-company |
 | health-AI round, first tracked | **NEW 2026-10-28, recorded as a DIFF not a MOVES item after the m1 ranking order put it behind the GSA item.** Commure, Inc., 1300 Terra Bella Avenue, Mountain View, CIK 1717731. Form D in the EDGAR index of 20261027, isAmendment false: totalOfferingAmount 70,089,315, totalAmountSold 70,089,315, remaining nil, 11 investors, dateOfFirstSale 2026-04-30, industryGroupType "Other Technology", revenue "Decline to Disclose". Named: Tanay Tandon (Executive Officer, Director, Promoter), Hemant Taneja, Quentin Clark, Michael Schlosser, Deepika Bodapati. Company's own title line: "The Agentic Platform for Every Voice, Note, and Claim". Hemant Taneja also appears on the Different Labs Form D recorded 2026-10-27. | 2026-10-28 | primary-filing |
 | Form D above floor, dropped on the sector test, recorded not reported | **NEW 2026-10-28, six of them from the EDGAR index of 20261027, out of 137 Form D filings parsed and 14 above the floor.** IDR Strategic Opportunities Fund, LLC, Independence OH, 500,000,000, Pooled Investment Fund. Inspired Capital Partners IV, L.P., New York, 450,000,000, Pooled Investment Fund. Summit Hill Fixed Income Alpha Fund, L.P., Wilmington DE, 300,000,000. NSC Hemi SPV, LLC, Columbia MD, 289,345,000. Hertha Metals, Inc., Conroe TX, 133,649,961 plus a second filing at 17,674,996, industryGroupType "Other". CID Holdco, Inc., Las Vegas NV, 52,000,000. None matches a live thesis one-liner, so the floor exception does not apply. | 2026-10-28 | primary-filing |
+| third-party certification seat, longest duration from application to grant | **MOVED 2026-10-29, 819 -> 988 DAYS, and it is the same regime and the same shape as the record it replaces.** OSHA NRTL, Intertek Testing Services NA: application "dated February 14, 2024" to add ONE test site in Singapore, on-site review 2025-02-20/21 that "found some nonconformances", preliminary notice 2026-02-27, final grant effective 2026-10-29. 988 days. The prior record was 819 days for Nemko North America, also one added test site, also nonconformances found. Two independent observations of the same regime now bracket the wait at 819 to 988 days to add a SINGLE SITE to a recognition that already exists. The four durations this board tracks end to end: 988 (OSHA NRTL Intertek), 819 (OSHA NRTL Nemko), 622 (EU Art. 111b(1) equivalence, Singapore), 1,063 (EU standardisation request to harmonised-standard citation, tumble dryers) | 2026-10-29 | FR Doc 2026-22017 |
+| scope of one recognised US testing laboratory, first sized | **NEW 2026-10-29.** Intertek Testing Services NA holds "34 recognized sites and 608 test standards", and "already operates at sites in seven other sites in China that have been previously approved by OSHA" (the duplication is in the source). Post-recognition monitoring at each site runs "at least once every two years". First time this board has a per-firm size for a working third-party certifier, against the 150 testing laboratories FDA estimates across the whole ASCA scheme | 2026-10-29 | FR Doc 2026-22017 |
+| throughput of a working federal certification scheme, specimens | **NEW 2026-10-29.** "the Department estimates that 275,000 urine specimens are tested annually by federal agencies", HHS-certified laboratories, federal workplace drug testing. Compare 880 ASCA test reports a year (FDA, 2026-10-23) and 9 ESTEP submissions a year (EAC). Three orders of magnitude separate the certification schemes this board has sized | 2026-10-29 | FR Doc 2026-22122 |
+| cost reduction a frontier lab attributes to its own unmitigated model in a severe cyberattack | **NEW 2026-10-29, recorded out of window from the Gemini 4 Argon safety report of October 2026.** "an attacker could complete a severe historical cyberattack at 16.7x lower cost on average". The same report says Google "cannot rule out CCL for Gemini 4 Argon in the cyber domain", and that after mitigations it assesses risk "substantially below the CCL". First time this board holds a lab's own quantified attacker-uplift figure | 2026-10-29 | gemini_4_safety_report.pdf |
+| named external evaluators at a second frontier lab | **NEW 2026-10-29, recorded out of window.** FOUR named by Google: UK AI Security Institute (AISI), NIST CAISSI, Gray Swan and Trajectory Labs, plus Faculty as the named independent cyber evaluator. Against Anthropic's METR / SecureBio / Accenture / Hugging Face recorded 2026-10-16. Embedded-or-contracted external evaluation is now a TWO-LAB pattern on named evaluators. THE DIFFERENCE WORTH KEEPING: Google is the first to state in print that its external evaluators "do not directly comment on risk thresholds as contemplated under our FSF", and that a named evaluator's result "did not change our Cyber CCL determination" | 2026-10-29 | same report |
+| AI memory round, recorded not promoted | **NEW 2026-10-29.** Numem Inc., Sunnyvale, California, CIK 1961810. Form D in the EDGAR index of 20261028, isAmendment false, signature date 2026-10-27: totalOfferingAmount 10,000,000, totalAmountSold 5,922,800, totalRemaining 4,077,200, 1 investor, self-reported industry "Other Technology". At the floor on offering and BELOW it on amount sold, which is why it was carried as a DIFF. Sector established from the company's own site title, read at source: "Numem - High-Efficiency MRAM & AI Memory Engine for AI Compute"; numem.com returns a 1,280-byte JavaScript shell and the title is the only primary text available without a browser pane. On the board because high-bandwidth memory carries its own export-control threshold (proposed 31 CFR 851, recorded 2026-10-26) | 2026-10-29 | EDGAR |
+| Form D above floor, dropped on the sector test, recorded not reported | **NEW 2026-10-29, 24 above the floor out of 144 Form D filings parsed from the EDGAR index of 20261028, and 22 of the 24 were pooled investment funds or real estate.** Evolvence India Fund V Ltd 300,000,000 offered / 60,000,000 sold; Diffusion V3, LP 70,000,000 fully sold, a fund and not an AI company despite the name; Medieval Theories of Haecceity Fund I, L.P. 50,000,000 / 0; FREX Series II DST 32,623,464 / 951,840; Vantage Point Capital Fund LP, Abu Dhabi, 30,000,000 / 24,000,000; Adaptive Real Estate, Inc. 29,999,975 fully sold; Altimeter Growth Olympic Fund IX 29,750,000 / 0 and Altimeter Catskill Fund II 20,000,000 / 0; Eleanor Holdings Inc., Toronto, 29,228,023 / 0, "Retailing"; Agilis Medical, Inc., Cardiff CA, 10,000,000 / 4,000,000. ZERO qualifying robotics, frontier-AI or datacenter rounds in the window other than Numem | 2026-10-29 | EDGAR index 20261028 |
 
 ---
 
@@ -652,6 +321,68 @@ capacity is concentrated in a handful of institutions rather than spread across
 | twin-certification | Nobody certifies the twin; SRCC-style validity claims are the sellable product | **live, and weakened again 2026-10-16: VeriVLA (arXiv 2610.21985, 15 October) puts the verifier INSIDE the policy, a JEPA-based latent world model ranking the policy's own candidate action chunks, raising "the average completion score from 50.8% to 65.5%" at "326 ms for sampling and verification per triggered decision on a single RTX 4090". That is the same shape as Argon on 2026-10-13, the builder supplying the test, now at runtime rather than at twin-construction time. Self-reported, not replicated, no pushback in window. Prior state: weakened 2026-10-13, the twin’s builder now also supplies the validity test.** Google DeepMind’s Gemini 4 Argon reconstructs "physically calibrated simulation twins" from a camera feed, a human video or a hand-drawn sketch, then holds them to "two verification objectives", visual match across three cameras and "physical match: the simulated contact force/torque on each Sharpa fingertip, in the sensor frame, matches the logged tactile_force in timing, magnitude and direction". The anti-gaming rules are PROMPT TEXT, not audit: "No sim cheating", no external forces or welds after t=0, no "reporting contact forces that don’t come from the MuJoCo solver". Measured transfer, vendor’s own and unreproduced: 4,500+ generated episodes took real-world Success Rate "56% to 75%" and completion "35s to 24s". THE BOUND, and it is why this is weakens and not fires: the kill test names NVIDIA or Lightwheel self-certifying or a notified body accepting vendor sim evidence unaudited, and NEITHER happened. Nobody certified anything and no regulator was involved, so what moved is who holds the method, not who holds the seat | Show NVIDIA or Lightwheel successfully self-certifying, or a notified body accepting vendor sim evidence unaudited | 2026-10-14. WEAKENED AGAIN AND FROM THE OTHER SIDE, which is why it is recorded rather than folded into yesterday. On 13 October Argon put the twin and its validity test inside one model, moving who holds the method. On the same day an unrelated group asked the question a third party would have to answer and could not: YUBI-Real2Sim (arXiv 2610.17521) reconstructs scenes with 3D Gaussian Splatting under dual fisheye wrist views and tests whether real-to-sim evaluation preserves policy ordering, reproducing it in 8 of 9 scene-task comparisons across two bimanual platforms, three scenes and three tasks, but concludes on the acceptance question: "These results do not yet establish a generally reliable scene-acceptance rule", and reports "limitations of quality-based reliability prediction". So novel-view quality scores do not tell you whether a twin is good enough to rank policies. That cuts both ways and both are recorded: it supports the claim that an SRCC-style validity statement is a separate sellable thing, because the obvious cheap substitute does not work; and it weakens any claim that such a statement can be produced today, because the group trying to produce one says it cannot yet. Prior state 2026-10-13 |
 | sc-node-map | 38 nodes, 7 of them the same assurance problem in different costumes | current | per-node kill tests in the ledger | 2026-09-08 |
 
+F5 THESIS SENTRY, 2026-10-29, three items against a ceiling of three, and TWO
+OF THE THREE WEAKEN, a FIFTH consecutive run where the weakening side
+outnumbers the supporting one. The board stopped treating that as a streak on
+2026-10-28; it is a property of the evidence.
+WEAKENING assurance-seam, AND IT IS A DIFFERENT KIND OF COUNTER-EVIDENCE FROM
+EVERY PRIOR ONE, so a later run must not file it with the others. Every previous
+weakening item was an ABSENT seat: a regulator that would not measure (Treasury,
+10-26), would not certify (ITA, 10-27), deleted the obligation (ONC, 10-28), or
+had no buyer at all. TODAY'S IS AN OCCUPIED SEAT THAT DOES NOT DECIDE. Google
+names Faculty as an independent cyber evaluator, pays it, gives it a model
+stripped of safety mitigations, and then records: "These results were reviewed
+by internal SMEs and did not change our Cyber CCL determination." The
+architecture is stated in terms one section earlier: "The independent external
+evaluators explore frontier safety risk domains, however they do not directly
+comment on risk thresholds as contemplated under our FSF. They have their own
+taxonomies of harm", and the lab's own experts "review, translate, and integrate
+the results". THE THESIS SAYS A NEUTRAL PARTY THAT CAN STATE WITH VALIDITY WHAT
+A LEARNED POLICY DOES BECOMES STRUCTURALLY NECESSARY. Here the neutral party
+exists, is funded, is named, is given privileged access, and is excluded BY
+DESIGN from the only statement that gates deployment. That is worse for the
+thesis than an absent buyer, because it prices the seat at the value of an input
+rather than a verdict, and it is the first time this board can show the
+exclusion in the evaluated party's own words rather than infer it from funding
+(2026-10-16) or indemnification (2026-10-26). MECHANISM: if the threshold
+determination is reserved to the vendor, an external evaluator sells
+methodology-hours, not assurance, and methodology-hours have a competitive
+market. CONFIDENCE: this holds only if the FSF threshold is where the money is;
+the counter is that Google gave Faculty an unmitigated model, which is costly
+access that nobody grants to a vendor they consider decorative, and that Faculty
+itself declined to test at the higher capability level, so the evaluator may be
+capacity-bound rather than authority-bound. A later run should try to separate
+those two.
+WEAKENING assurance-seam on the disclosure side, and it is the same shape as the
+OSHA duration but a separate finding. A commenter asked OSHA to publish the
+nonconformance report behind Intertek's Singapore recognition, so the public
+could assess "whether any nonconformances involved testing methodology,
+equipment calibration, or documentation integrity" and "how OSHA verified that
+corrective actions were effective rather than merely paper-compliant". OSHA
+refused, and gave candour as the reason: publication "would likely hamper OSHA
+efforts to conduct oversight", because "NRTLs could be more cautious about openly
+discussing and acknowledging even minor nonconformances because of potential
+negative impacts on their reputations and businesses". MECHANISM: a buyer cannot
+price a certifier's competence if the regulator withholds the only record of it,
+which means the assurance market clears on the regulator's binary recognition and
+not on quality. That is an argument for the seat being a LICENCE rather than a
+product, which is a different business from the one the thesis describes.
+SUPPORTING assurance-seam, weakly, and it is scarcity rather than demand: 988
+days and 34 sites. Two independent observations of the OSHA NRTL regime now
+bracket the wait to add a SINGLE test site to an EXISTING recognition at 819 to
+988 days. A seat that takes most of three years to widen by one site is scarce,
+and scarcity is a necessary but not sufficient condition for the thesis. The kill
+test, a BUYER paying for paired non-regression testing, has still not fired.
+CARRIED FORWARD UNRESOLVED, and the board has now written it seven times: every
+priced, staffed, operating assurance seam this board has located attests a
+property that leaves a physical trace, and the thesis's subject, a learned
+policy, is the one case where no such trace exists. Today supplies the sharpest
+version of the asymmetry: Intertek's 608 test standards all terminate in a
+physical measurement, and Google's own report says the evaluators of a learned
+policy "do not directly comment on risk thresholds". THE BOARD HAS STILL NOT
+SEPARATED whether that is the thesis's reason to exist or the reason it has no
+buyer. The 2026-10-26, 2026-10-27 and 2026-10-29 questions all put that to Anshu
+and all are unanswered.
 F5 THESIS SENTRY, 2026-10-28, three items against a ceiling of three, and TWO
 OF THE THREE WEAKEN, a FOURTH consecutive run where the weakening side
 outnumbers the supporting one. Four runs is no longer a streak to report, it is
@@ -1693,18 +1424,18 @@ Serialise it in order, at most 400 words per weekday, and record the last
 section delivered in the `serialised` line below. When the file is exhausted,
 omit the section rather than inventing a new domain.
 
-serialised: **MARKER RE-CONFIRMED 2026-10-28 AND ACTED ON FOR A FIFTH
+serialised: **MARKER RE-CONFIRMED 2026-10-29 AND ACTED ON FOR A SIXTH
 CONSECUTIVE RUN: THE SECTION WAS OMITTED AGAIN.** reports/terrain-map.md is
-exhausted. The 2026-10-28 run did not re-open it, did not re-serialise anything
-and did not invent a replacement domain, exactly as the 2026-10-27, 2026-10-26,
-2026-10-23 and 2026-10-21 runs did. A later run must do the same: omit the
-section, say nothing about it in the body, and record the omission in provenance
-only. The narrowing trigger stays LIVE and S1 stays UNSTARTED, because that
-decision is Anshu's and the agents do not make it. FIVE CONSECUTIVE OMISSIONS,
-covering every brief for a full week and a half: the stock side of this system
+exhausted. The 2026-10-29 run did not re-open it, did not re-serialise anything
+and did not invent a replacement domain, exactly as the 2026-10-28, 2026-10-27,
+2026-10-26, 2026-10-23 and 2026-10-21 runs did. A later run must do the same:
+omit the section, say nothing about it in the body, and record the omission in
+provenance only. The narrowing trigger stays LIVE and S1 stays UNSTARTED,
+because that decision is Anshu's and the agents do not make it. SIX CONSECUTIVE
+OMISSIONS, covering every brief for twelve days: the stock side of this system
 has produced nothing and will produce nothing until a domain is chosen. The
 tally below now says what the choice would be if it were made on the numbers:
-certification and standards leads 63 to 36 on brief items and holds the least
+certification and standards leads 67 to 36 on brief items and holds the least
 depth of the three written sections, because terrain-map.md section 1 is the
 only one still carrying an open "what is missing".
 
@@ -1722,11 +1453,23 @@ ranking data than anything the agents can infer. M2 increments these.
 
 | domain | brief items | questions answered | questions skipped |
 |---|---|---|---|
-| certification and standards | 63 | 0 | 0 |
+| certification and standards | 67 | 0 | 0 |
 | robot policy layer | 36 | 0 | 0 |
 | datacenter and power | 13 | 0 | 0 |
-| capital flows, general | 21 | 0 | 0 |
-| dual-use and export control | 6 | 0 | 0 |
+| capital flows, general | 22 | 0 | 0 |
+| dual-use and export control | 7 | 0 | 0 |
+
+2026-10-29: certification +4 (the Gemini 4 Carbon launch and the Gemini 4 Argon
+safety report, counted as ONE instrument on the external-evaluation axis
+although they are two records; the OSHA NRTL Intertek grant; the HHS Mandatory
+Guidelines pair; the tumble-dryer harmonised-standard decision), dual-use +1
+(the NCES "Super Intelligence or SI (formerly referred to as Artificial
+Intelligence or AI)" request for information, counted here because the EO 14434
+terminology row sits on that axis), capital flows +1 (Numem). Robot policy layer
+earned NOTHING today and was not incremented: the Reg (EU) 2024/1183 corrigendum
+is an eIDAS assurance-vocabulary item and was counted under certification, not
+under robots. Datacenter and power earned nothing for a thirteenth consecutive
+run and stays at 13.
 
 2026-10-28: certification +2 (the ONC final rule, counted here because what it
 removes is a certification criterion; and the EPA TSCA Title VI standards
@@ -2102,6 +1845,7 @@ addresses them.
 | 2026-10-26 | Treasury wrote that "no single measure, benchmark, or threshold is currently sufficient to distinguish advanced models" and answered by prohibiting the development of any SI system rather than by naming anyone to measure it, while on the same day Anthropic disclosed in an SEC filing that it indemnifies its own external evaluators without a cap on its liability: is an unmeasurable property one that creates a verifier seat, or one that deletes it, yes or no | no |
 | 2026-10-28 | ONC removed an AI transparency obligation because it found no evidence in peer reviewed publication or trade press that anyone read the disclosures, on the day a paper showed the standard estimate of a policy's selectable headroom overstates it by up to three quarters: is what a certification regime fails to produce the evidence itself, or the record that somebody read it | no |
 | 2026-10-27 | The International Trade Administration will list a company on seven certifications the company makes about itself and states in the same notice that "Appearing in the RMIL does not imply endorsement or certification by the U.S. Government", while the Commission spent 622 days and "two observed inspections" to add one country to an equivalence list that does carry a determination: is what an assurance seat sells the evidence underneath it, or the liability somebody accepts for being wrong | no |
+| 2026-10-29 | Google paid an independent evaluator, gave it a model stripped of mitigations, and published both that the result "did not change our Cyber CCL determination" and that such evaluators "do not directly comment on risk thresholds as contemplated under our FSF", then shipped a stronger cyber model whose only linked safety document is the weaker model's report: does a buyer of that seat purchase a verdict, or only an input | no |
 
 ---
 
@@ -2248,3 +1992,15 @@ can diff rather than re-derive.
 | days an EU renewable-energy threshold read in the wrong physical unit in one language | 1,079, German Art. 24(4b) of Dir (EU) 2018/2001 as amended reading "25 MWh" for "25 MWth", energy for thermal power, from the OJ of 2023-10-31 to the corrigendum of 2026-10-14 | own arithmetic on two OJ references | 2026-10-14 |
 | respondents in a US exclusion proceeding over AI datacenter power delivery | 20, including Hon Hai / Foxconn, Quanta, Delta, Infineon, Flex, Celestica, Luxshare, Monolithic Power Systems and Ingrasys; relief sought "a limited exclusion order and cease and desist orders" | ITC Inv. 337-TA-1526, FR Doc 2026-20993, own count of names served | 2026-10-14 |
 | robot world-state replay with a hash chain, corruption detection | 412 of 412 injected corruptions detected, exact terminal-state replay in all episodes, 1.72% storage overhead, 103 simulated Unitree G1 trajectories and 78,369 frames | arXiv 2610.12033 | 2026-10-08 |
+| days from application to grant to add ONE test site to an existing OSHA NRTL recognition | 988, Intertek Testing Services NA, application "dated February 14, 2024" to a grant effective 2026-10-29; prior record 819 for Nemko, also one site | FR Doc 2026-22017 plus own arithmetic | 2026-10-29 |
+| scope of one recognised US testing laboratory | "34 recognized sites and 608 test standards", Intertek, with post-recognition monitoring "at least once every two years" | FR Doc 2026-22017 | 2026-10-29 |
+| specimens a year through a working HHS certification scheme | 275,000 urine specimens "tested annually by federal agencies" | FR Doc 2026-22122 | 2026-10-29 |
+| what a regulator will not publish about a certifier it recognised | the nonconformance report: "It is longstanding OSHA practice not to publish nonconformance reports or corrective action documentation in connection with the processing of NRTL applications" | FR Doc 2026-22017 | 2026-10-29 |
+| a frontier lab's own attacker cost-reduction figure for its unmitigated model | "an attacker could complete a severe historical cyberattack at 16.7x lower cost on average", alongside "we cannot rule out CCL for Gemini 4 Argon in the cyber domain" | Gemini 4 Argon Safety & Security Report | 2026-10-29 |
+| what a frontier lab's independent external evaluators are excluded from | the thresholds: "The independent external evaluators explore frontier safety risk domains, however they do not directly comment on risk thresholds as contemplated under our FSF"; a named evaluator's cyber result "did not change our Cyber CCL determination" | same report | 2026-10-29 |
+| times "Carbon" appears in the safety report linked from the Gemini 4 Carbon launch | 0, against 432 for "Argon", in 429,930 extracted characters | gemini_4_safety_report.pdf | 2026-10-29 |
+| days the AI Act notified-body chapter has run with nobody designated | 453, from 2025-08-02; the register filter returns 0, chip read at source | SMCS register plus own arithmetic | 2026-10-29 |
+| days the Cyber Resilience Act notified-body regime has run with nobody designated | 140, from 2026-06-11; the register filter returns 0, chip read at source | SMCS register plus own arithmetic | 2026-10-29 |
+| notified bodies, Dir 2006/42/EC against Reg (EU) 2023/1230 | 154 and 43, ratio 27.9%, 83 days to application on 2027-01-20; 2023/1230 unchanged for a fifth consecutive reading | SMCS register, browser pane | 2026-10-29 |
+| days from an EU standardisation request to the harmonised standard being cited | 1,063, request of 2023-12-01 to Implementing Decision (EU) 2026/2370 of 2026-10-29, household tumble dryers | OJ plus own arithmetic | 2026-10-29 |
+| federal instruments carrying EO 14434 "SI" terminology | 5, and the fifth is the first to state the substitution: "Super Intelligence or SI (formerly referred to as Artificial Intelligence or AI)" | FR Doc 2026-22047 | 2026-10-29 |
