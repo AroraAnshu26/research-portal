@@ -82,6 +82,169 @@ a TWO-LAB pattern on named evaluators, after Anthropic's METR / SecureBio /
 Accenture / Hugging Face set of 2026-10-16, and Google's set is the first where
 the lab states in print that the evaluators do not speak to the thresholds.
 
+CARRIED STANDING NOTES. These survived the 2026-10-29 header rewrite because
+they are procedural and still true. THE 2026-10-29 RUN DELETED THEM BY REWRITING
+THE HEADER WHOLESALE AND HAD TO RESTORE THEM FROM GIT: a later run must EDIT this
+block, not replace the header, or it will re-derive everything below. The cost
+was visible the same day: the corrigendum-retrieval note was deleted and then
+re-derived from scratch within the hour.
+
+CORRIGENDUM RETRIEVAL IS SOLVED, do not re-derive it. CELLAR does not resolve a
+corrigendum by its bracketed CELEX: `tools/eurlex.mjs get "32024R1183R(07)"`
+returns "not found" in every language, and the tool's `since` listing shows such
+rows with a BLANK TITLE, which is the tell that no English expression exists.
+The route that works, re-confirmed 2026-10-29 on 32024R1183R(07),
+32019R2144R(06) and 32019L0882R(05): SPARQL the work URI by
+`cdm:resource_legal_id_celex` with a `STR(?celex) = '...'` equality filter
+(an `IN (...)` filter returned zero rows on 2026-10-29 and cost a call), read
+each expression's language from `cdm:expression_uses_language`, then request
+`publications.europa.eu/resource/celex/<URL-encoded CELEX>` with
+`Accept: application/xhtml+xml` and an explicit `Accept-Language`. A request
+without `Accept-Language` returns HTTP 400 "Invalid content type CONTENT_STREAM
+for WORK without language", which is the signature to add it. Only
+`application/xhtml+xml` is served for these.
+
+RETRIEVAL NOTE CARRIED, and 2026-10-29 CORRECTS IT. The Single Market Compliance
+Space register serves a COOKIE NOTICE before the application renders; clicking
+"Accept only essential cookies" is required before the "Search results (n)"
+heading exists in the DOM. Known legislationIds: 162400 Reg (EU) 2023/1230,
+131881 Dir 2006/42/EC, 168380 Reg (EU) 2024/1689, 167953 Reg (EU) 2024/2847.
+THE CORRECTION: on 2026-10-29 the documented URL filter form did NOT apply. A
+URL carrying `?filter=legislationId%3D{"value":239139,...}` loaded the page with
+"All legislations" and returned all 1,567 bodies, which would have been reported
+as a count if the chip had not been read back. THE ROUTE THAT WORKED, and it is
+the one to use: click the legislation Toggle dropdown (the button immediately
+after the one showing the current legislation), click the option's innermost
+SPAN inside `span.ecl-checkbox__text` (the label is `hidden` and the input is not
+clickable), then click "Refine results" and wait about 6 seconds. UNCHECK the
+previous selection the same way before checking the next, or the filter becomes
+a union. ALWAYS READ THE CHIP BACK out of `document.body.innerText` and assert it
+names the intended instrument BEFORE taking the count. Screenshots of this page
+timed out on 2026-10-29; read it through the DOM.
+
+THE arXiv API OVER PLAIN HTTP IS A SILENT FAILURE, logged once.
+`http://export.arxiv.org/api/query` returns an EMPTY BODY with curl exit 0, so
+every date regex returns nothing while the collector reports an empty window.
+`https://export.arxiv.org/api/query` returns 200 and the feed. The rule is
+general: a collector that reports zero items must show the byte count or the
+record count it read. Related and still live: the API returned HTTP 429 "Rate
+exceeded" on four consecutive calls on 2026-10-19 and every `id_list` call
+failed while `search_query` calls kept working. Prefer one wide `search_query`.
+2026-10-29 USED THE PLAIN-HTTP FORM AND IT RETURNED A FULL FEED, so the failure
+is intermittent rather than absolute; prefer https regardless.
+
+THE arXiv ANNOUNCEMENT LAG IS A RECURRING EMPTY WINDOW AND 2026-10-29 IS THE
+WEEKDAY FORM OF IT. The Monday seam is known: a Monday run reads Friday's batch.
+The weekday form, first logged 2026-10-29: a morning run can find NO batch at
+all for the previous calendar day, because arXiv announces at 20:00 ET. On
+2026-10-29 the newest `published` date across 400 cs.RO and 100 each of cs.AI,
+cs.LG and eess.SY was 2026-10-27, already covered by the 2026-10-28 brief. The
+correct output is an empty F4 window WITH the record counts shown. Stop
+re-deriving this.
+
+THE EDITOR OVERRUNS THE 700-WORD CAP ON ANY DAY WITH MORE THAN FOUR GOOD ITEMS,
+and the charter's remedy is to cut MOVES, not DIFFS and not provenance. The
+2026-10-28 run drafted 843 words; the 2026-10-29 run drafted 881 and needed
+seven passes, cutting the Slovak corrigendum from MOVES to a DIFF with its full
+text carried in provenance. A LATER RUN SHOULD DRAFT AT FOUR MOVES ON A HEAVY
+DAY rather than writing five or six and trimming prose, which costs more and
+degrades every item instead of dropping one cleanly. Measure the whole body
+including link and tag lines: the house figure is what `split('## PROVENANCE')[0]`
+word-counts to, and recent compliant briefs sit at 698 to 703.
+
+THE CHEAPEST MISS THIS BOARD KEEPS MAKING IS A SECOND PROCEEDING UNDER A FILE
+NUMBER IT ALREADY HAS. When an agency assigns a file number to a proceeding,
+check the adjacent numbers in the same series before recording the line as
+singular.
+
+A NEW CLASS OF QUOTE ERROR, carried: a quoted span ended with the full stop
+INSIDE the quotation marks where the source sentence continues with a colon.
+Capture the closing punctuation when checking, not just the words. ADDED
+2026-10-29: do not shorten a verbatim quote to meet a word cap. The 2026-10-29
+run trimmed "Numem - High-Efficiency MRAM & AI Memory Engine for AI Compute" to
+"MRAM & AI Memory Engine for AI Compute" inside quotation marks and reverted it.
+Cut a whole item instead.
+
+THREE HAYSTACK FALSE NEGATIVES, logged once so the next run does not treat them
+as text errors. A quote that lives inside an HTML `meta` attribute, which is
+where a company's own one-line product description usually sits, is destroyed by
+tag-stripping and must be checked against the raw bytes. A quote of this board's
+own prior brief is not in any retrieved page and must be checked against
+reports/newsletter/. Neither is a source problem. ADDED 2026-10-29: a frontier
+lab's launch-post body text also lives inside custom-element attributes and
+embedded JSON, so grep the flattened text AND the raw HTML; the Gemini 4 Carbon
+safety paragraph was only reachable from the flattened form.
+
+A LAB'S SAFETY DOCUMENTATION MUST BE CHECKED AGAINST THE MODEL IT NAMES, logged
+2026-10-29. A launch post that links "our Safety and Security report" is not
+evidence that a report exists for THAT model. Extract the PDF and count the
+model name. Gemini 4 Carbon's launch linked a report naming Carbon zero times
+and Argon 432 times, and the linked safety blog post was dated 15 days earlier.
+
+THE RUN SCHEDULE REMAINS A KNOWN FAILURE POINT. The task did not fire on 8, 9,
+10 or 22 October and nothing in the system noticed. A later run must compute its
+window from the newest file in reports/newsletter/, never from the calendar, and
+state the width in the dateline when it is not 24.
+
+TWO WATCHLIST ROWS CARRY STANDING RETRIEVAL FAILURES: ISO 25785-1 (HTTP 403 to
+an HTTP client, needs a browser pane, last read 2026-10-19 at stage 30.60, five
+consecutive unchanged readings, NOT re-read on 10-26, 10-27, 10-28 or 10-29, so
+the gap is now ten days) and english.mofcom.gov.cn (0 bytes and no status code,
+a connection failure rather than a block). openai.com/news returns HTTP 403 to
+HTTP clients but openai.com/news/rss.xml returns 200 with dated items; do not
+escalate that one to a browser pane.
+
+THE SMCS CYBER RESILIENCE ACT FILTER NEEDS A FULL PAGE RELOAD, logged once and
+it cost four tool calls on 2026-10-28. Selecting a second legislation in the
+dropdown does not always replace the applied chip: the results update but the
+chip keeps naming the previous legislation, so a 0 cannot be attributed to the
+filter you think is set. The method that works: navigate to the bare
+notified-body-list URL, wait for the ~1,565 baseline, set exactly one
+legislation, click Refine results, then read the chip text and the count
+together in one script. On 2026-10-29 the uncheck-then-check sequence inside one
+script handled all four readings without a reload, and the chip was asserted
+each time; prefer that, and fall back to a reload if the chip disagrees.
+
+THE ARXIV ATOM REGEX TRAP, logged once, a new instance of the regex class
+already on file. A character class written as backslash-s backslash-S inside a
+JavaScript string built through a bash heredoc loses a backslash level and
+becomes a literal [sS], which silently matches nothing and returns every field
+empty rather than erroring. BROADER AND CONFIRMED PAINFULLY ON 2026-10-29: bash
+heredocs in this environment mangle multi-line content with quotes and
+apostrophes and failed three times in one run with "unexpected EOF while looking
+for matching quote", destroying a completed draft once. WRITE THE SCRIPT OR THE
+DOCUMENT TO A FILE AND RUN IT, or use the Write tool directly. Do not build a
+long quoted payload inside a shell command.
+
+THE MONDAY EDGAR SEAM IS SETTLED. EDGAR's daily index for the CURRENT day
+returns HTTP 403 because the day is not closed. On a MONDAY this collapses F1's
+whole window to a single business day: the Saturday and Sunday indexes do not
+exist and Monday's is not closed, so the Monday run reads Friday's index alone.
+A LATER MONDAY RUN SHOULD SAY IN PROVENANCE THAT TUESDAY WILL CARRY MONDAY'S
+FILINGS, and a later Tuesday run should expect them. The same seam exists on
+arXiv. This is structural, not a failure, and a Monday brief should not report a
+thin F1 as a quiet market.
+
+DO NOT TRUST `eurlex.mjs grep` WITH AN ALTERNATION. `tools/eurlex.mjs grep
+<CELEX> "a|b|c"` returned three single-character matches rather than the
+phrases. The route that works is `tools/eurlex.mjs get <CELEX> | grep -niE
+"<pattern>" -A 4`.
+
+QUOTE DEFECTS THE MATCHER HAS CAUGHT, carried. The OJ sets a NARROW NO-BREAK
+SPACE, U+202F, between a number and a percent sign, so a verbatim span copied
+with an ordinary space fails byte comparison; either reproduce U+202F or cut the
+span before it. Self-quotes of this board's own prior entries must be matched
+against reports/knowledge-state.md and reports/newsletter/ exactly like source
+quotes: "at least $1 billion each" was nearly shipped where the stored primary
+text reads "each expect to invest at least $1 billion".
+
+BEFORE LOGGING ANY SOURCE UNREACHABLE, retry with `-L` and a browser
+User-Agent. darioamodei.com returns HTTP 301 and 166 bytes without `-L`, which
+reads as an empty venue. english.mofcom.gov.cn has flapped between 0 bytes and
+HTTP 200 across runs and is a connection failure rather than a block.
+
+---
+
 ## voices
 
 The F6 list. Keep between 8 and 12 names. Read at the person's own venue only.

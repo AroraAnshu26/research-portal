@@ -1,24 +1,24 @@
 {
  "static": true,
- "builtAt": "2026-10-29T14:21:24.640Z",
+ "builtAt": "2026-10-29T14:24:30.938Z",
  "authors": [
   "anshu",
   "veer"
  ],
  "reports": [
   {
+   "p": "reports/knowledge-state.md",
+   "name": "knowledge-state.md",
+   "ext": ".md",
+   "bytes": 352182,
+   "mtime": 1793283860736.6462
+  },
+  {
    "p": "reports/newsletter/2026-10-29.md",
    "name": "2026-10-29.md",
    "ext": ".md",
    "bytes": 9213,
    "mtime": 1793283679424.0308
-  },
-  {
-   "p": "reports/knowledge-state.md",
-   "name": "knowledge-state.md",
-   "ext": ".md",
-   "bytes": 341485,
-   "mtime": 1793283640775.697
   },
   {
    "p": "reports/newsletter/2026-10-28.md",
