@@ -1,11 +1,25 @@
 {
  "static": true,
- "builtAt": "2026-10-30T16:35:12.909Z",
+ "builtAt": "2026-11-10T19:56:16.198Z",
  "authors": [
   "anshu",
   "veer"
  ],
  "reports": [
+  {
+   "p": "reports/next-word-to-next-action.html",
+   "name": "next-word-to-next-action.html",
+   "ext": ".html",
+   "bytes": 204984,
+   "mtime": 1794340297885.2078
+  },
+  {
+   "p": "reports/robot-brain-atlas-2026-11-10.html",
+   "name": "robot-brain-atlas-2026-11-10.html",
+   "ext": ".html",
+   "bytes": 134050,
+   "mtime": 1794340047414.2378
+  },
   {
    "p": "reports/newsletter/2026-10-30.md",
    "name": "2026-10-30.md",

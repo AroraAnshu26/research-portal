@@ -1,0 +1,1302 @@
+<title>Robot Brain Atlas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: instrument panel. Left rail of filters, dense card field, detail drawer from the right,
+   chat dock pinned to the bottom edge. Data is set in mono so columns of Hz and ms line up. */
+:root{
+  --bg:#f5f7f8; --surface:#ffffff; --surface-2:#eef1f3; --ink:#131920; --ink-2:#44505f;
+  --muted:#6e7b8b; --line:#dbe1e6; --line-2:#c6ced6;
+  --accent:#00695d; --accent-ink:#ffffff; --accent-soft:#dcefec;
+  --warn:#9c4318; --warn-soft:#f7e6dd; --good:#1f6b3a;
+  --c-brain:#00695d; --c-intg:#2b4a86; --c-lab:#6a3c91; --c-rely:#8a5713; --c-world:#166d82;
+  --shadow:0 1px 2px rgba(19,25,32,.06),0 8px 24px rgba(19,25,32,.06);
+  --display:'Archivo',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1115; --surface:#161c22; --surface-2:#1e262e; --ink:#e7edf2; --ink-2:#aebac6;
+  --muted:#7e8c9a; --line:#252e37; --line-2:#36414c;
+  --accent:#3bb3a2; --accent-ink:#06211e; --accent-soft:#12302d;
+  --warn:#d98558; --warn-soft:#2e1f17; --good:#5bbd80;
+  --c-brain:#3bb3a2; --c-intg:#7a9cdc; --c-lab:#b18ed6; --c-rely:#d6a24e; --c-world:#56b4cc;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1115; --surface:#161c22; --surface-2:#1e262e; --ink:#e7edf2; --ink-2:#aebac6;
+  --muted:#7e8c9a; --line:#252e37; --line-2:#36414c;
+  --accent:#3bb3a2; --accent-ink:#06211e; --accent-soft:#12302d;
+  --warn:#d98558; --warn-soft:#2e1f17; --good:#5bbd80;
+  --c-brain:#3bb3a2; --c-intg:#7a9cdc; --c-lab:#b18ed6; --c-rely:#d6a24e; --c-world:#56b4cc;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.5;
+  padding-bottom:var(--dock-h,64px)}
+.wrap{max-width:1320px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));}
+h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.015em}
+a{color:var(--accent)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* header */
+header.top{border-bottom:1px solid var(--line);background:var(--surface)}
+.top .wrap{padding-block:22px 0}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(26px,4.4vw,40px);font-weight:800;margin-top:6px}
+.sub{color:var(--ink-2);max-width:68ch;margin-top:8px;font-size:15px}
+.tabs{display:flex;gap:2px;margin-top:20px;flex-wrap:wrap}
+.tab{appearance:none;border:1px solid var(--line);border-bottom:none;background:transparent;
+  color:var(--muted);font-family:var(--display);font-weight:600;font-size:13.5px;
+  padding:9px 16px;border-radius:7px 7px 0 0;cursor:pointer;position:relative;top:1px}
+.tab[aria-selected="true"]{background:var(--bg);color:var(--ink);border-color:var(--line)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* controls */
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding-block:18px 14px}
+.chip{appearance:none;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);
+  font-size:12.5px;font-weight:500;padding:5px 11px;border-radius:999px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:7px;font-family:var(--body)}
+.chip .dot{width:8px;height:8px;border-radius:50%;background:var(--d,var(--muted))}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input[type=search]{flex:1;min-width:180px;max-width:300px;padding:7px 12px;border-radius:8px;
+  border:1px solid var(--line-2);background:var(--surface);color:var(--ink);font:inherit;font-size:13.5px}
+input[type=search]:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.count{font-family:var(--mono);font-size:12px;color:var(--muted);margin-left:auto}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px;padding-bottom:36px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;
+  text-align:left;cursor:pointer;font:inherit;color:inherit;display:flex;flex-direction:column;
+  gap:10px;min-width:0;box-shadow:var(--shadow);border-top:3px solid var(--k,var(--accent))}
+.card:hover{border-color:var(--line-2);transform:translateY(-1px)}
+.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card.sel{box-shadow:0 0 0 2px var(--accent),var(--shadow)}
+.card-h{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.card-h h3{font-size:16.5px;font-weight:700;line-height:1.25}
+.model{font-family:var(--mono);font-size:11.5px;color:var(--k,var(--accent));font-weight:600;
+  margin-top:3px;letter-spacing:.01em}
+.bet{font-size:13.5px;color:var(--ink-2);min-width:0}
+.specs{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;padding-top:4px}
+.spec{font-family:var(--mono);font-size:10.5px;background:var(--surface-2);color:var(--ink-2);
+  padding:3px 7px;border-radius:5px;white-space:nowrap}
+.ev{font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;
+  padding:3px 6px;border-radius:4px;white-space:nowrap;font-weight:600;flex-shrink:0}
+.ev.primary{background:var(--accent-soft);color:var(--accent)}
+.ev.claim{background:var(--surface-2);color:var(--muted)}
+.ev.none{background:var(--warn-soft);color:var(--warn)}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(10,14,18,.45);z-index:40}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(620px,100%);background:var(--bg);
+  z-index:41;overflow-y:auto;border-left:1px solid var(--line);
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:calc(var(--dock-h,64px) + 16px)}
+.drawer-in{padding-left:max(18px,env(safe-area-inset-left,0px));
+  padding-right:max(18px,env(safe-area-inset-right,0px));padding-block:20px}
+.dclose{position:sticky;top:0;float:right;appearance:none;border:1px solid var(--line-2);
+  background:var(--surface);color:var(--ink);width:30px;height:30px;border-radius:8px;cursor:pointer;
+  font-size:15px;line-height:1;z-index:2}
+.drawer h2{font-size:24px;font-weight:800;margin-top:2px}
+.drawer .model{font-size:13px;margin-bottom:12px}
+.sec{margin-top:22px}
+.sec>h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:9px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.sec p{font-size:14px;color:var(--ink-2);margin:0 0 10px}
+dl.kv{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;margin:0;font-size:13px;min-width:0}
+dl.kv dt{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;
+  letter-spacing:.05em;padding-top:2px}
+dl.kv dd{margin:0;color:var(--ink);min-width:0;overflow-wrap:anywhere}
+.steps{display:flex;flex-direction:column;gap:0}
+.step{display:grid;grid-template-columns:86px 1fr;gap:12px;padding:11px 0;border-top:1px dashed var(--line)}
+.step:first-child{border-top:none;padding-top:0}
+.step .v{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--k,var(--accent))}
+.step .d{font-family:var(--mono);font-size:10px;color:var(--muted);display:block;font-weight:400}
+.step .w{font-size:13.5px}
+.step .y{font-size:12.5px;color:var(--muted);margin-top:3px}
+blockquote{margin:0 0 10px;padding:10px 13px;background:var(--surface);border-left:2px solid var(--line-2);
+  border-radius:0 7px 7px 0;font-size:13px;color:var(--ink-2);font-style:italic}
+blockquote cite{display:block;font-style:normal;font-family:var(--mono);font-size:10px;
+  color:var(--muted);margin-top:5px;letter-spacing:.04em}
+.ceil{background:var(--warn-soft);border-radius:9px;padding:13px 15px;font-size:13.5px;color:var(--ink)}
+.gapbox{background:var(--accent-soft);border-radius:9px;padding:13px 15px;font-size:13.5px;color:var(--ink)}
+
+/* tables */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:600px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;background:var(--surface-2);position:sticky;top:0}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+
+/* ladder */
+.ladder{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.rung{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:13px 15px;
+  display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start}
+.rung .hz{font-family:var(--mono);font-size:17px;font-weight:600;color:var(--k);line-height:1.1}
+.rung .hzl{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--muted);display:block;margin-top:3px}
+.rung h4{font-size:14.5px;font-weight:700}
+.rung p{font-size:13px;color:var(--ink-2);margin:4px 0 0}
+.rung .who{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:6px}
+
+.prose{max-width:72ch}
+.prose p{font-size:14.5px;color:var(--ink-2);margin:0 0 12px}
+.prose h3{font-size:18px;font-weight:700;margin:26px 0 8px}
+.prose ul{font-size:14px;color:var(--ink-2);padding-left:20px;margin:0 0 12px}
+.prose li{margin-bottom:6px}
+.note{font-size:12.5px;color:var(--muted);font-style:italic}
+
+.gapcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:17px;
+  box-shadow:var(--shadow);margin-bottom:14px;border-left:3px solid var(--k,var(--accent))}
+.gapcard h3{font-size:16.5px;font-weight:700;margin-bottom:7px}
+.gapcard .lede{font-size:13.5px;color:var(--ink-2);margin-bottom:11px}
+.gapcard .ev-list{font-size:12.5px;color:var(--ink-2);padding-left:18px;margin:0 0 11px}
+.gapcard .ev-list li{margin-bottom:5px}
+.gapcard .ask{font-family:var(--mono);font-size:12px;background:var(--surface-2);padding:9px 12px;
+  border-radius:7px;color:var(--ink)}
+.diff{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.diff>div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px}
+.diff h4{font-size:13px;font-weight:700;margin-bottom:6px}
+.diff p{font-size:12.5px;color:var(--ink-2);margin:0}
+@media(max-width:560px){.diff{grid-template-columns:1fr}.rung{grid-template-columns:1fr}
+  .step{grid-template-columns:1fr}dl.kv{grid-template-columns:1fr}
+  dl.kv dt{padding-top:7px}}
+
+/* compare */
+.pickbar{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.pick{appearance:none;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);
+  font-size:12.5px;padding:5px 10px;border-radius:7px;cursor:pointer;font-family:var(--body)}
+.pick[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+/* chat dock */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--surface);
+  border-top:1px solid var(--line-2);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  box-shadow:0 -6px 24px rgba(10,14,18,.10)}
+.dock-in{max-width:1320px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px))}
+.dock-bar{display:flex;gap:9px;align-items:center;padding-block:11px}
+.dock-bar input{flex:1;min-width:0;padding:9px 13px;border-radius:9px;border:1px solid var(--line-2);
+  background:var(--bg);color:var(--ink);font:inherit;font-size:14px}
+.dock-bar input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.iconbtn{appearance:none;border:1px solid var(--line-2);background:var(--bg);color:var(--ink-2);
+  width:38px;height:38px;border-radius:9px;cursor:pointer;flex-shrink:0;display:grid;place-items:center}
+.iconbtn:hover{color:var(--ink);border-color:var(--ink-2)}
+.iconbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.iconbtn[aria-pressed="true"]{background:var(--warn);border-color:var(--warn);color:#fff}
+.iconbtn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round}
+.sendbtn{appearance:none;border:none;background:var(--accent);color:var(--accent-ink);
+  font-family:var(--display);font-weight:600;font-size:13.5px;padding:0 16px;height:38px;
+  border-radius:9px;cursor:pointer;flex-shrink:0}
+.sendbtn:disabled{opacity:.45;cursor:default}
+.dock-log{max-height:min(46vh,420px);overflow-y:auto;border-top:1px solid var(--line);
+  padding-block:14px;display:flex;flex-direction:column;gap:12px}
+.msg{font-size:14px;max-width:80ch}
+.msg.u{color:var(--ink);font-weight:500;padding-left:11px;border-left:2px solid var(--accent)}
+.msg.a{color:var(--ink-2);white-space:pre-wrap;overflow-wrap:anywhere}
+.msg.a code{font-family:var(--mono);font-size:12.5px;background:var(--surface-2);padding:1px 5px;
+  border-radius:4px}
+.msg.a strong{color:var(--ink);font-weight:600}
+.msg.sys{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.ctxline{font-family:var(--mono);font-size:10.5px;color:var(--muted);padding-bottom:8px;
+  letter-spacing:.04em}
+.hint{font-family:var(--mono);font-size:10.5px;color:var(--muted);padding-bottom:10px;
+  display:flex;gap:7px;flex-wrap:wrap}
+.hint button{appearance:none;border:1px solid var(--line);background:transparent;color:var(--muted);
+  font-family:var(--mono);font-size:10.5px;padding:3px 8px;border-radius:5px;cursor:pointer}
+.hint button:hover{color:var(--ink);border-color:var(--line-2)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.card,.iconbtn{transition:border-color .12s,transform .12s,background .12s,color .12s}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow">Robot foundation models · 28 players · verified 10 Nov 2026</div>
+    <h1>Robot Brain Atlas</h1>
+    <p class="sub">Every serious bet on what a robot's brain should be, read from primary sources. The
+      five clusters below are not market segments — they are five incompatible theories of what the
+      hard part actually is.</p>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-view="map">Map</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="compare">Compare</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="physics">Physics</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="gaps">Research gaps</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="method">Method</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="main"></main>
+
+<div class="dock">
+  <div class="dock-in">
+    <div class="dock-log" id="log" hidden></div>
+    <div class="dock-bar">
+      <input id="q" type="text" placeholder="Ask Claude about any of this — architecture, limits, where to start" autocomplete="off">
+      <button class="iconbtn" id="mic" title="Speak" aria-pressed="false" hidden>
+        <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><path d="M12 18v4"/></svg>
+      </button>
+      <button class="sendbtn" id="send">Ask</button>
+      <button class="iconbtn" id="stop" title="Stop" hidden>
+        <svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+const CL = {
+  brain:{name:'Brain-only',color:'var(--c-brain)',claim:'Ship the model, not the body. Generalisation is a data-and-scale problem.'},
+  intg:{name:'Vertically integrated',color:'var(--c-intg)',claim:'Body and brain co-designed. You cannot buy your way to dexterity.'},
+  lab:{name:'Frontier lab',color:'var(--c-lab)',claim:'Robotics is one more modality for a frontier multimodal model.'},
+  rely:{name:'Reliability-first',color:'var(--c-rely)',claim:'Generality is a distraction. One task at commercial uptime is the product.'},
+  world:{name:'World model',color:'var(--c-world)',claim:'You cannot act competently in a world you cannot predict. Predict first.'}
+};
+
+const D = [
+{id:'pi',n:'Physical Intelligence',m:'π0 → π0-FAST → π0.5 → π0.6/π*0.6 → π0.7',c:'brain',ev:'primary',
+ bet:'One generalist policy, scaled like an LLM, then taught reliability by on-robot reinforcement learning.',
+ specs:['3B→5B VLM','300M expert','50 Hz','H=50'],
+ thesis:'A pretrained VLM cannot emit motor commands, so bolt a flow-matching action expert onto it and train end to end. Each generation relaxes a different assumption: π0 gets dexterity, π0.5 gets out-of-distribution generalisation from co-training, π*0.6 gets reliability from RL on the robot\'s own experience, π0.7 gets compositional generality from heterogeneous prompt context plus a world model that paints visual subgoals.',
+ arch:[['Backbone','3B VLM (π0, π0.5), 5B (π0.6). π0.7 undisclosed.'],
+       ['Action head','Flow-matching action expert, 300M. π0-FAST swaps it for autoregressive FAST tokens (DCT → quantise → BPE, 30–60 tokens/chunk).'],
+       ['Chunk','H = 50 steps = 1 second, so 50 Hz. "Up to 50 times per second."'],
+       ['Coupling','Action expert attends to VLM features. Knowledge Insulation stops the expert\'s gradients before the backbone and trains the backbone on FAST tokens instead, because naive coupling "caused the VLM backbone to lose some of the knowledge acquired during web-scale pre-training."'],
+       ['Recap (π*0.6)','Offline-RL pretrain → demo fine-tune → on-robot RL from teleop interventions and episode outcomes. A learned value function (for laundry, "predicts the negative number of steps to completion") gives credit; the VLA is conditioned on advantage over all data, good and bad, then told at run time to take high-advantage actions.'],
+       ['π0.7 additions','World model generates visual subgoals at test time; prompt carries language, quality/speed metadata, control-modality labels and episode length. Recap experience is distilled in via strategy metadata.']],
+ prog:[['π0','Oct 2024','Flow matching gives a VLM continuous action output. 8 robots, Open X-Embodiment.','VLMs emit discrete language tokens; dexterity needs high-frequency continuous commands.'],
+       ['π0-FAST','Jan 2025','Autoregressive action tokens via the FAST tokenizer. Trains 5× faster than π0.','Naive per-dimension binning "rapidly breaks down for more complex and dexterous skills"; flow matching trains slowly.'],
+       ['π0.5','Apr 2025','Co-training on ~400 h mobile manipulation + multi-environment + cross-embodiment + web data. One model does both high-level subtask text and low-level flow-matched control.','π0 and other VLAs "are evaluated in environments that closely match training." π0.5 targets new homes. OOD: 94% vs 31% without multi-environment data.'],
+       ['π0.5 + KI','May 2025','Knowledge insulation. 7.5× fewer training steps than π0.','Adding an action expert naively caused "unfavorable learning dynamics" and backbone knowledge loss — the robot grasped the trash instead of the spoon.'],
+       ['π0.6 / π*0.6','Nov 2025','5B backbone + Recap. More than doubles throughput on the hardest tasks, halves failure rates, >90% success. Espresso 5:30am–11:30pm; 59 boxes in a real factory.','"With just this step, it\'s not hard to get a robot to succeed half of the time, but it\'s very hard to get it to succeed every time."'],
+       ['π0.7','Apr 2026','Visual subgoals from a world model, diverse prompt context, Recap distilled in. Laundry on a bimanual UR5e matches expert teleoperators zero-shot.','"Vision-language-action models can understand diverse semantic concepts, but have not yet been shown to combine skills in new ways." Also: "Merging all these data sources naively does not lead to good results."']],
+ nums:[['OOD success (π0.5)','94% · vs 74% no web data, 49% no cross-embodiment, 31% no multi-environment'],
+       ['Training environments','Saturates at ~100 training homes'],
+       ['π*0.6 gain','Throughput >2×, failure rate ≥2× lower, >90% success'],
+       ['Teleoperator baseline','375 h mean experience (the humans, not the training set)'],
+       ['KI efficiency','7.5× fewer steps than π0']],
+ lim:[['Our current model is far from perfect: its goal is not to accomplish new skills or exhibit high dexterity, but to generalize to new settings.','π0.5 blog'],
+      ['π0.5 is far from perfect, and it often makes mistakes both in terms of its high-level semantic deductions and motor commands.','π0.5 blog'],
+      ['One notable shortcoming of the current model is its inference speed: the autoregressive decoding of π0-FAST is significantly slower than the decoding via flow matching used by π0.','FAST'],
+      ['It\'s quite hard to make them succeed reliably.','π*0.6, on imitation-trained VLAs'],
+      ['π0.7 shows early signs of compositional task generalization.','π0.7 blog — hedged twice on the same page']],
+ ceil:'Not one published inference-latency, onboard-compute or memory number across seven research pages. A 5B backbone plus action expert is well past what a Jetson-class device runs at 50 Hz, so the real deployment story is almost certainly offboard or heavily distilled — and they have never said which. The 50 Hz figure is chunk arithmetic (50 steps = 1 s), not a measured closed-loop rate.',
+ gap:'Recap is the only deployed on-robot RL in the industry and its credit assignment is a single learned value function with advantage conditioning. The theory for that under 50-step asynchronous chunk execution does not exist. Nobody has characterised when advantage conditioning beats filtered BC on real robots.',
+ src:'pi.website/blog/pi0, /pi05, /pistar06, /pi07, /research/fast, /research/knowledge_insulation'},
+
+{id:'sunday',n:'Sunday Robotics',m:'ACT-1 → ACT-2 (robot: Memo)',c:'intg',ev:'primary',
+ bet:'The data bottleneck breaks at the human wrist. Build a glove that is geometrically identical to the robot hand and the embodiment gap disappears.',
+ specs:['Zero teleop','99.1% @ n=785','$200 gloves','2×7 DoF arms'],
+ thesis:'Everyone else pays for teleoperation. Sunday ships thousands of $200 Skill Capture Gloves to contributors who do their own chores, and claims the glove is "a one-to-one representation of Memo\'s hand" so that "we eliminate the translation gap entirely." A step called Skill Transform aligns the kinematics and pixels to strip human-specific detail. ACT-1 was trained with zero teleoperation trajectories.',
+ arch:[['Architecture','Undisclosed. No backbone, action representation, chunk size, control rate or parameter count on any page.'],
+       ['Name','Not linked to the ACT / Action Chunking Transformer paper anywhere. Their citations are GPT-1, GPT-3, π0, GEN-0 and GEN-1 — not ALOHA. Read it as "Act One."'],
+       ['Glove','Force sensors, cameras, joint potentiometers. Sensor rates, tactile sensing and the alignment method are all undisclosed. Thousands shipped.'],
+       ['Transfer','"Skill Transform" aligns raw kinematic and visual observations. Glove data converts to robot data at a 90% success rate — "success" undefined.'],
+       ['Robot','1.7 m, 170 lb, wheeled. Arms 2×7 DoF, hands 2×4 DoF, torso 1, lower body 4. Nav max 1 m/s. 4 h runtime, 1 h charge. Hand IP67.'],
+       ['Speed','Demonstrators work at ~50% natural human speed; models run at 60–80% of data speed.']],
+ prog:[['ACT-1','Nov 2025','Table-to-dishwasher: 33 unique and 68 total dexterous interactions, 21 objects, >130 ft of navigation, conditioned on 3D maps.','First foundation model trained on zero robot data.'],
+       ['Series B','Mar 2026','Titled "No More Demos."','—'],
+       ['ACT-2','Jul 2026','Laundry folding: 99.1% ± 0.3% over 785 autonomous attempts, 778 successes, 9 garment types, unseen homes, no home-specific data. Fold quality 4.72/5.','Pretrained on the human glove corpus, then post-trained on in-house Memos — so "zero robot data" no longer strictly holds.']],
+ nums:[['ACT-2 headline','99.1% ± 0.3% SE, 785 attempts, 778 folds'],
+       ['By garment','Shorts 100% (98) · T-shirts 99.0% (312) · pants 98.8% (85) · leggings 96.3% (54) · blouses 94.7% (19)'],
+       ['Generalisation scaling','0% pretrain: 96% in-domain / 14% OOD → 100% pretrain: 100% / 100%'],
+       ['Data quality','High-quality subsample 75.6→99.1% vs uniform 43.8→64.1% at matched fractions'],
+       ['Speed','Median 2 min 13 s per fold, including retries'],
+       ['Excluded','Socks, bras, underwear, accessories']],
+ lim:[['We hypothesize that blouses are more challenging because their lightweight, highly deformable construction provides fewer stable geometric cues for grasping and alignment.','ACT-2'],
+      ['The remaining gap to deployment-level reliability and performance comes from difficult edge cases and failures that appear only after the policy is run repeatedly in the real world.','ACT-2'],
+      ['Progress across capabilities may be uneven.','ACT-2'],
+      ['The path to a robot in every home holds many more challenges.','ACT-1']],
+ ceil:'No onboard compute, latency, control rate or model size has ever been published. The 90% glove-to-robot conversion rate is the load-bearing number of the entire thesis and it is a single figure with no definition. The "one-to-one" glove claim does not reconcile with a 4-DoF robot hand. Running models at 60–80% of data speed, on data recorded at 50% human speed, puts the robot at roughly a third of human pace.',
+ gap:'The ACT-2 evaluation is the most statistically serious artefact any of these companies has published — 785 trials, stratified by garment, environment and lighting, with standard errors. It is also the only one. Why human-worn data transfers at all, and what the geometric-matching requirement actually buys over retargeting, is unexplained and testable.',
+ src:'sunday.ai/blog/no-robot-data, /blog/act-2-preview, /technology'},
+
+{id:'generalist',n:'Generalist AI',m:'GEN-0 → GEN-1 → GEN-1.5',c:'brain',ev:'claim',
+ bet:'Robot scaling laws are real, there is a capacity threshold below which models cannot absorb data, and the System 1 / System 2 split is an artefact you do not need.',
+ specs:['10B+','100 Hz','270k h','7B threshold'],
+ thesis:'Harmonic Reasoning runs asynchronous continuous-time streams of sensing and acting tokens in one model, which they claim lets them scale "without depending on System1-System2 architectures or inference-time guidance." They report a power law L(D) = (D_c/D)^α_D from pretraining trajectories to downstream error, and a phase transition at 7B where smaller models ossify.',
+ arch:[['Harmonic Reasoning','Asynchronous, continuous-time streams of sensing and acting tokens in a single model. The tokenisation, time alignment, attention masking and training objective are all undisclosed.'],
+       ['Sizes','1B, 6B, 7B studied; "scaled GEN-0 to 10B+".'],
+       ['Rate','GEN-1.5 takes 30 seconds of video memory plus sensor, language and proprioceptive input, and produces 100 Hz action trajectories.'],
+       ['Infra','Dozens of petabytes, O(10K) cores, 6.85 years of real-world manipulation experience per day of training.'],
+       ['Contradiction','GEN-0 describes an in-house robotics corpus with robot data. GEN-1 says its base pretraining uses "no robot data" — only low-cost human wearables. The pages never reconcile this.']],
+ prog:[['GEN-0','Nov 2025','270,000+ h across thousands of homes, warehouses and workplaces, growing 10,000 h/week. Tested on 6, 7 and 16+ DoF robots.','Establishes the scaling-law and ossification claims.'],
+       ['GEN-1','Apr 2026','99% average success where prior models reach 64%. ~1 h of robot data per task. Box folding 12.1 s vs ~34 s for GEN-0 and π0. 1,800 block packs, 86 t-shirt folds.','Over half a million hours. ~99% of parameters trained from scratch.'],
+       ['GEN-1.5','Aug 2026','In-context learning from a 3–12 s demonstration: 59% ±10% one-shot across 10 tasks; 83% ±9% few-shot after 10 gradient steps on 5 minutes of data.','Training continuously for over eight months.']],
+ nums:[['Ossification','1B models "become unable to absorb new information over time"; 6B "begin to benefit"; 7B+ "internalize large-scale robotic pretraining data"'],
+       ['Scaling form','L(D) = (D_c/D)^α_D — no exponent or constant published'],
+       ['Tasks','16 post-training task sets, 8 pretraining datasets, 10 long-horizon sets'],
+       ['One-step adaptation','66.5% on a held-out task from one minute of data; 10 steps move weights <0.15%']],
+ lim:[['GEN-1 is not without limitations.','GEN-1'],
+      ['Not all tasks that we have attempted are able to hit these rates.','GEN-1'],
+      ['Some tasks would require even higher success rates or speeds to be useful in real settings.','GEN-1'],
+      ['Skills learned in-context are currently more brittle than finetuned models.','GEN-1.5'],
+      ['The performance of one-shot learning in-context is modest (59% average success across diverse tasks…)','GEN-1.5'],
+      ['Although the tasks are simple and short-horizon, and the success rates are modest','GEN-1.5']],
+ ceil:'No latency number, no FLOPs, no GPU count, no onboard-versus-cloud statement anywhere. GEN-1 mentions "custom kernels" and "new forms of paged attention to enable real-time inference" — which is what you write when inference is the binding constraint. 100 Hz action trajectories from a 10B+ model with 30 s of video context is not something that runs on a robot; it is a datacentre number or a chunk-arithmetic number.',
+ gap:'The 7B ossification threshold is the single most consequential published claim in the field and it rests entirely on in-house comparisons with no public checkpoints. It is also directly testable on open models. If it replicates, model capacity is the field\'s real bottleneck; if it does not, a lot of capital is mispriced.',
+ src:'generalistai.com/blog/gen-0, /gen-1, /gen-1.5, /beyond-world-models'},
+
+{id:'eka',n:'Eka Robotics',m:'Vision-Force-Action (VFA)',c:'brain',ev:'none',
+ bet:'Imitation is the wrong primitive. Master physics in simulation with force as a first-class sense, and skip human data entirely.',
+ specs:['Sim RL only','No demos','1500 ops/h','$1.45B'],
+ thesis:'The only major player betting against imitation learning. Founded by Pulkit Agrawal (MIT) and Tuomas Haarnoja — the Soft Actor-Critic author. Their argument: "The pathway to making general-purpose robots performant is not by mimicking human data, but by mastering physics," with AlphaZero as the analogy. Force is framed as the native language of the physical world.',
+ arch:[['Published architecture','None. The site has a home page, a blog index and one funding post. No research page, no paper, no preprint.'],
+       ['Force','Stated only as "jointly reasoning about vision and forces." No sensor type, bandwidth, representation or fusion mechanism.'],
+       ['RL algorithm','Never named. Haarnoja authored SAC; whether they use it is unconfirmed.'],
+       ['Simulator','Never named. No domain randomisation described. "In simulation, we can generate thousands of hours of robot experience in minutes."'],
+       ['Hardware','Nothing published. No hand, DoF, sensor or arm specification. The force-sensing hand is reported by press, not by Eka.']],
+ prog:[['Seed','—','Obvious Ventures and E14 Fund.','—'],
+       ['Series A','20 Oct 2026','$150M at ~$1.45B post, co-led by a16z and F-Prime. Pilots with industrial customers; pick-and-place and wire handling.','—']],
+ nums:[['Throughput','1,500 operations/hour vs ~600 human baseline — company figure, no protocol, no benchmark'],
+       ['Grasp success',' >95% on sub-1 kg objects — press report (TechCrunch), NOT on Eka\'s own pages. Unverified.'],
+       ['Other','"The same robot can screw in a light bulb and insert wires." Home page shows a "1/25× SPEED" label with no explanation.']],
+ lim:[['No limitations section exists on any page.','—']],
+ ceil:'The hardest unsolved problem in simulation is contact-rich force dynamics, and Eka has published no method, no simulator, no randomisation scheme and no sim-to-real evidence. They assert "this sim-to-real barrier is falling" with nothing behind it. Compute, latency, memory and hardware are all entirely undisclosed. This is the most opaque company on the board at the highest valuation per published fact.',
+ gap:'If force-centric sim-RL works for contact-rich manipulation, it is the most important result in robot learning and it is currently a $1.45B assertion. The open question is small and sharp: can you learn contact-rich insertion in simulation and transfer it, with a stated randomisation budget and an honest real-world trial count? Nobody has shown this.',
+ src:'ekarobotics.com + TechCrunch 20 Oct 2026 (press figures flagged separately)'},
+
+{id:'groot',n:'NVIDIA',m:'GR00T N1 → N1.5 → N1.6 → N1.7',c:'brain',ev:'primary',
+ bet:'Commoditise the brain, sell the compute. Open weights plus synthetic data plus simulation, so nobody else can charge rent for a policy.',
+ specs:['3B','H=16–40','105 ms @ Thor','16 GB VRAM'],
+ thesis:'A dual-system VLA: a vision-language model reasons, a diffusion transformer acts, connected by alternating cross- and self-attention. The whole point is the surrounding stack — Isaac Lab, Cosmos, Newton, DreamGen neural trajectories — which turns 88 hours of teleoperation into 827 hours of training data. Published latency tables on real hardware, which nobody else does.',
+ arch:[['N1','2.2B total, 1.34B in the VLM (NVIDIA Eagle-2: SmolLM2 + SigLIP-2). H=16, flow matching, K=4 denoising steps. VLM at 10 Hz on an L40, System 1 at 120 Hz.'],
+       ['N1.5','3B. Eagle 2.5, frozen in both pretraining and finetuning. Simplified adapter + layer norm. Adds FLARE future-latent-alignment loss at coefficient 0.2. 250K steps on 1K H100s, global batch 16384.'],
+       ['N1.6','3B. Cosmos-Reason-2B VLM. DiT doubled to 32 layers. Adapter removed, top 4 VLM layers unfrozen. State-relative action chunks.'],
+       ['N1.7','3B. Cosmos-Reason2-2B (Qwen3-VL). H=16→40. State/action dims 29→132. Relative end-effector actions shared across robot and human data. Action head back to 16 diffusion layers.'],
+       ['Data pyramid (N1)','Real robot 3,288.8 h · human video 2,517.0 h · simulation 1,742.6 h · neural trajectories 827.3 h. Post-training co-trains real and neural 1:1. 780,000 sim trajectories ≈ 6,500 h generated in 11 hours.']],
+ prog:[['N1','Mar 2025','First open dual-system VLA with a published paper.','—'],
+       ['N1.5','Jun 2025','Freeze the VLM, add FLARE and DreamGen data.','"We attribute these improvements to the improved grounding capabilities, usage of the FLARE loss and the diverse data from DreamGen."'],
+       ['N1.6','Dec 2025','Cosmos VLM, 2× DiT, state-relative actions.','"Several architecture, data and modeling improvements" — no single stated reason.'],
+       ['N1.7','2026','Cosmos-Reason2, longer horizon, 20K h EgoScale human video.','"Comparable performance to N1.6, with improved generalization and language-following capabilities."']],
+ nums:[['N1 latency','63.9 ms for a 16-action chunk on L40, bf16'],
+       ['N1.6 end-to-end','RTX 5090 37 ms (27.3 Hz) · H100 38 ms (26.3 Hz) · RTX 4090 44 ms (22.8 Hz) · Jetson Thor 105 ms (9.5 Hz)'],
+       ['N1.6 on Thor, split','Backbone 39 ms + action head 61 ms'],
+       ['N1.7','~40 Hz on RTX PRO 6000 Blackwell · ~28 Hz on Jetson AGX Thor with TensorRT · 25 Hz with NVFP4 quantisation'],
+       ['Memory','Inference 16 GB+ VRAM · finetuning 40 GB+ · checkpoint ~6 GB'],
+       ['Training','Up to 1024 GPUs; ~50,000 H100 GPU-hours for N1-2B']],
+ lim:[['Currently, our GR00T N1 model focuses primarily on short-horizon tabletop manipulation tasks.','N1 paper §4.6'],
+      ['Multi-task language following and out-of-distribution task generalization continue to be challenging for current VLA models.','N1.6 blog'],
+      ['Users may observe 5-6% variance between runs due to non-deterministic image augmentations.','N1.6 README'],
+      ['Batched inference can shift actions by ~2% of action magnitude because of prompt padding.','N1.7 README']],
+ ceil:'The published Thor numbers are the most honest thing in this entire atlas and they are brutal: a 3B model on NVIDIA\'s own flagship robot SoC runs at 9.5 Hz unoptimised, reaching 28 Hz only with TensorRT and 25 Hz with FP4 quantisation. The action head, not the VLM, is the bottleneck on Thor (61 ms versus 39 ms). 16 GB VRAM for inference means a 7B System 2 needs its own device — which is exactly what Figure does.',
+ gap:'This is the only player whose numbers you can reproduce. The N1.6 README\'s own admission of 5–6% run-to-run variance from image augmentation alone means most published VLA comparisons at n=20–50 are measuring augmentation noise. That is a paper, and the checkpoints to write it are public.',
+ src:'arXiv 2503.14734, research.nvidia.com/labs/gear/gr00t-n1_5 and n1_6, github.com/NVIDIA/Isaac-GR00T'},
+
+{id:'figure',n:'Figure',m:'Helix → Helix 02 → Helix 2.5',c:'intg',ev:'primary',
+ bet:'Own body and brain, decouple the frequency bands, and replace every hand-written controller with a learned one.',
+ specs:['7B S2 @ 7–9 Hz','80M S1 @ 200 Hz','10M S0 @ 1 kHz','35 DoF'],
+ thesis:'The clearest articulation of the frequency-ladder architecture. A 7B open-weight VLM distils everything semantic into one continuous latent vector; an 80M cross-attention transformer reads that latent plus live vision and emits 35-DoF actions at 200 Hz; a 10M whole-body controller runs joints at 1 kHz. Trained end to end with a plain regression loss, gradients flowing from S1 back into S2 through the latent, with a deliberate temporal offset in training that matches deployment latency.',
+ arch:[['S2','7B-parameter open-source open-weight VLM, internet-pretrained. Runs at 7–9 Hz, asynchronously, writing to a shared-memory latent.'],
+       ['S1','80M cross-attention encoder-decoder transformer with a fully convolutional multi-scale vision backbone, pretrained entirely in simulation. 200 Hz, 35-DoF output plus a synthetic percentage-task-completion action.'],
+       ['S0 (Helix 02)','10M-parameter whole-body controller at 1 kHz. Trained on 1,000+ h of retargeted human motion and 200,000+ parallel simulation environments. "Replaces 109,504 lines of hand-engineered C++."'],
+       ['Coupling','S2 compresses task semantics into a single continuous latent vector, projected into S1\'s token space and concatenated with S1\'s visual features along the sequence dimension.'],
+       ['Compute','Dual low-power embedded GPUs per robot, one each for S1 and S2, fully onboard. GPU model, TOPS, power and memory never stated.'],
+       ['Data','~500 h teleoperation for the original Helix, "<5% of previous VLA dataset sizes," auto-labelled by a VLM writing hindsight instructions.']],
+ prog:[['Helix','Feb 2025','S1/S2 split, 500 h, 35 DoF at 200 Hz, fully onboard.','VLMs are too slow for control; control policies are too dumb for semantics. Decouple them.'],
+       ['Logistics','Jun 2025','10→60 h of demos. Added vision memory, state history and force feedback to S1; decoder head +50%. Handling time 6.84 s → 4.31 s → 4.05 s. Barcode success 88.2% → 94.4%.','Throughput in a real workcell.'],
+       ['Helix 02','Jan 2026','System 0 added. 4-minute autonomous dishwasher task with 61 loco-manipulation actions. S1 gains fingertip tactile and full-body proprioception.','Whole-body autonomy needs a learned controller, not C++.'],
+       ['Helix 2.5','Sep 2026','Pretrained from random init on Index, Figure\'s human-behaviour dataset, instead of from a pretrained VLM. Zero-shot in 30 unseen homes. Index pretraining alone took zero-shot from 9% to 56%.','A human-to-robot transfer scaling law; largest run\'s loss forecast to four decimal places. Index generates ~35 minutes of human experience every second. $3.5B of compute committed.']],
+ nums:[['Frequency ladder','7–9 Hz / 200 Hz / 1 kHz across S2 / S1 / S0'],
+       ['Helix 2.5 zero-shot','9% → 56% from Index pretraining alone; matched a Helix 02 policy on half the adaptation data'],
+       ['Logistics','~95% barcode success, up from ~70%; 4.05 s handling time'],
+       ['Scale','$3.5B compute committed; Index ≈ 35 min of human experience per second']],
+ lim:[['Ongoing work will continue to broaden its skill set and ensure stability at even greater speeds and workloads.','Logistics'],
+      ['The results are early - but they already show what continuous, whole-body autonomy makes possible.','Helix 02'],
+      ['The point is not that general humanoid robotics is solved.','Helix 2.5'],
+      ['If a human intervention is necessary for safety, that rollout is aborted and failed.','Helix 2.5 eval rubric']],
+ ceil:'Two embedded GPUs per robot is the honest cost of the frequency ladder, and they will not say which GPUs or what power budget. The 2.5 result quietly undermines their own earlier thesis: abandoning the pretrained VLM for from-scratch training on human video means internet pretraining was not doing what Helix 1 claimed. Trial counts per home and per task are not published for the 30-home result.',
+ gap:'Figure publishes the cleanest frequency decomposition and nobody has theory for it. How should capacity be allocated across a 1 kHz / 200 Hz / 8 Hz ladder? What does the training-time temporal offset actually do to the closed-loop error bound? These are answerable and unanswered.',
+ src:'figure.ai/news/helix, /helix-02, /scaling-helix-logistics, /helix-2-5-zero-shot-30-home-generalization'},
+
+{id:'1x',n:'1X Technologies',m:'Redwood + 1XWM world model (robot: NEO)',c:'intg',ev:'primary',
+ bet:'Put robots in real homes now and let a world model generate the experience you cannot collect.',
+ specs:['160M','~5 Hz onboard','14B WM','11 s/gen'],
+ thesis:'Redwood is deliberately tiny — 160M parameters running fully on NEO\'s onboard GPU at about 5 Hz — with auxiliary "cognitive" prediction heads (where are the hands, where is the object, in image space) to ground a small model. Separately, a 14B generative video model acts as a policy: prompt it, generate video, extract actions with an inverse dynamics model, execute.',
+ arch:[['Redwood','160M vision-language transformer. Pretrained language embeddings + ViT vision tokens + proprioception (joint positions and applied forces) → transformer blocks → latent → diffusion policy. Predicts arms, hands, walking, manipulation and pelvis pose jointly.'],
+       ['Onboard','Runs fully on NEO\'s onboard embedded GPU at around 5 Hz. GPU model, power, memory and latency never stated.'],
+       ['Cognitive heads','Auxiliary prediction targets such as image-space locations of hands and relevant objects, to ground the representation of a small model.'],
+       ['World model','Built on a 14B text-conditioned generative video diffusion model. Mid-trained on 900 h of egocentric human video, fine-tuned on 70 h of robot data. Inverse dynamics model: Depth Anything backbone, flow-matching head, two-frame sliding window W=8, trained on 400 h of unfiltered robot data.'],
+       ['World model use','Integrated into NEO as a policy, not an evaluator. Generates video from text + start frame, extracts actions, executes. Post-training data is 98.5% pick-and-place.'],
+       ['Voice','Offboard speech-to-speech LLM and sentence encoder produce a vector fed to Redwood.']],
+ prog:[['Redwood','Jun 2025','160M onboard policy trained on teleoperated and autonomous episodes, successes and failures both.','A small model that fits on the robot, grounded by auxiliary prediction.'],
+       ['1X World Model Lab','Jun 2026','Dedicated pretraining research group.','—'],
+       ['1XWM','Jan 2026','14B video model as a policy. "Pull tissue" success 30% with one generation, 45% with best-of-eight. Each real task run 30 times.','"Close to 0% success rate when executing bad generations."']],
+ nums:[['Redwood','160M params, ~5 Hz, fully onboard'],
+       ['World model latency','Backbone 11 s per call on multi-GPU, 5 s of video per generation, IDM 1 s — offboard via an inference server'],
+       ['Best-of-N','30% → 45% on pull-tissue with best-of-eight'],
+       ['Autonomy fraction','Not published anywhere. No teleoperation-handoff mechanism described on any page.']],
+ lim:[['Sometimes, generations tend to be overly optimistic about task completion and depth understanding.','1XWM'],
+      ['Monocular pretraining can still lead to weak 3D grounding, where the real robot undershoots or overshoots even when the generated video "succeeds."','1XWM'],
+      ['Some dextrous tasks remain challenging (e.g. pouring, drawing).','1XWM'],
+      ['As we consider tasks longer than 5 seconds, closed-loop replanning with memory context will help us handle drift, partial observability, and recovery.','1XWM']],
+ ceil:'A 160M model at 5 Hz is the most revealing number on this board — it is what actually fits on a home humanoid, and it is two orders of magnitude smaller than the brain-only companies\' models. The world model runs at 11 seconds per generation on multi-GPU offboard hardware, which is 55× slower than real time for 5 seconds of video. NEO is shipping into homes with teleoperation support and the autonomy fraction has never been published.',
+ gap:'The gap between a 14B offboard world model at 0.09 Hz and a 160M onboard policy at 5 Hz is the distillation problem, and no one has formalised it. Also: their own admission that generated video "succeeds" while the real robot undershoots is exactly the world-model-evaluation validity question nobody has addressed.',
+ src:'1x.tech/discover/redwood-ai, /1x-world-model-lab, /world-model-self-learning'},
+
+{id:'gemini',n:'Google DeepMind',m:'Gemini Robotics 1.5 + ER 1.5 + On-Device',c:'lab',ev:'primary',
+ bet:'The frontier multimodal model is already the brain. Add embodied reasoning, tool use and a thinking trace before acting.',
+ specs:['Thinks first','Tool calls','50–100 demos','Cross-embodiment'],
+ thesis:'Split the problem: Gemini Robotics-ER 1.5 is "the first thinking model optimized for embodied reasoning" — it plans, estimates success and progress, and natively calls tools including Google Search. Gemini Robotics 1.5 is the VLA that executes, and it generates an internal natural-language reasoning sequence before acting. Motion learned on one embodiment transfers to another without per-robot specialisation.',
+ arch:[['ER 1.5','Thinking model for embodied reasoning. Plans, estimates success and progress, calls tools (Search or user-defined functions). Available via the Gemini API in AI Studio.'],
+       ['1.5','The VLA. Vision + instruction → motor commands. "Currently available to select partners."'],
+       ['Composition','ER 1.5 acts as high-level brain and gives 1.5 natural-language instructions per step.'],
+       ['Thinking before acting','The VLA generates an internal sequence of reasoning and analysis in natural language before acting, can split long tasks into segments, and can explain its reasoning. Mechanism — token format, how the trace conditions the action output — undisclosed.'],
+       ['Cross-embodiment','Tasks trained only on ALOHA 2 run on Apptronik Apollo and a bi-arm Franka, and the reverse. Mechanism undisclosed.'],
+       ['On-device','Parameter count, hardware and latency all unstated. First VLA they have opened for fine-tuning, from "as few as 50 to 100 demonstrations."']],
+ prog:[['Gemini Robotics','Mar 2025','First VLA on the Gemini backbone.','—'],
+       ['On-Device','Jun 2025','Minimal-compute bi-arm model, open for fine-tuning.','Benchmarked against the Mar 2025 model, not against 1.5. Generalisation ~0.52–0.74 on-device vs ~0.6–0.75 flagship.'],
+       ['1.5 + ER 1.5','Sep 2025','Thinking model plus VLA, agentic tool use, cross-embodiment motion transfer.','Robotics as an agentic problem, not just a control problem.']],
+ nums:[['Fine-tuning','50–100 demonstrations for on-device adaptation'],
+       ['On-device vs flagship','Generalisation ~0.52–0.74 vs ~0.6–0.75 (approximate chart values)'],
+       ['Everything else','No parameter counts, no latency, no compute figures for 1.5 or ER 1.5 in either blog.']],
+ lim:[['To gain a deeper understanding of Gemini Robotics On-Device\'s usage and safety profile and to gather feedback, we\'re initially releasing it to a select group of trusted testers.','On-Device'],
+      ['While we trained our model only for [ALOHA robots], we were able to further adapt it to a bi-arm Franka FR3 robot and the Apollo humanoid robot.','On-Device'],
+      ['The 1.5 blog has no limitations section at all.','—']],
+ ceil:'A thinking trace before acting costs latency by construction, and they publish none. The gap between the cloud model and the on-device model is the whole deployment story and the only comparison offered is against their own six-month-old model on an unlabelled chart. ER 1.5 calling Google Search mid-task implies network dependency in the control loop.',
+ gap:'"Thinking before acting" is asserted, not characterised. Nobody has measured what a reasoning trace buys over a well-tuned hierarchical policy, or what it costs in closed-loop latency. The tech report exists; nobody has audited it.',
+ src:'deepmind.google/discover/blog/gemini-robotics-15-brings-ai-agents-into-the-physical-world, /gemini-robotics-on-device-brings-ai-to-local-robotic-devices'},
+
+{id:'skild',n:'Skild AI',m:'Skild Brain → S1',c:'brain',ev:'claim',
+ bet:'One brain across every morphology. Train on 100,000 simulated bodies and cross-embodiment transfer emerges.',
+ specs:['100k bodies','2–8 s adapt','1 demo ≈ 380','96% seen'],
+ thesis:'Hierarchical: a low-frequency high-level manipulation and navigation policy feeding a high-frequency low-level policy that outputs joint angles and torques. Humans are treated as one more morphology. Trained on roughly 100,000 simulated robot bodies and tested zero-shot on held-out robots — adapting to a locked knee or a removed limb in 2–8 seconds where a specialist controller flipped over. S1 then shifts the interface from language to a single video demonstration.',
+ arch:[['Hierarchy','Low-frequency high-level manipulation/navigation policy → high-frequency low-level policy emitting joint angles and torques. No backbone, parameter count, chunk horizon or Hz on any page.'],
+       ['Omni-bodied','One model across quadrupeds, humanoids, tabletop arms and mobile manipulators. "Humans are also a form of robot." How embodiment is encoded is not explained.'],
+       ['Emergent transfer','~100,000 simulated bodies in training; zero-shot on held-out robots; in-context adaptation "within milliseconds to minutes."'],
+       ['S1','Built from the ground up as an in-context learner. Task specified by one video demonstration rather than language.'],
+       ['Self-play','"140 years of simulated play" in Isaac Sim.'],
+       ['Data','Teleop, UMI, egocentric video, simulation. S1 scaling study pretrained on 1k–100k hours of filtered data. "For every dollar we spend on collecting data, we spend three on quality control."']],
+ prog:[['Skild Brain','Jul 2025','Hierarchical general-purpose brain.','—'],
+       ['Omni-bodied','Sep 2025','Zero-shot on held-out robots; 2–8 s adaptation to a locked knee or removed limb.','A specialist controller flipped over under the same perturbation.'],
+       ['S1','Aug 2026','One video demonstration instead of language. 10-minute unseen tasks, 7× gain over language prompting on unseen tasks.','At 1k hours of pretraining the VLA still beats in-context learning on seen tasks (53% vs 43%) — the advantage only appears at scale.'],
+       ['Physical self-play','Sep 2026','140 years of simulated play.','Breaking the human-data ceiling.']],
+ nums:[['S1 at scale','96% per-step success on seen long-horizon tasks; 66% on unseen at 100k h vs 9% for a language-prompted VLA'],
+       ['Demo value','One demonstration ≈ 380 teleop demos ≈ 50–100 hours of teleoperation'],
+       ['Turnaround','11 minutes from demonstration to autonomous execution on one task'],
+       ['Missing','No parameter counts, chunk horizon, Hz, GPU counts, latency, memory or onboard figures for any model.']],
+ lim:[['S1-class models are pre-trained on human data, they are capped at human capability.','Physical self-play — the sharpest admission in the field'],
+      ['At 1k hours of pretraining the VLA beats in-context learning on seen tasks (53% vs 43%).','S1'],
+      ['[In-context learning] only degrades significantly once the demonstration implies a substantially different execution plan.','S1'],
+      ['No limitations section exists on any page.','—']],
+ ceil:'Not one inference number across five technical posts — no latency, no Hz, no parameter count, no memory, no onboard story. For a company whose whole claim is that one brain runs on every body, the absence of any statement about what that brain costs to run on a body is the central hole.',
+ gap:'Their own admission that human-pretrained models are capped at human capability is the field\'s most important open problem, and physical self-play is their proposed answer with 140 simulated years behind it and no published transfer result. Also: the 100k-simulated-bodies claim is a morphology-generalisation result nobody has reproduced with open tooling.',
+ src:'skild.ai/blogs/building-the-general-purpose-robotic-brain, /omni-bodied, /s1, /physical-self-play'},
+
+{id:'dyna',n:'Dyna Robotics',m:'DYNA-1 → Dyna-2 → Dyna-2.1 (robot: Taku)',c:'rely',ev:'primary',
+ bet:'Reliability is the product. A reward model, not a bigger policy, is what gets you from 50% to 99%.',
+ specs:['99.4% / 24 h','850+ folds','5 Hz + 100 Hz','1M h video'],
+ thesis:'Built the first thing they call "the first scalable foundation reward model for robotics" and used it for autonomous exploration, intentional error recovery and segmentation of streaming data into subtasks. Published a weekly progress log: week 1 the base model "falls apart after 5 minutes"; week 6 it ran 24+ hours. They are also the only company that publicly does the arithmetic on why long-horizon tasks fail.',
+ arch:[['DYNA-1','No backbone, action head, parameter count, chunk horizon or Hz published.'],
+       ['Reward model','Used in training for autonomous exploration, intentional error recovery and segmentation of streaming data into subtasks.'],
+       ['Dyna-2.1 stack','Dyna-2 world-action model at ~5 Hz emitting whole-body target trajectories → RL-trained whole-body controller at 100 Hz emitting joint targets and wheel velocities → VLM workflow orchestrator at lower frequency with text long-term memory.'],
+       ['Taku','21-DoF upper body, two 7-DoF arms, four steerable wheels.'],
+       ['Unified Robot Representation','Shared representation for human and robot pose data; RL controller seeded with human motion.'],
+       ['Data','Dyna-2 pretrained on one million hours of human video mixed with fleet robot data. DYNA-1\'s cup-filling task used 0.7% of the full training set.']],
+ prog:[['DYNA-1','Jun 2025','99.4% task success over a 24-hour run, 850+ napkins, ~60% of human speed, "zero interventions."','Week 1 the base model falls apart after 5 minutes; week 6 it sustains 24+ hours.'],
+       ['Dyna-2','2026','One million hours of human video. 87% of customer acceptance tests passed zero-shot vs 46% for Dyna-1.','—'],
+       ['Dyna-2.1','Sep 2026','Three-layer stack on the mobile Taku platform.','"Dyna-2.1 is just the beginning." Real customer-site deployment not yet shown.']],
+ nums:[['DYNA-1','99.4% over 24 h, 850+ napkins, ~60% human speed'],
+       ['Fold quality','98% reach grade 3+, but only 75% reach the grade 4–5 production bar'],
+       ['Acceptance tests','Dyna-2 87% zero-shot vs Dyna-1 46%'],
+       ['The arithmetic','A 79-step cycle at 95% per-step success completes 1.7% of the time — labelled "illustrative, not measured"'],
+       ['Contradiction','The Dyna-2.1 page says DYNA-1 still needed a person to refill the napkin bin, against DYNA-1\'s "zero interventions."']],
+ lim:[['Subtasks are treated as independent. In practice one failure tends to set up the next, so real numbers are worse.','Dyna-2.1 — the most intellectually honest sentence published by any company here'],
+      ['Dyna-2.1 is just the beginning.','Dyna-2.1'],
+      ['Only 75% reach the grade 4 or 5 production bar.','DYNA-1']],
+ ceil:'No inference latency or onboard compute anywhere. The 99.4% headline is one task, one site, one 24-hour window, and their own later page contradicts the "zero interventions" claim. But they are the only company that has published the compounding-failure arithmetic that invalidates everyone else\'s per-step numbers.',
+ gap:'Their own sentence — that subtask independence is false and real numbers are worse — is the central unexamined assumption in every success-rate claim in this atlas. Formalising long-horizon success under correlated failures, and measuring the correlation on real rollouts, is a paper nobody has written.',
+ src:'dyna.co/research/dyna-1, dyna.co/dyna-2.1'},
+
+{id:'dream',n:'Dream Labs',m:'Dream-1 (+ Dream-1-flash)',c:'brain',ev:'primary',
+ bet:'Every robot shows up the same way: as pixels. Predict video and actions jointly, and the body stops mattering.',
+ specs:['$3/hr API','1.6 s/call','27 sim robots','Research beta'],
+ thesis:'A World Action Model served as a public API that generalises across robots from almost any manufacturer. The embodiment abstraction is deliberately crude and deliberately general: three cameras (head plus one wrist per arm), robot state, a task string. Robots with two arms and parallel grippers share an end-effector action space and each robot\'s own IK solver turns poses into joints. Because the model predicts video, an unseen body seen by the head camera is just a shape moving through a scene.',
+ arch:[['Dream-1','World Action Model predicting video and actions together. No backbone, action-head type, parameter count or Hz published.'],
+       ['Output','Each call returns 1.6 seconds of actions. The research post describes end-effector poses; the README says joint targets — these conflict.'],
+       ['Embodiment abstraction','Three cameras + state + task string. Shared EEF action space for two-arm parallel-gripper robots; per-robot IK. "Every robot shows up the same way: as pixels."'],
+       ['API','client.policy({checkpoint:"dreamlabs/dream-1"}) → set_observation → get_action.'],
+       ['Data','Not quantified. Predecessor DreamZero post-trained on 30 minutes of YAM robot data. Adaptation uses a few hundred demonstrations; the research post shows 77 and 98 minutes for two hard cases.']],
+ prog:[['DreamZero','—','Post-trained on 30 minutes of YAM robot data.','—'],
+       ['Dream-1','Oct 2026','$90M seed. Zero-shot on 27 simulated robots (300 rollouts each) and 4 real robots. Fine-tuning offered as a service.','Serve the brain as an API rather than a weights download.']],
+ nums:[['Pricing','$3/hour for Dream-1, $2/hour for Dream-1-flash — about $0.0013 per action at 2,250 calls/hour'],
+       ['Evaluation','27 simulated robots × 300 rollouts, plus 4 real robots'],
+       ['Action window','1.6 s of actions per call'],
+       ['Unverified','B Capital as lead investor and the ex-NVIDIA founder claim do not appear on any Dream Labs page — the team page shows logos only.']],
+ lim:[['Dream-1 is a research beta.','dreamlabs.ai'],
+      ['It will make mistakes, and it has not been validated for safety-critical use.','dreamlabs.ai'],
+      ['Performance depends on the quality of each robot\'s inverse kinematics (IK) solver.','dreamlabs.ai'],
+      ['One-shot adaptation still outperforms zero-shot, so a gap remains.','dreamlabs.ai']],
+ ceil:'An API-served brain puts the network in the control loop. 1.6 seconds of actions per call at 2,250 calls/hour is about 1.6 s of action per 1.6 s of wall clock — there is no latency headroom disclosed, and no onboard option. Their own admission that performance depends on each robot\'s IK solver means the embodiment abstraction leaks exactly where contact matters.',
+ gap:'The pixels-as-universal-interface claim is the cleanest falsifiable hypothesis on this board and they have given you the API to test it. 300 rollouts per simulated robot across 27 robots is also, quietly, one of the better-powered evaluations anyone has run.',
+ src:'dreamlabs.ai, dreamlabs.ai/research/dream-1, github.com/dreamlabs-co/dreamlabs'},
+
+{id:'agibot',n:'AgiBot (Zhiyuan)',m:'GO-1 / Genie Operator-1 (ViLLA)',c:'intg',ev:'primary',
+ bet:'Insert a latent action space between language and motors, so action-free human video becomes trainable data.',
+ specs:['InternVL2.5-2B','H=30','1,001,552 traj','2,976 h'],
+ thesis:'Vision-Language-Latent-Action. A VQ-VAE-style latent action model learns k=4 discrete latent tokens from frame pairs; a latent planner on an InternVL2.5-2B backbone predicts those tokens; a diffusion action expert turns them into motor commands. The latent space is "orders of magnitude smaller than the discretized low-level actions used in OpenVLA," which makes VLM adaptation easier, and it gives you pseudo-labels for video that has no actions at all.',
+ arch:[['Stage 1 — latent action model','Encoder: spatial-temporal transformer with causal temporal masks over frame pairs. Decoder: spatial transformer conditioned on the first frame and k=4 discrete latent tokens. VQ-VAE objective. Codebook size not published.'],
+       ['Stage 2 — latent planner','InternVL2.5-2B backbone, InternViT encoding head and wrist views. 24 transformer layers with layer-by-layer conditioning on the VLM, full bidirectional attention. Predicts latent tokens.'],
+       ['Stage 3 — action expert','Diffusion objective, action chunk H=30, conditioned on proprioception.'],
+       ['Training','LR 2e-5, batch 768, 30,000 steps for fine-tuning. Total parameter count and control Hz not published; the robot records at 30 Hz.'],
+       ['Dataset','AgiBot World: 1,001,552 trajectories, 2,976.4 hours, 217 tasks, 87 skills, 106 scenes, 3,000+ objects, 4,000 m² facility, 100+ homogeneous AgiBot G1 robots (dual 7-DoF arms, mobile chassis, 8 cameras). ~1% failure-recovery data. CC BY-NC-SA 4.0.']],
+ prog:[['AgiBot World','Mar 2025','The largest homogeneous real-robot dataset published. Alpha subset 236 h vs ~2,000 h for Open X-Embodiment.','Homogeneity over heterogeneity — 100+ identical robots in one facility.'],
+       ['GO-1','Mar 2025','ViLLA. >60% success on complex tasks, 32% over RDT. Seen 0.77 vs 0.47 for OXE-pretrained; OOD 0.67 vs 0.38.','The latent planner adds an average 0.12 task-completion score.']],
+ nums:[['Dataset','1,001,552 trajectories / 2,976.4 h / 217 tasks / 87 skills / 106 scenes'],
+       ['GO-1','>60% on complex tasks; +32% over RDT; seen 0.77 vs 0.47, OOD 0.67 vs 0.38'],
+       ['Scaling','Power law across 9.2k → 1M trajectories, r = 0.97'],
+       ['Evaluation inconsistency','10 rollouts per task in §V-A1 but 30 trials per task in §V-C — the paper never reconciles this'],
+       ['Missing','No inference latency, memory, onboard figures or GO-1 parameter count.']],
+ lim:[['All evaluations are conducted in real-world scenarios. We are currently developing the simulation environment…','GO-1 paper'],
+      ['The model exhibits prolonged pauses at the onset of actions.','GO-1 paper, on real deployment — attributed to collected data']],
+ ceil:'No latency, no memory, no onboard story, and an evaluation that reports two different trial counts in the same paper. The ablation compares against a variant without the planner, never head-to-head against predicting actions directly — so the central claim that latent actions beat direct action prediction is not actually tested.',
+ gap:'Latent action spaces are the cheapest route to using action-free video and the comparison that would validate them has not been run. This dataset is public, which makes it the easiest rigorous ablation in the field to execute.',
+ src:'arXiv 2503.06669 (AgiBot World Colosseo; GO-1 is §IV)'},
+
+{id:'tri',n:'Toyota Research Institute',m:'Large Behavior Models',c:'rely',ev:'primary',
+ bet:'Before you believe any of this, measure it properly. Blind, randomised, statistically powered, and report what does not hold.',
+ specs:['n=50 real','n=200 sim','Blind eval','10 Hz'],
+ thesis:'The only serious evaluation paper in the field, and its headline finding is uncomfortable: fine-tuned LBMs beat from-scratch single-task policies, but pretrained-only policies without fine-tuning were statistically indistinguishable from single-task baselines in 5 of 8 real-world tasks and worse in 3. They blinded the evaluators, randomised policy order within initial-condition bundles, QA-ed 27% of ~2,700 rollouts, and then stated plainly where their own statistics fail.',
+ arch:[['Policy','Diffusion Transformer, 8 blocks, width 768. CLIP ViT-B/16 image features with the vision encoder fine-tuned; frozen CLIP text encoder with a trained projection.'],
+       ['I/O','Two observation timesteps concatenated to a 6,732-dim input. Outputs 16 steps × 20-dim actions (320 total). Runs at 10 Hz, executes the first 8 steps.'],
+       ['Platform','Two Franka FR3 arms. Not Atlas.'],
+       ['Training','Pretrain 48k steps, batch 2560, LR 3e-4. Fine-tune 30k steps real / 10k sim, batch 320, LR 2e-5. ~1,700 hours of data.'],
+       ['Protocol','50 real rollouts per task per policy per condition; 200 in simulation with matched seeds. Blind evaluators. Bundles by initial condition with randomised policy order. Milestone rubric for success; task completion as the fraction of milestones met.'],
+       ['Statistics','Bayesian posteriors with uniform Beta priors over success rates. Paired sequential binary tests, 5% Type-I per comparison, Bonferroni-corrected to global 95%, summarised with Compact Letter Display. Welch\'s t-test on task completion.']],
+ prog:[['LBM evaluation','Jul 2025','The field\'s only blind, randomised, powered comparison. A pretraining data-normalisation bug was found after evaluations and the real-world results were not rerun — and they said so.','"A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation."']],
+ nums:[['Sample size','50 real rollouts per task per policy per condition; 200 in simulation; ~2,700 real rollouts total'],
+       ['Resolution at n=50','A Wald 95% half-width of about ±14 points at p=0.5 — so a 10-point difference is unresolvable'],
+       ['Data efficiency','In simulation, matching from-scratch needs <30% of the data. On real SetBreakfastTable, fine-tuning on 15% beat from-scratch on 100%'],
+       ['The uncomfortable result','Pretrained-only, no fine-tuning: statistically indistinguishable in 5/8 real tasks, worse in 3/8'],
+       ['Scaling caveat','The "performance predictably increases" claim rests on task-completion only; success rate "do[es] not provide a statistically distinguishable conclusion"']],
+ lim:[['Thus, the Type-I error is not controlled.','§ on task-completion t-tests'],
+      ['Strictly speaking, this violates the i.i.d. assumption.','On aggregating across tasks'],
+      ['Type-I error is not globally controlled across tasks when they are presented in one plot.','Same section'],
+      ['Our real-world results potentially miss small-magnitude effects due to signal-to-noise limitations.','Limitations']],
+ ceil:'No compute, GPU-hours or inference latency published. The deeper limitation is structural and they name it: at 50 rollouts per arm you cannot resolve the effect sizes that actually matter, and they did not run a power analysis. Their own honesty is the finding — if the most careful group in the field cannot control Type-I error across tasks, nobody else\'s numbers mean much.',
+ gap:'This paper is the single best entry point in the whole atlas. It names the problem, shows the protocol, and admits exactly where it fails. Sequential testing, prediction-powered inference using simulation as the cheap surrogate, and power analysis for robot evaluation are all open, tractable, and nobody in industry is doing them.',
+ src:'arXiv 2507.05331'},
+
+{id:'tesla',n:'Tesla',m:'Optimus',c:'intg',ev:'none',
+ bet:'Vision-only, end-to-end video to action, same stack as FSD. Fleet scale beats everything.',
+ specs:['No papers','No specs','Claims only','tesla.com 403'],
+ thesis:'The bet as stated publicly is end-to-end learning from video to actuator commands with no teleoperation at inference, reusing the FSD training infrastructure, with manufacturing volume as the data flywheel. None of this is verifiable.',
+ arch:[['Published architecture','None. tesla.com/AI returns HTTP 403 to automated fetches. No paper, no technical blog, no model card.'],
+       ['What is verifiable','Essentially nothing about the policy architecture. Robot counts and capability claims come from Musk statements, not from engineering publications.']],
+ prog:[['—','—','No primary-source technical material was retrievable.','—']],
+ nums:[['All figures','Unverified. Treat every Optimus number as a claim until an engineering source exists.']],
+ lim:[['No published limitations. No published anything.','—']],
+ ceil:'Unknowable from primary sources. Included on this board because the capital and manufacturing scale are real and the architectural claim — pure end-to-end, vision-only — is the strongest contrast to the frequency-ladder consensus. But it is a claim, not a result.',
+ gap:'None available. There is nothing here to build research on until Tesla publishes.',
+ src:'None retrievable (tesla.com/AI → HTTP 403)'},
+
+{id:'agility',n:'Agility Robotics',m:'Digit 5 + Arc',c:'intg',ev:'primary',
+ bet:'Reliability in logistics first. Keep the controls backbone, layer learning on top of it where it earns its place.',
+ specs:['<1M param LSTM','Zero-shot sim2real','23 kg payload','65,000 h'],
+ thesis:'The counterweight to end-to-end. Their whole-body control model is "a relatively small LSTM neural network with fewer than one million parameters," RL-trained in Isaac Sim over "decades of simulated time in three or four days," transferring zero-shot. Learning from demonstration via VR teleoperation handles skills; LLMs and VLAs sit at the cognition layer. Arc is cloud fleet orchestration — WMS, WES and MES integration — not a model-serving layer.',
+ arch:[['Whole-body control','LSTM, <1M parameters, RL-trained in Isaac Sim, zero-shot sim-to-real. Control rate, compute and training-run size not published.'],
+       ['Skills','Learning from demonstration via VR teleoperation. No architecture, dataset size or rate published.'],
+       ['Cognition','LLMs and VLA models described as "highly useful" here. No model named, no size.'],
+       ['Arc','"Our cloud based automation platform." Connects Digit to existing warehouse automation and manages the fleet. Integrates AMRs, WMS, WES, MES. Whether it serves learned models is not stated.'],
+       ['Digit 5','Payload 23 kg, reach 2.2 m, run-to-charge 10:1, 20 h work per 24 h shift — marked "preliminary estimates" from pre-production hardware.']],
+ prog:[['WBC foundation model','Aug 2025','<1M parameter LSTM replaces model-based whole-body control, zero-shot to real.','IK/ID is "well-understood" for fixed-base robots; legged whole-body control is not.'],
+       ['Agility and AI','Mar 2026','Three-layer framing: controls, skills, cognition. Previous generation used "traditional control methods."','—']],
+ nums:[['WBC','<1M parameters; decades of simulated time in 3–4 days'],
+       ['Digit 5','23 kg payload, 2.2 m reach, 10:1 run-to-charge, 20 h/shift (preliminary)'],
+       ['Unverifiable','"65,000 hours of real production experience" with no breakdown of what the hours cover.']],
+ lim:[['Specs are "preliminary estimates" from pre-production hardware.','Digit 5 page'],
+      ['No page states which low-level joint, impedance or safety functions remain classical.','—']],
+ ceil:'A sub-1M-parameter LSTM doing whole-body control is the cheapest learned component in this atlas and it works — which is itself an argument that the frequency ladder\'s bottom rung does not need scale. What is missing is any statement of where classical control still sits, so the actual learned fraction of the stack is unknown.',
+ gap:'The strongest existence proof that small learned controllers beat hand-engineered ones at the bottom of the ladder. Nobody has characterised the capacity requirement as a function of rung frequency — Agility at <1M/1 kHz and Figure at 10M/1 kHz are the only two public data points.',
+ src:'agilityrobotics.com/content/training-a-whole-body-control-foundation-model, /content/agility-and-ai, /solutions/digit-5'},
+
+{id:'bd',n:'Boston Dynamics',m:'Atlas (+ TRI partnership)',c:'intg',ev:'claim',
+ bet:'The best hardware on earth plus reinforcement learning in simulation. Demonstrations alone are not enough.',
+ specs:['13-DoF hand','RL in sim','No numbers','"Small gap"'],
+ thesis:'Atlas learns by RL — "Atlas practiced the moves for millions of hours in simulations" — with domain randomisation and proprioceptive feedback. Their hand post argues that RL in simulation is "an essential component to solve dexterous manipulation" and that demonstrations alone are limited, which puts them closer to Eka than to Physical Intelligence on the central question.',
+ arch:[['Atlas policy','RL in simulation with domain randomisation and proprioceptive feedback. No architecture, rate, parameter count, data volume or compute published.'],
+       ['Hand','13 DoF. "We have initial results showing promising sim2real transfer" — no numbers.'],
+       ['TRI partnership','Not supported by any Boston Dynamics blog post retrieved. Neither Atlas post mentions TRI or Large Behavior Models.']],
+ prog:[['Training a Humanoid for Hard Work','~May 2026','RL in simulation, millions of simulated hours.','—'],
+       ['Robot Hands for Modern AI','~Sep 2026','13-DoF hand; RL in sim called essential for dexterity; demonstrations alone called limited.','—']],
+ nums:[['Published','Essentially none. "We have a very small sim-to-real gap" with no metric behind it.']],
+ lim:[['We have initial results showing promising sim2real transfer — with no numbers attached.','Hand post'],
+      ['"We have a very small sim-to-real gap" is stated with no metric.','Hand post']],
+ ceil:'Best-in-class hardware, near-zero published learning detail. The sim-to-real claim is unquantified. The widely-reported TRI Large Behavior Model partnership does not appear in their own blog.',
+ gap:'Their position — that imitation is insufficient and sim RL is essential — agrees with Eka and contradicts Physical Intelligence, Sunday, Generalist and Figure. That disagreement is the field\'s central fault line and Boston Dynamics has the hardware to settle it and has published nothing.',
+ src:'bostondynamics.com/blog/training-a-humanoid-robot-for-hard-work, /robot-hands-for-modern-ai-and-real-work'},
+
+{id:'xsquare',n:'X Square Robot',m:'WALL-OSS / WALL-A / WALL-B',c:'brain',ev:'primary',
+ bet:'Unify reasoning, subgoal decomposition and action synthesis in one differentiable framework — and open-source it.',
+ specs:['QwenVL2.5-3B','FAST + flow','Apache-2.0','10k+ h'],
+ thesis:'Two-stage recipe on a Qwen backbone: "Inspiration" learns discrete action priors via FAST, then "Integration" learns high-frequency continuous control with flow matching. Their distinctive claim is Unified Cross-Level Chain-of-Thought — "seamlessly unifying instruction reasoning, subgoal decomposition, and fine-grained action synthesis within a single differentiable framework." This is the policy family that ships inside LeRobot, so it runs on hardware you already have.',
+ arch:[['Backbone','QwenVL2.5-3B. Inputs: egocentric and arm-mounted camera views plus text.'],
+       ['Action head','Two checkpoints — wall-oss-fast (discrete FAST action priors) and wall-oss-flow (continuous flow matching).'],
+       ['Open','Apache-2.0. Training and inference code, LeRobot conversion (x2robot2lerobot.py), checkpoints on Hugging Face. Training data release not stated.'],
+       ['Data','"Exceeds tens of thousands of hours" across self-collected robot data, open-source action data and multimodal VQA.'],
+       ['WALL-A / WALL-B','WALL-A is the closed in-house operating model powering their products; WALL-B is pitched as a "world unified model." Neither is open.'],
+       ['Unpublished','Parameter count beyond the 3B backbone, chunk horizon, control Hz.']],
+ prog:[['WALL-OSS','Sep 2025','Open VLA on QwenVL2.5-3B with both FAST and flow-matching heads.','arXiv 2509.11766'],
+       ['WALL-OSS-0.5 / WALL-WM','2026','Later papers cited from the repo, not read here.','—']],
+ nums:[['Backbone','QwenVL2.5-3B'],
+       ['Data','"Tens of thousands of hours"'],
+       ['Missing','Chunk horizon, Hz, total parameter count, latency, memory.']],
+ lim:[['No limitations stated on any page read.','—']],
+ ceil:'A 3B backbone has the same Jetson-class problem as GR00T — and unlike GR00T, no latency table. But it is Apache-2.0 with public checkpoints, which makes it the cheapest real VLA to instrument yourself.',
+ gap:'Open weights plus two action-head variants on the same backbone is a ready-made controlled comparison of autoregressive versus flow-matching action heads — the exact comparison Physical Intelligence made internally and never published with matched compute.',
+ src:'x2robot.com/en/research, github.com/X-Square-Robot/wall-x, arXiv 2509.11766'},
+
+{id:'unitree',n:'Unitree',m:'UnifoLM-WMA-0',c:'world',ev:'primary',
+ bet:'A world model that serves two masters: generate synthetic data, and sharpen the policy by predicting what happens next.',
+ specs:['Open weights','15 Hz example','H=16','Main view only'],
+ thesis:'A world model with two modes. Simulation Engine generates synthetic data. Policy Enhancement connects the world model to an action head so that "by predicting future interaction processes" it improves decisions. The recipe starts by fine-tuning a video generation model on Open X-Embodiment, then post-trains in decision-making mode and simulation mode. Cheap hardware plus open models as a volume play.',
+ arch:[['Core','World model, two modes: Simulation Engine (synthetic data) and Policy Enhancement / Decision-Making (predict future interaction to assist the policy).'],
+       ['Backbone','Not stated. Inherited code credits DynamiCrafter, Diffusion Policy, ACT and HPT — pointing at a video-diffusion backbone without confirming one.'],
+       ['Open','Training and inference code plus weights (Sep 2025), deployment code (Sep 2025). Checkpoints: UnifoLM-WMA-0-Base (Open-X fine-tune) and UnifoLM-WMA-0-Dual (five Unitree datasets).'],
+       ['Robots','Unitree Z1 (single and dual arm, Dex1 gripper) and G1. Example client runs g1_dex1 at control_freq 15 with action_horizon 16 — an example command, not a specification.']],
+ prog:[['UnifoLM-WMA-0','Sep 2025','Open world-model-action release with weights and deployment code.','—']],
+ nums:[['Example config','control_freq 15, action_horizon 16'],
+       ['Missing','Parameter count, actual control rate, latency, memory.']],
+ lim:[['Model training only supports input from the main-view camera.','README — a hard architectural limit']],
+ ceil:'Single-camera input is a stated architectural limitation that rules out wrist views, which is where contact-rich manipulation information actually lives. Parameter count and latency unpublished.',
+ gap:'One of only two open world-model-action stacks with weights. The dual-mode framing — same model as data generator and as policy conditioner — is untested as a controlled comparison.',
+ src:'github.com/unitreerobotics/unifolm-world-model-action'},
+
+{id:'apptronik',n:'Apptronik',m:'Apollo 2 + Artemis (brain: Google DeepMind)',c:'intg',ev:'claim',
+ bet:'Build the best body and rent the frontier lab\'s brain.',
+ specs:['5\'8" 160 lb','7×22 ops','Fleet data','No model named'],
+ thesis:'A hardware company in a strategic partnership with Google DeepMind robotics, collecting real-world data from Apollo 2 fleets "to develop AI models for future humanoid systems in partnership with Google DeepMind." Notably, no page says a Gemini Robotics model actually runs on the robot today.',
+ arch:[['Brain','Not stated. The partnership is announced; no model is named as running on Apollo.'],
+       ['Artemis','Named as the layer that "coordinates perception, planning, controls, safety systems." No detail given.'],
+       ['Apollo','5\'8", 160 lb (Dec 2024 figures). Apollo 2 page gives no payload, DoF or runtime — only "swappable batteries help enable 7x22 operation" and "90%+ energy efficiency" for the actuator.']],
+ prog:[['DeepMind partnership','Dec 2024','Strategic partnership agreement with the Google DeepMind robotics team.','—'],
+       ['Apollo 2','Jun 2026','Fleets continuously collect real-world data for future models.','Data collection for models that do not exist yet.']],
+ nums:[['Apollo','5\'8", 160 lb; 7×22 operation via swappable batteries; 90%+ actuator efficiency'],
+       ['Missing','Payload, DoF, runtime, and any model or architecture detail.']],
+ lim:[['No limitations found on any page read.','—']],
+ ceil:'The brain is someone else\'s and is not confirmed to be running. Gemini Robotics 1.5 is "available to select partners" with no published latency — so Apollo inherits every one of DeepMind\'s undisclosed constraints plus a dependency it does not control.',
+ gap:'The body-rents-brain model is a real strategic bet and there is no public evidence yet about whether a frontier lab\'s VLA transfers cleanly onto a partner\'s hardware. Gemini\'s own cross-embodiment claim was demonstrated on Apollo — that is the one data point.',
+ src:'apptronik.com/news-collection/apptronik-partners-with-google-deepmind-robotics, /apollo/apollo-2'},
+
+{id:'sanctuary',n:'Sanctuary AI',m:'Physical AI + hydraulic hands',c:'intg',ev:'claim',
+ bet:'Teleoperation data plus hydraulic hands with tactile sensing, sold as a brain for other people\'s arms.',
+ specs:['17 DoF hand','99.5% (1 task)','5.5 h teleop','2.54 s cycle'],
+ thesis:'Pivoted from their own humanoid to selling "Our Physical AI" running on FANUC and Universal Robots arms, with hydraulic 17-DoF hands and integrated tactile sensing entering pilots. The one concrete published result is a wire plug insertion task.',
+ arch:[['Brain','"Proprietary intelligence" running on FANUC and Universal Robots arms. No model or architecture named.'],
+       ['Hands','17 DoF, hydraulic actuation, integrated tactile sensing. "Entering pilot programs soon."'],
+       ['Pipeline','"End-to-end infrastructure for data collection, policy development, and scaling Physical AI." No teleop-to-autonomy mechanism described.'],
+       ['Note','Phoenix and "Carbon" do not appear on any current page.']],
+ prog:[['Physical AI pivot','2026','From own humanoid to a brain for industrial arms.','—']],
+ nums:[['Wire plug insertion','99.5% model performance, 2.54 s cycle time per plug, 5.5 h of teleop data — conditions for the 99.5% not given']],
+ lim:[['Our robotic hands are entering pilot programs soon.','Hydraulic hands page'],
+      ['Our [robotic hands] will be introduced as a future configuration.','Physical AI page'],
+      ['Industrial humanoids are projected to take years to become reliable.','Sanctuary\'s own framing']],
+ ceil:'One task, one number, no conditions. Hands are pre-pilot. Hydraulic actuation at 17 DoF has a power and maintenance cost that nothing published addresses.',
+ gap:'5.5 hours of teleoperation to 99.5% on one insertion task is, if real, a startling data-efficiency number that contradicts everyone\'s scaling story. It needs conditions and a trial count before it means anything.',
+ src:'sanctuary.ai/solutions/physical-ai, /solutions/hydraulic-hands'},
+
+{id:'amazon',n:'Amazon',m:'DeepFleet + GAM',c:'lab',ev:'primary',
+ bet:'Warehouse scale is the only flywheel that exists. Start with fleet coordination, not manipulation.',
+ specs:['97M–840M','+10% efficiency','Traffic model','Not manipulation'],
+ thesis:'DeepFleet is a traffic model, not a manipulation policy — four transformers predicting robot moves and floor states on a grid, improving deployment efficiency by 10%. The manipulation work exists separately as GAM, a "production-grade foundation model that unifies robotic action generation" via a VLA pipeline, at ICRA 2026.',
+ arch:[['DeepFleet','Four transformer models: robot-centric 97M, robot-floor 840M, image-floor, graph-floor 13M. Predict robot moves and floor states on a grid. Outputs are navigation and traffic predictions, not manipulation commands.'],
+       ['GAM','ICRA 2026. "Production-grade foundation model that unifies robotic action generation" via a VLA pipeline. Authors include Kapil Katyal and Kostas Bekris.'],
+       ['Unverified','Frontier AI & Robotics as an org name, Pieter Abbeel\'s leadership, the Covariant RFM-1 lineage, Blue Jay and Project Eluna were not found on any Amazon Science or About Amazon page retrieved.']],
+ prog:[['DeepFleet','Aug 2025','Fleet traffic prediction, +10% deployment efficiency.','"The image-floor model didn\'t work well."'],
+       ['GAM','ICRA 2026','Unified action generation for production.','—']],
+ nums:[['DeepFleet','97M / 840M / 13M across model variants; +10% deployment efficiency'],
+       ['Training data','Subtitle says "millions of hours," body says "billions of hours" — the post contradicts itself']],
+ lim:[['The image-floor model didn\'t work well.','DeepFleet — a rare published negative result'],
+      ['…which they may not be suited for.','DeepFleet']],
+ ceil:'The headline robotics-AI story at Amazon is a traffic model, and the manipulation foundation model is a conference paper. The organisational claims that make Amazon look like a frontier robot-brain lab were not verifiable from Amazon\'s own pages.',
+ gap:'Fleet-scale coordination as a learning problem is almost untouched academically and Amazon has the only real deployment. Multi-robot traffic prediction with published negative results is unusual and useful.',
+ src:'amazon.science robotics area, aboutamazon.com DeepFleet post (Aug 2025)'},
+
+{id:'rai',n:'RAI Institute',m:'Advanced Learning for Control',c:'lab',ev:'claim',
+ bet:'Combine data-driven learning with principled models rather than replacing one with the other.',
+ specs:['RL for control','Hybrid stance','Research-first','Little published'],
+ thesis:'Five research areas; the relevant one says "Our approach uses reinforcement learning for control" plus AI high-level direction and incremental learning, and the data-driven area aims at "combining data-driven learning techniques with principled models." That hybrid stance is the institute\'s position.',
+ arch:[['Stance','RL for control, AI for high-level direction, incremental learning. Data-driven techniques combined with principled models.'],
+       ['Not found','No page retrieved mentions athletic intelligence, MPC, or an explicit position on whether end-to-end learning is sufficient. Recent posts (Oct 2026, "Whole-Body Manipulation Outside the Lab" and "Exploy") were not read.'],
+       ['History','The pages do not state the Boston Dynamics AI Institute lineage.']],
+ prog:[['—','—','Research areas only; recent technical posts not retrieved.','—']],
+ nums:[['Published','None retrieved.']],
+ lim:[['No limitations retrievable.','—']],
+ ceil:'Too little retrieved to assess. Included for the stance, which is the explicit hybrid position almost nobody else states.',
+ gap:'The learning-plus-model hybrid is under-argued in public. If anyone has evidence about where model-based structure still beats end-to-end at the control layer, it is here, and it is not published in a form you can build on.',
+ src:'rai-inst.com/research'},
+
+{id:'dexterity',n:'Dexterity',m:'Foresight world model',c:'rely',ev:'claim',
+ bet:'A black box is not deployable. Decompose into engineered skill agents and give them an interpretable world model.',
+ specs:['<400 ms','100M+ actions','Interpretable','Skill agents'],
+ thesis:'The clearest articulated case against generalist policies: "a black box is not deployable." Foresight is "Dexterity\'s world model," "built as an operator, not a database" and "interpretable by design." It orchestrates "teams of specialized skill agents: perception, motion planning, grasp selection, force control" with predictive branching and predictive pipelining, and "the branching algorithm is replaceable."',
+ arch:[['Foresight','World model as operator, interpretable by design. Four capabilities: predictive branching, pragmatic decisions, capability-aware orchestration, predictive pipelining.'],
+       ['Skill agents','Specialised perception, motion planning, grasp selection and force control agents, orchestrated rather than merged into one policy.'],
+       ['Replaceable','"The branching algorithm is replaceable" — explicitly modular.'],
+       ['Mech','Only an image labelled "Industrial Mech" was found. No description.']],
+ prog:[['Foresight','Mar 2026','World model as orchestrating operator over engineered skill agents.','Deployability requires interpretability.']],
+ nums:[['Latency','<400 ms per placement decision'],
+       ['Scale','100M+ actions'],
+       ['Safety','"0" safety incidents — definition not given'],
+       ['Inconsistency','The homepage says "decisions," the blog says "actions."']],
+ lim:[['Safety-incident definition is not given.','—'],
+      ['No limitations section published.','—']],
+ ceil:'A modular stack trades generality for auditability and nobody has quantified that trade. <400 ms per placement decision is slow by control standards and fine by logistics standards — which is the whole point of the bet.',
+ gap:'The interpretability-versus-generality trade is asserted on both sides of the field and measured by neither. A benchmark where a decomposed stack and an end-to-end policy are compared on the same task under the same trial budget does not exist.',
+ src:'dexterity.ai/blog/foresight'},
+
+{id:'ambi',n:'Ambi Robotics',m:'AmbiOS / Sim2Real sorting',c:'rely',ev:'claim',
+ bet:'Narrow task, engineered reliability, sold as a service. Accuracy and uptime are the only metrics that matter.',
+ specs:['99.5% uptime','99% sort','6 QC checks','RaaS'],
+ thesis:'Ken Goldberg\'s lineage: grasp reliability as a product rather than generality as a research goal. The pitch is explicitly that "end-to-end robotic solutions are just the beginning" — the deliverable is robots-as-a-service with analytics.',
+ arch:[['Stack','Sim2Real training pipeline, neural-network quality-control detection, RaaS delivery with analytics.'],
+       ['Published detail','No architecture. Goldberg\'s data-pyramid and "good old fashioned engineering" essays were not retrievable (science.org returned HTTP 403).']],
+ prog:[['—','—','Product claims only.','—']],
+ nums:[['Reliability','>99.5% accuracy and uptime; >99% sort accuracy to correct output location'],
+       ['QC','6+ quality control checkpoints per parcel with neural network detection'],
+       ['Training','"10,000 times faster training" via Sim2Real — baseline unspecified']],
+ lim:[['All figures are self-reported with no protocol.','—']],
+ ceil:'Narrow by design. The reliability numbers are real product metrics but have no published protocol, and the "10,000× faster training" claim has no baseline.',
+ gap:'Goldberg\'s argument — that engineered structure plus a data pyramid beats end-to-end at deployment reliability — is the most-cited counter-position in the field and the comparison has never been run under matched conditions.',
+ src:'ambirobotics.com, ambirobotics.com/approach'},
+
+{id:'worldlabs',n:'World Labs',m:'Marble · RTFM · Atlas',c:'world',ev:'claim',
+ bet:'Spatial intelligence first. Train entirely in generated worlds, and use simulation to rank policies.',
+ specs:['Real→sim→real','1 h autonomous','Rank-preserving','Arch undisclosed'],
+ thesis:'Fei-Fei Li\'s spatial-intelligence bet, which did turn toward robotics: they acquired SceniX in Jul 2026 and published a real-to-sim-to-real result claiming policies "trained entirely in simulation" transfer to robots, and — the load-bearing claim — that simulation evaluation "preserves policy rankings" on hardware.',
+ arch:[['Marble','"Our frontier multimodal world model" (Nov 2025). World API generates explorable 3D worlds from text, images and video (Jan 2026).'],
+       ['RTFM','"A generative world model that generates video in real-time" (Oct 2025).'],
+       ['Atlas','"An omni world model for spatial intelligence" (Sep 2026).'],
+       ['R2S2R','Policies trained entirely in simulation transfer to robots; simulation evaluation preserves policy rankings; several tasks ran autonomously for one hour without intervention. Architecture: "a novel, generative world modeling system" — nothing more.']],
+ prog:[['Marble','Nov 2025','Frontier multimodal world model.','—'],
+       ['SceniX acquisition','Jul 2026','Robotics turn.','—'],
+       ['Real-to-sim-to-real','Jul 2026','Sim-trained policies transfer; sim eval preserves policy rankings; one-hour autonomous runs.','"A useful simulation need not match real-world success rates exactly."']],
+ nums:[['Autonomy','Several tasks ran autonomously for one hour without intervention'],
+       ['Ranking claim','Simulation evaluation "preserves policy rankings" on hardware — the trial statistics behind this were not verified']],
+ lim:[['Real environments do not come with clean measurements.','R2S2R'],
+      ['A useful simulation need not match real-world success rates exactly.','R2S2R — the rank-preservation hedge']],
+ ceil:'Architecture entirely undisclosed. The rank-preservation claim is the most useful thing anyone has asserted about robot evaluation and it is asserted without the statistics that would make it actionable.',
+ gap:'Rank preservation under simulation is exactly the property that would make cheap evaluation valid, and it is a statistical claim — about correlation of orderings across a policy population — that nobody has tested with adequate power. This is a direct bridge between world models and the evaluation problem.',
+ src:'worldlabs.ai/blog, worldlabs.ai/blog/real-to-sim-to-real'},
+
+{id:'wayve',n:'Wayve',m:'GAIA-4 · LINGO',c:'world',ev:'primary',
+ bet:'End-to-end learning applies to safety and simulation too, not just to the driving policy.',
+ specs:['Closed loop','2.5× fidelity','Radar gen','No HD maps'],
+ thesis:'The cleanest industrial world-model-for-control work, in driving rather than manipulation. GAIA-4 is "the world model at the core of Simulation 2.0," taking recorded sensor data with no HD maps or scene graphs and outputting camera and radar streams, with the AI Driver in the loop. Their stated position — "end-to-end learning applies to safety and simulation too" — is the opposite of the hand-engineered validation stance.',
+ arch:[['GAIA-4','Inputs recorded sensor data, no HD maps or scene graphs. Outputs camera and radar streams. Radar generation called an industry first.'],
+       ['Closed loop','AI Driver in the loop. "World-on-rails" replays other agents\' logged behaviour; reactive agents are switchable. "World-on-rails is a capability we can switch on, not a limitation of the world model."'],
+       ['Not read here','GAIA-2, GAIA-3, LINGO, and the Nov 2026 "Language Should Ride Shotgun" post.']],
+ prog:[['GAIA-4','Aug 2026','Simulation 2.0 core, radar generation, switchable reactive agents.','Recorded-scene fidelity improved 2.5× — baseline unspecified.']],
+ nums:[['Fidelity','Recorded-scene fidelity improved 2.5×, baseline not specified'],
+       ['Firsts','Radar generation described as an industry first']],
+ lim:[['The 2.5× fidelity baseline is not specified.','—']],
+ ceil:'Driving, not manipulation — so contact dynamics, the hardest part of the manipulation world-model problem, never arises. But the closed-loop evaluation machinery is the most mature in the industry.',
+ gap:'Driving has solved closed-loop world-model evaluation to a standard manipulation has not approached. Porting that machinery — reactive agents, rails, fidelity metrics — to contact-rich manipulation is an open and well-defined transfer.',
+ src:'wayve.ai/thinking/gaia-4'},
+
+{id:'naturewill',n:'Nature Will',m:'Natura-1',c:'brain',ev:'none',
+ bet:'Dexterity is the bottleneck, not whole-body control. 50 billion parameters, hands only.',
+ specs:['50B claimed','Hands only','Unverified','No site found'],
+ thesis:'Reported in October 2026 as a 50-billion-parameter physical general foundation model focused solely on hands — no locomotion, no whole-body control. If the parameter count is real it is by far the largest model in this atlas and the narrowest scope, which is a genuinely contrarian pairing.',
+ arch:[['Status','Nothing verified. The only available source (Forbes, 13 Oct 2026) returns HTTP 403 to automated fetches, and no company site was located.'],
+       ['Claims to verify','The 50B parameter count, the hands-only scope, the architecture, the data, and any latency figure.']],
+ prog:[['Natura-1','Oct 2026','Announced; details unverified.','—']],
+ nums:[['Everything','Unverified. Do not cite any Natura-1 figure without a primary source.']],
+ lim:[['Nothing published or retrievable.','—']],
+ ceil:'Unknown. A 50B model dedicated to hands would have an inference cost far beyond anything deployable onboard today, which makes the scope choice and the size choice hard to reconcile — but there is no source to check.',
+ gap:'If hands-only at extreme scale works, it reframes the whole body-versus-brain debate. Currently it is a press report. Needs a primary source before it belongs in any analysis.',
+ src:'Forbes 13 Oct 2026 (HTTP 403 — not retrievable); no company site found'},
+
+{id:'enigma',n:'Enigma',m:'Models + abstraction + interface',c:'rely',ev:'claim',
+ bet:'The bottleneck is not the policy, it is that nobody can tell a robot what to do. Make control as easy as a volume knob.',
+ specs:['$71M seed','100+ robots','HRI-first','Open-ended'],
+ thesis:'The deliberate outlier. Three layers — model, abstraction, interface — with human-robot interaction as the data source rather than an afterthought. They run 100+ robots in hangars in Israel and California as a public experiment, and the stated test is usability, not capability. Co-founders Jonathan Jacobi and Gal Niv; the analogy Jacobi uses is a volume knob.',
+ arch:[['Layers','Model, abstraction, interface. "Enigma builds robotic foundation models to make every robot intelligent and the interfaces to make them intuitive to use."'],
+       ['Experiment','100+ robots in hangars in Israel and California.'],
+       ['Claim','Developed both the robotic arms and their underlying models entirely from the ground up.'],
+       ['Undisclosed','Architecture, parameter counts, data, any technical detail. Partners in healthcare, logistics and entertainment are unnamed.']],
+ prog:[['Seed','Jul 2026','$71M led by Index Ventures and Ribbit Capital, Conviction participating. Less than one year old.','—']],
+ nums:[['Funding','$71M seed'],
+       ['Fleet','100+ robots across two sites'],
+       ['Technical','None published.']],
+ lim:[['Jacobi admits that Enigma\'s experiment is very open-ended.','TechCrunch'],
+      ['He declined to share specific use cases.','TechCrunch']],
+ ceil:'No technical disclosure at all. But the thesis is a real gap: every other company optimises capability and assumes specification is solved, and specification is visibly not solved.',
+ gap:'Task specification is the least-studied part of the stack. Skild moved from language to a video demonstration; Generalist does in-context learning from 3–12 s of demo; nobody has studied what interface actually minimises specification error for a non-expert. That is an HRI question with a learning answer.',
+ src:'enigma.inc, TechCrunch 27 Jul 2026'}
+];
+
+// ---------- rendering ----------
+const main = document.getElementById('main');
+let view='map', active=new Set(Object.keys(CL)), query='', openId=null, cmp=[];
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const kvar = c => `--k:${CL[c].color}`;
+const evLabel = {primary:'primary source',claim:'company claim',none:'undisclosed'};
+
+function filtered(){
+  const q=query.trim().toLowerCase();
+  return D.filter(d=>active.has(d.c) && (!q ||
+    (d.n+' '+d.m+' '+d.bet+' '+d.thesis).toLowerCase().includes(q)));
+}
+
+function cardHTML(d){
+  return `<button class="card${openId===d.id?' sel':''}" style="${kvar(d.c)}" data-id="${d.id}">
+    <div class="card-h"><div style="min-width:0">
+      <h3>${esc(d.n)}</h3><div class="model">${esc(d.m)}</div>
+    </div><span class="ev ${d.ev}">${evLabel[d.ev]}</span></div>
+    <div class="bet">${esc(d.bet)}</div>
+    <div class="specs">${d.specs.map(s=>`<span class="spec">${esc(s)}</span>`).join('')}</div>
+  </button>`;
+}
+
+function viewMap(){
+  const f=filtered();
+  return `<div class="controls">
+    ${Object.entries(CL).map(([k,v])=>`<button class="chip" data-cl="${k}" style="--d:${v.color}"
+      aria-pressed="${active.has(k)}"><span class="dot"></span>${v.name}</button>`).join('')}
+    <input type="search" id="search" placeholder="Search architectures, bets…" value="${esc(query)}">
+    <span class="count">${f.length} / ${D.length}</span>
+  </div>
+  <div class="grid">${f.map(cardHTML).join('')||'<p class="note">Nothing matches.</p>'}</div>`;
+}
+
+function viewCompare(){
+  const rows=[['Model','m'],['Cluster',d=>CL[d.c].name],['The bet','bet'],
+    ['Evidence',d=>evLabel[d.ev]],['Key specs',d=>d.specs.join(' · ')],
+    ['Structural ceiling','ceil'],['Research opening','gap']];
+  const sel=cmp.map(id=>D.find(d=>d.id===id)).filter(Boolean);
+  return `<div class="controls"><div class="pickbar">
+    ${D.map(d=>`<button class="pick" data-cmp="${d.id}" aria-pressed="${cmp.includes(d.id)}">${esc(d.n)}</button>`).join('')}
+  </div></div>
+  ${sel.length?`<div class="tablewrap"><table><thead><tr><th></th>
+    ${sel.map(d=>`<th style="color:${CL[d.c].color}">${esc(d.n)}</th>`).join('')}</tr></thead><tbody>
+    ${rows.map(([lab,k])=>`<tr><th>${lab}</th>${sel.map(d=>{
+      const v=typeof k==='function'?k(d):d[k];return `<td>${esc(v)}</td>`}).join('')}</tr>`).join('')}
+    </tbody></table></div>`:'<p class="note">Pick two or three above to put them side by side.</p>'}`;
+}
+
+const LADDER=[
+ {hz:'1 kHz',l:'joint / WBC',t:'Whole-body control',k:'var(--c-intg)',
+  p:'Joint targets, balance, contact reaction. This is where hand-engineered C++ used to live and where learned controllers have already won.',
+  who:'Figure System 0: 10M params · Agility: <1M-param LSTM · Dyna-2.1 WBC: 100 Hz'},
+ {hz:'100–200 Hz',l:'reactive',t:'Visuomotor policy',k:'var(--c-brain)',
+  p:'Closed-loop reaction to what the cameras and fingertips see. Small models, because this rung has a hard latency budget.',
+  who:'Figure System 1: 80M @ 200 Hz · GR00T System 1: 120 Hz · Generalist GEN-1.5: 100 Hz trajectories'},
+ {hz:'5–50 Hz',l:'semantic',t:'The VLA itself',k:'var(--c-lab)',
+  p:'Where almost every company\'s headline model actually runs. The published numbers here are the honest ones, and they are low.',
+  who:'π0: "up to 50/s" · GR00T N1.6 on Jetson Thor: 9.5 Hz · GR00T N1.7 + TensorRT: 28 Hz · 1X Redwood: 160M @ ~5 Hz · Dyna-2: 5 Hz · TRI LBM: 10 Hz · Figure S2: 7–9 Hz'},
+ {hz:'0.1 Hz',l:'planning',t:'Reasoning and orchestration',k:'var(--c-rely)',
+  p:'Subtask decomposition, memory, tool calls, recovery. Increasingly a separate model, sometimes off the robot entirely.',
+  who:'Gemini Robotics-ER 1.5 (thinks, calls Search) · Dyna workflow orchestrator · 1X world model: 11 s/generation, offboard'}
+];
+
+function viewPhysics(){
+  return `<div class="prose" style="padding-block:18px 0">
+    <p>You asked where the limits are. They are not evenly distributed: almost every constraint in this
+    field collapses onto one axis, which is <strong>how fast a model can be asked a question</strong>.
+    Everything else — parameter count, memory footprint, which device, whether inference is onboard —
+    is downstream of that.</p>
+  </div>
+  <div class="sec"><h4>The frequency ladder</h4>
+  <p class="note" style="margin-bottom:12px">Every serious architecture here is a hierarchy over
+    control frequency. The semantic layer is 20–200× slower than the control layer, and that single
+    ratio is why the field converged on asynchronous hierarchies. Generalist is the only player
+    betting the split is unnecessary.</p>
+  <div class="ladder">${LADDER.map(r=>`<div class="rung" style="--k:${r.k}">
+    <div><div class="hz">${r.hz}</div><span class="hzl">${r.l}</span></div>
+    <div><h4>${r.t}</h4><p>${r.p}</p><div class="who">${esc(r.who)}</div></div></div>`).join('')}</div></div>
+
+  <div class="sec"><h4>Measured latency — the only reproducible table in the industry</h4>
+  <p>NVIDIA is the single player that publishes inference latency on named hardware. Treat this as the
+    reference point against which every undisclosed claim should be read.</p>
+  <div class="tablewrap"><table><thead><tr><th>Device</th><th>Backbone</th><th>Action head</th>
+    <th>End-to-end</th><th>Rate</th></tr></thead><tbody>
+    <tr><td>RTX 5090</td><td class="n">18 ms</td><td class="n">16 ms</td><td class="n">37 ms</td><td class="n">27.3 Hz</td></tr>
+    <tr><td>H100</td><td class="n">23 ms</td><td class="n">11 ms</td><td class="n">38 ms</td><td class="n">26.3 Hz</td></tr>
+    <tr><td>RTX 4090</td><td class="n">25 ms</td><td class="n">17 ms</td><td class="n">44 ms</td><td class="n">22.8 Hz</td></tr>
+    <tr><td><strong>Jetson AGX Thor</strong></td><td class="n">39 ms</td><td class="n"><strong>61 ms</strong></td><td class="n">105 ms</td><td class="n"><strong>9.5 Hz</strong></td></tr>
+  </tbody></table></div>
+  <p class="note" style="margin-top:10px">GR00T N1.6, single view, 4 denoising steps, torch.compile.
+    On the only device in this table that can actually ride on a robot, the action head costs more than
+    the vision-language backbone — and the whole model runs at 9.5 Hz. N1.7 reaches ~28 Hz on Thor only
+    with TensorRT, and 25 Hz with NVFP4 quantisation.</p></div>
+
+  <div class="sec"><h4>Memory</h4>
+  <dl class="kv">
+    <dt>Inference</dt><dd>16 GB+ VRAM for a 3B GR00T. Jetson AGX Thor and Orin both qualify — barely.</dd>
+    <dt>Fine-tuning</dt><dd>40 GB+ VRAM recommended. This is why nobody fine-tunes on the robot.</dd>
+    <dt>Checkpoint</dt><dd>~6 GB for a 3B base model.</dd>
+    <dt>Consequence</dt><dd>A 7B System 2 does not fit alongside a System 1 on one device. Figure runs
+      two embedded GPUs per robot — one each for S1 and S2. That is the memory wall made physical.</dd>
+    <dt>The 5B problem</dt><dd>π0.6 moved to a 5B backbone and published no deployment numbers at all.
+      On Thor-class hardware a 5B model with an action expert does not reach useful closed-loop rates
+      without heavy optimisation nobody has described.</dd>
+  </dl></div>
+
+  <div class="sec"><h4>What onboard inference actually looks like</h4>
+  <p>Strip out the marketing and there are only a handful of published onboard numbers in the entire
+    industry, and they cluster far below the headline model sizes:</p>
+  <div class="tablewrap"><table><thead><tr><th>System</th><th>Params</th><th>Rate</th><th>Where</th></tr></thead><tbody>
+    <tr><td>Figure System 0</td><td class="n">10M</td><td class="n">1 kHz</td><td>Onboard</td></tr>
+    <tr><td>Agility whole-body control</td><td class="n">&lt;1M</td><td class="n">—</td><td>Onboard</td></tr>
+    <tr><td>Figure System 1</td><td class="n">80M</td><td class="n">200 Hz</td><td>Onboard, own GPU</td></tr>
+    <tr><td>1X Redwood</td><td class="n">160M</td><td class="n">~5 Hz</td><td>Onboard, fully</td></tr>
+    <tr><td>Figure System 2</td><td class="n">7B</td><td class="n">7–9 Hz</td><td>Onboard, own GPU</td></tr>
+    <tr><td>GR00T N1.6</td><td class="n">3B</td><td class="n">9.5 Hz</td><td>Jetson Thor</td></tr>
+    <tr><td>1X world model</td><td class="n">14B</td><td class="n">0.09 Hz</td><td><strong>Offboard</strong>, multi-GPU</td></tr>
+    <tr><td>Dream-1</td><td class="n">—</td><td class="n">1.6 s/call</td><td><strong>Network API</strong>, $3/hr</td></tr>
+  </tbody></table></div>
+  <p class="note" style="margin-top:10px">1X Redwood is the most revealing row: 160M parameters at 5 Hz
+    is what actually fits on a humanoid shipping into homes — two orders of magnitude smaller than the
+    brain-only companies' flagship models. The gap between that and a 14B offboard world model at
+    0.09 Hz is the unformalised distillation problem of the field.</p></div>
+
+  <div class="sec"><h4>Where the silence is loudest</h4>
+  <p>Of the 28 players here, these publish <em>no</em> inference latency, onboard-compute or memory
+    figure of any kind: Physical Intelligence (across seven research pages), Sunday, Generalist, Skild,
+    Eka, Dyna, AgiBot, Gemini Robotics, Tesla, Boston Dynamics, Sanctuary, World Labs. The pattern is
+    not random — it is strongest exactly where the headline model is largest. When a company tells you
+    a chunk horizon ("50 steps = 1 second, so 50 Hz") instead of a measured rate, that is chunk
+    arithmetic, not a closed-loop number.</p></div>`;
+}
+
+const GAPS=[
+ {k:'var(--c-rely)',t:'Statistically valid robot evaluation',
+  l:'The field cannot measure its own progress, and the most careful group in it says so explicitly.',
+  ev:['TRI ran the only blind, randomised, powered comparison — 50 real rollouts per task per policy per condition, ~2,700 rollouts, QA on 27% — and still wrote: <em>"Thus, the Type-I error is not controlled."</em>',
+      'At n=50 and p=0.5 the Wald 95% half-width is about ±14 points. A 10-point difference is unresolvable. Most published robot comparisons run n=10–30.',
+      'NVIDIA\'s own README: <em>"Users may observe 5-6% variance between runs due to non-deterministic image augmentations."</em> Augmentation noise alone swamps most reported effects.',
+      'AgiBot\'s GO-1 paper reports 10 rollouts per task in one section and 30 in another, and never reconciles them.',
+      'Dyna: <em>"Subtasks are treated as independent. In practice one failure tends to set up the next, so real numbers are worse."</em> A 79-step cycle at 95% per-step completes 1.7% of the time.'],
+  ask:'Sequential tests with controlled Type-I error across tasks. Prediction-powered inference using simulation as the cheap surrogate. Power analysis for robot evaluation. A cheap, valid harness for open policies on a low-cost arm.'},
+ {k:'var(--c-brain)',t:'Closed-loop theory for asynchronous chunked execution',
+  l:'Every deployed VLA emits action chunks and executes them partially, under latency. Every theoretical bound assumes synchronous per-timestep execution.',
+  ev:['π0.5 emits a 50-step one-second chunk. GR00T N1.7 uses H=16–40. AgiBot GO-1 uses H=30. TRI predicts 16 steps and executes 8.',
+      'Figure trains with a deliberate temporal offset between S1 and S2 inputs "to match deployment latency" — an engineering fix with no theory behind it.',
+      'Physical Intelligence has a "real-time action chunking" research thread; the compounding-error theory for it does not exist.',
+      'Classical results — the O(ε·T²) imitation bound, DAgger-style analyses, the Foster/Block/Misra minimax results — all assume synchronous execution and no inference latency.'],
+  ask:'What is the regret bound for a policy that emits H-step chunks, executes k<H of them, inpaints the overlap, and reads observations delayed by 100–300 ms? Nobody has written this down.'},
+ {k:'var(--c-lab)',t:'The pretraining-without-finetuning gap',
+  l:'Every company sells zero-shot generality. Every honest number says fine-tuning is doing the work.',
+  ev:['TRI, measured: pretrained-only policies were statistically indistinguishable from single-task baselines in 5 of 8 real tasks and <em>worse</em> in 3.',
+      'π0.7: <em>"Even for skills that are seen in training, best results are typically obtained by fine-tuning."</em>',
+      'Dream Labs: <em>"One-shot adaptation still outperforms zero-shot, so a gap remains."</em>',
+      'Generalist GEN-1.5: in-context one-shot reaches 59% ±10%; few-shot with 10 gradient steps reaches 83% ±9%. Gradients still win.',
+      'Skild S1: at 1k hours of pretraining, the fine-tuned VLA still beats in-context learning on seen tasks (53% vs 43%).'],
+  ask:'What exactly does pretraining buy when you cannot fine-tune? Characterise the gap as a function of data scale, model capacity and distribution distance — on open checkpoints, which now exist.'},
+ {k:'var(--c-brain)',t:'Capacity, ossification and the 7B claim',
+  l:'The most consequential scaling claim in robot learning rests on in-house models nobody can inspect.',
+  ev:['Generalist reports a phase transition at 7B: 1B models "become unable to absorb new information over time," 6B "begin to benefit," 7B+ "internalize large-scale robotic pretraining data."',
+      'No exponent, no constant, no public checkpoint. Their own footnote notes the LLM literature uses "ossification" for pretrain-to-finetune, whereas they observe it during pure pretraining.',
+      'Counter-evidence from the same board: 1X ships 160M onboard, Figure\'s System 1 is 80M, Agility\'s whole-body controller is under 1M — and all of them work at their rung.',
+      'AgiBot reports a power law across 9.2k→1M trajectories with r=0.97 but no capacity threshold.'],
+  ask:'Replicate the ossification curve on open models and open data. If it holds, capacity is the field\'s binding constraint and a lot of small-model engineering is a dead end. If it does not, a lot of capital is mispriced.'},
+ {k:'var(--c-intg)',t:'The human-data ceiling',
+  l:'The sharpest live disagreement in the field, stated most honestly by the company with the most to lose by saying it.',
+  ev:['Skild, in their own words: <em>"S1-class models are pre-trained on human data, they are capped at human capability."</em>',
+      'Betting on human data: Sunday (gloves), Generalist GEN-1 (wearables, "no robot data"), Figure Helix 2.5 (Index, 35 min of human experience per second), Dyna-2 (1M hours of human video), NVIDIA N1.7 (20k h EgoScale).',
+      'Betting against it: Eka (<em>"not by mimicking human data, but by mastering physics"</em>), Boston Dynamics (RL in sim "essential," demonstrations "limited"), Skild\'s own physical self-play (140 years of simulated play).',
+      'Nobody has published a result where a policy exceeds the demonstrator on a contact-rich real-world task.'],
+  ask:'Construct a task where human-demonstration ceiling and physics-optimal performance measurably diverge, and show which training regime crosses it. This settles the field\'s central argument.'},
+ {k:'var(--c-brain)',t:'Force and contact as a learned modality',
+  l:'A $1.45B company is built entirely on this and has published nothing.',
+  ev:['Eka: Vision-Force-Action, RL in simulation, no human demonstrations, force-sensing hand. No architecture, no simulator, no randomisation scheme, no sim-to-real evidence published.',
+      'Eka asserts: <em>"the sim-to-real gap has historically limited its use for dexterous, contact-rich manipulation. Eka\'s VFA is demonstrating that this sim-to-real barrier is falling."</em> No method accompanies this.',
+      'Figure added force feedback to System 1 for logistics. Sunday\'s gloves record applied force. Sanctuary\'s hands have integrated tactile sensing. Boston Dynamics\' 13-DoF hand claims "promising sim2real."',
+      'Contact-rich dynamics remain the hardest thing to simulate, and nobody has published a credible transfer result with a stated randomisation budget.'],
+  ask:'Learn contact-rich insertion in simulation, transfer it, and report the randomisation budget and an honest real-world trial count. This is a tractable thesis and it would be the most-cited result of the year.'},
+ {k:'var(--c-world)',t:'World models as evaluators, not just policies',
+  l:'The property that would make cheap evaluation valid is a statistical claim nobody has tested.',
+  ev:['World Labs claims simulation evaluation <em>"preserves policy rankings"</em> on hardware — the single most useful assertion about robot evaluation anyone has made, published without statistics.',
+      '1X uses their 14B world model as a <em>policy</em>, not an evaluator, and admits: <em>"monocular pretraining can still lead to weak 3D grounding, where the real robot undershoots or overshoots even when the generated video \'succeeds.\'"</em>',
+      '1X checkpoint selection already uses dynamic time warping between ground-truth actions and IDM-extracted actions from generated video — evaluation by world model, in production, unvalidated.',
+      'Wayve has mature closed-loop world-model evaluation in driving, where contact dynamics never arise.'],
+  ask:'Rank preservation is a claim about the correlation of orderings across a policy population. Test it with adequate power. This is the direct bridge between the world-model bet and the evaluation gap.'},
+ {k:'var(--c-lab)',t:'Memory, long horizon and the specification interface',
+  l:'Everything here is effectively memoryless, and nobody has studied how a non-expert should specify a task.',
+  ev:['GEN-1.5 carries 30 seconds of video memory. Physical Intelligence has a memory research thread. Everything else is a fixed observation window.',
+      '1X: <em>"As we consider tasks longer than 5 seconds, closed-loop replanning with memory context will help us handle drift, partial observability, and recovery."</em>',
+      'GR00T N1: <em>"Currently, our GR00T N1 model focuses primarily on short-horizon tabletop manipulation tasks."</em>',
+      'On specification: Skild moved from language to a single video demonstration (7× gain on unseen tasks). Generalist does in-context learning from 3–12 s of demo. Enigma built a whole company on the premise that specification is the bottleneck.',
+      'Nobody has measured which interface minimises specification error for a non-expert user.'],
+  ask:'Long-horizon memory architectures under the latency budget of the semantic rung; and a real study of specification error across language, demonstration and goal-image interfaces.'}
+];
+
+function viewGaps(){
+  return `<div class="prose" style="padding-block:18px 0">
+    <p>These are ordered by how tractable they are for one person with access to a low-cost arm, an
+    A100-class machine for training and the open checkpoints that now exist — not by how important they
+    sound. Each one is anchored in something a company has already admitted in print, because an
+    admission is a much better research lead than a claim.</p>
+  </div><div style="padding-bottom:36px">
+  ${GAPS.map(g=>`<div class="gapcard" style="--k:${g.k}">
+    <h3>${g.t}</h3><p class="lede">${g.l}</p>
+    <ul class="ev-list">${g.ev.map(e=>`<li>${e}</li>`).join('')}</ul>
+    <div class="ask"><strong>The open question:</strong> ${g.ask}</div></div>`).join('')}
+  </div>`;
+}
+
+function viewMethod(){
+  return `<div class="prose" style="padding-block:18px 36px">
+    <h3>How to read the evidence badges</h3>
+    <p><strong>Primary source</strong> means the architecture and numbers here came from the company's
+    own research pages, papers or repositories, read directly. <strong>Company claim</strong> means the
+    page exists but gives marketing rather than method. <strong>Undisclosed</strong> means there is
+    effectively nothing technical to read — which, for Eka at a $1.45B valuation and Tesla at any
+    valuation, is itself the finding.</p>
+
+    <h3>The five bets, stated plainly</h3>
+    ${Object.entries(CL).map(([k,v])=>`<p><strong style="color:${v.color}">${v.name}:</strong> ${v.claim}</p>`).join('')}
+
+    <h3>What the sweep actually changed about the picture</h3>
+    <ul>
+      <li><strong>Sunday's model is not the Action Chunking Transformer.</strong> ACT-1 and ACT-2 never
+        cite Zhao et al. or ALOHA; their citations are GPT-1, GPT-3, π0, GEN-0 and GEN-1. Read it as
+        "Act One."</li>
+      <li><strong>1X's world model is a policy, not an evaluator.</strong> It generates video, extracts
+        actions with an inverse dynamics model, and executes them — at 11 seconds per generation,
+        offboard.</li>
+      <li><strong>Figure 2.5 abandoned the pretrained VLM.</strong> Helix 2.5 trains from random
+        initialisation on their own human-behaviour dataset, which quietly contradicts Helix 1's
+        internet-pretraining thesis. Zero-shot went 9% → 56% from that change alone.</li>
+      <li><strong>π0.6 is at <code>/blog/pistar06</code>, not <code>/pi06</code>,</strong> and is not
+        listed on their research index. π*0.6 is the RL-trained result; π0.6 is the 5B base.</li>
+      <li><strong>Eka has no technical pages at all.</strong> The &gt;95% grasp and sub-1 kg figures
+        circulating in press do not appear on Eka's own site.</li>
+      <li><strong>Amazon's headline robotics AI is a traffic model.</strong> DeepFleet predicts fleet
+        movement, not manipulation. The Frontier AI &amp; Robotics org name and Pieter Abbeel's
+        leadership were not verifiable from Amazon's own pages.</li>
+    </ul>
+
+    <h3>Things deliberately not resolved</h3>
+    <p>Nature Will's Natura-1 could not be verified at all — the only source returns HTTP 403 and no
+    company site was found. Tesla publishes nothing retrievable. Boston Dynamics' widely-reported TRI
+    partnership does not appear in Boston Dynamics' own blog. Where a figure is a press report rather
+    than a company statement, it is labelled as such rather than quietly promoted.</p>
+
+    <p class="note">Sources are listed on each player's detail panel. Verified 10 November 2026.
+    Company performance figures are self-reported unless stated otherwise; none of them has been
+    independently replicated, which is the point of the first research gap.</p>
+  </div>`;
+}
+
+function render(){
+  main.innerHTML = view==='map'?viewMap():view==='compare'?viewCompare():
+    view==='physics'?viewPhysics():view==='gaps'?viewGaps():viewMethod();
+  document.querySelectorAll('.tab').forEach(t=>
+    t.setAttribute('aria-selected',String(t.dataset.view===view)));
+}
+
+function drawerHTML(d){
+  return `<div class="scrim" data-close></div><aside class="drawer" style="${kvar(d.c)}"
+    role="dialog" aria-label="${esc(d.n)}"><div class="drawer-in">
+    <button class="dclose" data-close aria-label="Close">✕</button>
+    <div class="eyebrow" style="color:${CL[d.c].color}">${CL[d.c].name}</div>
+    <h2>${esc(d.n)}</h2><div class="model">${esc(d.m)}</div>
+    <span class="ev ${d.ev}">${evLabel[d.ev]}</span>
+
+    <div class="sec"><h4>The bet</h4><p style="font-size:15px;color:var(--ink)">${esc(d.bet)}</p>
+      <p>${esc(d.thesis)}</p></div>
+
+    <div class="sec"><h4>Architecture</h4><dl class="kv">
+      ${d.arch.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl></div>
+
+    <div class="sec"><h4>Progression</h4><div class="steps">
+      ${d.prog.map(([v,dt,w,y])=>`<div class="step"><div><span class="v">${esc(v)}</span>
+        <span class="d">${esc(dt)}</span></div><div><div class="w">${esc(w)}</div>
+        ${y&&y!=='—'?`<div class="y">${esc(y)}</div>`:''}</div></div>`).join('')}</div></div>
+
+    <div class="sec"><h4>Numbers</h4><dl class="kv">
+      ${d.nums.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl></div>
+
+    <div class="sec"><h4>What they admit, in their own words</h4>
+      ${d.lim.map(([q,s])=>`<blockquote>${esc(q)}<cite>${esc(s)}</cite></blockquote>`).join('')}</div>
+
+    <div class="sec"><h4>Structural ceiling — compute, latency, memory</h4>
+      <div class="ceil">${esc(d.ceil)}</div></div>
+
+    <div class="sec"><h4>Where the research opening is</h4>
+      <div class="gapbox">${esc(d.gap)}</div></div>
+
+    <div class="sec"><h4>Sources</h4><p class="note" style="overflow-wrap:anywhere">${esc(d.src)}</p></div>
+  </div></aside>`;
+}
+
+let dwrap=document.createElement('div');document.body.appendChild(dwrap);
+function openDrawer(id){openId=id;const d=D.find(x=>x.id===id);dwrap.innerHTML=drawerHTML(d);
+  document.body.style.overflow='hidden';render();ctxNote();}
+function closeDrawer(){openId=null;dwrap.innerHTML='';document.body.style.overflow='';render();ctxNote();}
+
+document.addEventListener('click',e=>{
+  const tab=e.target.closest('.tab');
+  if(tab){view=tab.dataset.view;render();return}
+  const chip=e.target.closest('[data-cl]');
+  if(chip){const k=chip.dataset.cl;active.has(k)?active.delete(k):active.add(k);
+    if(!active.size)active=new Set(Object.keys(CL));render();return}
+  const pk=e.target.closest('[data-cmp]');
+  if(pk){const id=pk.dataset.cmp;
+    if(cmp.includes(id))cmp=cmp.filter(x=>x!==id);else if(cmp.length<3)cmp.push(id);
+    render();return}
+  const card=e.target.closest('.card');
+  if(card){openDrawer(card.dataset.id);return}
+  if(e.target.closest('[data-close]')){closeDrawer();return}
+});
+document.addEventListener('input',e=>{
+  if(e.target.id==='search'){query=e.target.value;
+    const f=filtered();
+    document.querySelector('.grid').innerHTML=f.map(cardHTML).join('')||'<p class="note">Nothing matches.</p>';
+    document.querySelector('.count').textContent=`${f.length} / ${D.length}`;}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&openId)closeDrawer()});
+render();
+
+// ---------- Claude chat + dictation ----------
+const logEl=document.getElementById('log'), qEl=document.getElementById('q'),
+      sendEl=document.getElementById('send'), micEl=document.getElementById('mic'),
+      stopEl=document.getElementById('stop'), dock=document.querySelector('.dock');
+let sampleFn=null, turns=null, ctl=null, busy=false;
+
+function setDockH(){document.body.style.setProperty('--dock-h',dock.offsetHeight+'px')}
+new ResizeObserver(setDockH).observe(dock);setDockH();
+
+function digest(){
+  return D.map(d=>[
+    `## ${d.n} — ${d.m} [${CL[d.c].name}; evidence: ${evLabel[d.ev]}]`,
+    `BET: ${d.bet}`,`THESIS: ${d.thesis}`,
+    `ARCH: ${d.arch.map(([k,v])=>k+': '+v).join(' | ')}`,
+    `PROGRESSION: ${d.prog.map(p=>`${p[0]} (${p[1]}): ${p[2]} ${p[3]&&p[3]!=='—'?'WHY: '+p[3]:''}`).join(' || ')}`,
+    `NUMBERS: ${d.nums.map(([k,v])=>k+': '+v).join(' | ')}`,
+    `ADMITTED LIMITS: ${d.lim.map(([q,s])=>`"${q}" (${s})`).join(' | ')}`,
+    `CEILING: ${d.ceil}`,`RESEARCH OPENING: ${d.gap}`,`SOURCES: ${d.src}`
+  ].join('\n')).join('\n\n');
+}
+
+function rules(){
+  return `You are Claude, helping Anshu — a Stanford student who wants to do frontier research on the
+LEARNING side of robotics — think through the robot-foundation-model landscape. He is talking to you
+from inside a research tool he asked you to build, called the Robot Brain Atlas. He is not a casual
+reader: he has already read a 36,765-word literature review of this field, knows the lineage from
+guided policy search through MAML, diffusion policy, action chunking and VLAs, and has a Jetson AGX
+Orin with pi0, pi0.5, pi0-FAST, GR00T, wall_x and xvla available in a working LeRobot docker image.
+He is choosing a research direction and wants to know where to make the biggest impact.
+
+HOW TO ANSWER HIM:
+- Be direct and technical. Skip preamble, skip restating his question, skip flattery.
+- Give a recommendation, not a menu of options. If he asks "which of these", pick one and defend it.
+- Distinguish clearly between what a company has PUBLISHED, what they CLAIM, and what is UNKNOWN.
+  The dataset below marks this; respect it. Never upgrade a claim into a fact.
+- Prefer a company's own admitted limitation over its headline number. The admissions are the
+  research leads.
+- When he asks about a research direction, say what the concrete experiment is, what hardware it
+  needs, and what would falsify it.
+- Use his actual constraints: one person, a low-cost arm, an A100-class machine for training, a
+  Jetson Orin for deployment, open checkpoints only.
+- Statistics matter to him. He has been told his comparative advantage is statistical rigour applied
+  to robot evaluation. Do not soften weak evidence.
+- Keep answers tight — a few short paragraphs or a compact list. He is reading this in a dock at the
+  bottom of a page, not a document. No headers unless the answer genuinely needs them.
+- If something is not in the dataset below, say you do not know rather than inventing a figure.
+
+THE DATASET (verified 10 Nov 2026; everything you know about these companies for this conversation):
+
+${digest()}`;
+}
+
+function md(s){
+  return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+    .replace(/`([^`]+)`/g,'<code>$1</code>')
+    .replace(/\*(?!\s)(.+?)(?<!\s)\*/g,'<em>$1</em>');
+}
+function bubble(cls,html){
+  const el=document.createElement('div');el.className='msg '+cls;
+  if(cls==='a')el.innerHTML=html;else el.textContent=html;
+  logEl.append(el);logEl.hidden=false;logEl.scrollTop=logEl.scrollHeight;return el;
+}
+function ctxNote(){
+  let n=document.getElementById('ctxn');
+  if(!n){n=document.createElement('div');n.id='ctxn';n.className='ctxline';
+    logEl.prepend(n)}
+  n.textContent=openId?`Context: ${D.find(d=>d.id===openId).n} is open.`:'';
+  n.hidden=!openId;
+}
+
+async function ask(text){
+  if(!sampleFn||busy||!text.trim())return;
+  busy=true;sendEl.disabled=true;stopEl.hidden=false;qEl.value='';
+  bubble('u',text);
+  const focus=openId?`\n\n[He currently has ${D.find(d=>d.id===openId).n} open in the atlas — assume that is the subject unless he says otherwise.]`:'';
+  turns.push({role:'user',content:text+focus});
+  const out=bubble('a','');out.textContent='Thinking…';
+  ctl=new AbortController();
+  try{
+    const {text:ans}=await sampleFn([{role:'user',content:rules()},...turns],{
+      cache:false,signal:ctl.signal,modelTier:'complex',
+      onText:({text})=>{out.innerHTML=md(text);logEl.scrollTop=logEl.scrollHeight}});
+    turns.push({role:'assistant',content:ans});
+    if(turns.length>14)turns.splice(0,2);
+  }catch(err){
+    const keep=err.text?md(err.text):'';
+    const copy={cancelled:'Stopped.',not_granted:'You declined Claude access for this page — ask again from the Permissions menu if you change your mind.',
+      rate_limited:'Rate limited. Give it a minute and ask again.',
+      session_expired:'Your session expired — sign in again.',
+      refused:'Claude declined that one. Try rephrasing.',
+      prompt_too_large:'That conversation got too long. Reload to start fresh.',
+      empty_completion:'No answer came back. Ask for less at a time.'}[err.code]
+      || 'Something went wrong reaching Claude. Try again.';
+    out.innerHTML = keep ? keep+`<div class="msg sys" style="margin-top:8px">${copy}</div>` : '';
+    if(!keep){out.className='msg sys';out.textContent=copy}
+    if(err.code==='not_granted'||err.code==='sampling_disabled'){sampleFn=null;
+      qEl.disabled=true;qEl.placeholder='Claude is not available on this page.'}
+    if(err.code!=='cancelled')turns.pop();
+  }finally{busy=false;sendEl.disabled=false;stopEl.hidden=true;ctl=null}
+}
+
+sendEl.addEventListener('click',()=>ask(qEl.value));
+qEl.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();ask(qEl.value)}});
+stopEl.addEventListener('click',()=>ctl?.abort());
+
+(async()=>{
+  sampleFn = await claude.use('sample');
+  if(!sampleFn){qEl.disabled=true;sendEl.disabled=true;
+    qEl.placeholder='Open this on claude.ai to ask Claude from the page.';return}
+  turns=[];
+  const hint=document.createElement('div');hint.className='hint';
+  hint.innerHTML='<span>Try:</span>';
+  [['Which gap should I actually start on?','Which of the research gaps should I actually start on, given one arm and one A100?'],
+   ['Pi vs Eka — who is right?','Physical Intelligence bets on imitation plus on-robot RL; Eka bets on sim RL with force and no demos. Who is more likely to be right, and what experiment would settle it?'],
+   ['Is the 7B ossification claim credible?','How credible is Generalist\'s 7B ossification threshold, and how would I replicate it on open models?'],
+   ['Why is everything so slow?','Explain why the semantic layer runs at 5-10Hz and what that actually forces architecturally.']
+  ].forEach(([label,prompt])=>{
+    const b=document.createElement('button');b.textContent=label;
+    b.onclick=()=>ask(prompt);hint.append(b)});
+  logEl.prepend(hint);logEl.hidden=false;ctxNote();setDockH();
+
+  const dict = await claude.use('dictation');
+  if(!dict)return;
+  micEl.hidden=false;setDockH();
+  let base='';
+  dict.onPartial(({text})=>{qEl.value=(base+' '+text).trim()});
+  dict.onFinal(({text})=>{base=(base+text);qEl.value=base.trim()});
+  dict.onState(({state,reason})=>{
+    const on=state==='listening'||state==='starting';
+    micEl.setAttribute('aria-pressed',String(on));
+    micEl.title=on?'Stop listening':'Speak';
+    if(state==='idle'&&reason&&!['stopped','viewer_stopped'].includes(reason)){
+      if(['not_granted','unavailable'].includes(reason)){micEl.hidden=true;setDockH()}
+    }
+  });
+  micEl.addEventListener('click',()=>{
+    if(dict.active()){dict.stop();return}
+    base=qEl.value?qEl.value+' ':'';
+    dict.start().catch(err=>{
+      if(err.code==='not_granted'||err.code==='unavailable'){micEl.hidden=true;setDockH()}
+    });
+  });
+})();
+</script>
