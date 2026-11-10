@@ -11,7 +11,8 @@ import fs from "node:fs/promises";
 import fssync from "node:fs";
 import path from "node:path";
 import url from "node:url";
-import { exec } from "node:child_process";
+import { exec, spawn } from "node:child_process";
+import os from "node:os";
 
 const ROOT = path.dirname(url.fileURLToPath(import.meta.url));
 const PORT = Number(process.env.PORT || 4173);
@@ -139,6 +140,17 @@ const server = http.createServer(async (req, res) => {
 
   try {
     /* ---------------- API ---------------- */
+    if (p === "/api/ask/status" || p === "/api/ask") {
+      // Tutor for reports that embed one. Runs the local Claude CLI with every tool disabled.
+      // Only same-origin pages may call it: a random website cannot drive Claude on this machine.
+      const origin = req.headers.origin;
+      if (origin && !/^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin)) return j(res, 403, { ok: false, error: "origin not allowed" });
+      if (p === "/api/ask/status") return j(res, 200, await claudeStatus());
+      if (req.method !== "POST") return j(res, 405, { ok: false });
+      const body = JSON.parse((await readBody(req, 600 * 1024)).toString("utf8") || "{}");
+      return askClaude(body, req, res);
+    }
+
     if (p === "/api/meta") {
       const logs = {};
       for (const a of AUTHORS) logs[a] = await listLogs(a);
@@ -244,6 +256,77 @@ const server = http.createServer(async (req, res) => {
     j(res, 500, { ok: false, error: String(e && e.message || e) });
   }
 });
+
+/* ---------------- tutor: local Claude CLI ---------------- */
+// The page sends {input: string | [{role, content}], tier}. We flatten turns into one transcript,
+// pass it on stdin, and stream the answer back as plain text. Tools, MCP servers, settings files
+// (and therefore hooks) and session saving are all switched off, so a tutor call can only write text.
+const TIER_MODEL = { quick: "haiku", default: "sonnet", complex: "opus" };
+let statusCache = null;
+function runClaude(args, input, onChunk) {
+  return new Promise((resolve) => {
+    const cmd = "claude " + args.join(" ");
+    const child = spawn(cmd, { shell: true, windowsHide: true, cwd: os.tmpdir() });
+    let out = "", err = "";
+    child.stdout.on("data", (d) => { out += d; onChunk && onChunk(d.toString("utf8")); });
+    child.stderr.on("data", (d) => { err += d; });
+    child.on("error", (e) => resolve({ code: -1, out, err: String(e) }));
+    child.on("close", (code) => resolve({ code, out, err }));
+    if (input !== undefined) child.stdin.end(input); else child.stdin.end();
+    runClaude.last = child;
+  });
+}
+async function claudeStatus() {
+  if (statusCache && Date.now() - statusCache.at < 60000) return statusCache.v;
+  const r = await runClaude(["auth", "status"]);
+  let v;
+  if (r.code === -1 || /not recognized|not found/i.test(r.err)) v = { ok: true, available: false, loggedIn: false, reason: "no-cli" };
+  else { let s = {}; try { s = JSON.parse(r.out); } catch {} v = { ok: true, available: true, loggedIn: !!s.loggedIn }; }
+  statusCache = { at: Date.now(), v };
+  return v;
+}
+function flatten(input) {
+  if (typeof input === "string") return input;
+  if (!Array.isArray(input)) return "";
+  const [first, ...rest] = input;
+  const head = first && first.role === "user" ? first.content : "";
+  const convo = (head ? rest : input).map((t) => (t.role === "assistant" ? "TUTOR: " : "LEARNER: ") + t.content).join("\n\n");
+  return head + "\n\nCONVERSATION SO FAR (reply as TUTOR to the last LEARNER message; do not prefix your reply):\n\n" + convo;
+}
+async function askClaude(body, req, res) {
+  const prompt = flatten(body.input).slice(0, 500 * 1024);
+  if (!prompt.trim()) return j(res, 400, { ok: false, error: "empty" });
+  const model = TIER_MODEL[body.tier] || "sonnet";
+  const args = ["-p", "--restricted", '--tools ""', "--strict-mcp-config", "--no-session-persistence",
+    "--model", model, "--output-format", "stream-json", "--include-partial-messages", "--verbose",
+    "--system-prompt", '"You are a patient, precise tutor embedded in a reading page. Answer only from your knowledge and the material provided. You have no tools."'];
+  res.writeHead(200, { "content-type": "text/plain; charset=utf-8", "cache-control": "no-store", "x-content-type-options": "nosniff" });
+  let buf = "", sent = 0, finalText = "", failed = "";
+  const p = runClaude(args, prompt, (chunk) => {
+    buf += chunk;
+    let i;
+    while ((i = buf.indexOf("\n")) >= 0) {
+      const line = buf.slice(0, i); buf = buf.slice(i + 1);
+      let ev; try { ev = JSON.parse(line); } catch { continue; }
+      if (ev.type === "stream_event" && ev.event && ev.event.type === "content_block_delta" && ev.event.delta && ev.event.delta.type === "text_delta") {
+        res.write(ev.event.delta.text); sent += ev.event.delta.text.length;
+      } else if (ev.type === "result") {
+        if (ev.is_error) failed = String(ev.result || "error"); else finalText = String(ev.result || "");
+      }
+    }
+  });
+  const child = runClaude.last;
+  req.on("close", () => { if (!res.writableEnded && child && !child.killed) { try { child.kill(); } catch {} } });
+  const r = await p;
+  if (!sent && finalText) res.write(finalText);
+  const errText = failed || (!sent && !finalText ? (r.err || r.out).slice(-400) : "");
+  if (errText) {
+    statusCache = null;
+    const code = /authenticat|log ?in|OAuth/i.test(errText) ? "login" : "error";
+    res.write("\n\u0000TUTOR_ERROR:" + code + ":" + errText.replace(/\s+/g, " ").slice(0, 300));
+  }
+  res.end();
+}
 
 function localDate(d = new Date()) {
   const p = (n) => String(n).padStart(2, "0");
