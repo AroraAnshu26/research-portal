@@ -1,6 +1,6 @@
 <title>Next Word to Next Action</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="A 14-paper curriculum on how modern LLMs were built, where their abilities come from, how they become agents like Claude Code, and how the same machinery is converging on robotics.">
+<meta name="description" content="A 15-paper curriculum on how modern LLMs were built, where their abilities come from, how they become agents like Claude Code, and how the same machinery is converging on robotics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -188,6 +188,13 @@ table.read .yr{font-family:var(--f-mono);white-space:nowrap}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-size:13px;border:1px solid var(--rule2);border-radius:99px;padding:2px 10px;background:var(--bg)}
 .eq{font-family:var(--f-mono);font-size:14.5px;background:var(--sunk);border:1px solid var(--rule);border-radius:8px;padding:12px 14px;margin:12px 0;overflow-x:auto;white-space:pre;line-height:1.55;color:var(--ink)}
+.dtbl-wrap{overflow-x:auto;margin:14px 0;border:1px solid var(--rule);border-radius:8px;background:var(--bg)}
+table.dtbl{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.45;min-width:520px}
+.dtbl th{text-align:left;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);font-weight:500;padding:8px 10px;background:var(--sunk);border-bottom:1px solid var(--rule)}
+.dtbl td{padding:8px 10px;border-top:1px solid var(--rule);vertical-align:top}
+.dtbl tr:first-child td{border-top:0}
+.dtbl td:first-child{font-weight:600}
+.dtbl td .muted{font-weight:400;font-size:12px}
 .note{border:1px solid var(--rule);border-radius:10px;padding:12px 14px;background:var(--bg);margin:14px 0}
 .note .eyebrow{display:block;margin-bottom:4px}
 .note.think{border-color:var(--t-arch)}
@@ -277,7 +284,7 @@ textarea:focus,input[type=text]:focus{outline:2px solid var(--accent);outline-of
       <a href="#story">Story</a><a href="#map">Map</a><a href="#table">Readings</a><a href="#modules">Modules</a><a href="#optional">Optional</a><a href="#method">Method</a>
     </nav>
     <div class="bar-right">
-      <div class="prog hide-narrow" title="Essential papers marked done"><div class="prog-track"><div class="prog-fill" id="progFill"></div></div><span class="mono" id="progTxt">0 / 14</span></div>
+      <div class="prog hide-narrow" title="Essential papers marked done"><div class="prog-track"><div class="prog-fill" id="progFill"></div></div><span class="mono" id="progTxt">0 / 15</span></div>
       <button class="iconbtn hide-narrow" id="panelToggle" type="button">Hide tutor</button>
     </div>
   </div>
@@ -288,7 +295,7 @@ textarea:focus,input[type=text]:focus{outline:2px solid var(--accent);outline-of
 <div class="col">
 
   <section class="block hero" id="top">
-    <div class="eyebrow">Paper curriculum · 13 modules · 14 essential papers · verified to 10 Nov 2026</div>
+    <div class="eyebrow">Paper curriculum · 14 modules · 15 essential papers · verified to 10 Nov 2026</div>
     <h1>From predicting the <em>next word</em> to choosing the <em>next action</em></h1>
     <p class="lede">How foundation models are built, where their abilities come from, how a model becomes a product like Claude Code, and why the same recipe is now arriving in robotics. Read one module at a time. Ask the tutor on the right whenever something does not click.</p>
     <div class="hero-meta"><span><b>~40–55 hours</b> of reading at a careful pace</span><span><b>No coding projects.</b> Thought experiments instead</span><span id="storeNote">Progress saves in this browser</span></div>
@@ -315,7 +322,7 @@ textarea:focus,input[type=text]:focus{outline:2px solid var(--accent);outline-of
 
   <section class="block" id="table">
     <div class="sec-h"><span class="letter">B</span><h2>Essential readings, in order</h2></div>
-    <p class="lede" style="margin-bottom:16px">Fourteen papers. The order follows the modules, which is chronological except where a prerequisite forces a jump; each jump is explained in its module. Click a row to open it.</p>
+    <p class="lede" style="margin-bottom:16px">Fifteen papers. The order follows the modules, which is chronological except where a prerequisite forces a jump; each jump is explained in its module. Click a row to open it.</p>
     <div class="tbl-wrap"><table class="read" id="readTbl"></table></div>
   </section>
 
@@ -329,7 +336,7 @@ textarea:focus,input[type=text]:focus{outline:2px solid var(--accent);outline-of
 
   <section class="block" id="optional">
     <div class="sec-h"><span class="letter">D</span><h2>Optional readings</h2></div>
-    <p class="lede" style="margin-bottom:16px">Six, each with one specific reason. Read one only when its module left you wanting exactly that.</p>
+    <p class="lede" style="margin-bottom:16px">Eight, each with one specific reason. Read one only when its module left you wanting exactly that.</p>
     <div class="opt" id="optList"></div>
   </section>
 

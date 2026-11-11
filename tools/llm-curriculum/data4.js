@@ -118,7 +118,7 @@ evaluate: apply patch, run the repository's hidden tests → resolved ∈ {0,1}<
  cc:"Claude Code is an ACI in exactly this sense, and its public documentation describes the parts: Read (file viewer with line numbers), Edit (exact string replacement that fails if the target is not unique, a guardrail), Grep and Glob (search), Bash, subagents for parallel exploration, CLAUDE.md files as persistent instructions, permission modes, hooks, MCP servers for new tools, and automatic compaction of long conversations.",
  robot:"A robot's action space and observation format are its ACI. Choosing end-effector deltas versus joint positions, the camera viewpoint, the control rate and the safety limits is the same design problem, with the same lesson: the interface can matter as much as the policy."},
 
-gym:{n:14, mod:13, thread:"agent", year:2026, short:"Gym-Anything",
+gym:{n:15, mod:14, thread:"agent", year:2026, short:"Gym-Anything",
  title:"Gym-Anything: Turn any Software into an Agent Environment",
  authors:"Pranjal Aggarwal, Graham Neubig, Sean Welleck (Carnegie Mellon University)",
  venue:"arXiv 2604.06126 (7 April 2026)",
@@ -126,7 +126,7 @@ gym:{n:14, mod:13, thread:"agent", year:2026, short:"Gym-Anything",
  why:"It shows where the field's bottleneck has moved. Once models and harnesses are good, progress is limited by environments: realistic software with tasks and checkers that give feedback. Gym-Anything has coding agents build and audit those environments, which ties together everything in the course: an LLM (Modules 1–6), post-trained (8–10), acting through a harness (12), producing the feedback that trains and evaluates the next agents (13).",
  bottleneck:"Computer-use benchmarks covered short tasks on a few consumer apps, saying little about the professional software where most economic value lies. Building one realistic environment (install, configure with real data, write tasks, write checkers) took experts days to weeks per application.",
  contribution:"Treat environment creation as an agentic coding task. A creation agent (Claude Opus running in Claude Code) installs and configures each application and saves evidence; an adversarial audit agent checks it against a checklist and sends issues back; a summariser keeps shared notes. Applications are chosen by GDP-weighting occupations. Tasks are proposed and amplified by models, and graded by a checklist-based VLM verifier with an integrity check against shortcuts. Result: 200 applications, about 12K tasks (CUA-World), and a 200-task long-horizon benchmark (CUA-World-Long).",
- prereq:"Papers 9, 13. The vocabulary of RL environments (state, action, reward, episode). Module 13's distinctions below.",
+ prereq:"Papers 9, 13. The vocabulary of RL environments (state, action, reward, episode). Module 14's distinctions below.",
  concepts:["Environment creation versus evaluation versus training signal","Creation agent + adversarial auditor loop","Task generation by propose-and-amplify","Checklist-based VLM verifiers, partial credit, integrity checks","Train/test splits that group similar tasks to prevent leakage"],
  study:"§1 and Figure 1. §2.2 (GDP-grounded software selection: an evaluation design choice worth understanding). §3 and Figure 4 (creation and audit agents). §4 and §4.1 (task generation and verifiers). §5 Table 2 (scale). §7.3 (verifier agreement with humans). §6–7 Tables 3–5 and Figures 6–7 (distillation and test-time feedback). §11 Limitations.",
  skim:"Platform details (QEMU, Android emulators, Slurm backends) in §2.3 and Appendix B; the long list of applications in the appendix.",
@@ -207,7 +207,7 @@ MODULES.push(
    ["Tool-assisted research","<b>Co-Scientist (Gottweis et al., Google, 2025).</b> A multi-agent system built on a general LLM that generates, debates and ranks research hypotheses, with some laboratory validation. An agent harness applied to discovery; read claims of novelty with care. <a href=\"https://arxiv.org/abs/2502.18864\" target=\"_blank\" rel=\"noopener\">arXiv 2502.18864</a>"]
   ]},
  {id:12, title:"Tools and agents", years:"2022–2026", thread:"agent",
-  intro:"An agent is a model in a loop that acts, observes and decides what to do next. This module covers tool calling, action–observation loops, context management, planning, verification and recovery, and the product harness around a model. Claude Code is the running example, with what is publicly documented kept separate from what is inferred.",
+  intro:"An agent is a model in a loop that acts, observes and decides what to do next. This module covers tool calling, action–observation loops, context management, planning, verification and recovery, and the product harness around a model. Claude Code is the running example, with what is publicly documented kept separate from what is inferred. Module 13 then opens the harness up: memory, skills, hooks, and the same design on robots.",
   papers:["sweagent"],
   body:`<h5>Anatomy of Claude Code: what is public, inferred and unknown</h5>
 <div class="eq">PUBLIC (Anthropic announcements and Claude Code documentation)
@@ -223,13 +223,13 @@ MODULES.push(
 INFERRED (reasonable, not confirmed in detail)
   The underlying models are trained specifically for agentic coding, likely including RL in
   coding environments with test-based rewards, because Anthropic markets them for this and the
-  field's published methods (Papers 9, 10, 13, 14) point that way.
+  field's published methods (Papers 9, 10, 13, 15) point that way.
 
 UNKNOWN
   Model sizes and architecture details, pretraining data mix, RL environments and reward design,
   how harness and model were co-designed, internal evaluation suites.</div>
 <p>Notice how the harness implements the ideas in this course: Read with line numbers and Edit with an exact-match guardrail are SWE-agent's ACI principles; compaction and subagents are context management (Modules 6–7); running tests is Codex's verifier; the permission system is the safety layer around an agent that can change real files.</p>
-<div class="note think"><span class="eyebrow">Thought experiment: recovery</span>An agent edits a file, runs the tests, and three unrelated tests fail. A weak agent edits the tests to pass (reward hacking, inside a single episode). A good agent reads the failures, notices they started after its edit, reverts, and tries a narrower change. What made the difference? Partly the model, partly whether the harness shows a clean diff and test output, and partly whether the instructions say the tests are not to be modified. Gym-Anything's integrity check (Paper 14) exists to catch the first behaviour.</div>`,
+<div class="note think"><span class="eyebrow">Thought experiment: recovery</span>An agent edits a file, runs the tests, and three unrelated tests fail. A weak agent edits the tests to pass (reward hacking, inside a single episode). A good agent reads the failures, notices they started after its edit, reverts, and tries a narrower change. What made the difference? Partly the model, partly whether the harness shows a clean diff and test output, and partly whether the instructions say the tests are not to be modified. Gym-Anything's integrity check (Paper 15) exists to catch the first behaviour.</div>`,
   bridges:[
    ["Agent loop","<b>ReAct (Yao et al., 2022).</b> Interleave a reasoning trace with actions (search, lookup) and observations. The thought–action–observation pattern almost every agent uses. Listed under Optional."],
    ["Tool use","<b>Toolformer (Schick et al., 2023).</b> A model teaches itself when to call APIs (calculator, search, translation) by keeping only the calls that lower its loss on the following text. An early self-supervised route to tool calling. <a href=\"https://arxiv.org/abs/2302.04761\" target=\"_blank\" rel=\"noopener\">arXiv 2302.04761</a>"],
@@ -238,7 +238,7 @@ UNKNOWN
    ["Open platform","<b>OpenHands (Wang et al., 2024).</b> An open-source platform for coding and general agents; useful for seeing a full harness in code. <a href=\"https://arxiv.org/abs/2407.16741\" target=\"_blank\" rel=\"noopener\">arXiv 2407.16741</a>"],
    ["Product","<b>Claude Code (Anthropic).</b> Research preview with Claude 3.7 Sonnet, 24 Feb 2025; generally available with Claude 4, 22 May 2025. <a href=\"https://www.anthropic.com/news/claude-3-7-sonnet\" target=\"_blank\" rel=\"noopener\">preview</a> · <a href=\"https://www.anthropic.com/news/claude-4\" target=\"_blank\" rel=\"noopener\">GA</a> · <a href=\"https://news.ycombinator.com/item?id=43164253\" target=\"_blank\" rel=\"noopener\">agentic search comment</a>"]
   ]},
- {id:13, title:"Agent environments and frontier synthesis", years:"2024–2026", thread:"agent",
+ {id:14, title:"Agent environments and frontier synthesis", years:"2024–2026", thread:"agent",
   intro:"The last module asks where capability now comes from. Once a capable model sits in a good harness, progress depends on environments that produce feedback: tasks, checkers and trajectories. Gym-Anything is the reading. The synthesis below then pulls the whole course together into an explanation of why modern models differ, and how the same pieces are converging in robotics.",
   papers:["gym"],
   body:`<h5>What explains differences between modern models</h5>
@@ -246,7 +246,7 @@ UNKNOWN
 <ul>
 <li><b>Pretraining:</b> compute, data quantity and above all data mix and quality (Papers 3, 4, 6). Hardest to observe; often the largest factor.</li>
 <li><b>Architecture and efficiency:</b> dense versus MoE, attention variants, context length (Papers 5, 6, DeepSeek-V3). Mostly changes cost per unit of quality.</li>
-<li><b>Post-training:</b> which preferences, which verifiable tasks, which environments and how much RL (Papers 8, 10, 14). Increasingly the source of agentic and reasoning differences.</li>
+<li><b>Post-training:</b> which preferences, which verifiable tasks, which environments and how much RL (Papers 8, 10, 15). Increasingly the source of agentic and reasoning differences.</li>
 <li><b>Inference budget:</b> thinking tokens, samples, steps and wall-clock allowed. Gym-Anything's Table 4 shows a ranking reversing when the budget changes.</li>
 <li><b>Harness and tools:</b> the same model in different scaffolds can differ by many points (Paper 13).</li>
 <li><b>Evaluation conditions:</b> contamination, prompt format, grader choice, number of attempts, partial versus full credit.</li>

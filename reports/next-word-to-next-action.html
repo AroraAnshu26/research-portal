@@ -8,7 +8,7 @@
 <body>
 <title>Next Word to Next Action</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="A 14-paper curriculum on how modern LLMs were built, where their abilities come from, how they become agents like Claude Code, and how the same machinery is converging on robotics.">
+<meta name="description" content="A 15-paper curriculum on how modern LLMs were built, where their abilities come from, how they become agents like Claude Code, and how the same machinery is converging on robotics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -196,6 +196,13 @@ table.read .yr{font-family:var(--f-mono);white-space:nowrap}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-size:13px;border:1px solid var(--rule2);border-radius:99px;padding:2px 10px;background:var(--bg)}
 .eq{font-family:var(--f-mono);font-size:14.5px;background:var(--sunk);border:1px solid var(--rule);border-radius:8px;padding:12px 14px;margin:12px 0;overflow-x:auto;white-space:pre;line-height:1.55;color:var(--ink)}
+.dtbl-wrap{overflow-x:auto;margin:14px 0;border:1px solid var(--rule);border-radius:8px;background:var(--bg)}
+table.dtbl{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.45;min-width:520px}
+.dtbl th{text-align:left;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);font-weight:500;padding:8px 10px;background:var(--sunk);border-bottom:1px solid var(--rule)}
+.dtbl td{padding:8px 10px;border-top:1px solid var(--rule);vertical-align:top}
+.dtbl tr:first-child td{border-top:0}
+.dtbl td:first-child{font-weight:600}
+.dtbl td .muted{font-weight:400;font-size:12px}
 .note{border:1px solid var(--rule);border-radius:10px;padding:12px 14px;background:var(--bg);margin:14px 0}
 .note .eyebrow{display:block;margin-bottom:4px}
 .note.think{border-color:var(--t-arch)}
@@ -285,7 +292,7 @@ textarea:focus,input[type=text]:focus{outline:2px solid var(--accent);outline-of
       <a href="#story">Story</a><a href="#map">Map</a><a href="#table">Readings</a><a href="#modules">Modules</a><a href="#optional">Optional</a><a href="#method">Method</a>
     </nav>
     <div class="bar-right">
-      <div class="prog hide-narrow" title="Essential papers marked done"><div class="prog-track"><div class="prog-fill" id="progFill"></div></div><span class="mono" id="progTxt">0 / 14</span></div>
+      <div class="prog hide-narrow" title="Essential papers marked done"><div class="prog-track"><div class="prog-fill" id="progFill"></div></div><span class="mono" id="progTxt">0 / 15</span></div>
       <button class="iconbtn hide-narrow" id="panelToggle" type="button">Hide tutor</button>
     </div>
   </div>
@@ -296,7 +303,7 @@ textarea:focus,input[type=text]:focus{outline:2px solid var(--accent);outline-of
 <div class="col">
 
   <section class="block hero" id="top">
-    <div class="eyebrow">Paper curriculum · 13 modules · 14 essential papers · verified to 10 Nov 2026</div>
+    <div class="eyebrow">Paper curriculum · 14 modules · 15 essential papers · verified to 10 Nov 2026</div>
     <h1>From predicting the <em>next word</em> to choosing the <em>next action</em></h1>
     <p class="lede">How foundation models are built, where their abilities come from, how a model becomes a product like Claude Code, and why the same recipe is now arriving in robotics. Read one module at a time. Ask the tutor on the right whenever something does not click.</p>
     <div class="hero-meta"><span><b>~40–55 hours</b> of reading at a careful pace</span><span><b>No coding projects.</b> Thought experiments instead</span><span id="storeNote">Progress saves in this browser</span></div>
@@ -323,7 +330,7 @@ textarea:focus,input[type=text]:focus{outline:2px solid var(--accent);outline-of
 
   <section class="block" id="table">
     <div class="sec-h"><span class="letter">B</span><h2>Essential readings, in order</h2></div>
-    <p class="lede" style="margin-bottom:16px">Fourteen papers. The order follows the modules, which is chronological except where a prerequisite forces a jump; each jump is explained in its module. Click a row to open it.</p>
+    <p class="lede" style="margin-bottom:16px">Fifteen papers. The order follows the modules, which is chronological except where a prerequisite forces a jump; each jump is explained in its module. Click a row to open it.</p>
     <div class="tbl-wrap"><table class="read" id="readTbl"></table></div>
   </section>
 
@@ -337,7 +344,7 @@ textarea:focus,input[type=text]:focus{outline:2px solid var(--accent);outline-of
 
   <section class="block" id="optional">
     <div class="sec-h"><span class="letter">D</span><h2>Optional readings</h2></div>
-    <p class="lede" style="margin-bottom:16px">Six, each with one specific reason. Read one only when its module left you wanting exactly that.</p>
+    <p class="lede" style="margin-bottom:16px">Eight, each with one specific reason. Read one only when its module left you wanting exactly that.</p>
     <div class="opt" id="optList"></div>
   </section>
 
@@ -856,7 +863,7 @@ J = E[ (1/G) Σ_i min( ρ_i A_i , clip(ρ_i, 1−ε, 1+ε) A_i ) − β · KL(π
 <h5>Distillation versus RL</h5>
 <p>The paper's §4.1 is a useful lesson in where abilities come from. RL on a 32B model is expensive and gives less than simply fine-tuning the 32B model on reasoning traces produced by the much larger R1. Large-model RL discovers the behaviour; distillation copies it cheaply. Note what this does not show: that small models cannot discover reasoning with better methods.</p>
 <h5>Connections</h5>
-<p><b>Before:</b> chain-of-thought and self-consistency prompting, STaR (self-taught reasoning by filtering correct rationales), process supervision (Let's Verify Step by Step), OpenAI o1. <b>After:</b> reasoning modes in most frontier models, RL on agentic tasks with environment feedback (Papers 13–14), and test-time compute budgets as a product setting (\"thinking\" effort levels).</p>`,
+<p><b>Before:</b> chain-of-thought and self-consistency prompting, STaR (self-taught reasoning by filtering correct rationales), process supervision (Let's Verify Step by Step), OpenAI o1. <b>After:</b> reasoning modes in most frontier models, RL on agentic tasks with environment feedback (Papers 13 and 15), and test-time compute budgets as a product setting (\"thinking\" effort levels).</p>`,
  evalLens:"Match inference budgets: a reasoning model that uses 10× more tokens should be compared against a baseline given the same token budget (for example majority voting over samples). Report pass@1 averaged over several samples, not one lucky run. Check contamination: AIME problems are public after each year's contest.",
  cc:"Claude models offer an extended-thinking mode, which Anthropic has documented as a configurable budget of reasoning tokens. How that ability was trained is not public; it would be speculation to say it was trained like R1. What is public is the product consequence: more thinking costs more tokens and time, and helps most on hard, checkable problems.",
  robot:"Verifiable rewards are the hard part in robotics. In simulation, success can be checked from the state, which is why sim-based RL (for example Eka's force-sensing hand trained in physics simulation) can use RLVR-style methods. On real robots, a learned success detector is a learned reward model, with the same reward-hacking risks."}
@@ -982,7 +989,7 @@ evaluate: apply patch, run the repository's hidden tests → resolved ∈ {0,1}<
  cc:"Claude Code is an ACI in exactly this sense, and its public documentation describes the parts: Read (file viewer with line numbers), Edit (exact string replacement that fails if the target is not unique, a guardrail), Grep and Glob (search), Bash, subagents for parallel exploration, CLAUDE.md files as persistent instructions, permission modes, hooks, MCP servers for new tools, and automatic compaction of long conversations.",
  robot:"A robot's action space and observation format are its ACI. Choosing end-effector deltas versus joint positions, the camera viewpoint, the control rate and the safety limits is the same design problem, with the same lesson: the interface can matter as much as the policy."},
 
-gym:{n:14, mod:13, thread:"agent", year:2026, short:"Gym-Anything",
+gym:{n:15, mod:14, thread:"agent", year:2026, short:"Gym-Anything",
  title:"Gym-Anything: Turn any Software into an Agent Environment",
  authors:"Pranjal Aggarwal, Graham Neubig, Sean Welleck (Carnegie Mellon University)",
  venue:"arXiv 2604.06126 (7 April 2026)",
@@ -990,7 +997,7 @@ gym:{n:14, mod:13, thread:"agent", year:2026, short:"Gym-Anything",
  why:"It shows where the field's bottleneck has moved. Once models and harnesses are good, progress is limited by environments: realistic software with tasks and checkers that give feedback. Gym-Anything has coding agents build and audit those environments, which ties together everything in the course: an LLM (Modules 1–6), post-trained (8–10), acting through a harness (12), producing the feedback that trains and evaluates the next agents (13).",
  bottleneck:"Computer-use benchmarks covered short tasks on a few consumer apps, saying little about the professional software where most economic value lies. Building one realistic environment (install, configure with real data, write tasks, write checkers) took experts days to weeks per application.",
  contribution:"Treat environment creation as an agentic coding task. A creation agent (Claude Opus running in Claude Code) installs and configures each application and saves evidence; an adversarial audit agent checks it against a checklist and sends issues back; a summariser keeps shared notes. Applications are chosen by GDP-weighting occupations. Tasks are proposed and amplified by models, and graded by a checklist-based VLM verifier with an integrity check against shortcuts. Result: 200 applications, about 12K tasks (CUA-World), and a 200-task long-horizon benchmark (CUA-World-Long).",
- prereq:"Papers 9, 13. The vocabulary of RL environments (state, action, reward, episode). Module 13's distinctions below.",
+ prereq:"Papers 9, 13. The vocabulary of RL environments (state, action, reward, episode). Module 14's distinctions below.",
  concepts:["Environment creation versus evaluation versus training signal","Creation agent + adversarial auditor loop","Task generation by propose-and-amplify","Checklist-based VLM verifiers, partial credit, integrity checks","Train/test splits that group similar tasks to prevent leakage"],
  study:"§1 and Figure 1. §2.2 (GDP-grounded software selection: an evaluation design choice worth understanding). §3 and Figure 4 (creation and audit agents). §4 and §4.1 (task generation and verifiers). §5 Table 2 (scale). §7.3 (verifier agreement with humans). §6–7 Tables 3–5 and Figures 6–7 (distillation and test-time feedback). §11 Limitations.",
  skim:"Platform details (QEMU, Android emulators, Slurm backends) in §2.3 and Appendix B; the long list of applications in the appendix.",
@@ -1071,7 +1078,7 @@ MODULES.push(
    ["Tool-assisted research","<b>Co-Scientist (Gottweis et al., Google, 2025).</b> A multi-agent system built on a general LLM that generates, debates and ranks research hypotheses, with some laboratory validation. An agent harness applied to discovery; read claims of novelty with care. <a href=\"https://arxiv.org/abs/2502.18864\" target=\"_blank\" rel=\"noopener\">arXiv 2502.18864</a>"]
   ]},
  {id:12, title:"Tools and agents", years:"2022–2026", thread:"agent",
-  intro:"An agent is a model in a loop that acts, observes and decides what to do next. This module covers tool calling, action–observation loops, context management, planning, verification and recovery, and the product harness around a model. Claude Code is the running example, with what is publicly documented kept separate from what is inferred.",
+  intro:"An agent is a model in a loop that acts, observes and decides what to do next. This module covers tool calling, action–observation loops, context management, planning, verification and recovery, and the product harness around a model. Claude Code is the running example, with what is publicly documented kept separate from what is inferred. Module 13 then opens the harness up: memory, skills, hooks, and the same design on robots.",
   papers:["sweagent"],
   body:`<h5>Anatomy of Claude Code: what is public, inferred and unknown</h5>
 <div class="eq">PUBLIC (Anthropic announcements and Claude Code documentation)
@@ -1087,13 +1094,13 @@ MODULES.push(
 INFERRED (reasonable, not confirmed in detail)
   The underlying models are trained specifically for agentic coding, likely including RL in
   coding environments with test-based rewards, because Anthropic markets them for this and the
-  field's published methods (Papers 9, 10, 13, 14) point that way.
+  field's published methods (Papers 9, 10, 13, 15) point that way.
 
 UNKNOWN
   Model sizes and architecture details, pretraining data mix, RL environments and reward design,
   how harness and model were co-designed, internal evaluation suites.</div>
 <p>Notice how the harness implements the ideas in this course: Read with line numbers and Edit with an exact-match guardrail are SWE-agent's ACI principles; compaction and subagents are context management (Modules 6–7); running tests is Codex's verifier; the permission system is the safety layer around an agent that can change real files.</p>
-<div class="note think"><span class="eyebrow">Thought experiment: recovery</span>An agent edits a file, runs the tests, and three unrelated tests fail. A weak agent edits the tests to pass (reward hacking, inside a single episode). A good agent reads the failures, notices they started after its edit, reverts, and tries a narrower change. What made the difference? Partly the model, partly whether the harness shows a clean diff and test output, and partly whether the instructions say the tests are not to be modified. Gym-Anything's integrity check (Paper 14) exists to catch the first behaviour.</div>`,
+<div class="note think"><span class="eyebrow">Thought experiment: recovery</span>An agent edits a file, runs the tests, and three unrelated tests fail. A weak agent edits the tests to pass (reward hacking, inside a single episode). A good agent reads the failures, notices they started after its edit, reverts, and tries a narrower change. What made the difference? Partly the model, partly whether the harness shows a clean diff and test output, and partly whether the instructions say the tests are not to be modified. Gym-Anything's integrity check (Paper 15) exists to catch the first behaviour.</div>`,
   bridges:[
    ["Agent loop","<b>ReAct (Yao et al., 2022).</b> Interleave a reasoning trace with actions (search, lookup) and observations. The thought–action–observation pattern almost every agent uses. Listed under Optional."],
    ["Tool use","<b>Toolformer (Schick et al., 2023).</b> A model teaches itself when to call APIs (calculator, search, translation) by keeping only the calls that lower its loss on the following text. An early self-supervised route to tool calling. <a href=\"https://arxiv.org/abs/2302.04761\" target=\"_blank\" rel=\"noopener\">arXiv 2302.04761</a>"],
@@ -1102,7 +1109,7 @@ UNKNOWN
    ["Open platform","<b>OpenHands (Wang et al., 2024).</b> An open-source platform for coding and general agents; useful for seeing a full harness in code. <a href=\"https://arxiv.org/abs/2407.16741\" target=\"_blank\" rel=\"noopener\">arXiv 2407.16741</a>"],
    ["Product","<b>Claude Code (Anthropic).</b> Research preview with Claude 3.7 Sonnet, 24 Feb 2025; generally available with Claude 4, 22 May 2025. <a href=\"https://www.anthropic.com/news/claude-3-7-sonnet\" target=\"_blank\" rel=\"noopener\">preview</a> · <a href=\"https://www.anthropic.com/news/claude-4\" target=\"_blank\" rel=\"noopener\">GA</a> · <a href=\"https://news.ycombinator.com/item?id=43164253\" target=\"_blank\" rel=\"noopener\">agentic search comment</a>"]
   ]},
- {id:13, title:"Agent environments and frontier synthesis", years:"2024–2026", thread:"agent",
+ {id:14, title:"Agent environments and frontier synthesis", years:"2024–2026", thread:"agent",
   intro:"The last module asks where capability now comes from. Once a capable model sits in a good harness, progress depends on environments that produce feedback: tasks, checkers and trajectories. Gym-Anything is the reading. The synthesis below then pulls the whole course together into an explanation of why modern models differ, and how the same pieces are converging in robotics.",
   papers:["gym"],
   body:`<h5>What explains differences between modern models</h5>
@@ -1110,7 +1117,7 @@ UNKNOWN
 <ul>
 <li><b>Pretraining:</b> compute, data quantity and above all data mix and quality (Papers 3, 4, 6). Hardest to observe; often the largest factor.</li>
 <li><b>Architecture and efficiency:</b> dense versus MoE, attention variants, context length (Papers 5, 6, DeepSeek-V3). Mostly changes cost per unit of quality.</li>
-<li><b>Post-training:</b> which preferences, which verifiable tasks, which environments and how much RL (Papers 8, 10, 14). Increasingly the source of agentic and reasoning differences.</li>
+<li><b>Post-training:</b> which preferences, which verifiable tasks, which environments and how much RL (Papers 8, 10, 15). Increasingly the source of agentic and reasoning differences.</li>
 <li><b>Inference budget:</b> thinking tokens, samples, steps and wall-clock allowed. Gym-Anything's Table 4 shows a ranking reversing when the budget changes.</li>
 <li><b>Harness and tools:</b> the same model in different scaffolds can differ by many points (Paper 13).</li>
 <li><b>Evaluation conditions:</b> contamination, prompt format, grader choice, number of attempts, partial versus full credit.</li>
@@ -1170,6 +1177,126 @@ const EVALQ = [
  "<b>Who measured:</b> self-reported, or independently reproduced? Same harness for every model?"
 ];
 
+/* Module 13: harness architecture, memory and skills, and frontier models as System 2 for robots. Added 2026-11-10. */
+Object.assign(PAPERS, {
+gemrob:{n:14, mod:13, thread:"body", year:2025, short:"Gemini Robotics 1.5",
+ title:"Gemini Robotics 1.5: Pushing the Frontier of Generalist Robots with Advanced Embodied Reasoning, Thinking, and Motion Transfer",
+ authors:"Gemini Robotics Team (Google DeepMind)",
+ venue:"arXiv 2510.03342 (October 2025; v3 later). Announced on the DeepMind blog 25 Sep 2025",
+ url:"https://arxiv.org/abs/2510.03342", pdf:"https://arxiv.org/pdf/2510.03342", extra:[["DeepMind blog","https://deepmind.google/discover/blog/gemini-robotics-15-brings-ai-agents-into-the-physical-world/"]],
+ why:"It is the clearest published instance of the pattern this module is about: a frontier multimodal model acting as a System 2 orchestrator that plans, calls tools (including web search), checks progress and hands natural-language instructions to a VLA, which is exposed to it as a tool. It is Claude Code's architecture with a robot arm as one of the tools, and it reports what the orchestrator adds by ablation.",
+ bottleneck:"A single VLA policy (RT-2, π0) handles short instructions well but fails on long, open-ended tasks that need planning, outside information, progress tracking and recovery. Earlier hierarchies (SayCan, Inner Monologue) used general LLMs that had weak spatial understanding and no fine motor grounding, and the earlier Gemini Robotics VLA could not think before acting.",
+ contribution:"Two models with a defined interface. Gemini Robotics-ER 1.5 is a vision-language model that keeps Gemini's general reasoning and tool use and adds embodied reasoning (pointing, spatial understanding, success detection); it decomposes tasks, decides when a step is done, and calls tools. Gemini Robotics 1.5 is a VLA that receives short natural-language instructions, can write its own reasoning trace before acting ('thinking'), and uses Motion Transfer so one checkpoint controls three different robots.",
+ prereq:"Papers 11 (RT-2) and 13 (SWE-agent). This module's harness section, which explains orchestrators, tools and verification in the software setting first.",
+ concepts:["Orchestrator (System 2) versus executor (System 1): what each decides, at what rate","A VLA exposed to a planner as a tool with a language interface","Thinking before acting inside the VLA","Success detection as the orchestrator's verifier","Motion Transfer across embodiments (ALOHA, bi-arm Franka, Apollo humanoid)"],
+ study:"§2 and Figure 1 (the two models and the agentic system architecture, including the suitcase-packing example). §3.3 with Figures 6–7 (thinking in the VLA, with traces showing success awareness and recovery). §3.1–3.2 with Figures 2, 4, 5 (Motion Transfer). §5, Figure 17 and Table 1 (the agent evaluation: orchestrator plus VLA versus VLA alone versus a weaker orchestrator). §7 Limitations.",
+ skim:"§4's per-benchmark embodied-reasoning tables after Figure 8; the safety section §6 unless that is your interest (note the ASIMOV-2.0 benchmark exists).",
+ evidence:"On eight long-horizon tasks on ALOHA and Franka, the thinking VLA alone peaks at about 44% task progress, while ER 1.5 orchestrating the VLA often reaches around 80%; using a weaker general model (Gemini 2.5 Flash) as the orchestrator reaches roughly half that on the more complex tasks, and planning errors explain most of the gap. Thinking improves the VLA on multi-step tasks. ER 1.5 is reported state of the art across 15 embodied-reasoning benchmarks while keeping frontier-level general scores, and its accuracy grows with its thinking budget. Over 90% of development evaluations ran in MuJoCo, with rankings shown to agree with real-robot results.",
+ limitation:"Dexterity is reported as no better than the previous generation. Robot data remains scarce. Success detection in real time is limited by inference latency. The orchestrator is available to developers through the Gemini API, but the VLA only to select partners, and no weights are released, so outside groups cannot reproduce the system. Real-robot trial counts are modest and the Franka received extra task-specific post-training for the agent evaluation (a footnote worth noticing).",
+ checkpoint:"Trace the suitcase example through both models: which model reads the weather forecast, which decides the rain jacket is packed, which moves the gripper, and at roughly what rate each runs. Then explain why the orchestrator ablation (a weaker planner reaching about half the progress) is evidence that the System 2 layer, not only the VLA, limits long-horizon robot performance.",
+ lesson:`<h5>Conceptual primer</h5>
+<p>A robot doing a long task needs two different kinds of competence. One is deciding <i>what to do next</i>: understanding the request, looking things up, breaking it into steps, noticing when a step has failed. The other is <i>doing it</i>: turning "put the jacket in the suitcase" into fifty motor commands a second. The first is slow, deliberate and benefits from everything a frontier model knows. The second is fast, reactive and benefits from robot data. Gemini Robotics 1.5 assigns them to two models and makes the interface between them plain language.</p>
+<h5>The control loop</h5>
+<div class="eq">User goal g, e.g. "pack the suitcase for a trip to London"
+
+ORCHESTRATOR  (Gemini Robotics-ER 1.5; seconds per decision)
+  observe camera images + task state
+  think; optionally call tools:  web_search("London weather this week") → "rain"
+  plan:  [ "pack the rain jacket", "pack the umbrella", ... ]
+  call VLA tool with instruction  ℓ_k = "pack the rain jacket"
+  check: success_detect(images, ℓ_k) → done? retry? re-plan?
+
+EXECUTOR  (Gemini Robotics 1.5 VLA; continuous control)
+  optional thinking trace: "jacket is on the chair; grasp the collar with the left arm"
+  emit action chunks a_t ... a_{t+H} for the current embodiment
+  (Motion Transfer: one checkpoint for ALOHA, bi-arm Franka, Apollo humanoid)</div>
+<p>Compare with Claude Code: the orchestrator is the model in the loop, the VLA is one tool among several, success detection plays the role of running the tests, and re-planning after a failed grasp is the robot version of reading a failing test and trying again.</p>
+<h5>Why split at all? A latency budget</h5>
+<div class="eq">Layer                     Typical rate        What limits it
+System 2 planner / agent   0.1 – 1 Hz          reasoning tokens, tool calls, network
+System 1 VLA policy        5 – 50 Hz           model size, GPU memory bandwidth
+System 0 controller        200 Hz – 1 kHz      physics, actuator bandwidth
+
+Figure's Helix (Feb 2025): 7B VLM at 7–9 Hz → 80M policy at 200 Hz, both onboard
+A single model that thinks for 3 s before each motor command could not catch a slipping cup.</div>
+<div class="note think"><span class="eyebrow">Thought experiment</span>Halfway through packing, the robot drops the umbrella behind the bed. The VLA does not know the umbrella was part of a plan; it only knows its current instruction failed. The orchestrator sees the failure through success detection, consults its plan, and decides whether to retrieve it, skip it, or ask the person. Now remove the orchestrator and give the whole task to the VLA as one instruction: nothing holds the plan, so nothing notices the umbrella is missing. That is the 44% versus 80% gap in one scene.</div>
+<h5>Connections</h5>
+<p><b>Before:</b> SayCan (an LLM picks skills weighted by learned affordances), Inner Monologue (feedback from success detectors and scene descriptions in the LLM's context), Code as Policies (the planner writes code that calls perception and control APIs), Hi Robot (a VLM planner over π0), Helix and GR00T N1 (System 1/System 2 trained jointly), Gemini Robotics (March 2025). <b>After:</b> orchestrator-over-skills systems such as RoboOS; and the open question in the robot-brain atlas: whether this split is necessary (Generalist argues it is not) or merely convenient.</p>`,
+ evalLens:"The orchestrator ablation is the key experiment: same VLA, different planners. Check what 'task progress' measures (partial credit, like Gym-Anything's scores) versus full success, how many real trials sit behind each bar, and that one robot received extra post-training. Sim-based development evaluation is only as good as its demonstrated rank agreement with real robots, which the report does show.",
+ cc:"Structurally this is the same harness: a model in a loop that plans, calls tools, reads results and verifies. The differences are the cost of a bad action (a dropped glass cannot be reverted like a git commit) and the speed of verification (a camera-based success detector is slower and less reliable than a test suite).",
+ robot:"If you build a System 2 layer for an SO-101 or any arm, this paper gives you the interface to copy: a planner that emits short language instructions, a policy that accepts them, and a success detector in between. Your own design decisions are where to run the planner (cloud or onboard), how often it is allowed to intervene, and what the robot does while it waits."}
+});
+
+MODULES.push({id:13, title:"Harnesses, memory and skills; frontier agents as System 2", years:"2022–2026", thread:"agent",
+ intro:"Module 12 showed that the harness around a model matters. This module opens the harness up: where an agent's knowledge is stored (instructions, memories, skills, tools, transcripts), when each part enters the context window, and which parts the harness enforces rather than the model. Then it applies the same architecture to robots, where frontier models are increasingly used as System 2 orchestrators over fast VLA policies.",
+ papers:["gemrob"],
+ departure:"Gemini Robotics 1.5 (2025) is read after SWE-agent and before Gym-Anything because it is the same agent architecture as a coding harness, applied to a robot. The harness section comes first so the robot paper reads as a transfer, not a new idea.",
+ body:`<h5>The harness as a small operating system</h5>
+<p>A model can only act on what is in its context window. Everything else an agent "knows" lives outside the model, in files and services the harness decides when to load. A useful analogy: the model is the processor, the context window is working memory, files on disk are long-term storage, tools are system calls, and hooks are kernel policy that runs whether or not the program asks for it. MemGPT (2023) made this analogy explicit; CoALA (2023) gave the vocabulary that most agent designs now use: working, episodic, semantic and procedural memory, plus a decision loop.</p>
+<h5>Where knowledge lives in Claude Code (from Anthropic's documentation)</h5>
+<div class="dtbl-wrap"><table class="dtbl">
+<thead><tr><th>Artifact</th><th>When it enters context</th><th>Memory type</th><th>Who writes it</th><th>Enforced?</th></tr></thead><tbody>
+<tr><td>System prompt and tool schemas</td><td>Every turn</td><td>Procedural</td><td>The vendor</td><td>n/a</td></tr>
+<tr><td>CLAUDE.md (or AGENTS.md)<br><span class="muted">managed → user → project → local; @imports</span></td><td>Session start, always in context. Files in the working directory and its parents are concatenated; subdirectory files load on demand.</td><td>Semantic and procedural</td><td>You (and Claude when asked)</td><td>No. The docs call it "context, not enforced configuration".</td></tr>
+<tr><td>Auto memory<br><span class="muted">MEMORY.md index plus one file per memory</span></td><td>First 200 lines or 25 KB of the index at start; topic files read on demand</td><td>Semantic and episodic</td><td>Claude itself (user, feedback, project, reference notes)</td><td>No</td></tr>
+<tr><td>Skills<br><span class="muted">SKILL.md folders</span></td><td>Name and description always; full body when relevant; bundled files and scripts only when needed</td><td>Procedural</td><td>You, a team, or a plugin</td><td>No</td></tr>
+<tr><td>Tools and MCP servers</td><td>Schemas listed; each result appended to context</td><td>Capability</td><td>You configure</td><td>Permission rules: yes</td></tr>
+<tr><td>Subagents<br><span class="muted">.claude/agents/</span></td><td>Run in their own context window with their own tools; only their summary returns</td><td>Working-memory isolation</td><td>You define; Claude invokes</td><td>Tool limits: yes</td></tr>
+<tr><td>Hooks<br><span class="muted">settings.json</span></td><td>Run by the harness on events such as SessionStart, PreToolUse, PostToolUse, PreCompact, Stop, SessionEnd</td><td>None: they are behaviour, not memory</td><td>You</td><td><b>Yes.</b> Command hooks are deterministic.</td></tr>
+<tr><td>Transcript and compaction</td><td>The conversation itself, summarised when the window fills</td><td>Episodic</td><td>Automatic</td><td>Lossy</td></tr>
+</tbody></table></div>
+<p>Two design ideas carry most of the weight. <b>Progressive disclosure:</b> a hundred skills cost only a hundred one-line descriptions in context until one is needed; the model reads the body when the description matches the task. This is retrieval, done by the model, over procedures. <b>Instructions are not enforcement:</b> CLAUDE.md, memory and skills are text the model reads and may not follow every time. Anything that must happen every time (a safety check, a formatter, a log) belongs in a hook or a permission rule, which the harness runs regardless of what the model decides.</p>
+<h5>Where should a piece of knowledge go?</h5>
+<ul>
+<li>Short, always relevant, rarely changes ("use pnpm, not npm"; "never push to main") → <b>CLAUDE.md / AGENTS.md</b>.</li>
+<li>A fact learned along the way that may change (a person's preference, a project constraint) → <b>memory</b>, one fact per file, with a dated index.</li>
+<li>A multi-step method with a clear trigger ("how we cut a release", "how to calibrate the arm") → a <b>skill</b>, with a description written so the model can tell when it applies.</li>
+<li>Something that must happen every time, or must never happen → a <b>hook</b> or <b>permission rule</b>.</li>
+<li>A new capability (read the calendar, command the robot) → a <b>tool</b> or <b>MCP server</b>.</li>
+<li>A large exploration whose details would crowd out the main task → a <b>subagent</b>, which returns a summary.</li>
+</ul>
+<div class="note think"><span class="eyebrow">Thought experiment: the instruction that is followed 90% of the time</span>You write "always run the tests before committing" in CLAUDE.md. In a long session, after compaction, with the instruction 40,000 tokens back, the model occasionally forgets. Writing it in capitals does not fix this; the instruction is still only text competing for attention. A PreToolUse hook that blocks <span class="mono">git commit</span> unless the tests passed fixes it completely. The lesson generalises: memory can inform behaviour, but only the harness can guarantee it. On a robot, "never exceed 20 N of force near a person" must be a controller limit, never a line in a prompt.</div>
+<h5>Long-running agents</h5>
+<p>Anthropic's engineering posts describe the same pattern from the other side. Context is a budget to spend on "the optimal set of tokens" at each step (Sep 2025). Long tasks survive many context windows by writing their state outside the model: a feature list, a progress file and git commits that a fresh session reads to recover (Nov 2025). Later posts separate the harness from the sandbox it controls (Apr 2026) and describe agent memory as transcripts, notes, structured representations and offline consolidation (Nov 2026). Every one of these is an answer to the same constraint from Paper 5: the context window is finite and expensive.</p>
+<h5>The same architecture on a robot</h5>
+<div class="dtbl-wrap"><table class="dtbl">
+<thead><tr><th>Software agent (Claude Code)</th><th>Robot with a frontier System 2</th></tr></thead><tbody>
+<tr><td>Model in a loop</td><td>Orchestrator VLM or LLM (for example Gemini Robotics-ER 1.5)</td></tr>
+<tr><td>Tools: Read, Edit, Bash, MCP servers</td><td>Tools: VLA "skill" calls, perception APIs, a motion planner, web search</td></tr>
+<tr><td>Skills (SKILL.md procedures)</td><td>Skill library with preconditions and affordances (SayCan, Code as Policies)</td></tr>
+<tr><td>CLAUDE.md (standing rules)</td><td>Site rules: workspace map, forbidden zones, task conventions</td></tr>
+<tr><td>Memory (facts, preferences)</td><td>Scene memory: object locations, 3D scene graphs (ConceptGraphs); a task log</td></tr>
+<tr><td>Subagents</td><td>Specialist perception or grasp-selection modules</td></tr>
+<tr><td>Tests as the verifier</td><td>Success detection from cameras, force and gripper state</td></tr>
+<tr><td>Hooks and permissions</td><td>Safety interlocks in the controller: e-stop, force and speed limits, geofences</td></tr>
+<tr><td>git revert</td><td>Nothing. Most physical actions cannot be undone.</td></tr>
+</tbody></table></div>
+<p>Three things change when the tools are physical. <b>Latency:</b> the orchestrator thinks for seconds while the world moves, so the fast layers must keep the robot safe and useful without it. <b>Grounding:</b> a plan step is only useful if the robot can actually do it here; SayCan's affordance scores and Gemini Robotics-ER's pointing are both ways to check. <b>Irreversibility:</b> verification must happen before an action, not only after, and safety cannot be delegated to text the model may not follow.</p>
+<div class="lens"><div class="note cc"><span class="eyebrow">In Claude Code</span>Everything in the table is public documentation and can be inspected on your own machine: your CLAUDE.md files, the skills folder, the auto-memory folder, the hooks in settings.json. Reading them is the quickest way to make this module concrete.</div><div class="note rb"><span class="eyebrow">In your robot</span>A practical System 2 stack for an arm today: a frontier model for planning and success checks, a small set of VLA or scripted skills it can call by name, a scene memory it reads and writes, and safety limits enforced in the motor controller. The research questions are where each piece runs, how often System 2 may interrupt System 1, and how to evaluate the whole stack rather than each part.</div></div>`,
+ bridges:[
+  ["Framework","<b>CoALA, Cognitive Architectures for Language Agents (Sumers et al., 2023).</b> Working, episodic, semantic and procedural memory plus a decision loop: the vocabulary behind the table above. Listed under Optional. <a href=\"https://arxiv.org/abs/2309.02427\" target=\"_blank\" rel=\"noopener\">arXiv 2309.02427</a>"],
+  ["Memory","<b>Generative Agents (Park et al., 2023)</b> and <b>MemGPT (Packer et al., 2023).</b> A memory stream with retrieval by recency, importance and relevance, plus periodic reflection; and paging information between the context window and external storage like an operating system. <a href=\"https://arxiv.org/abs/2304.03442\" target=\"_blank\" rel=\"noopener\">arXiv 2304.03442</a> · <a href=\"https://arxiv.org/abs/2310.08560\" target=\"_blank\" rel=\"noopener\">arXiv 2310.08560</a>"],
+  ["Skills","<b>Voyager (Wang et al., 2023).</b> An embodied agent that writes each new skill as code, stores it in a library indexed by description, and retrieves it later: the clearest early version of a skill library. Listed under Optional. <a href=\"https://arxiv.org/abs/2305.16291\" target=\"_blank\" rel=\"noopener\">arXiv 2305.16291</a>"],
+  ["Product","<b>Agent Skills (Anthropic, 16 Oct 2025).</b> SKILL.md folders loaded by progressive disclosure, later published as an open standard. <a href=\"https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills\" target=\"_blank\" rel=\"noopener\">engineering post</a> · <a href=\"https://code.claude.com/docs/en/skills\" target=\"_blank\" rel=\"noopener\">docs</a>"],
+  ["Product","<b>Claude Code memory, subagents and hooks (documentation).</b> CLAUDE.md hierarchy and auto memory; subagents with their own context windows; deterministic hooks on 30-plus events. <a href=\"https://code.claude.com/docs/en/memory\" target=\"_blank\" rel=\"noopener\">memory</a> · <a href=\"https://code.claude.com/docs/en/sub-agents\" target=\"_blank\" rel=\"noopener\">subagents</a> · <a href=\"https://code.claude.com/docs/en/hooks-guide\" target=\"_blank\" rel=\"noopener\">hooks</a>"],
+  ["Convention","<b>AGENTS.md.</b> An open, tool-neutral README for coding agents, adopted across OpenAI Codex, Jules, Cursor, Amp and Factory, now stewarded by the Agentic AI Foundation. Claude Code reads it when no CLAUDE.md exists. <a href=\"https://agents.md/\" target=\"_blank\" rel=\"noopener\">agents.md</a>"],
+  ["Engineering","<b>Anthropic's agent engineering posts.</b> Building effective agents (Dec 2024: workflows versus agents, orchestrator-workers, evaluator-optimizer); Effective context engineering (Sep 2025); Effective harnesses for long-running agents (Nov 2025); Scaling Managed Agents (Apr 2026); The components of agent memory (Nov 2026). <a href=\"https://www.anthropic.com/engineering/building-effective-agents\" target=\"_blank\" rel=\"noopener\">1</a> · <a href=\"https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents\" target=\"_blank\" rel=\"noopener\">2</a> · <a href=\"https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents\" target=\"_blank\" rel=\"noopener\">3</a> · <a href=\"https://www.anthropic.com/research/managed-agents\" target=\"_blank\" rel=\"noopener\">4</a> · <a href=\"https://www.anthropic.com/research/components-of-agent-memory\" target=\"_blank\" rel=\"noopener\">5</a>"],
+  ["Earliest robot planner","<b>SayCan (Ahn et al., 2022).</b> An LLM scores which skill would help; a learned value function scores which skill can succeed here; the robot executes the product. The first LLM System 2 over a robot skill library. <a href=\"https://arxiv.org/abs/2204.01691\" target=\"_blank\" rel=\"noopener\">arXiv 2204.01691</a>"],
+  ["Feedback","<b>Inner Monologue (Huang et al., 2022).</b> Success detection and scene descriptions are fed back into the planner's context, so it re-plans after failures: the robot version of reading test output. <a href=\"https://arxiv.org/abs/2207.05608\" target=\"_blank\" rel=\"noopener\">arXiv 2207.05608</a>"],
+  ["Plans as code","<b>Code as Policies (Liang et al., 2022).</b> The LLM writes Python that calls perception and control APIs, so plans can contain loops, conditions and arithmetic. The closest robot analogue of a coding agent. <a href=\"https://arxiv.org/abs/2209.07753\" target=\"_blank\" rel=\"noopener\">arXiv 2209.07753</a>"],
+  ["Scene memory","<b>ConceptGraphs (Gu et al., 2023).</b> An open-vocabulary 3D scene graph built from RGB-D frames, which an LLM planner can query: a robot's long-term semantic memory of its environment. <a href=\"https://arxiv.org/abs/2309.16650\" target=\"_blank\" rel=\"noopener\">arXiv 2309.16650</a>"],
+  ["Hierarchical VLA","<b>Hi Robot (Physical Intelligence, Feb 2025)</b>, <b>Helix (Figure, 20 Feb 2025)</b>, <b>GR00T N1 (NVIDIA, Mar 2025).</b> A VLM planner over π0 that takes interjections mid-task; a 7B VLM at 7–9 Hz driving an 80M policy at 200 Hz on two onboard GPUs; and an open dual-system humanoid model. <a href=\"https://arxiv.org/abs/2502.19417\" target=\"_blank\" rel=\"noopener\">arXiv 2502.19417</a> · <a href=\"https://www.figure.ai/news/helix\" target=\"_blank\" rel=\"noopener\">Helix</a> · <a href=\"https://arxiv.org/abs/2503.14734\" target=\"_blank\" rel=\"noopener\">arXiv 2503.14734</a>"],
+  ["Orchestrator over skills","<b>RoboOS (Tan et al., May 2025).</b> A multimodal 'brain' model over a skill library with shared memory, across several real robots. Its brain is the lab's own model rather than a frontier LLM. <a href=\"https://arxiv.org/abs/2505.03673\" target=\"_blank\" rel=\"noopener\">arXiv 2505.03673</a>"]
+ ]});
+MODULES.sort((a,b)=>a.id-b.id);
+
+OPTIONAL.push(
+ {title:"Cognitive Architectures for Language Agents (CoALA)", who:"Sumers, Yao, Narasimhan, Griffiths", when:"Sep 2023", mod:13, url:"https://arxiv.org/abs/2309.02427",
+  why:"Read it if you want one framework for comparing agent designs. It maps working, episodic, semantic and procedural memory and a decision loop onto existing agents, which is exactly the lens needed to judge any harness or robot System 2 stack you meet."},
+ {title:"Voyager: An Open-Ended Embodied Agent with Large Language Models", who:"Wang et al.", when:"May 2023", mod:13, url:"https://arxiv.org/abs/2305.16291",
+  why:"Read it for the skill library done concretely: an embodied agent that writes skills as code, verifies them in the environment, stores them by description and reuses them, with an automatic curriculum. It is the ancestor of SKILL.md and of robot skill libraries."}
+);
+
 const ARTIFACT_URL = "";   /* filled in after publishing; used by copies of the page that run outside Claude */
 const ORDER = Object.keys(PAPERS).sort((a,b)=>PAPERS[a].n-PAPERS[b].n);
 const $ = (s,r=document)=>r.querySelector(s);
@@ -1215,7 +1342,7 @@ function renderMap(){
   const W=920,H=360,L=150,R=150; const lanes=Object.keys(THREADS);
   const yOf=t=>40+lanes.indexOf(t)*48;
   const xYear=y=>{ const a=L, b=W-R; const knee=2016, kx=a+(b-a)*0.16; return y<=knee ? a+(kx-a)*(y-2003)/(knee-2003) : kx+(b-kx)*(y-knee)/(2026.4-knee); };
-  const off={rag:0.45, codex:0, instruct:0.35}; const LBL={gpt3:0, chinchilla:0, rag:1, flash:0, llama3:1, codex:1, instruct:0, r1:0};
+  const off={rag:0.45, codex:0, instruct:0.35, gemrob:0.55}; const LBL={gpt3:0, chinchilla:0, rag:1, flash:0, llama3:1, codex:1, instruct:0, r1:0, rt2:0, vjepa2:0, gemrob:1};
   let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Six research threads converging on agents that act"><title>Convergence map</title>`;
   [2003,2010,2017,2020,2023,2026].forEach(y=>{ const x=xYear(y); s+=`<line x1="${x}" y1="22" x2="${x}" y2="${H-34}" stroke="var(--rule)" stroke-dasharray="2 4"/><text x="${x}" y="${H-16}" text-anchor="middle" font-size="11" fill="var(--ink3)">${y}</text>`; });
   const cx=W-48, cy=yOf(lanes[2])+24;
@@ -1283,7 +1410,7 @@ function paperCard(pid){
   c.addEventListener("focusin",()=>{ if(state.focus!==pid){ state.focus=pid; updateTutorCtx(); } });
   c.addEventListener("pointerdown",()=>{ if(state.focus!==pid){ state.focus=pid; updateTutorCtx(); } });
   const links=[`<a class="btn primary" href="${p.url}" target="_blank" rel="noopener">Open paper ↗</a>`, `<a class="btn" href="${p.pdf}" target="_blank" rel="noopener">PDF ↗</a>`].concat((p.extra||[]).map(e=>`<a class="btn" href="${e[1]}" target="_blank" rel="noopener">${esc(e[0])} ↗</a>`));
-  const top=h("div",{class:"p-top"},`<div class="p-meta"><span class="pn">Paper ${p.n} of 14</span><span><span class="thread-dot" style="background:${THREADS[p.thread].color}"></span>${esc(THREADS[p.thread].name)}</span><span class="mono">${p.year}</span></div><h3>${esc(p.title)}</h3><div class="p-auth">${esc(p.authors)}</div><div class="muted">${esc(p.venue)}</div>`);
+  const top=h("div",{class:"p-top"},`<div class="p-meta"><span class="pn">Paper ${p.n} of ${ORDER.length}</span><span><span class="thread-dot" style="background:${THREADS[p.thread].color}"></span>${esc(THREADS[p.thread].name)}</span><span class="mono">${p.year}</span></div><h3>${esc(p.title)}</h3><div class="p-auth">${esc(p.authors)}</div><div class="muted">${esc(p.venue)}</div>`);
   const lr=h("div",{class:"p-links"},links.join(""));
   const seg=h("div",{class:"seg",role:"group","aria-label":"Reading status"});
   ["none","reading","done"].forEach(k=>{ const b=h("button",{type:"button",class:k===st?"on":"","aria-pressed":String(k===st)},stLabel[k]); b.addEventListener("click",()=>{ state.status[pid]=k; scheduleSave(); renderTable(); renderProgress(); renderMap(); renderModNav(); seg.querySelectorAll("button").forEach(x=>{x.classList.toggle("on",x===b); x.setAttribute("aria-pressed",String(x===b));}); }); seg.append(b); });
@@ -1363,7 +1490,7 @@ function updateTutorCtx(){ $("#tCtx").innerHTML=ctxLabel(); renderLog(); }
 function courseOutline(){ return MODULES.map(m=>`Module ${m.id} ${m.title}: `+(m.papers.map(id=>`Paper ${PAPERS[id].n} "${PAPERS[id].title}" (${PAPERS[id].year})`).join("; ")||"revisits GPT-3")).join("\n"); }
 function paperContext(pid){
   const p=PAPERS[pid]; if(!p) return "";
-  return `CURRENT PAPER: Paper ${p.n} of 14, "${p.title}" (${p.authors}; ${p.venue}). Link: ${p.url}
+  return `CURRENT PAPER: Paper ${p.n} of ${ORDER.length}, "${p.title}" (${p.authors}; ${p.venue}). Link: ${p.url}
 Why in curriculum: ${strip(p.why)}
 Bottleneck: ${strip(p.bottleneck)}
 Contribution: ${strip(p.contribution)}
@@ -1381,7 +1508,7 @@ function rulesTurn(){
   const m=MODULES.find(x=>x.id===state.mod);
   let ctx = state.focus&&PAPERS[state.focus] ? paperContext(state.focus) : "";
   if(!state.focus || !PAPERS[state.focus] || m.body) ctx += `\nCURRENT MODULE ${m.id}: ${m.title}. ${m.intro}\n${strip(m.body||"").slice(0,6000)}\nBridges: ${m.bridges.map(b=>strip(b[1])).join(" | ").slice(0,4000)}`;
-  return `You are the tutor built into "Next Word to Next Action", a 14-paper curriculum on how modern LLMs were developed. The learner is a Stanford robotics student who wants deep conceptual understanding (not coding projects) so they can understand how LLMs and robot foundation models are converging. Today is 10 November 2026.
+  return `You are the tutor built into "Next Word to Next Action", a 15-paper curriculum on how modern LLMs were developed. The learner is a Stanford robotics student who wants deep conceptual understanding (not coding projects) so they can understand how LLMs and robot foundation models are converging. Today is 10 November 2026.
 
 How to teach:
 - When asked to teach a paper: conceptual primer, then the mechanism and essential mathematics (define every symbol), then the evidence (which tables/figures, what they do and do not show), then connections to the preceding and following developments in this curriculum.
