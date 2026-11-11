@@ -8,7 +8,7 @@
 <body>
 <title>Next Word to Next Action</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="A 15-paper curriculum on how modern LLMs were built, where their abilities come from, how they become agents like Claude Code, and how the same machinery is converging on robotics.">
+<meta name="description" content="A 17-paper curriculum on how modern LLMs were built, where their abilities come from, how they become agents like Claude Code, and how the same machinery is converging on robotics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -109,6 +109,11 @@ section.block:last-child{border-bottom:0}
 .map-scroll{overflow-x:auto}
 .map-scroll svg{display:block;min-width:720px;width:100%;height:auto}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:12.5px;color:var(--ink2)}
+.mapkey{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:2px 12px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--rule)}
+.mapkey button{all:unset;cursor:pointer;font-size:12.5px;color:var(--ink2);padding:2px 0}
+.mapkey button:hover{color:var(--accent)}
+.mapkey button:focus-visible{outline:2px solid var(--accent)}
+.mapkey .mono{display:inline-block;min-width:20px;color:var(--ink3)}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
 svg .node{cursor:pointer}
 svg .node:hover circle,svg .node:focus circle{stroke-width:3}
@@ -292,7 +297,7 @@ textarea:focus,input[type=text]:focus{outline:2px solid var(--accent);outline-of
       <a href="#story">Story</a><a href="#map">Map</a><a href="#table">Readings</a><a href="#modules">Modules</a><a href="#optional">Optional</a><a href="#method">Method</a>
     </nav>
     <div class="bar-right">
-      <div class="prog hide-narrow" title="Essential papers marked done"><div class="prog-track"><div class="prog-fill" id="progFill"></div></div><span class="mono" id="progTxt">0 / 15</span></div>
+      <div class="prog hide-narrow" title="Essential papers marked done"><div class="prog-track"><div class="prog-fill" id="progFill"></div></div><span class="mono" id="progTxt">0 / 17</span></div>
       <button class="iconbtn hide-narrow" id="panelToggle" type="button">Hide tutor</button>
     </div>
   </div>
@@ -303,10 +308,10 @@ textarea:focus,input[type=text]:focus{outline:2px solid var(--accent);outline-of
 <div class="col">
 
   <section class="block hero" id="top">
-    <div class="eyebrow">Paper curriculum · 14 modules · 15 essential papers · verified to 10 Nov 2026</div>
+    <div class="eyebrow">Paper curriculum · 15 modules · 17 essential papers · verified to 10 Nov 2026</div>
     <h1>From predicting the <em>next word</em> to choosing the <em>next action</em></h1>
     <p class="lede">How foundation models are built, where their abilities come from, how a model becomes a product like Claude Code, and why the same recipe is now arriving in robotics. Read one module at a time. Ask the tutor on the right whenever something does not click.</p>
-    <div class="hero-meta"><span><b>~40–55 hours</b> of reading at a careful pace</span><span><b>No coding projects.</b> Thought experiments instead</span><span id="storeNote">Progress saves in this browser</span></div>
+    <div class="hero-meta"><span><b>~50–65 hours</b> of reading at a careful pace</span><span><b>No coding projects.</b> Thought experiments instead</span><span id="storeNote">Progress saves in this browser</span></div>
     <div class="howto">
       <div><b>One module at a time</b>The Modules section shows a single module. Use the list or the Prev / Next buttons. Keyboard: [ and ].</div>
       <div><b>Paper beside this page</b>Each paper has an arXiv link. Open it in a split window, not a new tab you will lose.</div>
@@ -324,13 +329,13 @@ textarea:focus,input[type=text]:focus{outline:2px solid var(--accent);outline-of
   <section class="block" id="map">
     <div class="sec-h"><span class="letter">A′</span><h2>Six threads converging</h2></div>
     <p class="lede">Each dot is an essential paper, placed by year on its main thread. The threads run separately for a decade and then merge: the agent on your laptop and the policy on your robot are built from the same parts. Click a dot to open its module.</p>
-    <div class="mapbox"><div class="map-scroll" id="mapSvg"></div><div class="legend" id="legend"></div>
+    <div class="mapbox"><div class="map-scroll" id="mapSvg"></div><div class="legend" id="legend"></div><div class="mapkey" id="mapKey"></div>
       <p class="cap">Dots sit on the thread where the paper's main contribution lies. Most papers touch several threads; the module text says which.</p></div>
   </section>
 
   <section class="block" id="table">
     <div class="sec-h"><span class="letter">B</span><h2>Essential readings, in order</h2></div>
-    <p class="lede" style="margin-bottom:16px">Fifteen papers. The order follows the modules, which is chronological except where a prerequisite forces a jump; each jump is explained in its module. Click a row to open it.</p>
+    <p class="lede" style="margin-bottom:16px">Seventeen papers. The order follows the modules, which is chronological except where a prerequisite forces a jump; each jump is explained in its module. Click a row to open it.</p>
     <div class="tbl-wrap"><table class="read" id="readTbl"></table></div>
   </section>
 
@@ -460,7 +465,7 @@ const MODULES = [
 </ul>
 <div class="note think"><span class="eyebrow">Thought experiment</span>Write a prompt with five lines like "sun → moon", "hot → cold", "up → down", then "big → ?". Now replace the examples with "sun → banana", "hot → seven", "up → blue". If the model still answers "small", it was never learning antonyms from your examples; it recognised the format and fell back on a prior. If it answers something like "car", it really was fitting your mapping. Larger models follow flipped or arbitrary labels more often than smaller ones (Wei et al., 2023, <a href="https://arxiv.org/abs/2303.03846" target="_blank" rel="noopener">arXiv 2303.03846</a>), which suggests they do more of the "learning" reading.</div>
 <div class="note eval"><span class="eyebrow">Evidential limits</span>Every mechanism above is shown either in toy models or as a correlation in large ones. None is established as the explanation for frontier models, and the true answer is likely a mixture that depends on the task. Treat claims that "LLMs do Bayesian inference" or "LLMs run gradient descent" as hypotheses with partial evidence.</div>
-<div class="lens"><div class="note cc"><span class="eyebrow">In Claude Code</span>Everything the agent knows about your repository arrives in context: CLAUDE.md, files it has read, tool outputs. Its ability to follow a project's conventions after reading two example files is in-context learning in the practical sense. Context is the only adaptation channel at run time, which is why the harness spends so much effort deciding what goes into it (Module 12).</div><div class="note rb"><span class="eyebrow">In your robot</span>"In-context imitation" for robots means showing a policy a demonstration in its context and having it repeat the task with new objects, with no fine-tuning. It is an active research direction and much less reliable than in text, because demonstrations are long, high-dimensional and rarely in a consistent format.</div></div>`,
+<div class="lens"><div class="note cc"><span class="eyebrow">In Claude Code</span>Everything the agent knows about your repository arrives in context: CLAUDE.md, files it has read, tool outputs. Its ability to follow a project's conventions after reading two example files is in-context learning in the practical sense. Context is the only adaptation channel at run time, which is why the harness spends so much effort deciding what goes into it (Module 13).</div><div class="note rb"><span class="eyebrow">In your robot</span>"In-context imitation" for robots means showing a policy a demonstration in its context and having it repeat the task with new objects, with no fine-tuning. It is an active research direction and much less reliable than in text, because demonstrations are long, high-dimensional and rarely in a consistent format.</div></div>`,
   bridges:[]},
  {id:6, title:"Efficient architectures and computation", years:"2019–2024", thread:"sys",
   intro:"Attention costs grow with the square of sequence length, and generation is limited by memory bandwidth, not arithmetic. This module explains where the time and memory actually go, then the main fixes: IO-aware kernels, sparse and sliding-window attention, positional methods that extend context, shared key/value heads, KV caching, mixture-of-experts, and quantization.",
@@ -482,7 +487,7 @@ const MODULES = [
    ["Retriever","<b>Dense Passage Retrieval (Karpukhin et al., 2020).</b> Two BERT encoders map questions and passages into the same vector space; retrieval is a nearest-neighbour search on dot products, trained with in-batch negatives. RAG's retriever. <a href=\"https://arxiv.org/abs/2004.04906\" target=\"_blank\" rel=\"noopener\">arXiv 2004.04906</a>"],
    ["Reranking","<b>ColBERT (Khattab & Zaharia, 2020)</b> and cross-encoders. A cheap first stage returns 100–1,000 candidates; a more expensive model that reads query and passage together reorders them. Most production RAG is retrieve-then-rerank. <a href=\"https://arxiv.org/abs/2004.12832\" target=\"_blank\" rel=\"noopener\">arXiv 2004.12832</a>"],
    ["Long context","<b>Lost in the Middle (Liu et al., 2023).</b> Accuracy is highest when the relevant passage is at the start or end of the context and drops for the middle. A window that accepts 128K tokens is not the same as a model that uses them. Listed under Optional."],
-   ["Agent memory","<b>Agentic search instead of a vector index.</b> Coding agents often skip embeddings and let the model search with tools (grep, glob, file reads), then keep only what matters. Claude Code's lead engineer said in February 2025 that agentic search outperformed the RAG approach they had tried (<a href=\"https://news.ycombinator.com/item?id=43164253\" target=\"_blank\" rel=\"noopener\">comment</a>). Retrieval becomes a sequence of actions chosen by the model, which links this module to Module 12."]
+   ["Agent memory","<b>Agentic search instead of a vector index.</b> Coding agents often skip embeddings and let the model search with tools (grep, glob, file reads), then keep only what matters. Claude Code's lead engineer said in February 2025 that agentic search outperformed the RAG approach they had tried (<a href=\"https://news.ycombinator.com/item?id=43164253\" target=\"_blank\" rel=\"noopener\">comment</a>). Retrieval becomes a sequence of actions chosen by the model, which links this module to Module 13."]
   ]}
 ];
 
@@ -562,7 +567,7 @@ Block:  X ← X + MultiHead(LN(X))        (modern "pre-norm" placement; the pape
 <h5>Connections</h5>
 <p><b>Before:</b> Bahdanau attention bolted onto an RNN. <b>After:</b> BERT and GPT split the architecture into encoder-only and decoder-only branches; GPT-3 (Paper 3) scales the decoder; FlashAttention (Paper 5) makes the n×n matrix cheap; ViT applies the same block to image patches, which is how robot policies see (Paper 11).</p>`,
  evalLens:"Notice the ablation table: one variable changed at a time, against a fixed base model. Many later papers skip this. When you read a claim that some component matters, look for the row where it alone was removed.",
- cc:"Claude is a decoder-only transformer, as Anthropic has said publicly; its sizes and architectural details are not public. Its context window is the n in this paper, and the cost of attending over a long session is why the harness compacts conversations (Module 12).",
+ cc:"Claude is a decoder-only transformer, as Anthropic has said publicly; its sizes and architectural details are not public. Its context window is the n in this paper, and the cost of attending over a long session is why the harness compacts conversations (Module 13).",
  robot:"In a VLA policy, camera images are cut into patches and embedded as tokens by a vision transformer, joined to the language tokens, and processed by the same blocks. The robot's proprioceptive state can be one more token. The transformer is the convergence point: one architecture for text, images and actions."},
 
 gpt3:{n:3, mod:3, thread:"data", year:2020, short:"GPT-3 / few-shot",
@@ -755,7 +760,7 @@ Train: minimise − log p(y|x).  ∂/∂η flows through p_η(z|x): documents th
 <p>If a retrieved passage makes the correct answer more probable, increasing its retrieval score increases p(y|x), so the gradient pushes the query encoder toward it. Useless passages get pushed down. It is the same trick as training a mixture model: credit assignment through a latent variable.</p>
 <div class="note think"><span class="eyebrow">Thought experiment</span>Ask a model trained in 2019 "Who is the current Prime Minister of the UK?" A parametric model answers from frozen weights. A RAG model answers from whatever index you give it today, and you can show the passage it used. Now imagine the index contains a wrong page. The model will likely repeat it confidently. RAG moves the trust problem from the weights to the corpus; it does not remove it.</div>
 <h5>Connections</h5>
-<p><b>Before:</b> REALM (retrieval during pretraining), DPR. <b>After:</b> RETRO (retrieval at trillion-token scale), retrieve-and-rerank in production systems, long-context models that make some retrieval unnecessary, and agentic search, where the model chooses its own queries with tools (Modules 7 and 12).</p>`,
+<p><b>Before:</b> REALM (retrieval during pretraining), DPR. <b>After:</b> RETRO (retrieval at trillion-token scale), retrieve-and-rerank in production systems, long-context models that make some retrieval unnecessary, and agentic search, where the model chooses its own queries with tools (Modules 7 and 13).</p>`,
  evalLens:"For retrieval systems, separate retrieval recall (was the right passage in the top-k?) from generation accuracy given retrieval. A system can fail at either stage, and reporting only the final score hides which.",
  cc:"Claude Code does not use RAG in this paper's sense. Its lead engineer said publicly in February 2025 that agentic search (the model running grep, glob and file reads) outperformed a vector-index RAG approach they had tried. Retrieval is still central, but it is done by actions the model chooses.",
  robot:"Robot systems retrieve too: from a map, a library of skills, or past episodes similar to the current scene. Retrieval-augmented policies are an active research area, and the same questions apply: what is the index, what is the similarity, and how does the policy know when retrieved experience does not apply."},
@@ -826,7 +831,7 @@ Paper: n = 200, k ∈ {1, 10, 100}</div>
 <h5>Why sampling plus a verifier is so powerful</h5>
 <p>If the right program has even a few percent probability under the model, drawing enough samples will find it, and tests can recognise it. The model "knows" far more than its single best guess shows. Three later developments exploit that gap: AlphaCode (sample a million programs, filter by tests and cluster), coding agents (write, run, read the error, retry), and RL with verifiable rewards (reward the samples that pass, so the policy moves probability onto them).</p>
 <h5>Connections</h5>
-<p><b>Before:</b> GPT-3's surprising zero-shot coding ability; BLEU-based code benchmarks. <b>After:</b> AlphaCode (2022), SWE-bench (2023: real GitHub issues in real repositories), SWE-agent (Paper 13), LiveCodeBench (2024: new problems released after model cutoffs to avoid contamination), and RLVR (Paper 10).</p>`,
+<p><b>Before:</b> GPT-3's surprising zero-shot coding ability; BLEU-based code benchmarks. <b>After:</b> AlphaCode (2022), SWE-bench (2023: real GitHub issues in real repositories), SWE-agent (Paper 15), LiveCodeBench (2024: new problems released after model cutoffs to avoid contamination), and RLVR (Paper 10).</p>`,
  evalLens:"Three evaluation lessons in one paper: report k and temperature; tests can be incomplete, so a passing program can still be wrong (a verifier error); and a public benchmark gets into future training data, which is why contamination-resistant benchmarks like LiveCodeBench release problems after model cutoffs.",
  cc:"Claude Code's basic loop is this paper's insight turned into an agent: generate a change, run the tests or the build, read the result, and try again. The tests are the verifier. When there are no tests, the agent is far less reliable, which is why it is often worth asking it to write tests first.",
  robot:"Robotics lacks a cheap, reliable verifier like a unit test. Checking whether a grasp succeeded or a shirt is folded needs a camera, a learned success detector, or a person. Much current robot-learning research is about building that verifier, because with one, the sample-and-filter and RL methods from code transfer directly."},
@@ -863,7 +868,7 @@ J = E[ (1/G) Σ_i min( ρ_i A_i , clip(ρ_i, 1−ε, 1+ε) A_i ) − β · KL(π
 <h5>Distillation versus RL</h5>
 <p>The paper's §4.1 is a useful lesson in where abilities come from. RL on a 32B model is expensive and gives less than simply fine-tuning the 32B model on reasoning traces produced by the much larger R1. Large-model RL discovers the behaviour; distillation copies it cheaply. Note what this does not show: that small models cannot discover reasoning with better methods.</p>
 <h5>Connections</h5>
-<p><b>Before:</b> chain-of-thought and self-consistency prompting, STaR (self-taught reasoning by filtering correct rationales), process supervision (Let's Verify Step by Step), OpenAI o1. <b>After:</b> reasoning modes in most frontier models, RL on agentic tasks with environment feedback (Papers 13 and 15), and test-time compute budgets as a product setting (\"thinking\" effort levels).</p>`,
+<p><b>Before:</b> chain-of-thought and self-consistency prompting, STaR (self-taught reasoning by filtering correct rationales), process supervision (Let's Verify Step by Step), OpenAI o1. <b>After:</b> reasoning modes in most frontier models, RL on agentic tasks with environment feedback (Papers 15 and 17), and test-time compute budgets as a product setting (\"thinking\" effort levels).</p>`,
  evalLens:"Match inference budgets: a reasoning model that uses 10× more tokens should be compared against a baseline given the same token budget (for example majority voting over samples). Report pass@1 averaged over several samples, not one lucky run. Check contamination: AIME problems are public after each year's contest.",
  cc:"Claude models offer an extended-thinking mode, which Anthropic has documented as a configurable budget of reasoning tokens. How that ability was trained is not public; it would be speculation to say it was trained like R1. What is public is the product consequence: more thinking costs more tokens and time, and helps most on hard, checkable problems.",
  robot:"Verifiable rewards are the hard part in robotics. In simulation, success can be checked from the state, which is why sim-based RL (for example Eka's force-sensing hand trained in physics simulation) can use RLVR-style methods. On real robots, a learned success detector is a learned reward model, with the same reward-hacking risks."}
@@ -953,7 +958,7 @@ Execute the first action, observe, re-plan (model-predictive control)</div>
  cc:"Claude Code has no learned world model in this sense: it predicts the consequences of a command implicitly, through the language model, and then checks by running it. Its 'world model' is the real environment, queried cheaply. Robots cannot query reality cheaply, which is exactly why world models matter more there.",
  robot:"This is the most direct robotics paper in the course. Ask: could a latent world model trained on your own robot's video let you specify tasks by goal image, and what would make it fail on an SO-101 with a different camera mount? The paper's camera-sensitivity limitation answers part of that."},
 
-sweagent:{n:13, mod:12, thread:"agent", year:2024, short:"SWE-agent / ACI",
+sweagent:{n:15, mod:13, thread:"agent", year:2024, short:"SWE-agent / ACI",
  title:"SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering",
  authors:"John Yang, Carlos E. Jimenez, Alexander Wettig, Kilian Lieret, Shunyu Yao, Karthik Narasimhan, Ofir Press",
  venue:"arXiv 2405.15793 (May 2024); NeurIPS 2024",
@@ -961,7 +966,7 @@ sweagent:{n:13, mod:12, thread:"agent", year:2024, short:"SWE-agent / ACI",
  why:"It shows, with ablations, that the harness around a model (what commands it can run, what it sees after each command, how errors are reported) changes performance as much as a model upgrade. That is the central idea behind Claude Code and every coding agent, and this is the cleanest paper that measures it.",
  bottleneck:"On SWE-bench (real GitHub issues that must be fixed in full repositories, verified by the repository's tests), the best systems in early 2024 resolved under 4%: they retrieved some files and asked a model to write a patch in one shot. Letting a model loose in a plain Linux shell also worked poorly, because shell tools are designed for humans, not language models.",
  contribution:"Design an agent-computer interface (ACI): a small set of commands with LM-friendly output. A file viewer that shows 100 lines with line numbers, search commands that return concise summaries, an edit command that replaces a line range and runs a linter, rejecting edits that introduce syntax errors, and short, informative error messages. With GPT-4 Turbo it resolves 12.5% of SWE-bench, more than three times the previous best.",
- prereq:"Paper 9. Module 12's ReAct bridge (thought–action–observation loops). Knowing what a repository, a diff and a test suite are.",
+ prereq:"Paper 9. Module 13's ReAct bridge (thought–action–observation loops). Knowing what a repository, a diff and a test suite are.",
  concepts:["Agent loop: thought → action → observation","Agent-computer interface design as a variable to optimise","Guardrails at the interface (lint-on-edit)","Context management: collapsing old observations","Cost and step budgets as part of the evaluation"],
  study:"§2 (the ACI principles; read slowly, they generalise beyond code). Figure 1 and Figure 2 (the commands and an example trajectory). §3 Table 1 (main results). §4 Table 3 (ablations of search, viewer window size, editing with and without linting, history handling) and the failure-mode analysis in §5 / Figure 7.",
  skim:"Per-repository results and the HumanEvalFix detail after the headline.",
@@ -984,12 +989,12 @@ evaluate: apply patch, run the repository's hidden tests → resolved ∈ {0,1}<
 <li><b>Manage context:</b> collapse old observations so long sessions stay within the window and focused.</li></ul>
 <div class="note think"><span class="eyebrow">Thought experiment</span>Give an agent only <span class="mono">cat</span> and <span class="mono">sed</span>. It cats a 3,000-line file, filling its context with text it will mostly ignore, then writes a sed command with an off-by-one line number. The file is now broken and the next test run produces a confusing traceback far from the edit. SWE-agent's viewer and lint-on-edit remove both failures without changing the model at all. That is the paper's claim, demonstrated by ablation.</div>
 <h5>Connections</h5>
-<p><b>Before:</b> ReAct (interleaved reasoning and acting), SWE-bench (the benchmark, same group), Codex-style generate-and-test. <b>After:</b> OpenHands and many open agent frameworks; commercial coding agents including Claude Code (research preview Feb 2025, generally available May 2025); the Model Context Protocol (Nov 2024) as a standard way to give an agent new tools; agent environments built at scale (Paper 14).</p>`,
+<p><b>Before:</b> ReAct (interleaved reasoning and acting), SWE-bench (the benchmark, same group), Codex-style generate-and-test. <b>After:</b> OpenHands and many open agent frameworks; commercial coding agents including Claude Code (research preview Feb 2025, generally available May 2025); the Model Context Protocol (Nov 2024) as a standard way to give an agent new tools; agent environments built at scale (Paper 17).</p>`,
  evalLens:"Agent results are a property of model + harness + budget. A leaderboard row that does not state the scaffold, the step limit, the cost cap and the number of attempts cannot be compared with another row. When a lab reports a new model's SWE-bench score with its own harness, part of the gain may be the harness.",
  cc:"Claude Code is an ACI in exactly this sense, and its public documentation describes the parts: Read (file viewer with line numbers), Edit (exact string replacement that fails if the target is not unique, a guardrail), Grep and Glob (search), Bash, subagents for parallel exploration, CLAUDE.md files as persistent instructions, permission modes, hooks, MCP servers for new tools, and automatic compaction of long conversations.",
  robot:"A robot's action space and observation format are its ACI. Choosing end-effector deltas versus joint positions, the camera viewpoint, the control rate and the safety limits is the same design problem, with the same lesson: the interface can matter as much as the policy."},
 
-gym:{n:15, mod:14, thread:"agent", year:2026, short:"Gym-Anything",
+gym:{n:17, mod:15, thread:"agent", year:2026, short:"Gym-Anything",
  title:"Gym-Anything: Turn any Software into an Agent Environment",
  authors:"Pranjal Aggarwal, Graham Neubig, Sean Welleck (Carnegie Mellon University)",
  venue:"arXiv 2604.06126 (7 April 2026)",
@@ -997,7 +1002,7 @@ gym:{n:15, mod:14, thread:"agent", year:2026, short:"Gym-Anything",
  why:"It shows where the field's bottleneck has moved. Once models and harnesses are good, progress is limited by environments: realistic software with tasks and checkers that give feedback. Gym-Anything has coding agents build and audit those environments, which ties together everything in the course: an LLM (Modules 1–6), post-trained (8–10), acting through a harness (12), producing the feedback that trains and evaluates the next agents (13).",
  bottleneck:"Computer-use benchmarks covered short tasks on a few consumer apps, saying little about the professional software where most economic value lies. Building one realistic environment (install, configure with real data, write tasks, write checkers) took experts days to weeks per application.",
  contribution:"Treat environment creation as an agentic coding task. A creation agent (Claude Opus running in Claude Code) installs and configures each application and saves evidence; an adversarial audit agent checks it against a checklist and sends issues back; a summariser keeps shared notes. Applications are chosen by GDP-weighting occupations. Tasks are proposed and amplified by models, and graded by a checklist-based VLM verifier with an integrity check against shortcuts. Result: 200 applications, about 12K tasks (CUA-World), and a 200-task long-horizon benchmark (CUA-World-Long).",
- prereq:"Papers 9, 13. The vocabulary of RL environments (state, action, reward, episode). Module 14's distinctions below.",
+ prereq:"Papers 9, 15. The vocabulary of RL environments (state, action, reward, episode). Module 15's distinctions below.",
  concepts:["Environment creation versus evaluation versus training signal","Creation agent + adversarial auditor loop","Task generation by propose-and-amplify","Checklist-based VLM verifiers, partial credit, integrity checks","Train/test splits that group similar tasks to prevent leakage"],
  study:"§1 and Figure 1. §2.2 (GDP-grounded software selection: an evaluation design choice worth understanding). §3 and Figure 4 (creation and audit agents). §4 and §4.1 (task generation and verifiers). §5 Table 2 (scale). §7.3 (verifier agreement with humans). §6–7 Tables 3–5 and Figures 6–7 (distillation and test-time feedback). §11 Limitations.",
  skim:"Platform details (QEMU, Android emulators, Slurm backends) in §2.3 and Appendix B; the long list of applications in the appendix.",
@@ -1077,8 +1082,8 @@ MODULES.push(
    ["Specialised model","<b>AlphaFold 2 (Jumper et al., Nature 2021).</b> Not an LLM: an architecture built for protein structure, trained on structural data, with domain-specific inductive biases. The contrast with Minerva is the point: specialised scientific models solve one problem far better; general LLMs reason across many. <a href=\"https://www.nature.com/articles/s41586-021-03819-2\" target=\"_blank\" rel=\"noopener\">Nature</a>"],
    ["Tool-assisted research","<b>Co-Scientist (Gottweis et al., Google, 2025).</b> A multi-agent system built on a general LLM that generates, debates and ranks research hypotheses, with some laboratory validation. An agent harness applied to discovery; read claims of novelty with care. <a href=\"https://arxiv.org/abs/2502.18864\" target=\"_blank\" rel=\"noopener\">arXiv 2502.18864</a>"]
   ]},
- {id:12, title:"Tools and agents", years:"2022–2026", thread:"agent",
-  intro:"An agent is a model in a loop that acts, observes and decides what to do next. This module covers tool calling, action–observation loops, context management, planning, verification and recovery, and the product harness around a model. Claude Code is the running example, with what is publicly documented kept separate from what is inferred. Module 13 then opens the harness up: memory, skills, hooks, and the same design on robots.",
+ {id:13, title:"Tools and agents", years:"2022–2026", thread:"agent",
+  intro:"An agent is a model in a loop that acts, observes and decides what to do next. This module covers tool calling, action–observation loops, context management, planning, verification and recovery, and the product harness around a model. Claude Code is the running example, with what is publicly documented kept separate from what is inferred. Module 14 then opens the harness up: memory, skills, hooks, and the same design on robots.",
   papers:["sweagent"],
   body:`<h5>Anatomy of Claude Code: what is public, inferred and unknown</h5>
 <div class="eq">PUBLIC (Anthropic announcements and Claude Code documentation)
@@ -1094,13 +1099,13 @@ MODULES.push(
 INFERRED (reasonable, not confirmed in detail)
   The underlying models are trained specifically for agentic coding, likely including RL in
   coding environments with test-based rewards, because Anthropic markets them for this and the
-  field's published methods (Papers 9, 10, 13, 15) point that way.
+  field's published methods (Papers 9, 10, 15, 17) point that way.
 
 UNKNOWN
   Model sizes and architecture details, pretraining data mix, RL environments and reward design,
   how harness and model were co-designed, internal evaluation suites.</div>
 <p>Notice how the harness implements the ideas in this course: Read with line numbers and Edit with an exact-match guardrail are SWE-agent's ACI principles; compaction and subagents are context management (Modules 6–7); running tests is Codex's verifier; the permission system is the safety layer around an agent that can change real files.</p>
-<div class="note think"><span class="eyebrow">Thought experiment: recovery</span>An agent edits a file, runs the tests, and three unrelated tests fail. A weak agent edits the tests to pass (reward hacking, inside a single episode). A good agent reads the failures, notices they started after its edit, reverts, and tries a narrower change. What made the difference? Partly the model, partly whether the harness shows a clean diff and test output, and partly whether the instructions say the tests are not to be modified. Gym-Anything's integrity check (Paper 15) exists to catch the first behaviour.</div>`,
+<div class="note think"><span class="eyebrow">Thought experiment: recovery</span>An agent edits a file, runs the tests, and three unrelated tests fail. A weak agent edits the tests to pass (reward hacking, inside a single episode). A good agent reads the failures, notices they started after its edit, reverts, and tries a narrower change. What made the difference? Partly the model, partly whether the harness shows a clean diff and test output, and partly whether the instructions say the tests are not to be modified. Gym-Anything's integrity check (Paper 17) exists to catch the first behaviour.</div>`,
   bridges:[
    ["Agent loop","<b>ReAct (Yao et al., 2022).</b> Interleave a reasoning trace with actions (search, lookup) and observations. The thought–action–observation pattern almost every agent uses. Listed under Optional."],
    ["Tool use","<b>Toolformer (Schick et al., 2023).</b> A model teaches itself when to call APIs (calculator, search, translation) by keeping only the calls that lower its loss on the following text. An early self-supervised route to tool calling. <a href=\"https://arxiv.org/abs/2302.04761\" target=\"_blank\" rel=\"noopener\">arXiv 2302.04761</a>"],
@@ -1109,7 +1114,7 @@ UNKNOWN
    ["Open platform","<b>OpenHands (Wang et al., 2024).</b> An open-source platform for coding and general agents; useful for seeing a full harness in code. <a href=\"https://arxiv.org/abs/2407.16741\" target=\"_blank\" rel=\"noopener\">arXiv 2407.16741</a>"],
    ["Product","<b>Claude Code (Anthropic).</b> Research preview with Claude 3.7 Sonnet, 24 Feb 2025; generally available with Claude 4, 22 May 2025. <a href=\"https://www.anthropic.com/news/claude-3-7-sonnet\" target=\"_blank\" rel=\"noopener\">preview</a> · <a href=\"https://www.anthropic.com/news/claude-4\" target=\"_blank\" rel=\"noopener\">GA</a> · <a href=\"https://news.ycombinator.com/item?id=43164253\" target=\"_blank\" rel=\"noopener\">agentic search comment</a>"]
   ]},
- {id:14, title:"Agent environments and frontier synthesis", years:"2024–2026", thread:"agent",
+ {id:15, title:"Agent environments and frontier synthesis", years:"2024–2026", thread:"agent",
   intro:"The last module asks where capability now comes from. Once a capable model sits in a good harness, progress depends on environments that produce feedback: tasks, checkers and trajectories. Gym-Anything is the reading. The synthesis below then pulls the whole course together into an explanation of why modern models differ, and how the same pieces are converging in robotics.",
   papers:["gym"],
   body:`<h5>What explains differences between modern models</h5>
@@ -1117,9 +1122,9 @@ UNKNOWN
 <ul>
 <li><b>Pretraining:</b> compute, data quantity and above all data mix and quality (Papers 3, 4, 6). Hardest to observe; often the largest factor.</li>
 <li><b>Architecture and efficiency:</b> dense versus MoE, attention variants, context length (Papers 5, 6, DeepSeek-V3). Mostly changes cost per unit of quality.</li>
-<li><b>Post-training:</b> which preferences, which verifiable tasks, which environments and how much RL (Papers 8, 10, 15). Increasingly the source of agentic and reasoning differences.</li>
+<li><b>Post-training:</b> which preferences, which verifiable tasks, which environments and how much RL (Papers 8, 10, 17). Increasingly the source of agentic and reasoning differences.</li>
 <li><b>Inference budget:</b> thinking tokens, samples, steps and wall-clock allowed. Gym-Anything's Table 4 shows a ranking reversing when the budget changes.</li>
-<li><b>Harness and tools:</b> the same model in different scaffolds can differ by many points (Paper 13).</li>
+<li><b>Harness and tools:</b> the same model in different scaffolds can differ by many points (Paper 15).</li>
 <li><b>Evaluation conditions:</b> contamination, prompt format, grader choice, number of attempts, partial versus full credit.</li>
 </ul>
 <p>So a fair claim has the form: <i>on task T, with tools U, budget B and cost C, model X scored S under grader G, measured by whom.</i> "X is better than Y" without those terms is not a scientific statement.</p>
@@ -1145,7 +1150,7 @@ MODULES.sort((a,b)=>a.id-b.id);
 const OPTIONAL = [
  {title:"Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (T5)", who:"Raffel et al.", when:"Oct 2019", mod:3, url:"https://arxiv.org/abs/1910.10683",
   why:"Read it if you want controlled evidence on encoder–decoder versus decoder-only, and on pretraining objectives, data filtering (it introduces the C4 corpus) and transfer. Its §3 is a systematic ablation study that no later paper repeats at this breadth."},
- {title:"ReAct: Synergizing Reasoning and Acting in Language Models", who:"Yao et al.", when:"Oct 2022 · ICLR 2023", mod:12, url:"https://arxiv.org/abs/2210.03629",
+ {title:"ReAct: Synergizing Reasoning and Acting in Language Models", who:"Yao et al.", when:"Oct 2022 · ICLR 2023", mod:13, url:"https://arxiv.org/abs/2210.03629",
   why:"Read it for the origin of the thought–action–observation loop used by SWE-agent and Claude Code. It is short, and its error analysis shows why reasoning without acting hallucinates and acting without reasoning wanders."},
  {title:"Direct Preference Optimization: Your Language Model is Secretly a Reward Model", who:"Rafailov et al.", when:"May 2023", mod:8, url:"https://arxiv.org/abs/2305.18290",
   why:"Read it if the RLHF objective in Paper 8 felt opaque. Its derivation of the closed-form optimal policy is the best two pages in this field for understanding what the KL-regularised objective actually wants, and DPO is what Llama 3 uses."},
@@ -1177,9 +1182,9 @@ const EVALQ = [
  "<b>Who measured:</b> self-reported, or independently reproduced? Same harness for every model?"
 ];
 
-/* Module 13: harness architecture, memory and skills, and frontier models as System 2 for robots. Added 2026-11-10. */
+/* Module 14: harness architecture, memory and skills, and frontier models as System 2 for robots. Added 2026-11-10. */
 Object.assign(PAPERS, {
-gemrob:{n:14, mod:13, thread:"body", year:2025, short:"Gemini Robotics 1.5",
+gemrob:{n:16, mod:14, thread:"body", year:2025, short:"Gemini Robotics 1.5",
  title:"Gemini Robotics 1.5: Pushing the Frontier of Generalist Robots with Advanced Embodied Reasoning, Thinking, and Motion Transfer",
  authors:"Gemini Robotics Team (Google DeepMind)",
  venue:"arXiv 2510.03342 (October 2025; v3 later). Announced on the DeepMind blog 25 Sep 2025",
@@ -1187,7 +1192,7 @@ gemrob:{n:14, mod:13, thread:"body", year:2025, short:"Gemini Robotics 1.5",
  why:"It is the clearest published instance of the pattern this module is about: a frontier multimodal model acting as a System 2 orchestrator that plans, calls tools (including web search), checks progress and hands natural-language instructions to a VLA, which is exposed to it as a tool. It is Claude Code's architecture with a robot arm as one of the tools, and it reports what the orchestrator adds by ablation.",
  bottleneck:"A single VLA policy (RT-2, π0) handles short instructions well but fails on long, open-ended tasks that need planning, outside information, progress tracking and recovery. Earlier hierarchies (SayCan, Inner Monologue) used general LLMs that had weak spatial understanding and no fine motor grounding, and the earlier Gemini Robotics VLA could not think before acting.",
  contribution:"Two models with a defined interface. Gemini Robotics-ER 1.5 is a vision-language model that keeps Gemini's general reasoning and tool use and adds embodied reasoning (pointing, spatial understanding, success detection); it decomposes tasks, decides when a step is done, and calls tools. Gemini Robotics 1.5 is a VLA that receives short natural-language instructions, can write its own reasoning trace before acting ('thinking'), and uses Motion Transfer so one checkpoint controls three different robots.",
- prereq:"Papers 11 (RT-2) and 13 (SWE-agent). This module's harness section, which explains orchestrators, tools and verification in the software setting first.",
+ prereq:"Papers 11 (RT-2) and 15 (SWE-agent). This module's harness section, which explains orchestrators, tools and verification in the software setting first.",
  concepts:["Orchestrator (System 2) versus executor (System 1): what each decides, at what rate","A VLA exposed to a planner as a tool with a language interface","Thinking before acting inside the VLA","Success detection as the orchestrator's verifier","Motion Transfer across embodiments (ALOHA, bi-arm Franka, Apollo humanoid)"],
  study:"§2 and Figure 1 (the two models and the agentic system architecture, including the suitcase-packing example). §3.3 with Figures 6–7 (thinking in the VLA, with traces showing success awareness and recovery). §3.1–3.2 with Figures 2, 4, 5 (Motion Transfer). §5, Figure 17 and Table 1 (the agent evaluation: orchestrator plus VLA versus VLA alone versus a weaker orchestrator). §7 Limitations.",
  skim:"§4's per-benchmark embodied-reasoning tables after Figure 8; the safety section §6 unless that is your interest (note the ASIMOV-2.0 benchmark exists).",
@@ -1227,8 +1232,8 @@ A single model that thinks for 3 s before each motor command could not catch a s
  robot:"If you build a System 2 layer for an SO-101 or any arm, this paper gives you the interface to copy: a planner that emits short language instructions, a policy that accepts them, and a success detector in between. Your own design decisions are where to run the planner (cloud or onboard), how often it is allowed to intervene, and what the robot does while it waits."}
 });
 
-MODULES.push({id:13, title:"Harnesses, memory and skills; frontier agents as System 2", years:"2022–2026", thread:"agent",
- intro:"Module 12 showed that the harness around a model matters. This module opens the harness up: where an agent's knowledge is stored (instructions, memories, skills, tools, transcripts), when each part enters the context window, and which parts the harness enforces rather than the model. Then it applies the same architecture to robots, where frontier models are increasingly used as System 2 orchestrators over fast VLA policies.",
+MODULES.push({id:14, title:"Harnesses, memory and skills; frontier agents as System 2", years:"2022–2026", thread:"agent",
+ intro:"Module 13 showed that the harness around a model matters. This module opens the harness up: where an agent's knowledge is stored (instructions, memories, skills, tools, transcripts), when each part enters the context window, and which parts the harness enforces rather than the model. Then it applies the same architecture to robots, where frontier models are increasingly used as System 2 orchestrators over fast VLA policies.",
  papers:["gemrob"],
  departure:"Gemini Robotics 1.5 (2025) is read after SWE-agent and before Gym-Anything because it is the same agent architecture as a coding harness, applied to a robot. The harness section comes first so the robot paper reads as a transfer, not a new idea.",
  body:`<h5>The harness as a small operating system</h5>
@@ -1291,11 +1296,144 @@ MODULES.push({id:13, title:"Harnesses, memory and skills; frontier agents as Sys
 MODULES.sort((a,b)=>a.id-b.id);
 
 OPTIONAL.push(
- {title:"Cognitive Architectures for Language Agents (CoALA)", who:"Sumers, Yao, Narasimhan, Griffiths", when:"Sep 2023", mod:13, url:"https://arxiv.org/abs/2309.02427",
+ {title:"Cognitive Architectures for Language Agents (CoALA)", who:"Sumers, Yao, Narasimhan, Griffiths", when:"Sep 2023", mod:14, url:"https://arxiv.org/abs/2309.02427",
   why:"Read it if you want one framework for comparing agent designs. It maps working, episodic, semantic and procedural memory and a decision loop onto existing agents, which is exactly the lens needed to judge any harness or robot System 2 stack you meet."},
- {title:"Voyager: An Open-Ended Embodied Agent with Large Language Models", who:"Wang et al.", when:"May 2023", mod:13, url:"https://arxiv.org/abs/2305.16291",
+ {title:"Voyager: An Open-Ended Embodied Agent with Large Language Models", who:"Wang et al.", when:"May 2023", mod:14, url:"https://arxiv.org/abs/2305.16291",
   why:"Read it for the skill library done concretely: an embodied agent that writes skills as code, verifies them in the environment, stores them by description and reuses them, with an automatic curriculum. It is the ancestor of SKILL.md and of robot skill libraries."}
 );
+
+/* Module 12: fine-tuning, from LLMs to robot policies. Added 2026-11-10. */
+Object.assign(PAPERS, {
+lora:{n:13, mod:12, thread:"sys", year:2021, short:"LoRA",
+ title:"LoRA: Low-Rank Adaptation of Large Language Models",
+ authors:"Edward J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu Wang, Weizhu Chen (Microsoft)",
+ venue:"arXiv 2106.09685 (June 2021)",
+ url:"https://arxiv.org/abs/2106.09685", pdf:"https://arxiv.org/pdf/2106.09685",
+ why:"Fine-tuning is how a general model becomes your model, and LoRA is how almost everyone does it now, for LLMs and for robot policies alike: OpenVLA, SmolVLA and the LeRobot stack on your Jetson all support it. It also carries a scientific claim worth understanding: the change fine-tuning needs to make to a huge model is low-rank, so a tiny number of new parameters is enough.",
+ bottleneck:"Full fine-tuning of GPT-3 175B means storing and updating 175B parameters plus Adam state for every task, and keeping a separate 350 GB copy per task. Adapters (2019) cut the trainable parameters but add layers that slow inference; prefix and prompt tuning use up context length and are harder to optimise.",
+ contribution:"Freeze the pretrained weights W₀ and learn the update as a product of two thin matrices, ΔW = BA with rank r ≪ d, on selected weight matrices (the study adapts attention projections). After training, BA can be added into W₀, so inference is exactly as fast as the original model. On GPT-3 175B, trainable parameters fall about 10,000× and training GPU memory about 3× (1.2 TB to 350 GB), with quality matching or beating full fine-tuning.",
+ prereq:"Paper 2 (where the attention projection matrices sit). Matrix rank at the level of 'a d×k matrix of rank r can be written as a d×r matrix times an r×k matrix'. Module 8's idea of SFT.",
+ concepts:["Full fine-tuning versus parameter-efficient fine-tuning (PEFT)","Low-rank update ΔW = BA, its initialisation (B = 0) and scaling α/r","Merging the update into the weights: no inference cost","Which matrices to adapt, and how small r can be","Intrinsic dimension: why low-rank updates might suffice"],
+ study:"§1 and Figure 1. §4.1 with Equation (3), until you can explain why B starts at zero. §4.2 (applying LoRA to transformers, the GPT-3 memory and checkpoint numbers). §5 Table 4 (GPT-3 175B results against full fine-tuning and other PEFT methods). §7.1–7.2 and Table 6 (which weights to adapt; how small r can be).",
+ skim:"The RoBERTa/DeBERTa GLUE tables beyond the headline; §7.3 on the relationship between ΔW and W (interesting, but a second read); the appendices.",
+ evidence:"On GPT-3 175B, LoRA with 4.7M or 37.7M trainable parameters matches or beats full fine-tuning (175,255.8M) on WikiSQL, MNLI and SAMSum, trains about 25% faster, and shrinks a task checkpoint from 350 GB to about 35 MB at r = 4. Ranks as small as 1–2 suffice when both query and value projections are adapted on these tasks. Table 1 shows the inference latency that adapters add and LoRA avoids.",
+ limitation:"Small r is not guaranteed to suffice on every task (the paper says so, and its own GPT-2 ablation peaks at larger ranks). Batching requests for different tasks is awkward once weights are merged. Later work found LoRA tends to learn less new knowledge than full fine-tuning on very different domains, and also to forget less (Biderman et al., 2024): a trade-off, not a free lunch.",
+ checkpoint:"Write the LoRA forward pass, count the trainable parameters for one d×d matrix at rank r, and explain why the model is exactly unchanged at the start of training. Then explain why LoRA adds no inference latency while adapters do, and what 'LoRA learns less and forgets less' implies for fine-tuning a VLA on a small robot dataset.",
+ lesson:`<h5>Conceptual primer</h5>
+<p>Pretraining puts general ability into the weights. Fine-tuning nudges them toward one use. LoRA's bet is that the nudge is simple: for a weight matrix with millions of entries, the useful change lies in a handful of directions. If so, you only need to learn those directions.</p>
+<h5>The mechanism</h5>
+<div class="eq">Frozen pretrained weight  W₀ ∈ ℝ^{d×k}
+Trainable:  B ∈ ℝ^{d×r},  A ∈ ℝ^{r×k},   r ≪ min(d, k)
+
+h = W₀ x + (α/r) · B A x
+Init: A ~ Gaussian, B = 0   →  B A = 0, so the model starts exactly as pretrained
+Deploy: W = W₀ + (α/r) B A  → one matrix again, same speed as the original
+
+Parameters for one 12,288 × 12,288 matrix (GPT-3 width):
+  full:  12,288² ≈ 151M        LoRA r = 4:  2 · 12,288 · 4 ≈ 98K   (~1,500× fewer)</div>
+<h5>Why memory falls so much</h5>
+<p>Recall Paper 4's arithmetic: Adam needs about 16 bytes per <i>trained</i> parameter. With LoRA, the frozen weights need only their 2 bytes each (or 0.5 bytes with QLoRA's 4-bit storage), and optimizer state exists only for the tiny A and B matrices. That is why a 7B model can be fine-tuned on one GPU, and why QLoRA (2023) could fine-tune a 65B model on a single 48 GB card.</p>
+<div class="note think"><span class="eyebrow">Thought experiment</span>You fine-tune the same base model for twenty customers. Full fine-tuning: twenty 14 GB copies for a 7B model. LoRA: one base model plus twenty files of a few tens of MB each, swapped in per request. Now picture a robot company with one base VLA and a separate adapter per customer site, per gripper, per task. The economics of "one foundation model, many specialisations" in robotics rest on this paper.</div>
+<h5>Connections</h5>
+<p><b>Before:</b> ULMFiT and BERT-style full fine-tuning; adapters; prefix and prompt tuning. <b>After:</b> QLoRA, DoRA and many variants; LoRA as the default way to fine-tune open LLMs and VLAs (OpenVLA reports LoRA matching full fine-tuning while training 1.4% of parameters). The rest of this module follows that line into robotics.</p>`,
+ evalLens:"PEFT comparisons should hold the task data, training steps and evaluation fixed and report both in-distribution and out-of-distribution results, because the main difference between LoRA and full fine-tuning often shows up in what is forgotten, not in the target-task score.",
+ cc:"Anthropic does not offer LoRA-style fine-tuning of Claude in Claude Code; adapting Claude to your project happens through context (CLAUDE.md, skills, memory: Module 14). That is a useful contrast: weights versus context are the two places a model can be specialised.",
+ robot:"When you fine-tune a VLA on SO-101 demonstrations, LoRA is usually the first thing to try: it fits on one GPU, keeps the base model intact, and lets you keep one adapter per task. Its known trade-off matters: if your robot, camera or action space is very different from the pretraining data, a low-rank update may not be enough, and you may need to train more of the network."},
+
+oft:{n:14, mod:12, thread:"body", year:2025, short:"OpenVLA-OFT",
+ title:"Fine-Tuning Vision-Language-Action Models: Optimizing Speed and Success",
+ authors:"Moo Jin Kim, Chelsea Finn, Percy Liang (Stanford)",
+ venue:"arXiv 2502.19645 (February 2025); RSS 2025",
+ url:"https://arxiv.org/abs/2502.19645", pdf:"https://arxiv.org/pdf/2502.19645", extra:[["Project page","https://openvla-oft.github.io/"]],
+ why:"It is the cleanest study of the robot version of this module's question: given a pretrained VLA and a new robot or task, what fine-tuning recipe actually works? It shows that the recipe (how actions are decoded and represented, and the loss) matters as much as the base model: the same OpenVLA weights go from 76.5% to 97.1% average success on LIBERO and from 4 Hz to over 100 Hz.",
+ bottleneck:"OpenVLA, like RT-2, generates actions one discrete token at a time. Fine-tuned that way it is slow (single-digit Hz), struggles on high-frequency bimanual robots, and its fine-tuned success lagged newer models such as π0. It was unclear whether that was a limit of the model or of the fine-tuning recipe.",
+ contribution:"An Optimized Fine-Tuning (OFT) recipe with three changes: parallel decoding of all action dimensions and timesteps at once with action chunking; continuous action outputs instead of discrete bins; and a simple L1 regression loss. On the ALOHA bimanual robot, an extended version (OFT+) adds FiLM conditioning so the policy actually follows language. The paper also compares this against diffusion-based fine-tuning and finds L1 comparable while training and running faster.",
+ prereq:"Paper 11 (RT-2's action tokens) and Paper 13 (LoRA). Action chunking, at the level of 'predict the next K actions at once instead of one'. Optional reading π0 helps as the main comparison.",
+ concepts:["Autoregressive versus parallel action decoding","Action chunking and why it helps both speed and smoothness","Discrete action tokens versus continuous outputs; L1 regression versus diffusion","FiLM: injecting language into visual features so instructions are not ignored","Fine-tuning a generalist versus training a specialist from scratch (ACT, Diffusion Policy)"],
+ study:"§III (the design space they search: decoding, action representation, objective). §IV and Table I (LIBERO: each change's contribution, and comparison with π0 and others). Table II (throughput and latency). §VI with Figure 4 (ALOHA real-robot tasks against π0, RDT-1B, ACT and Diffusion Policy) and Figure 5 (the FiLM ablation). §VIII Limitations.",
+ skim:"Implementation details of the LIBERO setup and per-suite breakdowns after the averages.",
+ evidence:"On LIBERO, average success rises from 76.5% (OpenVLA fine-tuned with its original recipe) to 97.1% with OFT and extra inputs (95.3% without), above π0's 94.2% in the same table. Action-generation throughput rises about 26× on LIBERO (4.2 Hz to roughly 109 Hz on an A100) and 43× on ALOHA (1.8 Hz to 77.9 Hz). On four real ALOHA tasks (folding shorts and shirts, scooping, putting items in a pot), OFT+ beats fine-tuned π0 and RDT-1B and from-scratch ACT and Diffusion Policy by up to 15 points average success. Without FiLM, language following falls to chance (33%).",
+ limitation:"An L1 loss averages over demonstrations, so it may fail when demonstrations are genuinely multimodal (two valid ways to do a task). The recipe is shown for fine-tuning, not pretraining. Why language grounding breaks without FiLM on ALOHA but not on LIBERO is not explained. Real-robot evaluations are four tasks on one platform, and the baselines were fine-tuned with their authors' recipes, which is fair but not identical effort.",
+ checkpoint:"Explain each of OFT's three changes and what problem each solves (speed, smoothness, accuracy). Then explain the FiLM result: why can a fine-tuned VLA learn to ignore its language instruction, and how does this relate to the LLM finding that fine-tuning can distort pretrained features?",
+ lesson:`<h5>Conceptual primer</h5>
+<p>A pretrained VLA arrives knowing a lot about images, language and generic manipulation. Fine-tuning on your robot's demonstrations has to teach it your embodiment, cameras and tasks without destroying what it knew. This paper treats the fine-tuning recipe as the thing to optimise, holding the base model fixed.</p>
+<h5>The three changes</h5>
+<div class="eq">Original OpenVLA fine-tuning (RT-2 style)
+  for each of 7 action dims, one token at a time:  a_d ~ softmax over 256 bins   → 7 forward steps per action
+  one action per step                                                        → jerky, slow
+
+OFT
+  1. Parallel decoding + chunking: one forward pass emits K future actions × all dims
+     (K = 8 on LIBERO, K = 25 on ALOHA)
+  2. Continuous outputs: an MLP head regresses real-valued actions, no binning
+  3. L1 loss:  L = Σ_t Σ_d | â_{t,d} − a_{t,d} |
+OFT+ (ALOHA): FiLM layers scale and shift visual features using the language embedding
+              γ(ℓ) ⊙ f(image) + β(ℓ)</div>
+<p>Parallel decoding with chunking is most of the speed gain: K×7 actions per forward pass instead of 7 forward passes per action. Continuous outputs and L1 are most of the accuracy gain: no rounding to bins, and a loss that converges quickly. Diffusion heads (as in Diffusion Policy and π0's flow matching) model multimodal action distributions better, at extra cost; the paper finds L1 sufficient on its tasks.</p>
+<h5>The trouble with fine-tuning: forgetting language</h5>
+<p>On ALOHA, without FiLM, the fine-tuned policy often ignored the instruction and did whatever the scene suggested (33% language following, chance for three options). This is the robot form of a well-known LLM result (Kumar et al., 2022): fine-tuning can distort pretrained features, keeping in-distribution accuracy while losing what made the model general. Physical Intelligence's Knowledge Insulation paper (May 2025) attacks the same problem from the architecture side, by stopping gradients from the action head flowing into the VLM backbone.</p>
+<div class="note think"><span class="eyebrow">Thought experiment: why can a policy learn to ignore language?</span>In your 50 demonstrations, whenever a cup is on the left, the instruction was "put the block in the cup". The camera image alone predicts the action perfectly. Gradient descent takes the easiest path, so the policy learns to read the scene and stop attending to the text. It looks perfect on your test set, then fails the first time you ask for something different in the same scene. Defences: more varied instructions per scene, FiLM-style conditioning that makes language hard to bypass, co-training with vision-language data (RT-2), or insulating the backbone (Knowledge Insulation).</div>
+<h5>Connections</h5>
+<p><b>Before:</b> RT-2 and OpenVLA (discrete tokens), ACT (action chunking, from scratch), Diffusion Policy, π0 (flow-matching action expert), LoRA. <b>After:</b> Knowledge Insulation, SmolVLA (small enough to fine-tune on one consumer GPU), and RL fine-tuning on real robots (HIL-SERL, ConRFT, π*0.6), which this module's thread ends with.</p>`,
+ evalLens:"LIBERO is a simulation benchmark that many methods now score above 95% on, so differences at the top are small and may not transfer. The real-robot evidence is four tasks on one robot. Check that throughput numbers compare like with like (same GPU, same chunk size, whether chunked actions are all executed).",
+ cc:"The parallel is context versus weights: Claude Code adapts to a codebase by reading it, while a robot policy usually has to be fine-tuned on demonstrations. Research on in-context robot learning (Module 5's robot lens) is trying to move robots toward the first.",
+ robot:"This is the paper to read before you fine-tune anything on your arm. Its practical lessons: use action chunks, prefer continuous outputs, check language following separately from task success, and compare against a from-scratch ACT or Diffusion Policy baseline trained on the same demonstrations, because for a single narrow task the specialist is often competitive."}
+});
+
+MODULES.push({id:12, title:"Fine-tuning: from LLMs to robot policies", years:"2018–2026", thread:"post",
+ intro:"Every deployed model is a pretrained model that was fine-tuned. This module follows one thread: how fine-tuning language models developed (full fine-tuning, parameter-efficient methods, instruction tuning, small and synthetic data, and what fine-tuning breaks), then how each idea reappears in robotics, from training a policy per task, to fine-tuning a generalist VLA, to reinforcement-learning fine-tuning on real robots.",
+ papers:["lora","oft"],
+ departure:"This module sits after Module 11 because its robot half needs RT-2 and V-JEPA 2. Its LLM half reaches back to 2018 and connects to Module 8 (SFT, RLHF, DPO) and Module 10 (RL with verifiable rewards), which are the preference- and reward-based kinds of fine-tuning.",
+ body:`<h5>The thread in twelve steps</h5>
+<p>The left side of each step is language models; the robot steps reuse the same idea. Read the bridges below for links.</p>
+<ol>
+<li><b>Fine-tune the whole pretrained model (2018).</b> ULMFiT showed a pretrained language model can be fine-tuned for a new task with little labelled data, using tricks to avoid wrecking what it learned (lower learning rates for lower layers, unfreezing layers gradually). GPT-1 and BERT made "pretrain, then fine-tune" the standard.</li>
+<li><b>Fine-tune a small part (2019–2024).</b> Adapters add small trainable layers; prefix and prompt tuning learn a few virtual tokens; LoRA learns a low-rank update (Paper 13); QLoRA stores the frozen model in 4 bits; DoRA refines LoRA. The common idea: keep the base frozen, learn a small delta.</li>
+<li><b>Fine-tune on instructions (2021–2022).</b> FLAN and T0 fine-tuned on many tasks phrased as instructions, and the models followed instructions for tasks they never saw. Flan-PaLM scaled the number of tasks to 1,800. This is the step from task model to general assistant, before RLHF.</li>
+<li><b>Less, but better, data (2022–2023).</b> Self-Instruct had a model write its own instruction data; LIMA fine-tuned on just 1,000 curated examples and argued that alignment mostly teaches format and style, with knowledge coming from pretraining.</li>
+<li><b>Fine-tune on preferences and rewards.</b> RLHF and DPO (Module 8) and RL with verifiable rewards (Module 10) are fine-tuning too, with a different signal than demonstrations.</li>
+<li><b>Know what fine-tuning breaks.</b> Fine-tuning can distort pretrained features and lose out-of-distribution robustness (Kumar et al., 2022); averaging fine-tuned and original weights recovers much of it (WiSE-FT); LLMs forget general skills during sequential fine-tuning; LoRA learns less and forgets less. Every robot step below meets this problem.</li>
+</ol>
+<ol start="7">
+<li><b>Robots start where NLP was before 2018: one policy per task.</b> ACT (with the low-cost ALOHA arms) and Diffusion Policy train a policy from scratch on tens to hundreds of demonstrations of one task. They work well and remain the strong baselines, but each task starts from zero.</li>
+<li><b>Pretrain a generalist, then fine-tune it.</b> Octo was designed to be fine-tuned to new robots, sensors and action spaces; OpenVLA reports LoRA matching full fine-tuning while training 1.4% of parameters; π0 is pretrained on many robots and then post-trained per task. This is robotics' ULMFiT moment.</li>
+<li><b>The recipe matters as much as the model.</b> OpenVLA-OFT (Paper 14) changes decoding, action representation and loss and lifts the same base model from 76.5% to 97.1% on LIBERO at about 26× the speed.</li>
+<li><b>Protect the backbone's knowledge.</b> Fine-tuning a VLM into a policy damages its vision-language knowledge, exactly as in step 6. RT-2 co-fine-tuned with web data; OFT+ adds FiLM so language cannot be ignored; Knowledge Insulation stops the action head's gradients from reaching the backbone and trains the backbone on discrete action tokens instead.</li>
+<li><b>Make fine-tuning affordable.</b> SmolVLA, from the LeRobot team, is a small VLA built to be trained and fine-tuned on a single consumer GPU, which is what puts generalist-then-fine-tune within reach of an SO-101 setup.</li>
+<li><b>Fine-tune with reinforcement learning on the real robot.</b> HIL-SERL learns precise, dexterous skills with human interventions in a few hours of real-world RL; ConRFT, VLA-RL and SimpleVLA-RL apply RL fine-tuning to VLAs; π*0.6 (Nov 2025) trains on demonstrations, its own rollouts and human corrections, conditioning the policy on an advantage estimate, and reports roughly halved failure rates on hard tasks. This is the robot counterpart of RLHF and RLVR, with a success detector or value function in the role of the reward model.</li>
+</ol>
+<h5>The same idea, two fields</h5>
+<div class="dtbl-wrap"><table class="dtbl">
+<thead><tr><th>Idea</th><th>In language models</th><th>In robot policies</th></tr></thead><tbody>
+<tr><td>Starting point</td><td>Pretrained LM (GPT-3, Llama)</td><td>Pretrained VLM backbone or pretrained VLA (OpenVLA, π0, Octo, SmolVLA)</td></tr>
+<tr><td>Supervised fine-tuning</td><td>Demonstrations of good answers</td><td>Behaviour cloning on teleoperated or human demonstrations</td></tr>
+<tr><td>Parameter-efficient</td><td>LoRA, QLoRA, adapters</td><td>LoRA on the VLA; frozen backbone with a trained action head</td></tr>
+<tr><td>Instruction tuning</td><td>Many tasks phrased as instructions (FLAN)</td><td>Multi-task, language-conditioned demonstrations; varied instructions per scene</td></tr>
+<tr><td>Forgetting</td><td>Lost general skills and robustness</td><td>Lost vision-language knowledge; ignoring the instruction</td></tr>
+<tr><td>Defence against forgetting</td><td>Mix in pretraining data; weight averaging; LoRA</td><td>Co-fine-tuning with web data (RT-2); Knowledge Insulation; FiLM</td></tr>
+<tr><td>Preference / reward fine-tuning</td><td>RLHF, DPO, RLVR</td><td>Human interventions and corrections; success-based RL (HIL-SERL, π*0.6)</td></tr>
+<tr><td>Distillation</td><td>Big model's outputs train a small one (R1-Distill)</td><td>A large policy or planner supervises a small onboard policy</td></tr>
+<tr><td>Main constraint</td><td>Compute and data quality</td><td>Demonstrations are slow and costly to collect; evaluation needs real trials</td></tr>
+</tbody></table></div>
+<div class="note think"><span class="eyebrow">Thought experiment: 50 demonstrations on your SO-101</span>You record 50 demonstrations of "put the block in the cup". Option A: train ACT from scratch. It will likely do this one task well in this scene, and nothing else. Option B: LoRA fine-tune SmolVLA or π0. It may generalise better to new blocks and positions because the backbone has seen more of the world, but check that it still listens: change the instruction to "put the block next to the cup" and see whether it does the old task anyway (step 10). Option C: add RL fine-tuning with a success check and occasional human corrections (step 12) to push reliability from good to very high. The cost rises from A to C; so does what you learn about where the policy fails.</div>
+<div class="note eval"><span class="eyebrow">Evaluating fine-tuning claims</span>Always ask what was held fixed (base model, data, steps, compute), whether both in-distribution and out-of-distribution results are reported (fine-tuning gains often hide forgetting), whether language following is measured separately from task success, and, for robots, how many real trials sit behind each number and whether a from-scratch specialist was trained on the same demonstrations as a baseline.</div>`,
+ bridges:[
+  ["Earliest","<b>ULMFiT (Howard & Ruder, 2018).</b> Pretrain a language model, then fine-tune it with discriminative learning rates and gradual unfreezing. The first clear demonstration that LM fine-tuning transfers with little labelled data. <a href=\"https://arxiv.org/abs/1801.06146\" target=\"_blank\" rel=\"noopener\">arXiv 1801.06146</a>"],
+  ["PEFT","<b>Adapters (Houlsby et al., 2019).</b> Small bottleneck layers inserted into each block; only they are trained. <a href=\"https://arxiv.org/abs/1902.00751\" target=\"_blank\" rel=\"noopener\">arXiv 1902.00751</a>"],
+  ["PEFT","<b>Prefix-tuning (Li & Liang, 2021)</b> and <b>prompt tuning (Lester et al., 2021).</b> Learn continuous 'virtual tokens' instead of weights; prompt tuning closes the gap to full fine-tuning as models grow. <a href=\"https://arxiv.org/abs/2101.00190\" target=\"_blank\" rel=\"noopener\">arXiv 2101.00190</a> · <a href=\"https://arxiv.org/abs/2104.08691\" target=\"_blank\" rel=\"noopener\">arXiv 2104.08691</a>"],
+  ["PEFT","<b>QLoRA (Dettmers et al., 2023)</b> and <b>DoRA (Liu et al., 2024).</b> LoRA on a 4-bit frozen model, enough to fine-tune a 65B model on one 48 GB GPU; and splitting each weight into magnitude and direction before applying a low-rank update. <a href=\"https://arxiv.org/abs/2305.14314\" target=\"_blank\" rel=\"noopener\">arXiv 2305.14314</a> · <a href=\"https://arxiv.org/abs/2402.09353\" target=\"_blank\" rel=\"noopener\">arXiv 2402.09353</a>"],
+  ["Instruction tuning","<b>FLAN (Wei et al., 2021)</b>, <b>T0 (Sanh et al., 2021)</b>, <b>Flan scaling (Chung et al., 2022).</b> Fine-tuning on many instruction-phrased tasks gives zero-shot ability on unseen tasks, and it keeps improving as tasks and model size grow. <a href=\"https://arxiv.org/abs/2109.01652\" target=\"_blank\" rel=\"noopener\">arXiv 2109.01652</a> · <a href=\"https://arxiv.org/abs/2110.08207\" target=\"_blank\" rel=\"noopener\">arXiv 2110.08207</a> · <a href=\"https://arxiv.org/abs/2210.11416\" target=\"_blank\" rel=\"noopener\">arXiv 2210.11416</a>"],
+  ["Data","<b>Self-Instruct (Wang et al., 2022)</b> and <b>LIMA (Zhou et al., 2023).</b> A model generating its own instruction data; and 1,000 carefully chosen examples being enough for strong instruction following. <a href=\"https://arxiv.org/abs/2212.10560\" target=\"_blank\" rel=\"noopener\">arXiv 2212.10560</a> · <a href=\"https://arxiv.org/abs/2305.11206\" target=\"_blank\" rel=\"noopener\">arXiv 2305.11206</a>"],
+  ["What breaks","<b>Fine-tuning can distort pretrained features (Kumar et al., 2022)</b> and <b>WiSE-FT (Wortsman et al., 2021).</b> Full fine-tuning can lose out-of-distribution accuracy that linear probing keeps; interpolating original and fine-tuned weights recovers robustness. <a href=\"https://arxiv.org/abs/2202.10054\" target=\"_blank\" rel=\"noopener\">arXiv 2202.10054</a> · <a href=\"https://arxiv.org/abs/2109.01903\" target=\"_blank\" rel=\"noopener\">arXiv 2109.01903</a>"],
+  ["What breaks","<b>Catastrophic forgetting during continual fine-tuning (Luo et al., 2023)</b> and <b>LoRA Learns Less and Forgets Less (Biderman et al., 2024).</b> <a href=\"https://arxiv.org/abs/2308.08747\" target=\"_blank\" rel=\"noopener\">arXiv 2308.08747</a> · <a href=\"https://arxiv.org/abs/2405.09673\" target=\"_blank\" rel=\"noopener\">arXiv 2405.09673</a>"],
+  ["Robot, from scratch","<b>ACT and ALOHA (Zhao et al., 2023)</b> and <b>Diffusion Policy (Chi et al., 2023).</b> Action chunking with a transformer on low-cost bimanual arms; and actions generated by denoising diffusion, which handles multimodal demonstrations well. Both are in LeRobot. <a href=\"https://arxiv.org/abs/2304.13705\" target=\"_blank\" rel=\"noopener\">arXiv 2304.13705</a> · <a href=\"https://arxiv.org/abs/2303.04137\" target=\"_blank\" rel=\"noopener\">arXiv 2303.04137</a>"],
+  ["Robot, pretrain then fine-tune","<b>Octo (2024)</b> and <b>OpenVLA (2024).</b> A generalist policy built to be fine-tuned to new sensors and action spaces; and an open VLA whose LoRA fine-tuning matches full fine-tuning while training 1.4% of parameters (§5.3). <a href=\"https://arxiv.org/abs/2405.12213\" target=\"_blank\" rel=\"noopener\">arXiv 2405.12213</a> · <a href=\"https://arxiv.org/abs/2406.09246\" target=\"_blank\" rel=\"noopener\">arXiv 2406.09246</a>"],
+  ["Robot, forgetting","<b>Knowledge Insulating VLA Models (Driess et al., Physical Intelligence, 2025).</b> Gradients from a continuous action expert damage the VLM backbone and slow training; stop those gradients, train the backbone on discrete FAST action tokens, and co-train on vision-language data. <a href=\"https://arxiv.org/abs/2505.23705\" target=\"_blank\" rel=\"noopener\">arXiv 2505.23705</a>"],
+  ["Robot, affordable","<b>SmolVLA (Shukor et al., 2025).</b> A compact VLA from the LeRobot team, trained on community datasets and meant to be fine-tuned and run on consumer hardware. <a href=\"https://arxiv.org/abs/2506.01844\" target=\"_blank\" rel=\"noopener\">arXiv 2506.01844</a>"],
+  ["Robot, RL fine-tuning","<b>HIL-SERL (Luo et al., 2024)</b>, <b>ConRFT (Chen et al., 2025)</b>, <b>VLA-RL (Lu et al., 2025)</b>, <b>SimpleVLA-RL (Li et al., 2025).</b> Real-world RL with human interventions; reinforced fine-tuning of VLAs with a consistency policy; and scalable online RL for VLAs. <a href=\"https://arxiv.org/abs/2410.21845\" target=\"_blank\" rel=\"noopener\">arXiv 2410.21845</a> · <a href=\"https://arxiv.org/abs/2502.05450\" target=\"_blank\" rel=\"noopener\">arXiv 2502.05450</a> · <a href=\"https://arxiv.org/abs/2505.18719\" target=\"_blank\" rel=\"noopener\">arXiv 2505.18719</a> · <a href=\"https://arxiv.org/abs/2509.09674\" target=\"_blank\" rel=\"noopener\">arXiv 2509.09674</a>"],
+  ["Robot, RL from experience","<b>π*0.6 and RECAP (Physical Intelligence, Nov 2025).</b> Train on demonstrations, autonomous rollouts and human corrections; condition the policy on a learned advantage so it can exceed its data. Reported on espresso making, laundry folding and box assembly, with failure rates roughly halved on the hardest tasks. <a href=\"https://arxiv.org/abs/2511.14759\" target=\"_blank\" rel=\"noopener\">arXiv 2511.14759</a> · <a href=\"https://www.pi.website/blog/pistar06\" target=\"_blank\" rel=\"noopener\">blog</a>"]
+ ]});
+MODULES.sort((a,b)=>a.id-b.id);
 
 const ARTIFACT_URL = "";   /* filled in after publishing; used by copies of the page that run outside Claude */
 const ORDER = Object.keys(PAPERS).sort((a,b)=>PAPERS[a].n-PAPERS[b].n);
@@ -1342,7 +1480,7 @@ function renderMap(){
   const W=920,H=360,L=150,R=150; const lanes=Object.keys(THREADS);
   const yOf=t=>40+lanes.indexOf(t)*48;
   const xYear=y=>{ const a=L, b=W-R; const knee=2016, kx=a+(b-a)*0.16; return y<=knee ? a+(kx-a)*(y-2003)/(knee-2003) : kx+(b-kx)*(y-knee)/(2026.4-knee); };
-  const off={rag:0.45, codex:0, instruct:0.35, gemrob:0.55}; const LBL={gpt3:0, chinchilla:0, rag:1, flash:0, llama3:1, codex:1, instruct:0, r1:0, rt2:0, vjepa2:0, gemrob:1};
+  const off={rag:0.45, codex:0, instruct:0.35, gemrob:0.55, lora:0, oft:-0.5}; const LBL={gpt3:0, chinchilla:0, rag:1, flash:0, llama3:1, codex:1, instruct:0, r1:0, rt2:0, vjepa2:0, gemrob:1, lora:1, oft:1};
   let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Six research threads converging on agents that act"><title>Convergence map</title>`;
   [2003,2010,2017,2020,2023,2026].forEach(y=>{ const x=xYear(y); s+=`<line x1="${x}" y1="22" x2="${x}" y2="${H-34}" stroke="var(--rule)" stroke-dasharray="2 4"/><text x="${x}" y="${H-16}" text-anchor="middle" font-size="11" fill="var(--ink3)">${y}</text>`; });
   const cx=W-48, cy=yOf(lanes[2])+24;
@@ -1354,11 +1492,12 @@ function renderMap(){
     s+=`<line x1="${x0}" y1="${y}" x2="${xe}" y2="${y}" stroke="${THREADS[t].color}" stroke-width="2.5" stroke-linecap="round" opacity=".55"/>`;
     s+=`<path d="M ${xe} ${y} C ${xe+60} ${y}, ${cx-70} ${cy}, ${cx-16} ${cy}" fill="none" stroke="${THREADS[t].color}" stroke-width="2" opacity=".45"/>`;
     ps.forEach((id,i)=>{ const p=PAPERS[id], x=xYear(p.year+(off[id]||0)); const done=state.status[id]==="done";
-      s+=`<g class="node" tabindex="0" role="button" data-id="${id}" aria-label="${esc(p.title)}"><circle cx="${x}" cy="${y}" r="8" fill="${done?THREADS[t].color:"var(--surface)"}" stroke="${THREADS[t].color}" stroke-width="2"/><text x="${x}" y="${y+((LBL[id]??(i%2))?22:-13)}" text-anchor="middle" font-size="10.5" fill="var(--ink2)">${p.n}. ${esc(p.short)}</text></g>`; });
+      s+=`<g class="node" tabindex="0" role="button" data-id="${id}" aria-label="${esc(p.title)}"><circle cx="${x}" cy="${y}" r="8" fill="${done?THREADS[t].color:"var(--surface)"}" stroke="${THREADS[t].color}" stroke-width="2"/><title>${p.n}. ${esc(p.title)}</title><text x="${x}" y="${y-13}" text-anchor="middle" font-size="11" font-weight="500" fill="var(--ink2)">${p.n}</text></g>`; });
   });
   s+=`<circle cx="${cx}" cy="${cy}" r="14" fill="var(--accent)"/><text x="${cx}" y="${cy+32}" text-anchor="middle" font-size="11" fill="var(--ink)" font-weight="500">Agents</text><text x="${cx}" y="${cy+46}" text-anchor="middle" font-size="11" fill="var(--ink)" font-weight="500">that act</text></svg>`;
   $("#mapSvg").innerHTML=s;
   $("#mapSvg").querySelectorAll(".node").forEach(g=>{ const go=()=>openPaper(g.dataset.id); g.addEventListener("click",go); g.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault();go();} }); });
+  $("#mapKey").innerHTML=ORDER.map(id=>`<button type="button" data-id="${id}"><span class="mono">${PAPERS[id].n}</span> ${esc(PAPERS[id].short)}</button>`).join(""); $("#mapKey").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>openPaper(b.dataset.id)));
   $("#legend").innerHTML=Object.values(THREADS).map(t=>`<span><i style="background:${t.color}"></i>${esc(t.name)}</span>`).join("")+`<span><i style="background:var(--surface);border:2px solid var(--ink3);width:8px;height:8px"></i>open = not done</span>`;
 }
 const stLabel={none:"Not started",reading:"Reading",done:"Done"};
@@ -1508,7 +1647,7 @@ function rulesTurn(){
   const m=MODULES.find(x=>x.id===state.mod);
   let ctx = state.focus&&PAPERS[state.focus] ? paperContext(state.focus) : "";
   if(!state.focus || !PAPERS[state.focus] || m.body) ctx += `\nCURRENT MODULE ${m.id}: ${m.title}. ${m.intro}\n${strip(m.body||"").slice(0,6000)}\nBridges: ${m.bridges.map(b=>strip(b[1])).join(" | ").slice(0,4000)}`;
-  return `You are the tutor built into "Next Word to Next Action", a 15-paper curriculum on how modern LLMs were developed. The learner is a Stanford robotics student who wants deep conceptual understanding (not coding projects) so they can understand how LLMs and robot foundation models are converging. Today is 10 November 2026.
+  return `You are the tutor built into "Next Word to Next Action", a 17-paper curriculum on how modern LLMs were developed. The learner is a Stanford robotics student who wants deep conceptual understanding (not coding projects) so they can understand how LLMs and robot foundation models are converging. Today is 10 November 2026.
 
 How to teach:
 - When asked to teach a paper: conceptual primer, then the mechanism and essential mathematics (define every symbol), then the evidence (which tables/figures, what they do and do not show), then connections to the preceding and following developments in this curriculum.

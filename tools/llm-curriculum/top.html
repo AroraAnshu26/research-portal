@@ -1,6 +1,6 @@
 <title>Next Word to Next Action</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="A 15-paper curriculum on how modern LLMs were built, where their abilities come from, how they become agents like Claude Code, and how the same machinery is converging on robotics.">
+<meta name="description" content="A 17-paper curriculum on how modern LLMs were built, where their abilities come from, how they become agents like Claude Code, and how the same machinery is converging on robotics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -101,6 +101,11 @@ section.block:last-child{border-bottom:0}
 .map-scroll{overflow-x:auto}
 .map-scroll svg{display:block;min-width:720px;width:100%;height:auto}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:12.5px;color:var(--ink2)}
+.mapkey{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:2px 12px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--rule)}
+.mapkey button{all:unset;cursor:pointer;font-size:12.5px;color:var(--ink2);padding:2px 0}
+.mapkey button:hover{color:var(--accent)}
+.mapkey button:focus-visible{outline:2px solid var(--accent)}
+.mapkey .mono{display:inline-block;min-width:20px;color:var(--ink3)}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
 svg .node{cursor:pointer}
 svg .node:hover circle,svg .node:focus circle{stroke-width:3}
@@ -284,7 +289,7 @@ textarea:focus,input[type=text]:focus{outline:2px solid var(--accent);outline-of
       <a href="#story">Story</a><a href="#map">Map</a><a href="#table">Readings</a><a href="#modules">Modules</a><a href="#optional">Optional</a><a href="#method">Method</a>
     </nav>
     <div class="bar-right">
-      <div class="prog hide-narrow" title="Essential papers marked done"><div class="prog-track"><div class="prog-fill" id="progFill"></div></div><span class="mono" id="progTxt">0 / 15</span></div>
+      <div class="prog hide-narrow" title="Essential papers marked done"><div class="prog-track"><div class="prog-fill" id="progFill"></div></div><span class="mono" id="progTxt">0 / 17</span></div>
       <button class="iconbtn hide-narrow" id="panelToggle" type="button">Hide tutor</button>
     </div>
   </div>
@@ -295,10 +300,10 @@ textarea:focus,input[type=text]:focus{outline:2px solid var(--accent);outline-of
 <div class="col">
 
   <section class="block hero" id="top">
-    <div class="eyebrow">Paper curriculum · 14 modules · 15 essential papers · verified to 10 Nov 2026</div>
+    <div class="eyebrow">Paper curriculum · 15 modules · 17 essential papers · verified to 10 Nov 2026</div>
     <h1>From predicting the <em>next word</em> to choosing the <em>next action</em></h1>
     <p class="lede">How foundation models are built, where their abilities come from, how a model becomes a product like Claude Code, and why the same recipe is now arriving in robotics. Read one module at a time. Ask the tutor on the right whenever something does not click.</p>
-    <div class="hero-meta"><span><b>~40–55 hours</b> of reading at a careful pace</span><span><b>No coding projects.</b> Thought experiments instead</span><span id="storeNote">Progress saves in this browser</span></div>
+    <div class="hero-meta"><span><b>~50–65 hours</b> of reading at a careful pace</span><span><b>No coding projects.</b> Thought experiments instead</span><span id="storeNote">Progress saves in this browser</span></div>
     <div class="howto">
       <div><b>One module at a time</b>The Modules section shows a single module. Use the list or the Prev / Next buttons. Keyboard: [ and ].</div>
       <div><b>Paper beside this page</b>Each paper has an arXiv link. Open it in a split window, not a new tab you will lose.</div>
@@ -316,13 +321,13 @@ textarea:focus,input[type=text]:focus{outline:2px solid var(--accent);outline-of
   <section class="block" id="map">
     <div class="sec-h"><span class="letter">A′</span><h2>Six threads converging</h2></div>
     <p class="lede">Each dot is an essential paper, placed by year on its main thread. The threads run separately for a decade and then merge: the agent on your laptop and the policy on your robot are built from the same parts. Click a dot to open its module.</p>
-    <div class="mapbox"><div class="map-scroll" id="mapSvg"></div><div class="legend" id="legend"></div>
+    <div class="mapbox"><div class="map-scroll" id="mapSvg"></div><div class="legend" id="legend"></div><div class="mapkey" id="mapKey"></div>
       <p class="cap">Dots sit on the thread where the paper's main contribution lies. Most papers touch several threads; the module text says which.</p></div>
   </section>
 
   <section class="block" id="table">
     <div class="sec-h"><span class="letter">B</span><h2>Essential readings, in order</h2></div>
-    <p class="lede" style="margin-bottom:16px">Fifteen papers. The order follows the modules, which is chronological except where a prerequisite forces a jump; each jump is explained in its module. Click a row to open it.</p>
+    <p class="lede" style="margin-bottom:16px">Seventeen papers. The order follows the modules, which is chronological except where a prerequisite forces a jump; each jump is explained in its module. Click a row to open it.</p>
     <div class="tbl-wrap"><table class="read" id="readTbl"></table></div>
   </section>
 

@@ -15,25 +15,25 @@ window.LIBRARY = [
   id: "llm-lineage-curriculum",
   axis: "new",
   kind: "dashboard",
-  title: "Next Word to Next Action: a 15-paper LLM curriculum",
+  title: "Next Word to Next Action: a 17-paper LLM curriculum",
   dek: "How foundation models were built, where their abilities come from, how they become agents like Claude Code, and how the same recipe is converging on robot policies and world models. One page, one module at a time, with a tutor built in.",
   status: "current",
   date: "2026-11-10",
   owner: "anshu",
   open: "reports/next-word-to-next-action.html",
   openLabel: "Open the curriculum",
-  tags: ["curriculum", "LLMs", "transformers", "scaling", "RLHF", "reasoning", "agents", "VLA", "JEPA", "Claude Code", "skills and memory", "System 2 orchestration", "15 papers"],
+  tags: ["curriculum", "LLMs", "transformers", "scaling", "RLHF", "reasoning", "agents", "VLA", "JEPA", "Claude Code", "skills and memory", "System 2 orchestration", "fine-tuning", "LoRA", "17 papers"],
   metrics: [
-    { v: "15", l: "Essential papers, Bengio 2003 to Gym-Anything 2026" },
-    { v: "14", l: "Modules, from next-token prediction to agent environments" },
+    { v: "17", l: "Essential papers, Bengio 2003 to Gym-Anything 2026" },
+    { v: "15", l: "Modules, from next-token prediction to agent environments" },
     { v: "8", l: "Optional readings, each with one specific reason" },
-    { v: "139", l: "Links, every one checked against its primary source on 2026-11-10" }
+    { v: "170", l: "Links, every one checked against its primary source on 2026-11-10" }
   ],
   body: [
     ["What it is", "A paper-reading curriculum for deep understanding, not model building. Each essential paper has a reading guide (why it is here, the bottleneck it broke, what to study closely and what to skim, the key evidence and main limitation, a checkpoint question), a lesson with the mechanism and essential mathematics, a thought experiment, and two lenses: where it shows up in Claude Code and where it shows up in a robot. Historical bridges cover what does not need a full reading."],
-    ["The reading order", "Bengio 2003 neural LM; Attention Is All You Need; GPT-3; Chinchilla; FlashAttention; the Llama 3 report as the full-pipeline synthesis; RAG; InstructGPT; Codex; DeepSeek-R1; RT-2; V-JEPA 2 (the JEPA world-model paper, with the 2025-26 JEPA line verified on arXiv); SWE-agent; Gemini Robotics 1.5 (a frontier model orchestrating a VLA as a tool); Gym-Anything. Departures from chronology are explained in each module."],
+    ["The reading order", "Bengio 2003 neural LM; Attention Is All You Need; GPT-3; Chinchilla; FlashAttention; the Llama 3 report as the full-pipeline synthesis; RAG; InstructGPT; Codex; DeepSeek-R1; RT-2; V-JEPA 2 (the JEPA world-model paper, with the 2025-26 JEPA line verified on arXiv); LoRA and OpenVLA-OFT (a fine-tuning thread that runs from ULMFiT, adapters, LoRA and instruction tuning to fine-tuning and RL fine-tuning of robot policies); SWE-agent; Gemini Robotics 1.5 (a frontier model orchestrating a VLA as a tool); Gym-Anything. Departures from chronology are explained in each module."],
     ["The tutor", "A chat panel beside the reading knows which paper you are on, reads your notes, can teach a paper end to end, quiz you, and grade your checkpoint answers. It works when the portal is opened with Start Portal.cmd: the server sends questions to the Claude command-line tool on this computer with every tool switched off. It needs one sign-in (double-click Sign in to Claude.cmd). On the public GitHub Pages copy the tutor is off and the rest of the page works. Voice input uses the browser's speech recognition in Chrome or Edge."],
-    ["Why it is on the board", "The robotics direction depends on understanding how LLM machinery (pretraining, post-training, verifiable rewards, harnesses, environments) is being transplanted into robot foundation models. Module 13 opens the agent harness up (CLAUDE.md and AGENTS.md, auto memory, SKILL.md skills and progressive disclosure, subagents, hooks as the only enforcement) and maps each part onto a robot whose System 2 is a frontier model. Module 14 ends with a side-by-side table of the convergence. It is the companion to the robot-brain atlas: the atlas maps who is betting on what; this explains the machinery the bets are built from."]
+    ["Why it is on the board", "The robotics direction depends on understanding how LLM machinery (pretraining, post-training, verifiable rewards, harnesses, environments) is being transplanted into robot foundation models. Module 14 opens the agent harness up (CLAUDE.md and AGENTS.md, auto memory, SKILL.md skills and progressive disclosure, subagents, hooks as the only enforcement) and maps each part onto a robot whose System 2 is a frontier model. Module 15 ends with a side-by-side table of the convergence. It is the companion to the robot-brain atlas: the atlas maps who is betting on what; this explains the machinery the bets are built from."]
   ],
   files: [
     { p: "reports/next-word-to-next-action.html", d: "The curriculum page, self-contained, about 200 KB" },

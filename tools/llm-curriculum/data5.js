@@ -1,6 +1,6 @@
-/* Module 13: harness architecture, memory and skills, and frontier models as System 2 for robots. Added 2026-11-10. */
+/* Module 14: harness architecture, memory and skills, and frontier models as System 2 for robots. Added 2026-11-10. */
 Object.assign(PAPERS, {
-gemrob:{n:14, mod:13, thread:"body", year:2025, short:"Gemini Robotics 1.5",
+gemrob:{n:16, mod:14, thread:"body", year:2025, short:"Gemini Robotics 1.5",
  title:"Gemini Robotics 1.5: Pushing the Frontier of Generalist Robots with Advanced Embodied Reasoning, Thinking, and Motion Transfer",
  authors:"Gemini Robotics Team (Google DeepMind)",
  venue:"arXiv 2510.03342 (October 2025; v3 later). Announced on the DeepMind blog 25 Sep 2025",
@@ -8,7 +8,7 @@ gemrob:{n:14, mod:13, thread:"body", year:2025, short:"Gemini Robotics 1.5",
  why:"It is the clearest published instance of the pattern this module is about: a frontier multimodal model acting as a System 2 orchestrator that plans, calls tools (including web search), checks progress and hands natural-language instructions to a VLA, which is exposed to it as a tool. It is Claude Code's architecture with a robot arm as one of the tools, and it reports what the orchestrator adds by ablation.",
  bottleneck:"A single VLA policy (RT-2, π0) handles short instructions well but fails on long, open-ended tasks that need planning, outside information, progress tracking and recovery. Earlier hierarchies (SayCan, Inner Monologue) used general LLMs that had weak spatial understanding and no fine motor grounding, and the earlier Gemini Robotics VLA could not think before acting.",
  contribution:"Two models with a defined interface. Gemini Robotics-ER 1.5 is a vision-language model that keeps Gemini's general reasoning and tool use and adds embodied reasoning (pointing, spatial understanding, success detection); it decomposes tasks, decides when a step is done, and calls tools. Gemini Robotics 1.5 is a VLA that receives short natural-language instructions, can write its own reasoning trace before acting ('thinking'), and uses Motion Transfer so one checkpoint controls three different robots.",
- prereq:"Papers 11 (RT-2) and 13 (SWE-agent). This module's harness section, which explains orchestrators, tools and verification in the software setting first.",
+ prereq:"Papers 11 (RT-2) and 15 (SWE-agent). This module's harness section, which explains orchestrators, tools and verification in the software setting first.",
  concepts:["Orchestrator (System 2) versus executor (System 1): what each decides, at what rate","A VLA exposed to a planner as a tool with a language interface","Thinking before acting inside the VLA","Success detection as the orchestrator's verifier","Motion Transfer across embodiments (ALOHA, bi-arm Franka, Apollo humanoid)"],
  study:"§2 and Figure 1 (the two models and the agentic system architecture, including the suitcase-packing example). §3.3 with Figures 6–7 (thinking in the VLA, with traces showing success awareness and recovery). §3.1–3.2 with Figures 2, 4, 5 (Motion Transfer). §5, Figure 17 and Table 1 (the agent evaluation: orchestrator plus VLA versus VLA alone versus a weaker orchestrator). §7 Limitations.",
  skim:"§4's per-benchmark embodied-reasoning tables after Figure 8; the safety section §6 unless that is your interest (note the ASIMOV-2.0 benchmark exists).",
@@ -48,8 +48,8 @@ A single model that thinks for 3 s before each motor command could not catch a s
  robot:"If you build a System 2 layer for an SO-101 or any arm, this paper gives you the interface to copy: a planner that emits short language instructions, a policy that accepts them, and a success detector in between. Your own design decisions are where to run the planner (cloud or onboard), how often it is allowed to intervene, and what the robot does while it waits."}
 });
 
-MODULES.push({id:13, title:"Harnesses, memory and skills; frontier agents as System 2", years:"2022–2026", thread:"agent",
- intro:"Module 12 showed that the harness around a model matters. This module opens the harness up: where an agent's knowledge is stored (instructions, memories, skills, tools, transcripts), when each part enters the context window, and which parts the harness enforces rather than the model. Then it applies the same architecture to robots, where frontier models are increasingly used as System 2 orchestrators over fast VLA policies.",
+MODULES.push({id:14, title:"Harnesses, memory and skills; frontier agents as System 2", years:"2022–2026", thread:"agent",
+ intro:"Module 13 showed that the harness around a model matters. This module opens the harness up: where an agent's knowledge is stored (instructions, memories, skills, tools, transcripts), when each part enters the context window, and which parts the harness enforces rather than the model. Then it applies the same architecture to robots, where frontier models are increasingly used as System 2 orchestrators over fast VLA policies.",
  papers:["gemrob"],
  departure:"Gemini Robotics 1.5 (2025) is read after SWE-agent and before Gym-Anything because it is the same agent architecture as a coding harness, applied to a robot. The harness section comes first so the robot paper reads as a transfer, not a new idea.",
  body:`<h5>The harness as a small operating system</h5>
@@ -112,8 +112,8 @@ MODULES.push({id:13, title:"Harnesses, memory and skills; frontier agents as Sys
 MODULES.sort((a,b)=>a.id-b.id);
 
 OPTIONAL.push(
- {title:"Cognitive Architectures for Language Agents (CoALA)", who:"Sumers, Yao, Narasimhan, Griffiths", when:"Sep 2023", mod:13, url:"https://arxiv.org/abs/2309.02427",
+ {title:"Cognitive Architectures for Language Agents (CoALA)", who:"Sumers, Yao, Narasimhan, Griffiths", when:"Sep 2023", mod:14, url:"https://arxiv.org/abs/2309.02427",
   why:"Read it if you want one framework for comparing agent designs. It maps working, episodic, semantic and procedural memory and a decision loop onto existing agents, which is exactly the lens needed to judge any harness or robot System 2 stack you meet."},
- {title:"Voyager: An Open-Ended Embodied Agent with Large Language Models", who:"Wang et al.", when:"May 2023", mod:13, url:"https://arxiv.org/abs/2305.16291",
+ {title:"Voyager: An Open-Ended Embodied Agent with Large Language Models", who:"Wang et al.", when:"May 2023", mod:14, url:"https://arxiv.org/abs/2305.16291",
   why:"Read it for the skill library done concretely: an embodied agent that writes skills as code, verifies them in the environment, stores them by description and reuses them, with an automatic curriculum. It is the ancestor of SKILL.md and of robot skill libraries."}
 );

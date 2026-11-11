@@ -82,7 +82,7 @@ Execute the first action, observe, re-plan (model-predictive control)</div>
  cc:"Claude Code has no learned world model in this sense: it predicts the consequences of a command implicitly, through the language model, and then checks by running it. Its 'world model' is the real environment, queried cheaply. Robots cannot query reality cheaply, which is exactly why world models matter more there.",
  robot:"This is the most direct robotics paper in the course. Ask: could a latent world model trained on your own robot's video let you specify tasks by goal image, and what would make it fail on an SO-101 with a different camera mount? The paper's camera-sensitivity limitation answers part of that."},
 
-sweagent:{n:13, mod:12, thread:"agent", year:2024, short:"SWE-agent / ACI",
+sweagent:{n:15, mod:13, thread:"agent", year:2024, short:"SWE-agent / ACI",
  title:"SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering",
  authors:"John Yang, Carlos E. Jimenez, Alexander Wettig, Kilian Lieret, Shunyu Yao, Karthik Narasimhan, Ofir Press",
  venue:"arXiv 2405.15793 (May 2024); NeurIPS 2024",
@@ -90,7 +90,7 @@ sweagent:{n:13, mod:12, thread:"agent", year:2024, short:"SWE-agent / ACI",
  why:"It shows, with ablations, that the harness around a model (what commands it can run, what it sees after each command, how errors are reported) changes performance as much as a model upgrade. That is the central idea behind Claude Code and every coding agent, and this is the cleanest paper that measures it.",
  bottleneck:"On SWE-bench (real GitHub issues that must be fixed in full repositories, verified by the repository's tests), the best systems in early 2024 resolved under 4%: they retrieved some files and asked a model to write a patch in one shot. Letting a model loose in a plain Linux shell also worked poorly, because shell tools are designed for humans, not language models.",
  contribution:"Design an agent-computer interface (ACI): a small set of commands with LM-friendly output. A file viewer that shows 100 lines with line numbers, search commands that return concise summaries, an edit command that replaces a line range and runs a linter, rejecting edits that introduce syntax errors, and short, informative error messages. With GPT-4 Turbo it resolves 12.5% of SWE-bench, more than three times the previous best.",
- prereq:"Paper 9. Module 12's ReAct bridge (thought–action–observation loops). Knowing what a repository, a diff and a test suite are.",
+ prereq:"Paper 9. Module 13's ReAct bridge (thought–action–observation loops). Knowing what a repository, a diff and a test suite are.",
  concepts:["Agent loop: thought → action → observation","Agent-computer interface design as a variable to optimise","Guardrails at the interface (lint-on-edit)","Context management: collapsing old observations","Cost and step budgets as part of the evaluation"],
  study:"§2 (the ACI principles; read slowly, they generalise beyond code). Figure 1 and Figure 2 (the commands and an example trajectory). §3 Table 1 (main results). §4 Table 3 (ablations of search, viewer window size, editing with and without linting, history handling) and the failure-mode analysis in §5 / Figure 7.",
  skim:"Per-repository results and the HumanEvalFix detail after the headline.",
@@ -113,12 +113,12 @@ evaluate: apply patch, run the repository's hidden tests → resolved ∈ {0,1}<
 <li><b>Manage context:</b> collapse old observations so long sessions stay within the window and focused.</li></ul>
 <div class="note think"><span class="eyebrow">Thought experiment</span>Give an agent only <span class="mono">cat</span> and <span class="mono">sed</span>. It cats a 3,000-line file, filling its context with text it will mostly ignore, then writes a sed command with an off-by-one line number. The file is now broken and the next test run produces a confusing traceback far from the edit. SWE-agent's viewer and lint-on-edit remove both failures without changing the model at all. That is the paper's claim, demonstrated by ablation.</div>
 <h5>Connections</h5>
-<p><b>Before:</b> ReAct (interleaved reasoning and acting), SWE-bench (the benchmark, same group), Codex-style generate-and-test. <b>After:</b> OpenHands and many open agent frameworks; commercial coding agents including Claude Code (research preview Feb 2025, generally available May 2025); the Model Context Protocol (Nov 2024) as a standard way to give an agent new tools; agent environments built at scale (Paper 14).</p>`,
+<p><b>Before:</b> ReAct (interleaved reasoning and acting), SWE-bench (the benchmark, same group), Codex-style generate-and-test. <b>After:</b> OpenHands and many open agent frameworks; commercial coding agents including Claude Code (research preview Feb 2025, generally available May 2025); the Model Context Protocol (Nov 2024) as a standard way to give an agent new tools; agent environments built at scale (Paper 17).</p>`,
  evalLens:"Agent results are a property of model + harness + budget. A leaderboard row that does not state the scaffold, the step limit, the cost cap and the number of attempts cannot be compared with another row. When a lab reports a new model's SWE-bench score with its own harness, part of the gain may be the harness.",
  cc:"Claude Code is an ACI in exactly this sense, and its public documentation describes the parts: Read (file viewer with line numbers), Edit (exact string replacement that fails if the target is not unique, a guardrail), Grep and Glob (search), Bash, subagents for parallel exploration, CLAUDE.md files as persistent instructions, permission modes, hooks, MCP servers for new tools, and automatic compaction of long conversations.",
  robot:"A robot's action space and observation format are its ACI. Choosing end-effector deltas versus joint positions, the camera viewpoint, the control rate and the safety limits is the same design problem, with the same lesson: the interface can matter as much as the policy."},
 
-gym:{n:15, mod:14, thread:"agent", year:2026, short:"Gym-Anything",
+gym:{n:17, mod:15, thread:"agent", year:2026, short:"Gym-Anything",
  title:"Gym-Anything: Turn any Software into an Agent Environment",
  authors:"Pranjal Aggarwal, Graham Neubig, Sean Welleck (Carnegie Mellon University)",
  venue:"arXiv 2604.06126 (7 April 2026)",
@@ -126,7 +126,7 @@ gym:{n:15, mod:14, thread:"agent", year:2026, short:"Gym-Anything",
  why:"It shows where the field's bottleneck has moved. Once models and harnesses are good, progress is limited by environments: realistic software with tasks and checkers that give feedback. Gym-Anything has coding agents build and audit those environments, which ties together everything in the course: an LLM (Modules 1–6), post-trained (8–10), acting through a harness (12), producing the feedback that trains and evaluates the next agents (13).",
  bottleneck:"Computer-use benchmarks covered short tasks on a few consumer apps, saying little about the professional software where most economic value lies. Building one realistic environment (install, configure with real data, write tasks, write checkers) took experts days to weeks per application.",
  contribution:"Treat environment creation as an agentic coding task. A creation agent (Claude Opus running in Claude Code) installs and configures each application and saves evidence; an adversarial audit agent checks it against a checklist and sends issues back; a summariser keeps shared notes. Applications are chosen by GDP-weighting occupations. Tasks are proposed and amplified by models, and graded by a checklist-based VLM verifier with an integrity check against shortcuts. Result: 200 applications, about 12K tasks (CUA-World), and a 200-task long-horizon benchmark (CUA-World-Long).",
- prereq:"Papers 9, 13. The vocabulary of RL environments (state, action, reward, episode). Module 14's distinctions below.",
+ prereq:"Papers 9, 15. The vocabulary of RL environments (state, action, reward, episode). Module 15's distinctions below.",
  concepts:["Environment creation versus evaluation versus training signal","Creation agent + adversarial auditor loop","Task generation by propose-and-amplify","Checklist-based VLM verifiers, partial credit, integrity checks","Train/test splits that group similar tasks to prevent leakage"],
  study:"§1 and Figure 1. §2.2 (GDP-grounded software selection: an evaluation design choice worth understanding). §3 and Figure 4 (creation and audit agents). §4 and §4.1 (task generation and verifiers). §5 Table 2 (scale). §7.3 (verifier agreement with humans). §6–7 Tables 3–5 and Figures 6–7 (distillation and test-time feedback). §11 Limitations.",
  skim:"Platform details (QEMU, Android emulators, Slurm backends) in §2.3 and Appendix B; the long list of applications in the appendix.",
@@ -206,8 +206,8 @@ MODULES.push(
    ["Specialised model","<b>AlphaFold 2 (Jumper et al., Nature 2021).</b> Not an LLM: an architecture built for protein structure, trained on structural data, with domain-specific inductive biases. The contrast with Minerva is the point: specialised scientific models solve one problem far better; general LLMs reason across many. <a href=\"https://www.nature.com/articles/s41586-021-03819-2\" target=\"_blank\" rel=\"noopener\">Nature</a>"],
    ["Tool-assisted research","<b>Co-Scientist (Gottweis et al., Google, 2025).</b> A multi-agent system built on a general LLM that generates, debates and ranks research hypotheses, with some laboratory validation. An agent harness applied to discovery; read claims of novelty with care. <a href=\"https://arxiv.org/abs/2502.18864\" target=\"_blank\" rel=\"noopener\">arXiv 2502.18864</a>"]
   ]},
- {id:12, title:"Tools and agents", years:"2022–2026", thread:"agent",
-  intro:"An agent is a model in a loop that acts, observes and decides what to do next. This module covers tool calling, action–observation loops, context management, planning, verification and recovery, and the product harness around a model. Claude Code is the running example, with what is publicly documented kept separate from what is inferred. Module 13 then opens the harness up: memory, skills, hooks, and the same design on robots.",
+ {id:13, title:"Tools and agents", years:"2022–2026", thread:"agent",
+  intro:"An agent is a model in a loop that acts, observes and decides what to do next. This module covers tool calling, action–observation loops, context management, planning, verification and recovery, and the product harness around a model. Claude Code is the running example, with what is publicly documented kept separate from what is inferred. Module 14 then opens the harness up: memory, skills, hooks, and the same design on robots.",
   papers:["sweagent"],
   body:`<h5>Anatomy of Claude Code: what is public, inferred and unknown</h5>
 <div class="eq">PUBLIC (Anthropic announcements and Claude Code documentation)
@@ -223,13 +223,13 @@ MODULES.push(
 INFERRED (reasonable, not confirmed in detail)
   The underlying models are trained specifically for agentic coding, likely including RL in
   coding environments with test-based rewards, because Anthropic markets them for this and the
-  field's published methods (Papers 9, 10, 13, 15) point that way.
+  field's published methods (Papers 9, 10, 15, 17) point that way.
 
 UNKNOWN
   Model sizes and architecture details, pretraining data mix, RL environments and reward design,
   how harness and model were co-designed, internal evaluation suites.</div>
 <p>Notice how the harness implements the ideas in this course: Read with line numbers and Edit with an exact-match guardrail are SWE-agent's ACI principles; compaction and subagents are context management (Modules 6–7); running tests is Codex's verifier; the permission system is the safety layer around an agent that can change real files.</p>
-<div class="note think"><span class="eyebrow">Thought experiment: recovery</span>An agent edits a file, runs the tests, and three unrelated tests fail. A weak agent edits the tests to pass (reward hacking, inside a single episode). A good agent reads the failures, notices they started after its edit, reverts, and tries a narrower change. What made the difference? Partly the model, partly whether the harness shows a clean diff and test output, and partly whether the instructions say the tests are not to be modified. Gym-Anything's integrity check (Paper 15) exists to catch the first behaviour.</div>`,
+<div class="note think"><span class="eyebrow">Thought experiment: recovery</span>An agent edits a file, runs the tests, and three unrelated tests fail. A weak agent edits the tests to pass (reward hacking, inside a single episode). A good agent reads the failures, notices they started after its edit, reverts, and tries a narrower change. What made the difference? Partly the model, partly whether the harness shows a clean diff and test output, and partly whether the instructions say the tests are not to be modified. Gym-Anything's integrity check (Paper 17) exists to catch the first behaviour.</div>`,
   bridges:[
    ["Agent loop","<b>ReAct (Yao et al., 2022).</b> Interleave a reasoning trace with actions (search, lookup) and observations. The thought–action–observation pattern almost every agent uses. Listed under Optional."],
    ["Tool use","<b>Toolformer (Schick et al., 2023).</b> A model teaches itself when to call APIs (calculator, search, translation) by keeping only the calls that lower its loss on the following text. An early self-supervised route to tool calling. <a href=\"https://arxiv.org/abs/2302.04761\" target=\"_blank\" rel=\"noopener\">arXiv 2302.04761</a>"],
@@ -238,7 +238,7 @@ UNKNOWN
    ["Open platform","<b>OpenHands (Wang et al., 2024).</b> An open-source platform for coding and general agents; useful for seeing a full harness in code. <a href=\"https://arxiv.org/abs/2407.16741\" target=\"_blank\" rel=\"noopener\">arXiv 2407.16741</a>"],
    ["Product","<b>Claude Code (Anthropic).</b> Research preview with Claude 3.7 Sonnet, 24 Feb 2025; generally available with Claude 4, 22 May 2025. <a href=\"https://www.anthropic.com/news/claude-3-7-sonnet\" target=\"_blank\" rel=\"noopener\">preview</a> · <a href=\"https://www.anthropic.com/news/claude-4\" target=\"_blank\" rel=\"noopener\">GA</a> · <a href=\"https://news.ycombinator.com/item?id=43164253\" target=\"_blank\" rel=\"noopener\">agentic search comment</a>"]
   ]},
- {id:14, title:"Agent environments and frontier synthesis", years:"2024–2026", thread:"agent",
+ {id:15, title:"Agent environments and frontier synthesis", years:"2024–2026", thread:"agent",
   intro:"The last module asks where capability now comes from. Once a capable model sits in a good harness, progress depends on environments that produce feedback: tasks, checkers and trajectories. Gym-Anything is the reading. The synthesis below then pulls the whole course together into an explanation of why modern models differ, and how the same pieces are converging in robotics.",
   papers:["gym"],
   body:`<h5>What explains differences between modern models</h5>
@@ -246,9 +246,9 @@ UNKNOWN
 <ul>
 <li><b>Pretraining:</b> compute, data quantity and above all data mix and quality (Papers 3, 4, 6). Hardest to observe; often the largest factor.</li>
 <li><b>Architecture and efficiency:</b> dense versus MoE, attention variants, context length (Papers 5, 6, DeepSeek-V3). Mostly changes cost per unit of quality.</li>
-<li><b>Post-training:</b> which preferences, which verifiable tasks, which environments and how much RL (Papers 8, 10, 15). Increasingly the source of agentic and reasoning differences.</li>
+<li><b>Post-training:</b> which preferences, which verifiable tasks, which environments and how much RL (Papers 8, 10, 17). Increasingly the source of agentic and reasoning differences.</li>
 <li><b>Inference budget:</b> thinking tokens, samples, steps and wall-clock allowed. Gym-Anything's Table 4 shows a ranking reversing when the budget changes.</li>
-<li><b>Harness and tools:</b> the same model in different scaffolds can differ by many points (Paper 13).</li>
+<li><b>Harness and tools:</b> the same model in different scaffolds can differ by many points (Paper 15).</li>
 <li><b>Evaluation conditions:</b> contamination, prompt format, grader choice, number of attempts, partial versus full credit.</li>
 </ul>
 <p>So a fair claim has the form: <i>on task T, with tools U, budget B and cost C, model X scored S under grader G, measured by whom.</i> "X is better than Y" without those terms is not a scientific statement.</p>
@@ -274,7 +274,7 @@ MODULES.sort((a,b)=>a.id-b.id);
 const OPTIONAL = [
  {title:"Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (T5)", who:"Raffel et al.", when:"Oct 2019", mod:3, url:"https://arxiv.org/abs/1910.10683",
   why:"Read it if you want controlled evidence on encoder–decoder versus decoder-only, and on pretraining objectives, data filtering (it introduces the C4 corpus) and transfer. Its §3 is a systematic ablation study that no later paper repeats at this breadth."},
- {title:"ReAct: Synergizing Reasoning and Acting in Language Models", who:"Yao et al.", when:"Oct 2022 · ICLR 2023", mod:12, url:"https://arxiv.org/abs/2210.03629",
+ {title:"ReAct: Synergizing Reasoning and Acting in Language Models", who:"Yao et al.", when:"Oct 2022 · ICLR 2023", mod:13, url:"https://arxiv.org/abs/2210.03629",
   why:"Read it for the origin of the thought–action–observation loop used by SWE-agent and Claude Code. It is short, and its error analysis shows why reasoning without acting hallucinates and acting without reasoning wanders."},
  {title:"Direct Preference Optimization: Your Language Model is Secretly a Reward Model", who:"Rafailov et al.", when:"May 2023", mod:8, url:"https://arxiv.org/abs/2305.18290",
   why:"Read it if the RLHF objective in Paper 8 felt opaque. Its derivation of the closed-form optimal policy is the best two pages in this field for understanding what the KL-regularised objective actually wants, and DPO is what Llama 3 uses."},

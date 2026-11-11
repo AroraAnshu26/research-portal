@@ -74,7 +74,7 @@ Block:  X ← X + MultiHead(LN(X))        (modern "pre-norm" placement; the pape
 <h5>Connections</h5>
 <p><b>Before:</b> Bahdanau attention bolted onto an RNN. <b>After:</b> BERT and GPT split the architecture into encoder-only and decoder-only branches; GPT-3 (Paper 3) scales the decoder; FlashAttention (Paper 5) makes the n×n matrix cheap; ViT applies the same block to image patches, which is how robot policies see (Paper 11).</p>`,
  evalLens:"Notice the ablation table: one variable changed at a time, against a fixed base model. Many later papers skip this. When you read a claim that some component matters, look for the row where it alone was removed.",
- cc:"Claude is a decoder-only transformer, as Anthropic has said publicly; its sizes and architectural details are not public. Its context window is the n in this paper, and the cost of attending over a long session is why the harness compacts conversations (Module 12).",
+ cc:"Claude is a decoder-only transformer, as Anthropic has said publicly; its sizes and architectural details are not public. Its context window is the n in this paper, and the cost of attending over a long session is why the harness compacts conversations (Module 13).",
  robot:"In a VLA policy, camera images are cut into patches and embedded as tokens by a vision transformer, joined to the language tokens, and processed by the same blocks. The robot's proprioceptive state can be one more token. The transformer is the convergence point: one architecture for text, images and actions."},
 
 gpt3:{n:3, mod:3, thread:"data", year:2020, short:"GPT-3 / few-shot",

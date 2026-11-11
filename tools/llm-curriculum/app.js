@@ -43,7 +43,7 @@ function renderMap(){
   const W=920,H=360,L=150,R=150; const lanes=Object.keys(THREADS);
   const yOf=t=>40+lanes.indexOf(t)*48;
   const xYear=y=>{ const a=L, b=W-R; const knee=2016, kx=a+(b-a)*0.16; return y<=knee ? a+(kx-a)*(y-2003)/(knee-2003) : kx+(b-kx)*(y-knee)/(2026.4-knee); };
-  const off={rag:0.45, codex:0, instruct:0.35, gemrob:0.55}; const LBL={gpt3:0, chinchilla:0, rag:1, flash:0, llama3:1, codex:1, instruct:0, r1:0, rt2:0, vjepa2:0, gemrob:1};
+  const off={rag:0.45, codex:0, instruct:0.35, gemrob:0.55, lora:0, oft:-0.5}; const LBL={gpt3:0, chinchilla:0, rag:1, flash:0, llama3:1, codex:1, instruct:0, r1:0, rt2:0, vjepa2:0, gemrob:1, lora:1, oft:1};
   let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Six research threads converging on agents that act"><title>Convergence map</title>`;
   [2003,2010,2017,2020,2023,2026].forEach(y=>{ const x=xYear(y); s+=`<line x1="${x}" y1="22" x2="${x}" y2="${H-34}" stroke="var(--rule)" stroke-dasharray="2 4"/><text x="${x}" y="${H-16}" text-anchor="middle" font-size="11" fill="var(--ink3)">${y}</text>`; });
   const cx=W-48, cy=yOf(lanes[2])+24;
@@ -55,11 +55,12 @@ function renderMap(){
     s+=`<line x1="${x0}" y1="${y}" x2="${xe}" y2="${y}" stroke="${THREADS[t].color}" stroke-width="2.5" stroke-linecap="round" opacity=".55"/>`;
     s+=`<path d="M ${xe} ${y} C ${xe+60} ${y}, ${cx-70} ${cy}, ${cx-16} ${cy}" fill="none" stroke="${THREADS[t].color}" stroke-width="2" opacity=".45"/>`;
     ps.forEach((id,i)=>{ const p=PAPERS[id], x=xYear(p.year+(off[id]||0)); const done=state.status[id]==="done";
-      s+=`<g class="node" tabindex="0" role="button" data-id="${id}" aria-label="${esc(p.title)}"><circle cx="${x}" cy="${y}" r="8" fill="${done?THREADS[t].color:"var(--surface)"}" stroke="${THREADS[t].color}" stroke-width="2"/><text x="${x}" y="${y+((LBL[id]??(i%2))?22:-13)}" text-anchor="middle" font-size="10.5" fill="var(--ink2)">${p.n}. ${esc(p.short)}</text></g>`; });
+      s+=`<g class="node" tabindex="0" role="button" data-id="${id}" aria-label="${esc(p.title)}"><circle cx="${x}" cy="${y}" r="8" fill="${done?THREADS[t].color:"var(--surface)"}" stroke="${THREADS[t].color}" stroke-width="2"/><title>${p.n}. ${esc(p.title)}</title><text x="${x}" y="${y-13}" text-anchor="middle" font-size="11" font-weight="500" fill="var(--ink2)">${p.n}</text></g>`; });
   });
   s+=`<circle cx="${cx}" cy="${cy}" r="14" fill="var(--accent)"/><text x="${cx}" y="${cy+32}" text-anchor="middle" font-size="11" fill="var(--ink)" font-weight="500">Agents</text><text x="${cx}" y="${cy+46}" text-anchor="middle" font-size="11" fill="var(--ink)" font-weight="500">that act</text></svg>`;
   $("#mapSvg").innerHTML=s;
   $("#mapSvg").querySelectorAll(".node").forEach(g=>{ const go=()=>openPaper(g.dataset.id); g.addEventListener("click",go); g.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault();go();} }); });
+  $("#mapKey").innerHTML=ORDER.map(id=>`<button type="button" data-id="${id}"><span class="mono">${PAPERS[id].n}</span> ${esc(PAPERS[id].short)}</button>`).join(""); $("#mapKey").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>openPaper(b.dataset.id)));
   $("#legend").innerHTML=Object.values(THREADS).map(t=>`<span><i style="background:${t.color}"></i>${esc(t.name)}</span>`).join("")+`<span><i style="background:var(--surface);border:2px solid var(--ink3);width:8px;height:8px"></i>open = not done</span>`;
 }
 const stLabel={none:"Not started",reading:"Reading",done:"Done"};
@@ -209,7 +210,7 @@ function rulesTurn(){
   const m=MODULES.find(x=>x.id===state.mod);
   let ctx = state.focus&&PAPERS[state.focus] ? paperContext(state.focus) : "";
   if(!state.focus || !PAPERS[state.focus] || m.body) ctx += `\nCURRENT MODULE ${m.id}: ${m.title}. ${m.intro}\n${strip(m.body||"").slice(0,6000)}\nBridges: ${m.bridges.map(b=>strip(b[1])).join(" | ").slice(0,4000)}`;
-  return `You are the tutor built into "Next Word to Next Action", a 15-paper curriculum on how modern LLMs were developed. The learner is a Stanford robotics student who wants deep conceptual understanding (not coding projects) so they can understand how LLMs and robot foundation models are converging. Today is 10 November 2026.
+  return `You are the tutor built into "Next Word to Next Action", a 17-paper curriculum on how modern LLMs were developed. The learner is a Stanford robotics student who wants deep conceptual understanding (not coding projects) so they can understand how LLMs and robot foundation models are converging. Today is 10 November 2026.
 
 How to teach:
 - When asked to teach a paper: conceptual primer, then the mechanism and essential mathematics (define every symbol), then the evidence (which tables/figures, what they do and do not show), then connections to the preceding and following developments in this curriculum.
